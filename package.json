@@ -1,0 +1,38 @@
+{
+  "name": "read-comfortably",
+  "version": "1.0.0",
+  "description": "Read Comfortably turns any web page into a clean view for reading",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "wzbg",
+    "email": "z3530515@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wzbg/read-comfortably"
+  },
+  "bugs": {
+    "url": "https://github.com/wzbg/read-comfortably/issues"
+  },
+  "homepage": "https://github.com/wzbg/read-comfortably#readme",
+  "keywords": [
+    "read",
+    "content",
+    "clean",
+    "reading",
+    "readable",
+    "readability",
+    "comfortably",
+    "web",
+    "page"
+  ],
+  "dependencies": {
+    "log4js": "^0.6.26",
+    "node-jsdom": "^3.1.5",
+    "url": "^0.10.3"
+  }
+}
