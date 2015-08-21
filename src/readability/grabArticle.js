@@ -79,18 +79,26 @@ var prepping = function (document, preserveUnlikelyCandidates) {
           node.parentNode.replaceChild(newNode, node);
           nodeIndex--;
         } catch (e) {
-          logger.error('Could not alter div to p, probably an IE restriction, reverting back to div.');
+          logger.error('Could not alter div to p, probably an IE restriction, reverting back to div.', e);
         }
       } else {
         /* EXPERIMENTAL */
         node.childNodes._toArray().forEach(function(childNode) {
           if (childNode.nodeType == 3) { // Node.TEXT_NODE = 3
-            logger.debug('replacing text node with a p tag with the same content.');
-            var p = document.createElement('p');
-            p.innerHTML = childNode.nodeValue;
-            p.style.display = 'inline';
-            p.className = 'readability-styled';
-            childNode.parentNode.replaceChild(p, childNode);
+            // logger.debug('replacing text node with a p tag with the same content.');
+            // var p = document.createElement('p');
+            // p.innerHTML = childNode.nodeValue;
+            // p.style.display = 'inline';
+            // p.className = 'readability-styled';
+            // childNode.parentNode.replaceChild(p, childNode);
+            // use span instead of p. Need more tests.
+            var nodeValue = childNode.nodeValue.trim();
+            if (nodeValue) {
+              logger.debug('replacing text node with a span tag with the same content.', nodeValue);
+              var span = document.createElement('span');
+              span.innerHTML = nodeValue;
+              childNode.parentNode.replaceChild(span, childNode);
+            }
           }
         });
       }

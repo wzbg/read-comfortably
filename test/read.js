@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var read = require('../src/index.js');
 
 var url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
@@ -13,10 +15,22 @@ read(
       console.log('Empty article:', article);
       return;
     }
-    console.log('document:', article.dom); // DOM
-    console.log('html:', article.html); // HTML Source Code
-    console.log('title:', article.title); // Title
-    console.log('content:', article.content); // Main Article
+    console.log('document:', article.dom);
+    console.log('title:', article.title);
+    fs.writeFile('article.html', article.html, function (err) {
+      if (err) {
+        console.log('error:', err);
+        return;
+      }
+      console.log('article is saved!');
+    });
+    fs.writeFile('content.html', article.content, function (err) {
+      if (err) {
+        console.log('error:', err);
+        return;
+      }
+      console.log('content is saved!');
+    });
     article.close();
   }
 );
