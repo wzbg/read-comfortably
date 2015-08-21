@@ -83,8 +83,8 @@ var prepping = function (document, preserveUnlikelyCandidates) {
         }
       } else {
         /* EXPERIMENTAL */
-        node.childNodes.forEach(function(childNode) {
-          if (childNode.nodeType == Node.TEXT_NODE) {
+        node.childNodes._toArray().forEach(function(childNode) {
+          if (childNode.nodeType == 3) { // Node.TEXT_NODE = 3
             logger.debug('replacing text node with a p tag with the same content.');
             var p = document.createElement('p');
             p.innerHTML = childNode.nodeValue;
@@ -107,21 +107,21 @@ var prepping = function (document, preserveUnlikelyCandidates) {
  *  @return candidates
  */
 var assignScore = function (document, options) {
-  var candidates    = [];
+  var candidates = [];
   if (!options.nodesToScore) {
-    options.nodesToScore = ['p', 'pre'];
+    options.nodesToScore = ['p', 'pre']; // default nodesToScore
   }
   options.nodesToScore.forEach(function(nodesToScore) {
-    document.getElementsByTagName(nodesToScore).forEach(function(paragraph) {
+    document.getElementsByTagName(nodesToScore)._toArray().forEach(function(paragraph) {
       var parentNode      = paragraph.parentNode;
       var grandParentNode = parentNode ? parentNode.parentNode : null;
       var innerText       = helpers.getInnerText(paragraph);
       if (!parentNode || !parentNode.tagName) {
-        continue;
+        return;
       }
       /* If this paragraph is less than 25 characters, don't even count it. */
       if (innerText.length < 25) {
-        continue;
+        return;
       }
       /* Initialize readability data for the parent. */
       if (!parentNode.readability) {
@@ -176,7 +176,7 @@ var findHighestScore = function (candidates, document, options) {
   if (!topCandidate || topCandidate.tagName == 'BODY') {
     // With no top candidate, bail out if no body tag exists as last resort.
     topCandidate = document.createElement('DIV');
-    var if = document.body;
+    var documentBody = document.body;
     if (!documentBody) {
       logger.warn('No body tag was found.');
       documentBody = document.documentElement;

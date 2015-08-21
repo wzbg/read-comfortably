@@ -53,14 +53,16 @@ var prepArticle = function (articleContent, options) {
   cleanConditionally(articleContent, 'ul');
   cleanConditionally(articleContent, 'div');
   /* Remove extra paragraphs */
-  var articleParagraphs = articleContent.getElementsByTagName('p');
-  articleParagraphs.forEach(function(articleParagraph) {
-    var imgCount    = articleParagraph.getElementsByTagName('img').length;
-    var embedCount  = articleParagraph.getElementsByTagName('embed').length;
-    var objectCount = articleParagraph.getElementsByTagName('object').length;
-    if (imgCount == 0 && embedCount == 0 && objectCount == 0 && !helpers.getInnerText(articleParagraphs, false)) {
-      articleParagraph.parentNode.removeChild(articleParagraph);
-    }
+  options.nodesToScore.forEach(function(nodesToScore) {
+    var articleParagraphs = articleContent.getElementsByTagName(nodesToScore);
+    articleParagraphs._toArray().forEach(function(articleParagraph) {
+      var imgCount    = articleParagraph.getElementsByTagName('img').length;
+      var embedCount  = articleParagraph.getElementsByTagName('embed').length;
+      var objectCount = articleParagraph.getElementsByTagName('object').length;
+      if (imgCount == 0 && embedCount == 0 && objectCount == 0 && !helpers.getInnerText(articleParagraphs, false)) {
+        articleParagraph.parentNode.removeChild(articleParagraph);
+      }
+    });
   });
   try {
     articleContent.innerHTML = articleContent.innerHTML.replace(/<br[^>]*>\s*<p/gi, '<p');    
@@ -122,7 +124,7 @@ var killBreaks = function (e) {
 var clean = function (e, tag, cleanRules) {
   var targetList = e.getElementsByTagName(tag);
   var isEmbed    = tag == 'object' || tag == 'embed';
-  targetList.forEach(function(target) {
+  targetList._toArray().forEach(function(target) {
     /* user clean rules handler */
     var validRule = false;
     cleanRules.forEach(function(cleanRule) {
@@ -149,7 +151,7 @@ var clean = function (e, tag, cleanRules) {
 var cleanHeaders = function (e) {
   for (var headerIndex = 1; headerIndex < 7; headerIndex++) {
     var headers = e.getElementsByTagName('h' + headerIndex);
-    headers.forEach(function(header) {
+    headers._toArray().forEach(function(header) {
       if (helpers.getClassWeight(header) < 0 || helpers.getLinkDensity(header) > 0.33 || !header.nextSibling) {
         header.parentNode.removeChild(header);
       }
@@ -171,7 +173,7 @@ var cleanConditionally = function (e, tag) {
    *  Traverse backwards so we can remove nodes at the same time without effecting the traversal.
    *  TODO: Consider taking into account original contentScore here.
    */
-  tagsList.forEach(function(target) {
+  tagsList._toArray().forEach(function(tags) {
     var weight = helpers.getClassWeight(tags);
     logger.debug('Cleaning Conditionally ' + tags + ' (' + tags.className + ':' + tags.id + ')' + (tags.readability ? (' with score ' + tags.readability.contentScore) : ''));
     if (weight < 0) {
@@ -186,7 +188,7 @@ var cleanConditionally = function (e, tag) {
       var input  = tags.getElementsByTagName('input').length;
       var embedCount = 0;
       var embeds     = tags.getElementsByTagName('embed');
-      embeds.forEach(function(embed) {
+      embeds._toArray().forEach(function(embed) {
         if (embed.src.search(regexps.videoRe) == -1) {
           embedCount++; 
         }

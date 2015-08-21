@@ -34,7 +34,7 @@ Article.prototype.getContent = function(notDeprecated) {
   if (this.cache['article-content']) {
     return this.cache['article-content'];
   }
-  var content = grabArticle(this._document, this.options).html();
+  var content = grabArticle(this._document, this.options).innerHTML;
   return this.cache['article-content'] = content;
 };
 

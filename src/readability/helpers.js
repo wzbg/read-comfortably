@@ -7,13 +7,8 @@ var regexps = require('./regexps');
  *  @return string
  */
 var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces) {
-  if (typeof normalizeSpaces == 'undefined') {
-    normalizeSpaces = true;
-  }
-  var isIE = navigator.appName == 'Microsoft Internet Explorer';
-  var textContent = isIE ? node.innerText : node.textContent;
-  textContent = textContent.replace(regexps.trimRe, '' );
-  if(normalizeSpaces) {
+  var textContent = node.textContent ? node.textContent.trim() : '';
+  if(normalizeSpaces || typeof normalizeSpaces == 'undefined') {
     return textContent.replace(regexps.normalizeRe, ' ');
   }
   return textContent;
@@ -26,7 +21,7 @@ var nodeTypes = [
   { tagNames: ['DIV'], score: 5 },
   { tagNames: ['PRE', 'TD', 'BLOCKQUOTE'], score: 3 },
   { tagNames: ['ADDRESS', 'OL', 'UL', 'DL', 'DD', 'DT', 'LI', 'FORM'], score: -3 },
-  { tagNames: ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TH'] score: -5 }
+  { tagNames: ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TH'], score: -5 }
 ];
 
 /**
@@ -74,7 +69,7 @@ var getLinkDensity = module.exports.getLinkDensity = function (node) {
   var links      = node.getElementsByTagName('a');
   var textLength = getInnerText(node).length;
   var linkLength = 0;
-  links.forEach(function(link) {
+  links._toArray().forEach(function(link) {
     var href = link.getAttribute('href');
     if (href && href.length && href[0] == '#') {
       linkLength += getInnerText(link).length;
