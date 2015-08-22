@@ -33,6 +33,6 @@
   "dependencies": {
     "log4js": "^0.6.26",
     "node-jsdom": "^3.1.5",
-    "url": "^0.10.3"
+    "string": "^3.3.1"
   }
 }

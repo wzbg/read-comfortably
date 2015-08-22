@@ -33,7 +33,7 @@ var initializeNode = module.exports.initializeNode = function (node) {
   if (!node || !node.length) {
     return 0;
   }
-  nodeTypes.forEach(function(nodeType) {
+  nodeTypes.forEach(function (nodeType) {
     if (nodeType.tagNames.indexOf(node.attr('name')) != -1) {
       node.data('readability', nodeType.score + getClassWeight(node));
     }
@@ -72,7 +72,7 @@ var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
   var links      = node.find('a');
   var textLength = getInnerText(node).length;
   var linkLength = 0;
-  links.each(function(index, element) {
+  links.each(function (index, element) {
     var link = $(element);
     var href = link.attr('href');
     if (!href || (href.length && href[0] == '#')) {

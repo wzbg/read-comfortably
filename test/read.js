@@ -17,6 +17,7 @@ read(
     }
     console.log('document:', article.dom);
     console.log('title:', article.title);
+    console.log('desc:', article.getDesc(300));
     fs.writeFile('article.html', article.html, function (err) {
       if (err) {
         console.log('error:', err);

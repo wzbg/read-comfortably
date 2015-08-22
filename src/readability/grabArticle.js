@@ -30,7 +30,7 @@ var grabArticle = function ($, options, preserveUnlikelyCandidates) {
   var preprocess = options.preprocess;
   if (preprocess) {
     delete options.preprocess;
-    preprocess($, options, function(err, $, options) {
+    preprocess($, options, function (err, $, options) {
       if (err) {
         logger.error(err);
       }
@@ -62,7 +62,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
   if (options.nodesToRemove) {
     $(options.nodesToRemove).join().remove();
   }
-  $('*', 'body').each(function(index, element) {
+  $('*', 'body').each(function (index, element) {
     var node = $(element);
     /* If node is null, return, otherwise Illegal Access Error */
     if (!node || !node.length) {
@@ -97,7 +97,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
           logger.error('Could not alter div to p, reverting back to div.', e);
         }
       } else { /* EXPERIMENTAL */
-        node.contents().each(function(index, element) {
+        node.contents().each(function (index, element) {
           var child = $(element);
           if (!child || !child.length) {
             return;
@@ -126,7 +126,7 @@ var assignScore = function ($, options) {
     /* default nodesToScore */
     options.nodesToScore = ['p', 'pre'];
   }
-  $(options.nodesToScore.join()).each(function(index, element) {
+  $(options.nodesToScore.join()).each(function (index, element) {
     var paragraph       = $(element);
     var parentNode      = paragraph.parent();
     var grandParentNode = parentNode ? parentNode.parent() : null;
@@ -176,11 +176,11 @@ var assignScore = function ($, options) {
  */
 var findHighestScore = function (candidates, $, options) {
   var topCandidate;
-  candidates.forEach(function(candidate) {
+  candidates.forEach(function (candidate) {
     var score       = candidate.data('readabilityScore');
     var linkDensity = helpers.getLinkDensity(candidate, $);
     var siblings    = 0;
-    candidate.children('p').each(function(index, element) {
+    candidate.children('p').each(function (index, element) {
       if ($(element).text().trim().length) {
         siblings++;
       }
@@ -226,7 +226,7 @@ var getArticleContent = function (topCandidate, $, options) {
   }
   var siblingScoreThreshold = Math.max(10, topCandidate.data('readabilityScore') * 0.2);
   var siblingNodes          = parentNode.children();
-  siblingNodes.each(function(index, element) {
+  siblingNodes.each(function (index, element) {
     var siblingNode = $(element);
     var nodeType    = element.tagName;
     /**
@@ -254,7 +254,7 @@ var getArticleContent = function (topCandidate, $, options) {
       options.nodesToAppend = ['P'];
     }
     if (!append && options.nodesToAppend.indexOf(nodeType) != -1) {
-      siblingNode.find('a').each(function(index, element) {
+      siblingNode.find('a').each(function (index, element) {
         if (!$(element).text().trim()) {
           $(element).remove();
         }
