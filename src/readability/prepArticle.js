@@ -82,15 +82,15 @@ var cleanStyles = function (e) {
   if (!e) {
     return;
   }
-  // Remove any root styles, if we're able.
+  /* Remove any root styles, if we're able. */
   if (e.removeAttribute && e.className != 'readability-styled') {
     e.removeAttribute('style');
   }
   var cur = e.firstChild;
-  // Go until there are no more child nodes
+  /* Go until there are no more child nodes */
   while (cur) {
     if (cur.nodeType == 1) {
-      // Remove style attribute(s) :
+      /* Remove style attribute(s) : */
       if (cur.className != 'readability-styled') {
         cur.removeAttribute('style');         
       }

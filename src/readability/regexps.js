@@ -9,7 +9,7 @@ module.exports = {
   negativeRe:              /combx|comment|com-|captcha|contact|foot|footer|footnote|masthead|link|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|utility|tags|tool|widget|tip|dialog/i,
   // 外来 ?
   extraneousRe:            /print|archive|comment|discuss|e[\-]?mail|share|reply|all|login|sign|single/i,
-  // div -> p ?
+  // div -> p
   divToPElementsRe:        /<(a|blockquote|dl|div|img|ol|p|pre|table|ul)/i,
   // 替换换行标签 ?
   replaceBrsRe:            /(<br[^>]*>[ \n\r\t]*){2,}/gi,

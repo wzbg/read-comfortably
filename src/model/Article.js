@@ -2,6 +2,7 @@ var grabArticle = require('../readability/grabArticle');
 
 var Article = function (window, options) {
   this.cache = {};
+  this.$ = window.$;
   this.options = options;
   this._window = window;
   this._document = window.document;
@@ -34,7 +35,7 @@ Article.prototype.getContent = function(notDeprecated) {
   if (this.cache['article-content']) {
     return this.cache['article-content'];
   }
-  var content = grabArticle(this._document, this.options).innerHTML;
+  var content = grabArticle(this.$, this.options).html();
   return this.cache['article-content'] = content;
 };
 

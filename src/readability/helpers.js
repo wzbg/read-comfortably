@@ -7,7 +7,7 @@ var regexps = require('./regexps');
  *  @return string
  */
 var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces) {
-  var textContent = node.textContent ? node.textContent.trim() : '';
+  var textContent = node.text() ? node.text().trim() : '';
   if(normalizeSpaces || typeof normalizeSpaces == 'undefined') {
     return textContent.replace(regexps.normalizeRe, ' ');
   }
@@ -18,10 +18,10 @@ var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces
  *  Node Types and their classification
  */
 var nodeTypes = [
-  { tagNames: ['DIV'], score: 5 },
-  { tagNames: ['PRE', 'TD', 'BLOCKQUOTE'], score: 3 },
-  { tagNames: ['ADDRESS', 'OL', 'UL', 'DL', 'DD', 'DT', 'LI', 'FORM'], score: -3 },
-  { tagNames: ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TH'], score: -5 }
+  { tagNames: ['div'], score: 5 },
+  { tagNames: ['pre', 'td', 'blockquote'], score: 3 },
+  { tagNames: ['address', 'ol', 'ul', 'dl', 'dd', 'dt', 'lt', 'form'], score: -3 },
+  { tagNames: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'th'], score: -5 }
 ];
 
 /**
@@ -30,10 +30,12 @@ var nodeTypes = [
  *  @return void
  */
 var initializeNode = module.exports.initializeNode = function (node) {
-  node.readability = { contentScore: 0 };
+  if (!node || !node.length) {
+    return 0;
+  }
   nodeTypes.forEach(function(nodeType) {
-    if (nodeType.tagNames.indexOf(node.tagName) != -1) {
-      node.readability.contentScore += nodeType.score + getClassWeight(node);
+    if (nodeType.tagNames.indexOf(node.attr('name')) != -1) {
+      node.data('readability', nodeType.score + getClassWeight(node));
     }
   });
 };
@@ -44,11 +46,11 @@ var initializeNode = module.exports.initializeNode = function (node) {
  *  @return number (Integer)
  */
 var getClassWeight = module.exports.getClassWeight = function (node) {
-  if (node || !node.length) {
+  if (!node || !node.length) {
     return 0;
   }
-  var classAndID = (node.className || '') + (node.id || '');
-  var weight = node.tagName == 'ARTICLE' ? 25 : 0;
+  var classAndID = (node.attr('class') || '') + (node.attr('id') || '');
+  var weight = node.attr('name') == 'article' ? 25 : 0;
   /* Look for a special classname and ID */
   if (classAndID.search(regexps.positiveRe) != -1) {
     weight += 25;
@@ -63,17 +65,20 @@ var getClassWeight = module.exports.getClassWeight = function (node) {
  *  Get the density of links as a percentage of the content
  *  This is the amount of text that is inside a link divided by the total text in the node.
  *  @param Element
+ *  @param $
  *  @return number (float)
  */
-var getLinkDensity = module.exports.getLinkDensity = function (node) {
-  var links      = node.getElementsByTagName('a');
+var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
+  var links      = node.find('a');
   var textLength = getInnerText(node).length;
   var linkLength = 0;
-  links._toArray().forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && href.length && href[0] == '#') {
-      linkLength += getInnerText(link).length;
+  links.each(function(index, element) {
+    var link = $(element);
+    var href = link.attr('href');
+    if (!href || (href.length && href[0] == '#')) {
+      return;
     }
+    linkLength += getInnerText(link).length;
   });
   return linkLength / textLength || 0;
 };

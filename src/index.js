@@ -2,12 +2,14 @@ var jsdom = require('node-jsdom'); // A JavaScript implementation of the DOM and
 
 var Article = require('./model/Article');
 
+var scripts = ['http://code.jquery.com/jquery.js'];
+
 module.exports = function (html, options, callback) {
   if (typeof options == 'function') {
     callback = options;
-    options = {};
+    options = { considerDIVs: true };
   }
-  jsdom.env(html, options, function (err, window) {
+  jsdom.env(html, scripts, options, function (err, window) {
     if (err) {
       return callback(err);
     }
