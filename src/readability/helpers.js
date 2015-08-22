@@ -1,3 +1,5 @@
+var isImageUrl = require('is-image-url'); // Check if a url is an image
+
 var regexps = require('./regexps');
 
 /**
@@ -8,7 +10,7 @@ var regexps = require('./regexps');
  */
 var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces) {
   var textContent = node.text() ? node.text().trim() : '';
-  if(normalizeSpaces || typeof normalizeSpaces == 'undefined') {
+  if (normalizeSpaces || typeof normalizeSpaces == 'undefined') {
     return textContent.replace(regexps.normalizeRe, ' ');
   }
   return textContent;
@@ -62,7 +64,7 @@ var getClassWeight = module.exports.getClassWeight = function (node) {
 };
 
 /**
- *  Get the density of links as a percentage of the content
+ *  Get the density of links as a percentage of the content.
  *  This is the amount of text that is inside a link divided by the total text in the node.
  *  @param Element
  *  @param $
@@ -81,4 +83,50 @@ var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
     linkLength += getInnerText(link).length;
   });
   return linkLength / textLength || 0;
+};
+
+/**
+ *  May be it's an image url
+ */
+var srcs = [
+  'rel:bf_image_src',
+  'data-original',
+  'data-lazy-src',
+  'data-srcset',
+  'data-medsrc',
+  'data-smsrc',
+  'data-lgsrc',
+  'data-src',
+  'src'
+];
+
+/**
+ *  Set the src attribute of the image for use
+ *  @param Element
+ *  @param $
+ *  @return void
+ */
+var setImageSrc = module.exports.setImageSrc = function (node, $) {
+  node.find('img,span').each(function (index, element) {
+    var url, use;
+    var img = $(element);
+    for (var i = 0; use = srcs[i]; i++) {
+      url = img.attr(use);
+      if (isImageUrl(url)) {
+        break;
+      }
+    }
+    var isImg = img.prop('tagName') == 'IMG';
+    if (isImg && !isImageUrl(url)) {
+      img.remove();
+      return;
+    }
+    if (isImageUrl(url)) {
+      if (!isImg) {
+        img = $('<img src="' + url + '">');
+        $(element).append(img);
+      }
+      img.attr('use', use);
+    }
+  });
 };

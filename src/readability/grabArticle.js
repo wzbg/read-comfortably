@@ -44,6 +44,7 @@ var grabArticle = function ($, options, preserveUnlikelyCandidates) {
     if (!preserveUnlikelyCandidates && !helpers.getInnerText(articleContent, false)) {
       articleContent = grabArticle($, options, true); // preserve unlikely candidates grab article again
     }
+    helpers.setImageSrc(articleContent, $); // Set the src attribute of the image for use
     return articleContent;
   }
 };
