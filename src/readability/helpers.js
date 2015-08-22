@@ -18,10 +18,10 @@ var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces
  *  Node Types and their classification
  */
 var nodeTypes = [
-  { tagNames: ['div'], score: 5 },
-  { tagNames: ['pre', 'td', 'blockquote'], score: 3 },
-  { tagNames: ['address', 'ol', 'ul', 'dl', 'dd', 'dt', 'lt', 'form'], score: -3 },
-  { tagNames: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'th'], score: -5 }
+  { tagNames: ['DIV'], score: 5 },
+  { tagNames: ['PRE', 'TD', 'BLOCKQUTE'], score: 3 },
+  { tagNames: ['ADDRESS', 'OL', 'UL', 'DL', 'DD', 'DT', 'LT', 'FORM'], score: -3 },
+  { tagNames: ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TH'], score: -5 }
 ];
 
 /**
@@ -34,7 +34,7 @@ var initializeNode = module.exports.initializeNode = function (node) {
     return 0;
   }
   nodeTypes.forEach(function (nodeType) {
-    if (nodeType.tagNames.indexOf(node.attr('name')) != -1) {
+    if (nodeType.tagNames.indexOf(node.prop('tagName')) != -1) {
       node.data('readability', nodeType.score + getClassWeight(node));
     }
   });
@@ -50,7 +50,7 @@ var getClassWeight = module.exports.getClassWeight = function (node) {
     return 0;
   }
   var classAndID = (node.attr('class') || '') + (node.attr('id') || '');
-  var weight = node.attr('name') == 'article' ? 25 : 0;
+  var weight = node.prop('tagName') == 'ARTICLE' ? 25 : 0;
   /* Look for a special classname and ID */
   if (classAndID.search(regexps.positiveRe) != -1) {
     weight += 25;

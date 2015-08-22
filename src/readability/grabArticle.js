@@ -9,8 +9,8 @@
  */
 var log4js = require('log4js'); // Port of Log4js to work with node
 var logger = log4js.getLogger('grabArticle');
-// logger.setLevel('DEBUG');
 logger.setLevel('FATAL');
+// logger.setLevel('DEBUG');
 
 var regexps = require('./regexps');
 var helpers = require('./helpers');
@@ -68,7 +68,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     if (!node || !node.length) {
       return;
     }
-    var nodeType = element.tagName;
+    var nodeType = node.prop('tagName');
     logger.trace('%d[%s]:', index, nodeType, node.html());
     /* Remove unlikely candidates */
     if (!preserveUnlikelyCandidates) {
@@ -228,7 +228,6 @@ var getArticleContent = function (topCandidate, $, options) {
   var siblingNodes          = parentNode.children();
   siblingNodes.each(function (index, element) {
     var siblingNode = $(element);
-    var nodeType    = element.tagName;
     /**
      *  Fix for odd IE7 Crash where siblingNode does not exist even though this should be a live nodeList.
      *  Example of error visible here: http://www.esquire.com/features/honesty0707
@@ -253,7 +252,7 @@ var getArticleContent = function (topCandidate, $, options) {
       /* default nodesToAppend */
       options.nodesToAppend = ['P'];
     }
-    if (!append && options.nodesToAppend.indexOf(nodeType) != -1) {
+    if (!append && options.nodesToAppend.indexOf(siblingNode.prop('tagName')) != -1) {
       siblingNode.find('a').each(function (index, element) {
         if (!$(element).text().trim()) {
           $(element).remove();
