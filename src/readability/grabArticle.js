@@ -14,7 +14,6 @@ logger.setLevel('FATAL');
 
 var regexps = require('./regexps');
 var helpers = require('./helpers');
-var prepArticle = require('./prepArticle');
 
 /**
  *  grabArticle - Using a variety of metrics (content score, classname, element types), find the content that is most likely to be the stuff a user wants to read. Then return it wrapped up in a div.
@@ -272,10 +271,6 @@ var getArticleContent = function (topCandidate, $, options) {
       articleContent.append(siblingNode);
     }
   });
-  /**
-   *  So we have all of the content that we need. Now we clean it up for presentation.
-   */
-  // prepArticle(articleContent, options);
   return articleContent;
 };
 
