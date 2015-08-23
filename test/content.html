@@ -1,131 +1,76 @@
-<div data-swiftype-type="text" data-swiftype-name="body">
+<div><h1><a href="/really-simple-file-uploads">Really simple file uploads with Express</a></h1><p class="old-node-warning">HEADS UP! This article was written for an older version of node.&nbsp;More up-to-date information may be available elsewhere.</p><p>Few days ago I was working on a fairly typical web application and I faced the challenge of implementing a fairly
+typical web application feature - file uploads. It was the first time I was implementing file uploads with Node (and
+Express) and I did what anyone else would do - I googled it.</p>
 
-                        
-        <p class="image-container"><a href="http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/"><img data-credit="Flickr/Thecrazyfilmgirl" data-mep="924830" src="http://o.aolcdn.com/hss/storage/midas/1b63354623743c1c81efec6e1e40176a/202505499/adobeflashfastcompany_fullbleed.jpg" alt="" use="src"></a></p>
+<p>Unfortunately all the articles / posts out there are either outdated, too complex or plain wrong. So I did the next
+most obvious thing - post a question on the mailing list. As always Mr. Holowaychuk was incredibly quick to respond.
+His answer lead me to do what I should have done in the first place - read the docs.</p>
 
-<p>This story on Adobe Flash was supposed to turn out a bit differently.</p>
+<h2>The upload form</h2>
 
-<p>The idea was to talk with some of the biggest websites still using Adobe's browser plugin, which has fallen out of favor within tech circles for its <a href="http://www.theregister.co.uk/2015/07/14/adobe_response_to_security_holes/" target="_blank">constant security issues</a> and <a href="http://chrome.blogspot.com/2015/06/better-battery-life-for-your-laptop.html" target="_blank">thirst for system resources</a>. Maybe they could explain why Flash is still necessary, offering a counterpoint to the <a href="http://daringfireball.net/linked/2015/08/04/flash-yahoo" target="_blank">resounding calls to end its existence</a>.</p>
+<p>This is the most obvious part of the challenge. You're probably familiar with this already. Anyway, for the sake of
+completeness of this article, here it is.</p>
 
-        
-        <p>Instead, most of the proprietors of Flash-reliant websites I contacted didn't want to talk at all. HBO, NBC, CBS, Zynga, King, Showtime, Pandora, and Spotify—all of which require Flash on their desktop sites—declined to comment. Major League Baseball, Slacker Radio, Hulu, and the BBC didn't respond to inquiries.</p>
+<p>You will need a form in your browser for the file upload. I use Jade to generate my HTML and here how it looks:</p>
 
-<p>My attempted survey wasn't a total failure. Among the sites that were willing to talk, all of them are planning to move beyond Flash Player within a year or so. But even if the era of Flash is winding down, it will be a while until it's completely wiped from the web.</p>
+<pre><code><span class="pln">form</span><span class="pun">(</span><span class="pln">action</span><span class="pun">=</span><span class="str">"..."</span><span class="pun">,</span><span class="pln"> method</span><span class="pun">=</span><span class="str">"post"</span><span class="pun">,</span><span class="pln"> enctype</span><span class="pun">=</span><span class="str">"multipart/form-data"</span><span class="pun">)</span><span class="pln"><br>&nbsp; input</span><span class="pun">(</span><span class="pln">type</span><span class="pun">=</span><span class="str">"file"</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">=</span><span class="str">"displayImage"</span><span class="pun">)</span><span class="pln"><br></span></code></pre>
 
-<div class="image-wrapper"><img alt="" src="http://c.fastcompany.net/multisite_files/fastcompany/imagecache/inline-large/inline/2015/08/3049920-inline-i-1-the-agonizingly-slow-decline-of-adobe-flash-player.jpg" use="src"></div>
+<p>The <em>form.action</em> will point to a route that handles the file upload. More below.</p>
 
-<h3>What's Wrong With Flash</h3>
+<h2>Accessing the uploaded file</h2>
 
-<p>If you need an explainer on why Adobe Flash Player must go, the best resource remains <a href="https:/www.apple.com/hotnews/thoughts-on-flash/" target="_blank">a five-year-old essay</a> by Steve Jobs. At the time, Jobs was merely explaining why Flash would never show up on iPhones and iPads. But today much of the 1,700-word missive serves as takedown of the technology as a whole, applying just as well to laptops and desktop PCs.</p>
+<p>If you're using recents versions of Node and Express, file uploads are a piece of cake. And I'll back this claim but
+before we go any further make sure you're familiar with <a href="http://expressjs.com/guide.html">routes, requests and responses in Express</a>.</p>
 
-<blockquote class="quote left">Flash is also a notorious resource hog.</blockquote>
+<p>Okay, now let's justify the "piece of cake" claim. In our file upload route, the <em>req</em> parameter has <em>req.files</em>
+available. Here's an example of what the <em>req.files</em> would contain:</p>
 
-<p>Security, for instance, remains a major concern, with new exploits popping up on a regular basis. In one recent example, hackers were even able to <a href="http://arstechnica.com/security/2015/07/hacking-teams-flash-0day-potent-enough-to-infect-actual-chrome-user/" target="_blank">break through the sandboxing</a> that's meant to minimize vulnerabilities in Google Chrome. Flash is also <a href="http://www.pcworld.com/article/2960741/browsers/tested-how-flash-destroys-your-browsers-performance.html" target="_blank">a notorious resource hog</a>, which is a problem as laptops become thinner, lighter, and more reliant on power efficiency for long battery life.</p>
+<pre><code><span class="pun">{</span><span class="pln"><br>&nbsp; displayImage</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">11885</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; path</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/tmp/1574bb60b4f7e0211fd9ab48f932f3ab'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'avatar.png'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'image/png'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; lastModifiedDate</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Sun</span><span class="pun">,</span><span class="pln"> </span><span class="lit">05</span><span class="pln"> </span><span class="typ">Feb</span><span class="pln"> </span><span class="lit">2012</span><span class="pln"> </span><span class="lit">05</span><span class="pun">:</span><span class="lit">31</span><span class="pun">:</span><span class="lit">09</span><span class="pln"> GMT</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; _writeStream</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; path</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/tmp/1574bb60b4f7e0211fd9ab48f932f3ab'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; fd</span><span class="pun">:</span><span class="pln"> </span><span class="lit">14</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; writable</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; flags</span><span class="pun">:</span><span class="pln"> </span><span class="str">'w'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; encoding</span><span class="pun">:</span><span class="pln"> </span><span class="str">'binary'</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; mode</span><span class="pun">:</span><span class="pln"> </span><span class="lit">438</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; bytesWritten</span><span class="pun">:</span><span class="pln"> </span><span class="lit">11885</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; busy</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; _queue</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[],</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; drainable</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">},</span><span class="pln"><br>&nbsp; &nbsp; length</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="typ">Getter</span><span class="pun">],</span><span class="pln"><br>&nbsp; &nbsp; filename</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="typ">Getter</span><span class="pun">],</span><span class="pln"><br>&nbsp; &nbsp; mime</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="typ">Getter</span><span class="pun">]</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"><br></span></code></pre>
 
-<p>All of this has brought calls to kill Flash to a fever pitch, not just on mobile devices, but everywhere. Alex Stamos, Facebook's chief security officer, wrote on Twitter last month that <a href="https:/twitter.com/alexstamos/status/620306643360706561" target="_blank">Adobe should set a firm end-of-life date</a> for the plugin. Meanwhile, an "<a href="http://occupyflash.org/" target="_blank">Occupy Flash</a>" website has popped up, urging users to uninstall Flash and asking developers to use alternative technologies such as HTML5.</p>
+<p>In the <em>req.files</em> object above, the property <em>displayImage</em> is the name of the file field in your HTML form and
+<em>req.files</em> will contain one property each for every valid HTML file form field.</p>
 
-<div class="image-wrapper">These days, it is easier to browse the web Flash-free. Many sites have moved away from Flash for animations and graphics, and web browsers' widespread adoption of digital-rights management for HTML5 has allowed major video and music sites to leave Flash Player behind. Netflix and YouTube both work without Flash, as do Google Play Music and Rdio. Amazon also started <a href="http://www.geekwire.com/2015/amazon-starts-rolling-out-html5-web-player-moving-beyond-silverlight-and-flash/" target="_blank">rolling out an HTML5 player last month</a>.</div>
+<p>The file object contains the <em>type</em>, <em>size</em> and <em>name</em> properties for your server side validations.</p>
 
-<p>Still, a mass exodus or firm cutoff for Flash would be easier said than done.</p>
+<h2>Saving the uploaded file</h2>
 
-<div class="image-wrapper"><img alt="" src="http://b.fastcompany.net/multisite_files/fastcompany/imagecache/inline-large/inline/2015/08/3049920-inline-i-2-the-agonizingly-slow-decline-of-adobe-flash-player.jpg" use="src"><small><em>Flash: still required all over the web</em></small></div>
-<br>
- 
-<h3>Moving Beyond Flash</h3>
+<p>Assuming the file is valid, you use the <em>path</em> property for the next step. The <em>path</em> would typically contain a location
+in the <em>tmp</em> folder. Your application logic could either require you to access the contents of the file or simply move
+the uploaded file to another location.</p>
 
-<p>Despite the pressure from tech circles, the sites I spoke with said they simply weren't able to start moving away from Flash until recently, when better technology become available. And even now, it's going to take time for them to finish building the necessary tools.</p>
+<pre><code><span class="pln">fs</span><span class="pun">.</span><span class="pln">readFile</span><span class="pun">(</span><span class="pln">req</span><span class="pun">.</span><span class="pln">files</span><span class="pun">.</span><span class="pln">displayImage</span><span class="pun">.</span><span class="pln">path</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">err</span><span class="pun">,</span><span class="pln"> data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="com">// ...</span><span class="pln"><br>&nbsp; </span><span class="kwd">var</span><span class="pln"> newPath </span><span class="pun">=</span><span class="pln"> __dirname </span><span class="pun">+</span><span class="pln"> </span><span class="str">"/uploads/uploadedFileName"</span><span class="pun">;</span><span class="pln"><br>&nbsp; fs</span><span class="pun">.</span><span class="pln">writeFile</span><span class="pun">(</span><span class="pln">newPath</span><span class="pun">,</span><span class="pln"> data</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">err</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; res</span><span class="pun">.</span><span class="pln">redirect</span><span class="pun">(</span><span class="str">"back"</span><span class="pun">);</span><span class="pln"><br>&nbsp; </span><span class="pun">});</span><span class="pln"><br></span><span class="pun">});</span><span class="pln"><br></span></code></pre>
 
-<p>"Originally, Flash was necessary to solve a couple problems," says Adam Denenberg, chief technical officer for streaming music service iHeartRadio. "Streaming was difficult, especially for live stations, and there were no real http-supported streaming protocols that offered the flexibility of what was required a few years back."</p>
+<p>In the <em>fs.readFile</em> callback, we have the <em>data</em> parameter through which we can access the contents of the file. The
+example above is taken from an application that needed to modify the file and save it in a new location. Thus
+<em>fs.writeFile</em> is used to write <em>data</em> to the <em>newPath</em>.</p>
 
-<p>While Denenberg says there's not much reason to deploy a new Flash-based streaming solution at this point, iHeartRadio still needs time to make the transition from its existing platform. The company already uses HTTP Live Streaming for its own online radio stations, but some of its third-party broadcasters still rely on Flash. An internal project is under way to convert those sources to HTTP Live Streaming on the fly, and the company also has to finish rebuilding its own media player in HTML5. All told, iHeartRadio hopes to be completely Flash-free by the end of the year.</p>
+<p>If your app needs to simply move the uploaded file without modifying the contents <em>fs.rename</em> can be used as more
+simpler option.</p>
 
-<p>Autodesk, meanwhile, is wading in slowly with an HTML5- and WebGL-based version of its Pixlr online photo editing tools. A beta version of Pixlr Express is coming later this summer.</p>
+<hr>
 
-<p class="readability-div2p">"If you look back two years ago, I think we definitely had a harder time, because the technology wasn't as mature as today," says Thomas Heermann, director of digital arts for Autodesk's consumer business, "There were limitations on HTML5, but now you don't see any problems anymore."</p>
+<p>That's all there is to it. I've done file uploads in many server side languages including Python, Java, Scala and PHP
+and I don't think its ever been this simple. So much for JavaScript being labeled as an inferior server side language.</p><hr>
+<script type="text/javascript">
+//<![CDATA[
+var disqus_url = "http://howtonode.org/really-simple-file-uploads";
+//]]>
+</script>
+<script src="http://disqus.com/forums/howtonodeorg/embed.js" type="text/javascript"></script><a href="http://disqus.com/forums/howtonodeorg/?url=ref" class="view-thread">View the discussion thread.</a><a href="http://disqus.com" class="dsq-brlink">blog comments powered by</a>
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+  var links = document.getElementsByTagName('a');
+  var query = '?';
+  for(var i = 0; i < links.length; i++) {
+    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+      query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&amp;';
+    }
+  }
+  document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/howtonodeorg/get_num_replies.js' + query + '"></' + 'script>');
+})();
 
-<p>Even so, Pixlr has no plans to discontinue the Flash versions of its editing tools. That's because a sizeable chunk of its users are running older browsers in legacy operating systems that don't support HTML5 and WebGL.</p>
 
-<p>That speaks to a larger issue, which is that many users outside of the tech bubble don't particularly care whether they're using Flash or not. Bjørn Rustberggaard, cofounder of online video editing tool WeVideo, says he hasn't seen a lot of requests from users to offer a Flash-free version. Most of them just want the app to work regardless of what browser they're using.</p>
-
-<p>"If it's a mom making stories about her children, or if it's a student editing a history project, or it's a professional journalist using it to break the news, it really doesn't matter if the industry is getting rid of Flash, as long as it works for them," Rustberggaard says.</p>
-
-<p>Nonetheless, WeVideo has been experimenting with an HTML5 version for a few years now, and aims to offer it to users early next year. Again, the company has been waiting for <a href="https:/en.wikipedia.org/wiki/Media_Source_Extensions" target="_blank">certain APIs</a> and low-level audio and video support across all major browsers. "For us, it's basically a timing issue," Rustberggaard says. "When will HTML be good enough so it just works?"</p>
-
-<p class="image-container"><img data-credit="Fast Company" data-mep="924925" src="http://o.aolcdn.com/hss/storage/midas/6304ccaba904f7e0f1db0b66d8a393c4/202506160/3049920-inline-i-1-flashtrend.png" alt="" use="src"></p>
-
-<p class="readability-div2p"><small><em>Flash usage has declined over the past year.</em></small></p>
-<br>
- 
-<h3>Slow, Steady Slip</h3>
-
-<p>In the end, websites won't really need the motivation to get rid of Flash in the form of a hard cutoff date. As web technology allows for alternatives, market forces will ultimately demand that more websites make the switch of their own volition.</p>
-
-<blockquote class="quote right">With HTML5 and WebGL, we have an opportunity to even go beyond what Flash is today.</blockquote>
-
-<p>iHeartRadio, for instance, wants its radio stations to work in any web browser, including mobile browsers that don't support Flash, which is a big reason why the company is pushing so hard now for an HTML5 player and HTTP Live Streaming. "When you consider the increase of traffic heading to mobile, an HTML5-supported player is even more important, and ultimately required," Denenberg says.</p>
-
-<p>The fact that Adobe has essentially stopped trying to do anything new and innovative with Flash is also prompting developers to move on. Looking forward, Autodesk's Heermann expects that Pixlr's HTML5 and WebGL versions will include new features, while supporting platforms that aren't as Flash-friendly.</p>
-
-<p>"Flash is maintenance mode," Heermann says. "Adobe's still fixing bugs and security problems, and it's a reliable platform, but with HTML5 and WebGL, we have an opportunity to even go beyond what Flash is today."</p>
-
-<p>Even the ability to attract developer talent could be a liability if websites stick to Flash. That's a major reason WeVideo is looking to switch, despite a lack of requests from users. "Developers are passionate about technology, and nobody wants to spend a lot of hours maintaining and developing something that they think is dead," Rustberggaard says. "So to motivate your tech team, you really have to show that you're ahead of the curve in terms of using technology."</p>
-
-<p>Those forces seem to be working in more than just anecdotes. Five years ago, 28.9% of websites used Flash in some way, according to Matthias Gelbmann, managing director at web technology metrics firm W3Techs. As of August, Flash usage had fallen to 10.3%.</p>
-
-<p>But larger websites have a longer way to go. Flash persists on 15.6% of the top 1,000 sites, Gelbmann says. That's actually the opposite situation compared to a few years ago, when Flash was used on 22.2% of the largest sites, and 25.6% of sites overall.</p>
-
-<p>In other words, the larger the site, the slower it is to move away from Flash—and, perhaps, the more ashamed it is to admit it.</p>
-
-<p>[Lead image: Flickr user <a href="https://www.flickr.com/photos/thecrazyfilmgirl/3248279805/">Thecrazyfilmgirl</a>]</p>
-
-<p><strong>More from Fast Company</strong>:</p>
-
-<ul>
-	<li><a href="http://www.fastcompany.com/3050085/innovation-agents/intel-yes-intel-develops-a-reality-tv-show-about-makers">Intel—Yes, Intel—Develops A Reality TV Show About Makers</a></li>
-	<li><a href="http://www.fastcompany.com/3050091/most-creative-people/how-airbnb-adapted-for-china">How Airbnb Adapted For China</a></li>
-	<li><a href="http://www.fastcompany.com/3050073/fast-feed/hackers-make-good-on-threat-to-reveal-stolen-ashley-madison-data">Hackers Make Good On Threat To Reveal Stolen Ashley Madison Data</a></li>
-	<li><a href="http://www.fastcompany.com/3050065/innovation-agents/reddit-just-hired-its-first-ever-cto">Reddit Just Hired Its First-Ever CTO</a></li>
-	<li><a href="http://www.fastcompany.com/3050060/fast-feed/company-that-blocked-wi-fi-hotspots-at-conventions-must-pay-750000-fine-to-fcc">Company That Blocked Wi-Fi Hotspots At Conventions Must Pay $750,000 Fine To FCC</a></li>
-</ul>
-
-                
-        
-                        
-        
-        <div id="instream-container" class="advis-ad" data-mn="348-14-15-35bc">
-            <p class="readability-div2p">
-                <script type="text/javascript">
-                    onBreak({
-                        0: function(){
-                            adSetInView('1');
-                            htmlAdWH("348-14-15-35bc", 320, 115, 'text', 'instream');
-                            adSetInView('0');
-                        },
-                        768: function(){}
-                    });
-                </script>
-            </p>
-        </div>
-
-        <!-- /.post-meta -->
-
-        <div class="read-more">
-                            
-                            
-
-        </div>
-        <script>_when_.eng("eng.social.init")</script>
-
-                    
-        
-        <script>_when_.eng("eng.perm.init")</script>
-        
-        
-        
-                
-                                        
-            <script>lab.script('http://www.blogsmithmedia.com/www.engadget.com/assets-cc4af52560f019e8b38877a8a2840f06/js/vendor/gravity-desktop.js')</script>
-        
-                        
-                                                                        
-    </div>
+//]]>
+</script>
+</div>

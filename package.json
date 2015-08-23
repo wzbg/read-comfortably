@@ -1,7 +1,7 @@
 {
   "name": "read-comfortably",
   "version": "1.0.0",
-  "description": "Read Comfortably turns any web page into a clean view for reading",
+  "description": "turns any web page into a clean view for reading",
   "main": "src/index.js",
   "scripts": {
     "test": "test/read.js"
@@ -13,12 +13,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wzbg/read-comfortably"
+    "url": "https://gitlab.com/unrealce/read-comfortably"
   },
-  "bugs": {
-    "url": "https://github.com/wzbg/read-comfortably/issues"
-  },
-  "homepage": "https://github.com/wzbg/read-comfortably#readme",
   "keywords": [
     "read",
     "content",
