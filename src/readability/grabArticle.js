@@ -90,7 +90,11 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     /* Remove Style */
     node.removeAttr('style');
     /* Turn all divs that don't have children block level elements into p's */
-    if (nodeType == 'DIV' && options.considerDIVs) {
+    var considerDIVs = options.considerDIVs;
+    if (typeof considerDIVs == 'undefined') {
+      considerDIVs = true;
+    }
+    if (considerDIVs && nodeType == 'DIV') {
       if (node.html().search(regexps.divToPElementsRe) == -1) {
         try {
           logger.debug('Altering div to p:', node.html());

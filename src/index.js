@@ -7,7 +7,7 @@ var scripts = ['http://code.jquery.com/jquery.js'];
 module.exports = function (html, options, callback) {
   if (typeof options == 'function') {
     callback = options;
-    options = { considerDIVs: true };
+    options = {};
   }
   jsdom.env(html, scripts, options, function (err, window) {
     if (err) {
