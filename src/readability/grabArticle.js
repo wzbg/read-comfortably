@@ -25,28 +25,29 @@ var helpers = require('./helpers');
 var grabArticle = function ($, options, preserveUnlikelyCandidates) {
   /**
    *  preprocess which should be a function to check or modify downloaded source before passing it to readability.
-   *  options.preprocess = callback(source, response, contentType, callback);
+   *  options.preprocess = callback($, options);
    */
   var preprocess = options.preprocess;
-  if (preprocess) {
-    delete options.preprocess;
-    preprocess($, options, function (err, $, options) {
-      if (err) {
-        logger.error(err);
-      }
-      grabArticle($, options, preserveUnlikelyCandidates);
-    });
-  } else {
-    prepping($, options, preserveUnlikelyCandidates); // First, node prepping
-    var candidates     = assignScore($, options); // assign a score to them based on how content-y they look
-    var topCandidate   = findHighestScore(candidates, $, options); // find the one with the highest score
-    var articleContent = getArticleContent(topCandidate, $, options); // Append the nodes to articleContent
-    if (!preserveUnlikelyCandidates && !helpers.getInnerText(articleContent, false)) {
-      articleContent = grabArticle($, options, true); // preserve unlikely candidates grab article again
-    }
-    helpers.setImageSrc(articleContent, $); // Set the src attribute of the image for use
-    return articleContent;
+  if (typeof preprocess == 'function') {
+    preprocess($, options);
   }
+  prepping($, options, preserveUnlikelyCandidates); // First, node prepping
+  var candidates     = assignScore($, options); // assign a score to them based on how content-y they look
+  var topCandidate   = findHighestScore(candidates, $, options); // find the one with the highest score
+  var articleContent = getArticleContent(topCandidate, $, options); // Append the nodes to articleContent
+  if (!preserveUnlikelyCandidates && !helpers.getInnerText(articleContent, false)) {
+    articleContent = grabArticle($, options, true); // preserve unlikely candidates grab article again
+  }
+  helpers.setImageSrc(articleContent, $); // Set the src attribute of the image for use
+  /**
+   *  postprocess which should be a function to check or modify article content after passing it to readability.
+   *  options.postprocess = callback(node, $);
+   */
+  var postprocess = options.postprocess;
+  if (typeof postprocess == 'function') {
+    postprocess(articleContent, $);
+  }
+  return articleContent;
 };
 
 /**

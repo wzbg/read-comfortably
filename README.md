@@ -52,20 +52,34 @@ read('http://howtonode.org/really-simple-file-uploads', function(err, article) {
 read-comfortably will pass the options to [node-jsdom](https://github.com/darrylwest/node-jsdom) directly.
 See request lib to view all available options.
 
-read-comfortably has five additional options:
+read-comfortably has six additional options:
 
 - `preprocess` which should be a function to check or modify downloaded source before passing it to readability.
 
-options.preprocess = callback($, options, callback);
+options.preprocess = callback($, options);
 ```javascript
 read(
   url,
   {
-    preprocess: function($, options, callback) {
-      if (/* do some thing */) {
-        return callback(new Error('/* err msg */'));
-      }
-      callback(null, $, options);
+    preprocess: function($, options) {
+      //...
+    }
+  },
+  function(err, article) {
+    //...
+  }
+);
+```
+
+- `postprocess` which should be a function to check or modify article content after passing it to readability.
+
+options.postprocess = callback(node, $);
+```javascript
+read(
+  url,
+  {
+    postprocess: function(node, $) {
+      //...
     }
   },
   function(err, article) {
