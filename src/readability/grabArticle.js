@@ -39,6 +39,7 @@ var grabArticle = function ($, options, preserveUnlikelyCandidates) {
     articleContent = grabArticle($, options, true); // preserve unlikely candidates grab article again
   }
   helpers.setImageSrc(articleContent, $); // Set the src attribute of the image for use
+  helpers.fixImgLinks(articleContent, $); // Converts relative urls to absolute for images and links
   /**
    *  postprocess which should be a function to check or modify article content after passing it to readability.
    *  options.postprocess = callback(node, $);

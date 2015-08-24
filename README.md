@@ -187,10 +187,11 @@ https://gitlab.com/unrealce/read-comfortably
 
 ## Related
 
-- [`is-image-url`](https://www.npmjs.com/package/is-image-url) - Check if a url is an image
+- [`is-image-url`](https://www.npmjs.com/package/is-image-url) - Check if a url is an image.
 - [`log4js`](https://www.npmjs.com/package/log4js) - Port of Log4js to work with node.
-- [`node-jsdom`](https://www.npmjs.com/package/node-jsdom) - A JavaScript implementation of the DOM and HTML standards cloned from the original jsdom branch 3.x
+- [`node-jsdom`](https://www.npmjs.com/package/node-jsdom) - A JavaScript implementation of the DOM and HTML standards cloned from the original jsdom branch 3.x.
 - [`string`](https://www.npmjs.com/package/string) - string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
+- [`url`](https://www.npmjs.com/package/url) - The core url packaged standalone for use with Browserify.
 
 ## License
 

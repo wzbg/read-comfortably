@@ -1,4 +1,5 @@
 var isImageUrl = require('is-image-url'); // Check if a url is an image
+var url = require('url'); // The core url packaged standalone for use with Browserify
 
 var regexps = require('./regexps');
 
@@ -129,6 +130,23 @@ var setImageSrc = module.exports.setImageSrc = function (node, $) {
         $(element).append(img);
       }
       img.attr('use', use);
+    }
+  });
+};
+
+/**
+ *  Converts relative urls to absolute for images and links
+ *  @param Element
+ *  @param $
+ *  @return void
+ */
+var fixImgLinks = module.exports.fixImgLinks = function (node, $) {
+  node.find('img,a').each(function (index, element) {
+    var imgA = $(element);
+    var use = imgA.prop('tagName') == 'A' ? 'href' : imgA.attr('use');
+    var link = imgA.attr(use);
+    if (link) {
+      imgA.attr(use, url.resolve(element.ownerDocument.URL, link));
     }
   });
 };
