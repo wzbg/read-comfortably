@@ -61,6 +61,7 @@ var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
  *  TODO: Shouldn't this be a reverse traversal?
  *  @param $
  *  @param options
+ *  @param preserveUnlikelyCandidates
  *  @return void
  */
 var prepping = function ($, options, preserveUnlikelyCandidates) {
@@ -81,11 +82,18 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
       var unlikelyMatchString = (node.attr('class') || '') + (node.attr('id') || '');
       if (unlikelyMatchString) {
         var unlikelyCandidatesReIndex = unlikelyMatchString.search(regexps.unlikelyCandidatesRe);
-        var okMaybeItsACandidateReIndex = unlikelyMatchString.search(regexps.okMaybeItsACandidateRe);
-        logger.trace('%s[%d/%d]', unlikelyMatchString, unlikelyCandidatesReIndex, okMaybeItsACandidateReIndex);
-        if (unlikelyCandidatesReIndex != -1 && okMaybeItsACandidateReIndex == -1) {
-          logger.debug('Removing unlikely candidate -', unlikelyMatchString);
-          return node.remove();
+        logger.trace('%s[unlikelyCandidatesReIndex=%d]', unlikelyMatchString, unlikelyCandidatesReIndex);
+        if (unlikelyCandidatesReIndex != -1) {
+          var okMaybeItsAMatchString = unlikelyMatchString;
+          node.find('[class],[id]').each(function (index, element) {
+            okMaybeItsAMatchString += ($(element).attr('class') || '') + ($(element).attr('id') || '');
+          });
+          var okMaybeItsACandidateReIndex = okMaybeItsAMatchString.search(regexps.okMaybeItsACandidateRe);
+          logger.trace('%s[okMaybeItsACandidateReIndex=%d]', okMaybeItsAMatchString, okMaybeItsACandidateReIndex);
+          if (okMaybeItsACandidateReIndex == -1) {
+            logger.debug('Removing unlikely candidate -', unlikelyMatchString);
+            return node.remove();
+          }
         }
       }
     }
