@@ -36,12 +36,12 @@ var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
   }
   prepping($, options, preserveUnlikelyCandidates); // First, node prepping
   var candidates     = assignScore($, options); // assign a score to them based on how content-y they look
-  var topCandidate   = findHighestScore(candidates, $, options); // find the one with the highest score
+  var topCandidate   = findHighestScore(candidates, $); // find the top candidate with the highest score
   var articleContent = getArticleContent(topCandidate, $, options); // Append the nodes to articleContent
   if (!preserveUnlikelyCandidates && !helpers.getInnerText(articleContent, false)) {
     articleContent = grabArticle($, options, true); // preserve unlikely candidates grab article again
   }
-  helpers.setImageSrc(articleContent, $); // Set the src attribute of the image for use
+  helpers.setImageSrc(articleContent, $); // Set the src attribute of the images or other tags for use
   helpers.fixLinks(articleContent, $, url); // Converts relative urls to absolute for images and links
   /**
    *  postprocess which should be a function to check or modify article content after passing it to readability.
@@ -183,10 +183,9 @@ var assignScore = function ($, options) {
  *  After we've calculated scores, loop through all of the possible candidate nodes we found and find the one with the highest score.
  *  @param candidates
  *  @param $
- *  @param options
  *  @return topCandidate
  */
-var findHighestScore = function (candidates, $, options) {
+var findHighestScore = function (candidates, $) {
   var topCandidate;
   candidates.forEach(function (candidate) {
     var score       = candidate.data('readabilityScore');
