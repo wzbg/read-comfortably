@@ -17,12 +17,13 @@ var helpers = require('./helpers');
 
 /**
  *  grabArticle - Using a variety of metrics (content score, classname, element types), find the content that is most likely to be the stuff a user wants to read. Then return it wrapped up in a div.
- *  @return $
- *  @return options
- *  @return preserveUnlikelyCandidates
+ *  @param $
+ *  @param url
+ *  @param options
+ *  @param preserveUnlikelyCandidates
  *  @return string (Article Content)
  */
-var grabArticle = function ($, options, preserveUnlikelyCandidates) {
+var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
   /**
    *  preprocess which should be a function to check or modify downloaded source before passing it to readability.
    *  options.preprocess = callback($, options);
@@ -39,7 +40,7 @@ var grabArticle = function ($, options, preserveUnlikelyCandidates) {
     articleContent = grabArticle($, options, true); // preserve unlikely candidates grab article again
   }
   helpers.setImageSrc(articleContent, $); // Set the src attribute of the image for use
-  helpers.fixImgLinks(articleContent, $); // Converts relative urls to absolute for images and links
+  helpers.fixLinks(articleContent, $, url); // Converts relative urls to absolute for images and links
   /**
    *  postprocess which should be a function to check or modify article content after passing it to readability.
    *  options.postprocess = callback(node, $);
@@ -71,7 +72,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     if (!node || !node.length) {
       return;
     }
-    var nodeType = node.prop('tagName');
+    var nodeType = element.name;
     logger.trace('%d[%s]:', index, nodeType, node.html());
     /* Remove unlikely candidates */
     if (!preserveUnlikelyCandidates) {
@@ -85,7 +86,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
       }
     }
     /* Remove Elements that have no children and have no content */
-    if (nodeType == 'DIV' && !node.children().length && !node.text().trim()) {
+    if (nodeType == 'div' && !node.children().length && !node.text().trim()) {
       return node.remove();
     }
     /* Remove Style */
@@ -95,7 +96,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     if (typeof considerDIVs == 'undefined') {
       considerDIVs = true;
     }
-    if (considerDIVs && nodeType == 'DIV') {
+    if (considerDIVs && nodeType == 'div') {
       if (node.html().search(regexps.divToPElementsRe) == -1) {
         try {
           logger.debug('Altering div to p:', node.html());
@@ -257,9 +258,9 @@ var getArticleContent = function (topCandidate, $, options) {
     }
     if (!options.nodesToAppend) {
       /* default nodesToAppend */
-      options.nodesToAppend = ['P'];
+      options.nodesToAppend = ['p'];
     }
-    if (!append && options.nodesToAppend.indexOf(siblingNode.prop('tagName')) != -1) {
+    if (!append && options.nodesToAppend.indexOf(element.name) != -1) {
       siblingNode.find('a').each(function (index, element) {
         if (!$(element).text().trim()) {
           $(element).remove();

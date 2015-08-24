@@ -1,27 +1,30 @@
 var fetchUrl = require('fetch').fetchUrl; // Fetch url contents. Supports gzipped content for quicker download, redirects (with automatic cookie handling, so no eternal redirect loops), streaming and piping etc.
-var jsdom = require('node-jsdom'); // A JavaScript implementation of the DOM and HTML standards cloned from the original jsdom branch 3.x
+var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
+var isUrl = require('is-url'); // Check whether a string is a URL.
 
 var Article = require('./model/Article');
-
-var scripts = ['http://code.jquery.com/jquery.js'];
 
 module.exports = function (html, options, callback) {
   if (typeof options == 'function') {
     callback = options;
     options = {};
   }
-  fetchUrl(html, options, function(err, res, buf){
-    if (err) {
-      return callback(err);
-    }
-    jsdom.env(buf.toString(), scripts, options, function (err, window) {
+  if (isUrl(html)) {
+    fetchUrl(html, options, function(err, res, buf){
       if (err) {
         return callback(err);
       }
-      if (!window.document.documentElement.outerHTML) {
-        return callback(new Error('Empty html'));
-      }
-      return callback(null, new Article(window, options), res);
+      parseDOM(buf.toString(), html, res);
     });
-  });
+  } else {
+    parseDOM(html);
+  }
+  var parseDOM = function (html, url, res) {
+    if (!html) return callback(new Error('Empty html'));
+    var $ = cheerio.load(html, { normalizeWhitespace: true });
+    if ($('body').length < 1) {
+      $ = cheerio.load('<body>' + html + '</body>');
+    }
+    return callback(null, new Article($, url, options), res);
+  };
 };

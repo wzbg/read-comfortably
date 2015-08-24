@@ -2,13 +2,12 @@ var S = require('string'); // string contains methods that aren't included in th
 
 var grabArticle = require('../readability/grabArticle');
 
-var Article = function (window, options) {
+var Article = function (dom, url, options) {
   this.cache = {};
-  this.$ = window.$;
+  this.$ = dom;
+  this.url = url;
   this.options = options;
-  this._window = window;
-  this._document = window.document;
-  this._html = window.document.documentElement.outerHTML;
+  this._html = this.$.html();
   this.__defineGetter__('content', function () {
     return this.getContent(true);
   });
@@ -21,14 +20,6 @@ var Article = function (window, options) {
   this.__defineGetter__('dom', function () {
     return this.getDOM(true);
   });
-};
-
-Article.prototype.close = function () {
-  if (this._window) {
-    this._window.close();
-  }
-  this._window = null;
-  this._document = null;
 };
 
 Article.prototype.getDesc = function (length) {
@@ -50,7 +41,7 @@ Article.prototype.getContent = function (notDeprecated) {
   if (this.cache['article-content']) {
     return this.cache['article-content'];
   }
-  var content = grabArticle(this.$, this.options).html();
+  var content = grabArticle(this.$, this.url, this.options).html();
   return this.cache['article-content'] = content;
 };
 
@@ -63,7 +54,7 @@ Article.prototype.getTitle = function (notDeprecated) {
   }
   var self = this;
   var betterTitle;
-  var title = this._document.title;
+  var title = this.$('title').text().trim();
   var commonSeparatingCharacters = [' | ', ' _ ', ' - ', '«', '»', '—'];
   commonSeparatingCharacters.forEach(function (char) {
     var tmpArray = title.split(char);
@@ -91,7 +82,7 @@ Article.prototype.getDOM = function (notDeprecated) {
   if (!notDeprecated) {
     console.warn('The method `getDOM()` is deprecated, using `dom` property instead.');
   }
-  return this._document;
+  return this.$;
 };
 
 module.exports = Article;

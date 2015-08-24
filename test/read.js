@@ -29,7 +29,7 @@ read(
   {
     nodesToRemove: nodesToRemove
   },
-  function (err, article) {
+  function (err, article, res) {
     if (err) {
       console.log('error:', err);
       return;
@@ -55,6 +55,6 @@ read(
       }
       console.log('content is saved!');
     });
-    article.close();
+    console.log('response:', res);
   }
 );

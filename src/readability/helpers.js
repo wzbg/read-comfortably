@@ -21,10 +21,10 @@ var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces
  *  Node Types and their classification
  */
 var nodeTypes = [
-  { tagNames: ['DIV'], score: 5 },
-  { tagNames: ['PRE', 'TD', 'BLOCKQUTE'], score: 3 },
-  { tagNames: ['ADDRESS', 'OL', 'UL', 'DL', 'DD', 'DT', 'LT', 'FORM'], score: -3 },
-  { tagNames: ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TH'], score: -5 }
+  { tagNames: ['div'], score: 5 },
+  { tagNames: ['pre', 'td', 'blockqute'], score: 3 },
+  { tagNames: ['address', 'ol', 'ul', 'dl', 'dd', 'dt', 'lt', 'form'], score: -3 },
+  { tagNames: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'th'], score: -5 }
 ];
 
 /**
@@ -38,7 +38,7 @@ var initializeNode = module.exports.initializeNode = function (node) {
   }
   node.data('readabilityScore', 0);
   for (var i = 0; nodeType = nodeTypes[i]; i++) {
-    if (nodeType.tagNames.indexOf(node.prop('tagName')) != -1) {
+    if (nodeType.tagNames.indexOf(node.get(0).name) != -1) {
       node.data('readabilityScore', nodeType.score + getClassWeight(node));
       break;
     }
@@ -55,7 +55,7 @@ var getClassWeight = module.exports.getClassWeight = function (node) {
     return 0;
   }
   var classAndID = (node.attr('class') || '') + (node.attr('id') || '');
-  var weight = node.prop('tagName') == 'ARTICLE' ? 25 : 0;
+  var weight = node.get(0).name == 'article' ? 25 : 0;
   /* Look for a special classname and ID */
   if (classAndID.search(regexps.positiveRe) != -1) {
     weight += 25;
@@ -119,7 +119,7 @@ var setImageSrc = module.exports.setImageSrc = function (node, $) {
         break;
       }
     }
-    var isImg = img.prop('tagName') == 'IMG';
+    var isImg = element.name == 'img';
     if (isImg && !isImageUrl(url)) {
       img.remove();
       return;
@@ -138,15 +138,19 @@ var setImageSrc = module.exports.setImageSrc = function (node, $) {
  *  Converts relative urls to absolute for images and links
  *  @param Element
  *  @param $
+ *  @param string
  *  @return void
  */
-var fixImgLinks = module.exports.fixImgLinks = function (node, $) {
+var fixLinks = module.exports.fixLinks = function (node, $, base) {
+  if (!base) {
+    return;
+  }
   node.find('img,a').each(function (index, element) {
     var imgA = $(element);
-    var use = imgA.prop('tagName') == 'A' ? 'href' : imgA.attr('use');
+    var use = element.name == 'a' ? 'href' : imgA.attr('use');
     var link = imgA.attr(use);
     if (link) {
-      imgA.attr(use, url.resolve(element.ownerDocument.URL, link));
+      imgA.attr(use, url.resolve(base, link));
     }
   });
 };
