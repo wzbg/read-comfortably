@@ -14,17 +14,17 @@ module.exports = function (html, options, callback) {
       if (err) {
         return callback(err);
       }
-      parseDOM(buf.toString(), html, res);
+      parseDOM(buf.toString(), res);
     });
   } else {
     parseDOM(html);
   }
-  var parseDOM = function (html, url, res) {
+  var parseDOM = function (html, res) {
     if (!html) return callback(new Error('Empty html'));
     var $ = cheerio.load(html, { normalizeWhitespace: true });
     if ($('body').length < 1) {
       $ = cheerio.load('<body>' + html + '</body>');
     }
-    return callback(null, new Article($, url, options), res);
+    return callback(null, new Article($, res.finalUrl, options), res);
   };
 };
