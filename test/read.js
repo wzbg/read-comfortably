@@ -4,7 +4,8 @@ var read = require('../src/index.js');
 
 // var url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
 // var url = 'http://www.forbes.com/sites/chunkamui/2015/08/21/google-is-millions-of-miles-ahead-of-apple-in-driverless-cars/';
-var url = 'http://www.theguardian.com/artanddesign/2015/aug/22/tate-sensorium-art-soundscapes-chocolates-invisible-rain';
+// var url = 'http://www.theguardian.com/artanddesign/2015/aug/22/tate-sensorium-art-soundscapes-chocolates-invisible-rain';
+var url = 'http://www.takepart.com/article/2015/08/20/global-dietary-guidelines';
 
 var nodesToRemove = [ // 需要删除的标签
   'meta', // 元数据
