@@ -16,7 +16,9 @@ var regexps = require('./regexps');
 var helpers = require('./helpers');
 
 /**
- *  grabArticle - Using a variety of metrics (content score, classname, element types), find the content that is most likely to be the stuff a user wants to read. Then return it wrapped up in a div.
+ *  grabArticle - Using a variety of metrics (content score, classname, element types),
+ *           find the content that is most likely to be the stuff a user wants to read.
+ *           Then return it wrapped up in a div.
  *  @param $
  *  @param url
  *  @param options
@@ -78,8 +80,10 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     if (!preserveUnlikelyCandidates) {
       var unlikelyMatchString = (node.attr('class') || '') + (node.attr('id') || '');
       if (unlikelyMatchString) {
-        logger.trace('%s[%d/%d]', unlikelyMatchString, unlikelyMatchString.search(regexps.unlikelyCandidatesRe), unlikelyMatchString.search(regexps.okMaybeItsACandidateRe));
-        if (unlikelyMatchString.search(regexps.unlikelyCandidatesRe) != -1 && unlikelyMatchString.search(regexps.okMaybeItsACandidateRe) == -1) {
+        var unlikelyCandidatesReIndex = unlikelyMatchString.search(regexps.unlikelyCandidatesRe);
+        var okMaybeItsACandidateReIndex = unlikelyMatchString.search(regexps.okMaybeItsACandidateRe);
+        logger.trace('%s[%d/%d]', unlikelyMatchString, unlikelyCandidatesReIndex, okMaybeItsACandidateReIndex);
+        if (unlikelyCandidatesReIndex != -1 && okMaybeItsACandidateReIndex == -1) {
           logger.debug('Removing unlikely candidate -', unlikelyMatchString);
           return node.remove();
         }
@@ -196,7 +200,8 @@ var findHighestScore = function (candidates, $, options) {
     var imgs = candidate.find('img').length;
     imgs = Math.min(2, Math.max(imgs, 1));
     /**
-     *  Scale the final candidates score based on link density. Good content should have a relatively small link density (5% or less) and be mostly unaffected by this operation.
+     *  Scale the final candidates score based on link density.
+     *  Good content should have a relatively small link density (5% or less) and be mostly unaffected by this operation.
      */
     candidate.data('readabilityScore', Math.min(2, Math.max(siblings, 1)) * score * (1 - linkDensity) * imgs);
     logger.debug('Candidate: %s (%s:%s) with score', candidate, candidate.attr('class'), candidate.attr('id'), candidate.data('readabilityScore'));

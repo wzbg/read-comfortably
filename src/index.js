@@ -1,4 +1,8 @@
-var fetchUrl = require('fetch').fetchUrl; // Fetch url contents. Supports gzipped content for quicker download, redirects (with automatic cookie handling, so no eternal redirect loops), streaming and piping etc.
+/**
+ *  Fetch url contents.
+ *  Supports gzipped content for quicker download, redirects (with automatic cookie handling, so no eternal redirect loops), streaming and piping etc.
+ */
+var fetchUrl = require('fetch').fetchUrl;
 var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
 var isUrl = require('is-url'); // Check whether a string is a URL.
 

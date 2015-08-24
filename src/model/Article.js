@@ -1,4 +1,7 @@
-var S = require('string'); // string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
+/**
+ *  string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
+ */
+var S = require('string');
 
 var grabArticle = require('../readability/grabArticle');
 
