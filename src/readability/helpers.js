@@ -35,11 +35,13 @@ var initializeNode = module.exports.initializeNode = function (node) {
   if (!node || !node.length) {
     return 0;
   }
-  nodeTypes.forEach(function (nodeType) {
+  node.data('readabilityScore', 0);
+  for (var i = 0; nodeType = nodeTypes[i]; i++) {
     if (nodeType.tagNames.indexOf(node.prop('tagName')) != -1) {
-      node.data('readability', nodeType.score + getClassWeight(node));
+      node.data('readabilityScore', nodeType.score + getClassWeight(node));
+      break;
     }
-  });
+  }
 };
 
 /**

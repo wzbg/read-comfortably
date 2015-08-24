@@ -62,7 +62,7 @@ var grabArticle = function ($, options, preserveUnlikelyCandidates) {
 var prepping = function ($, options, preserveUnlikelyCandidates) {
   /* Removing unnecessary nodes */
   if (options.nodesToRemove) {
-    $(options.nodesToRemove).join().remove();
+    $(options.nodesToRemove.join()).remove();
   }
   $('*', 'body').each(function (index, element) {
     var node = $(element);
