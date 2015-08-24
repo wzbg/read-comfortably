@@ -8,6 +8,7 @@ var Article = function (window, options) {
   this.options = options;
   this._window = window;
   this._document = window.document;
+  this._html = window.document.documentElement.outerHTML;
   this.__defineGetter__('content', function () {
     return this.getContent(true);
   });
@@ -83,7 +84,7 @@ Article.prototype.getHTML = function (notDeprecated) {
   if (!notDeprecated) {
     console.warn('The method `getHTML()` is deprecated, using `html` property instead.');
   }
-  return this._document.documentElement.outerHTML;
+  return this._html;
 };
 
 Article.prototype.getDOM = function (notDeprecated) {
