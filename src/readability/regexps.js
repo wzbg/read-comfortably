@@ -1,6 +1,6 @@
 module.exports = {
   // 不像候选人
-  unlikelyCandidatesRe:    /combx|modal|lightbox|comment|community|disqus|extra|foot|header|menu|meta|nav|remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate|pagination|pager|popup|share|bookmark|social|teaserlist|time|tweet|twitter|advert|leaderboard|instapaper_ignore|entry-unrelated/i,
+  unlikelyCandidatesRe:    /combx|pager|comment|disqus|foot|header|menu|meta|nav|rss|shoutbox|sidebar|sponsor|share|bookmark|social|advert|leaderboard|instapaper_ignore|entry-unrelated/i,
   // 可能是候选人
   okMaybeItsACandidateRe:  /and|article|body|column|main|shadow/i,
   // 积极
