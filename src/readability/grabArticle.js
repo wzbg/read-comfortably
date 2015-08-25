@@ -262,9 +262,9 @@ var getArticleContent = function (topCandidate, $, options) {
     logger.debug('Looking at sibling node with score %d (%s|%s): %s', siblingNode.data('readabilityScore'), siblingNode.attr('class'), siblingNode.attr('id'), siblingNode);
     /* siblingNode is topCandidate */
     var append = siblingNode.is(topCandidate);
-    /* siblingNode is img or have imgs */
+    /* siblingNode is img or have an img */
     if (!append) {
-      append = element.name == 'img' || siblingNode.find('img').length;
+      append = element.name == 'img' || siblingNode.find('img').length == 1;
     }
     /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
     if (!append) {
@@ -298,8 +298,6 @@ var getArticleContent = function (topCandidate, $, options) {
     /* append siblingNode to articleContent */
     if (append) {
       logger.debug('Appending node: ', siblingNode);
-      /* To ensure a node does not interfere with readability styles, remove its classnames */
-      siblingNode.attr('origClass', siblingNode.attr('class'));
       /* Append sibling and subtract from our list because it removes the node when you append to another node */
       articleContent.append(siblingNode);
     }
