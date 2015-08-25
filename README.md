@@ -113,7 +113,7 @@ read(
 
 - `considerDIVs` true for turn all divs that don't have children block level elements into p's.
 
-options.considerDIVs = boolean; (default true)
+options.considerDIVs = boolean; (default false)
 ```javascript
 read(
   url,
@@ -128,7 +128,7 @@ read(
 
 - `nodesToScore` which allow set your own nodes to score array for tags.
 
-options.nodesToScore = array; (default ['p', 'pre'])
+options.nodesToScore = array; (default ['p', 'article'])
 ```javascript
 read(
   url,

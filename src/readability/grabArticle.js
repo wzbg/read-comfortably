@@ -111,7 +111,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     /* Turn all divs that don't have children block level elements into p's */
     var considerDIVs = options.considerDIVs;
     if (typeof considerDIVs == 'undefined') {
-      considerDIVs = true;
+      considerDIVs = false;
     }
     if (considerDIVs && nodeType == 'div') {
       if (node.html().search(regexps.divToPElementsRe) == -1) {
@@ -149,7 +149,7 @@ var assignScore = function ($, options) {
   var candidates = [];
   if (!options.nodesToScore) {
     /* default nodesToScore */
-    options.nodesToScore = ['p', 'pre'];
+    options.nodesToScore = ['p', 'article'];
   }
   $(options.nodesToScore.join()).each(function (index, element) {
     var paragraph       = $(element);
@@ -242,15 +242,13 @@ var findHighestScore = function (candidates, $) {
  *  @return articleContent
  */
 var getArticleContent = function (topCandidate, $, options) {
-  var articleContent = $('<div id="readability-content"></div>');
   /* Perhaps the topCandidate haven't parent? */
   var parentNode = topCandidate.parent();
   if (!parentNode || !parentNode.length) {
-    articleContent.appendChild(topCandidate);
-    return;
+    return topCandidate;
   }
-  var siblingNodes = parentNode.children();
-  siblingNodes.each(function (index, element) {
+  var articleContent = $('<div id="readability-content"></div>');
+  parentNode.children().each(function (index, element) {
     var siblingNode = $(element);
     /**
      *  Fix for odd IE7 Crash where siblingNode does not exist even though this should be a live nodeList.
