@@ -158,6 +158,10 @@ read(
 
 ## article object
 
+If html is an image, article is a buffer.
+
+else
+
 ### content
 
 The article content of the web page.
