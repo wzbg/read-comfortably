@@ -4,6 +4,7 @@
  */
 var fetchUrl = require('fetch').fetchUrl;
 var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
+var isImageUrl = require('is-image-url'); // Check if a url is an image.
 var isUrl = require('is-url'); // Check whether a string is a URL.
 
 var Article = require('./model/Article');
@@ -18,7 +19,11 @@ module.exports = function (html, options, callback) {
       if (err) {
         return callback(err);
       }
-      parseDOM(buf.toString(), res);
+      if (isImageUrl(html)) {
+        callback(null, buf, res);
+      } else {
+        parseDOM(buf.toString(), res);
+      }
     });
   } else {
     parseDOM(html);

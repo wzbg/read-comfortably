@@ -1,5 +1,5 @@
-var isImageUrl = require('is-image-url'); // Check if a url is an image
-var url = require('url'); // The core url packaged standalone for use with Browserify
+var isImageUrl = require('is-image-url'); // Check if a url is an image.
+var url = require('url'); // The core url packaged standalone for use with Browserify.
 
 var regexps = require('./regexps');
 
