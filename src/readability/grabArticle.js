@@ -216,7 +216,7 @@ var findHighestScore = function (candidates, $) {
      *  Good content should have a relatively small link density (5% or less) and be mostly unaffected by this operation.
      */
     candidate.data('readabilityScore', Math.min(2, Math.max(siblings, 1)) * score * (1 - linkDensity) * imgs);
-    logger.debug('Candidate: %s (%s:%s) with score', candidate, candidate.attr('class'), candidate.attr('id'), candidate.data('readabilityScore'));
+    logger.debug('Candidate with score %d (%s|%s): %s', candidate.data('readabilityScore'), candidate.attr('class'), candidate.attr('id'), candidate);
     if (!topCandidate || candidate.data('readabilityScore') > topCandidate.data('readabilityScore')) {
       topCandidate = candidate;
     }
@@ -249,8 +249,7 @@ var getArticleContent = function (topCandidate, $, options) {
     articleContent.appendChild(topCandidate);
     return;
   }
-  var siblingScoreThreshold = Math.max(10, topCandidate.data('readabilityScore') * 0.2);
-  var siblingNodes          = parentNode.children();
+  var siblingNodes = parentNode.children();
   siblingNodes.each(function (index, element) {
     var siblingNode = $(element);
     /**
@@ -260,37 +259,61 @@ var getArticleContent = function (topCandidate, $, options) {
     if (!siblingNode || !siblingNode.length) {
       return;
     }
+    logger.debug('Looking at sibling node with score %d (%s|%s): %s', siblingNode.data('readabilityScore'), siblingNode.attr('class'), siblingNode.attr('id'), siblingNode);
+    /* siblingNode is topCandidate */
     var append = false;
-    logger.debug('Looking at sibling node: %s (%s:%s) with score', siblingNode, siblingNode.attr('class'), siblingNode.attr('id'), siblingNode.data('readabilityScore'));
     if (siblingNode.is(topCandidate)) {
       append = true;
     }
-    var contentBonus = 0;
-    /* Give a bonus if sibling nodes and top candidates have the example same classname */
-    if (topCandidate.attr('class') && topCandidate.attr('class') == siblingNode.attr('class')) {
-      contentBonus += topCandidate.data('readabilityScore') * 0.2;
-    }
-    if (siblingNode.data('readabilityScore') + contentBonus >= siblingScoreThreshold) {
-      append = true;
-    }
-    if (!options.nodesToAppend) {
-      /* default nodesToAppend */
-      options.nodesToAppend = ['p'];
-    }
-    if (!append && options.nodesToAppend.indexOf(element.name) != -1) {
-      siblingNode.find('a').each(function (index, element) {
-        if (!$(element).text().trim()) {
-          $(element).remove();
-        }
-      });
-      if (helpers.getLinkDensity(siblingNode, $) < 0.25) {
-        append = true;
+    /* siblingNode is img or have imgs */
+    if (!append) {
+      var children = siblings.contents();
+      if (children.length) {
+        children.each(function(index, element) {
+          if (element.name == 'img' || $(element).find('img').length) {
+            append = true;
+          }
+        });
       }
     }
+    /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
+    if (!append) {
+      var siblingScore = siblingNode.data('readabilityScore');
+      if (siblingScore) {
+        var contentBonus = 0;
+        var topNodeScore = topCandidate.data('readabilityScore');
+        /* Give a bonus if sibling nodes and top candidates have the example same classname */
+        if (topCandidate.attr('class') && topCandidate.attr('class') == siblingNode.attr('class')) {
+          contentBonus += topNodeScore * 0.2;
+        }
+        var siblingScoreThreshold = Math.max(10, topNodeScore * 0.2);
+        if (siblingScore + contentBonus >= siblingScoreThreshold) {
+          append = true;
+        }
+      }
+    }
+    /* siblingNode's linkDensity < 0.25 */
+    if (!append) {
+      if (!options.nodesToAppend) {
+        /* default nodesToAppend */
+        options.nodesToAppend = ['p'];
+      }
+      if (options.nodesToAppend.indexOf(element.name) != -1) {
+        siblingNode.find('a').each(function (index, element) {
+          if (!$(element).text().trim()) {
+            $(element).remove();
+          }
+        });
+        if (helpers.getLinkDensity(siblingNode, $) < 0.25) {
+          append = true;
+        }
+      }
+    }
+    /* append siblingNode to articleContent */
     if (append) {
       logger.debug('Appending node: ', siblingNode);
       /* To ensure a node does not interfere with readability styles, remove its classnames */
-      siblingNode.removeClass();
+      siblingNode.attr('origClass', siblingNode.attr('class'));
       /* Append sibling and subtract from our list because it removes the node when you append to another node */
       articleContent.append(siblingNode);
     }
