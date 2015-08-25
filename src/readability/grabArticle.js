@@ -261,20 +261,10 @@ var getArticleContent = function (topCandidate, $, options) {
     }
     logger.debug('Looking at sibling node with score %d (%s|%s): %s', siblingNode.data('readabilityScore'), siblingNode.attr('class'), siblingNode.attr('id'), siblingNode);
     /* siblingNode is topCandidate */
-    var append = false;
-    if (siblingNode.is(topCandidate)) {
-      append = true;
-    }
+    var append = siblingNode.is(topCandidate);
     /* siblingNode is img or have imgs */
     if (!append) {
-      var children = siblings.contents();
-      if (children.length) {
-        children.each(function(index, element) {
-          if (element.name == 'img' || $(element).find('img').length) {
-            append = true;
-          }
-        });
-      }
+      append = element.name == 'img' || siblingNode.find('img').length;
     }
     /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
     if (!append) {
@@ -287,9 +277,7 @@ var getArticleContent = function (topCandidate, $, options) {
           contentBonus += topNodeScore * 0.2;
         }
         var siblingScoreThreshold = Math.max(10, topNodeScore * 0.2);
-        if (siblingScore + contentBonus >= siblingScoreThreshold) {
-          append = true;
-        }
+        append = siblingScore + contentBonus >= siblingScoreThreshold;
       }
     }
     /* siblingNode's linkDensity < 0.25 */
@@ -304,9 +292,7 @@ var getArticleContent = function (topCandidate, $, options) {
             $(element).remove();
           }
         });
-        if (helpers.getLinkDensity(siblingNode, $) < 0.25) {
-          append = true;
-        }
+        append = helpers.getLinkDensity(siblingNode, $) < 0.25;
       }
     }
     /* append siblingNode to articleContent */
