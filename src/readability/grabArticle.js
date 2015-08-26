@@ -83,19 +83,27 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
       if (unlikelyMatchString) {
         var unlikelyCandidatesReIndex = unlikelyMatchString.search(regexps.unlikelyCandidatesRe);
         logger.trace('%s[unlikelyCandidatesReIndex=%d]', unlikelyMatchString, unlikelyCandidatesReIndex);
-        if (unlikelyCandidatesReIndex != -1) {
+        var unlikeThisNode = unlikelyCandidatesReIndex != -1;
+        if (!unlikeThisNode) {
+          var extraneousReIndex = unlikelyMatchString.search(regexps.extraneousRe);
+          logger.trace('%s[extraneousReIndex=%d]', unlikelyMatchString, extraneousReIndex);
+          unlikeThisNode = extraneousReIndex != -1;
+        }
+        if (unlikeThisNode) {
           var classAndIDs = node.find('[class],[id]');
+          var removeThisNode = true;
           classAndIDs.add(node);
-          var remove = true;
           for (var i = 0; i < classAndIDs.length; i++) {
             var classAndID = $(classAndIDs.get(i));
             var okMaybeItsAMatchString = (classAndID.attr('class') || '') + '|' + (classAndID.attr('id') || '');
-            if (okMaybeItsAMatchString.search(regexps.okMaybeItsACandidateRe) != -1) {
-              remove = false;
+            var okMaybeItsACandidateReIndex = okMaybeItsAMatchString.search(regexps.okMaybeItsACandidateRe);
+            logger.trace('%s[okMaybeItsACandidateReIndex=%d]', okMaybeItsAMatchString, okMaybeItsACandidateReIndex);
+            if (okMaybeItsACandidateReIndex != -1) {
+              removeThisNode = false;
               break;
             }
           }
-          if (remove) {
+          if (removeThisNode) {
             logger.debug('Removing unlikely candidate -', unlikelyMatchString);
             return node.remove();
           }
