@@ -4,6 +4,7 @@
 var S = require('string');
 
 var grabArticle = require('../readability/grabArticle');
+var grabImages = require('../readability/grabImages');
 
 var Article = function (dom, url, options) {
   this.cache = {};
@@ -13,6 +14,9 @@ var Article = function (dom, url, options) {
   this._html = this.$.html();
   this.__defineGetter__('content', function () {
     return this.getContent(true);
+  });
+  this.__defineGetter__('images', function () {
+    return this.getImages(true);
   });
   this.__defineGetter__('title', function () {
     return this.getTitle(true);
@@ -47,6 +51,21 @@ Article.prototype.getContent = function (notDeprecated) {
   var content = grabArticle(this.$, this.url, this.options).html();
   return this.cache['article-content'] = content;
 };
+
+Article.prototype.getImages = function (notDeprecated) {
+  if (!notDeprecated) {
+    console.warn('The method `getImages()` is deprecated, using `images` property instead.');
+  }
+  if (this.cache['article-images']) {
+    return this.cache['article-images'];
+  }
+  var images = [];
+  var content = this.getContent(true);
+  if (content) {
+    images = grabImages(content, this.$);
+  }
+  return this.cache['article-images'] = images;
+}
 
 Article.prototype.getTitle = function (notDeprecated) {
   if (!notDeprecated) {

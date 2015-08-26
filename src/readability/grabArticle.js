@@ -255,8 +255,12 @@ var getArticleContent = function (topCandidate, $, options) {
   if (!parentNode || !parentNode.length) {
     return topCandidate;
   }
+  var siblingNodes = parentNode.children();
+  if (siblingNodes.length == 1) {
+    return getArticleContent(parentNode, $, options);
+  }
   var articleContent = $('<div id="readability-content"></div>');
-  parentNode.children().each(function (index, element) {
+  siblingNodes.each(function (index, element) {
     var siblingNode = $(element);
     /**
      *  Fix for odd IE7 Crash where siblingNode does not exist even though this should be a live nodeList.

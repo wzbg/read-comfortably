@@ -160,7 +160,7 @@ read(
 
 If html is an image, article is a buffer.
 
-else
+Else
 
 ### content
 

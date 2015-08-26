@@ -93,6 +93,8 @@ var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
  */
 var srcs = [
   'rel:bf_image_src',
+  'data-src-medium',
+  'data-src-small',
   'data-original',
   'data-lazy-src',
   'data-srcset',
@@ -129,6 +131,8 @@ var setImageSrc = module.exports.setImageSrc = function (node, $) {
         img = $('<img src="' + url + '">');
         $(element).append(img);
       }
+      img.attr('orig-src', img.attr('src'));
+      img.attr('src', img.attr(use));
       img.attr('use', use);
     }
   });
@@ -147,7 +151,7 @@ var fixLinks = module.exports.fixLinks = function (node, $, base) {
   }
   node.find('img,a').each(function (index, element) {
     var imgA = $(element);
-    var use = element.name == 'a' ? 'href' : imgA.attr('use');
+    var use = element.name == 'a' ? 'href' : 'src';
     var link = imgA.attr(use);
     if (link) {
       imgA.attr(use, url.resolve(base, link));
