@@ -18,10 +18,11 @@ var read = require('../src/index.js');
 // var url = 'http://hypebeast.com/2015/8/banksy-talks-dismaland-and-contemporary-art';
 // var url = 'http://lifehacker.com/what-to-do-when-you-envy-a-coworker-1682581675';
 // var url = 'http://www.takepart.com/article/2015/08/20/global-dietary-guidelines';
+// var url = 'http://edition.cnn.com/2015/08/13/travel/korea-food-map/index.html/';
 // var url = 'http://time.com/4007174/which-spouse-asks-for-divorce/';
 // var url = 'http://fortune.com/2015/08/20/airbnb-tesla-partner/';
 
-var url = 'http://edition.cnn.com/2015/08/13/travel/korea-food-map/index.html/';
+var url ='http://www.theverge.com/2015/8/25/9205915/amazon-prime-now-launches-seattle-redmond-bellevue-kirkland';
 
 var nodesToRemove = [ // 需要删除的标签
   'meta', // 元数据
@@ -47,7 +48,7 @@ var nodesToRemove = [ // 需要删除的标签
 read(
   url,
   {
-    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36' },
     nodesToRemove: nodesToRemove
   },
   function (err, article, res) {

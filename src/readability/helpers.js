@@ -107,12 +107,11 @@ var srcs = [
 
 /**
  *  Set the src attribute of the image for use
- *  @param Element
  *  @param $
  *  @return void
  */
-var setImageSrc = module.exports.setImageSrc = function (node, $) {
-  node.find('img,span').each(function (index, element) {
+var setImageSrc = module.exports.setImageSrc = function ($) {
+  $('img,span,div').each(function (index, element) {
     var url, use;
     var img = $(element);
     for (var i = 0; use = srcs[i]; i++) {
@@ -140,16 +139,15 @@ var setImageSrc = module.exports.setImageSrc = function (node, $) {
 
 /**
  *  Converts relative urls to absolute for images and links
- *  @param Element
  *  @param $
  *  @param string
  *  @return void
  */
-var fixLinks = module.exports.fixLinks = function (node, $, base) {
+var fixLinks = module.exports.fixLinks = function ($, base) {
   if (!base) {
     return;
   }
-  node.find('img,a').each(function (index, element) {
+  $('img,a').each(function (index, element) {
     var imgA = $(element);
     var use = element.name == 'a' ? 'href' : 'src';
     var link = imgA.attr(use);
