@@ -49,29 +49,31 @@ var grabImages = function (node, $, callback) {
  */
 var fetchImage = function (url, images, length, callback) {
   fetchUrl(url, function (err, res, buf) {
-    var errMsg; // error message
     if (err) {
-      errMsg = 'fetch url[' +  url + '] error:' + err;
+      logger.error('fetch url[%s] error:', url, err);
     } else if (res.status != 200) {
-      errMsg = 'fetch url[' +  url + '] status:' + res.status;
+      logger.error('fetch url[%s] status:', url, res.status);
     } else if (!buf) {
-      errMsg = 'fetch url[' +  url + '] Empty body';
+      logger.error('fetch url[%s] Empty body', url);
     }
     var image = { url: url };
-    if (errMsg) {
-      pmx.notify({ event: 'fetch url', error: errMsg });
-      logger.error(errMsg);
-    } else {
+    if (res && res.responseHeaders) {
       image.imgType = res.responseHeaders['content-type'];
-      var dimensions = sizeOf(buf);
-      if (dimensions) {
-        var width = image.imgWidth = dimensions.width;
-        var height = image.imgHeight = dimensions.height;
-        var size = calcSize(width, height, MIN_RATE, MAX_RATE); // 计算图片新尺寸
-        image.width = size.width;
-        image.height = size.height;
-        image.x = size.x;
-        image.y = size.y;
+    }
+    if (buf) {
+      try {
+        var dimensions = sizeOf(buf);
+        if (dimensions) {
+          var width = image.imgWidth = dimensions.width;
+          var height = image.imgHeight = dimensions.height;
+          var size = calcSize(width, height, MIN_RATE, MAX_RATE); // 计算图片新尺寸
+          image.width = size.width;
+          image.height = size.height;
+          image.x = size.x;
+          image.y = size.y;
+        }
+      } catch (e) {
+        logger.error('size of[%s] error:', url, e);
       }
     }
     images.push(image);
