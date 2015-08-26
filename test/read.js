@@ -78,6 +78,12 @@ read(
       }
       console.log('content is saved!');
     });
-    
+    article.getImages(function (err, images) {
+      if (err) {
+        console.log('error:', err);
+        return;
+      }
+      console.log('images:', images);
+    });
   }
 );

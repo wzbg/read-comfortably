@@ -46,11 +46,12 @@ Article.prototype.getImages = function (callback) {
   if (!content) {
     return callback(new Error('Empty content'));
   }
+  var self = this;
   grabImages(content, this.$, function (error, images) {
     if (error) {
       return callback(error);
     }
-    return callback(null, this.cache['article-images'] = images);
+    return callback(null, self.cache['article-images'] = images);
   });
 }
 

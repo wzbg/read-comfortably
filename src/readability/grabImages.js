@@ -33,7 +33,7 @@ var grabImages = function (node, $, callback) {
     var img = $(element);
     var link = img.attr('src');
     if (link) { // image -> buffer
-      fetchImage(link, images, callback);
+      fetchImage(link, images, imgs.length, callback);
     } else {
       return callback(new Error('Empty link'));
     }
@@ -47,7 +47,7 @@ var grabImages = function (node, $, callback) {
  *  @param callback(error, images)
  *  @return void
  */
-var fetchImage = function (url, images, callback) {
+var fetchImage = function (url, images, length, callback) {
   fetchUrl(url, function (err, res, buf) {
     var errMsg; // error message
     if (err) {
@@ -75,7 +75,8 @@ var fetchImage = function (url, images, callback) {
       }
     }
     images.push(image);
-    if (images.length == imgs.length) {
+    if (images.length == length) {
+      logger.info('images:', images);
       callback(null, images);
     }
   });
