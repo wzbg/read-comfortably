@@ -221,6 +221,7 @@ https://gitlab.com/unrealce/read-comfortably
 
 - [`cheerio`](https://www.npmjs.com/package/cheerio) - Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
 - [`fetch`](https://www.npmjs.com/package/fetch) - Fetch url contents. Supports gzipped content for quicker download, redirects (with automatic cookie handling, so no eternal redirect loops), streaming and piping etc.
+- [`image-size`](https://www.npmjs.com/package/image-size) - get dimensions of any image file.
 - [`is-image-url`](https://www.npmjs.com/package/is-image-url) - Check if a url is an image.
 - [`is-url`](https://www.npmjs.com/package/is-url) - Check whether a string is a URL.
 - [`log4js`](https://www.npmjs.com/package/log4js) - Port of Log4js to work with node.

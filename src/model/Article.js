@@ -15,9 +15,6 @@ var Article = function (dom, url, options) {
   this.__defineGetter__('content', function () {
     return this.getContent(true);
   });
-  this.__defineGetter__('images', function () {
-    return this.getImages(true);
-  });
   this.__defineGetter__('title', function () {
     return this.getTitle(true);
   });
@@ -41,6 +38,22 @@ Article.prototype.getDesc = function (length) {
   return this.cache[cacheKey] = content;
 };
 
+Article.prototype.getImages = function (callback) {
+  if (this.cache['article-images']) {
+    return callback(null, this.cache['article-images']);
+  }
+  var content = this.getContent(true);
+  if (!content) {
+    return callback(new Error('Empty content'));
+  }
+  grabImages(content, this.$, function (error, images) {
+    if (error) {
+      return callback(error);
+    }
+    return callback(null, this.cache['article-images'] = images);
+  });
+}
+
 Article.prototype.getContent = function (notDeprecated) {
   if (!notDeprecated) {
     console.warn('The method `getContent()` is deprecated, using `content` property instead.');
@@ -51,21 +64,6 @@ Article.prototype.getContent = function (notDeprecated) {
   var content = grabArticle(this.$, this.url, this.options).html();
   return this.cache['article-content'] = content;
 };
-
-Article.prototype.getImages = function (notDeprecated) {
-  if (!notDeprecated) {
-    console.warn('The method `getImages()` is deprecated, using `images` property instead.');
-  }
-  if (this.cache['article-images']) {
-    return this.cache['article-images'];
-  }
-  var images = [];
-  var content = this.getContent(true);
-  if (content) {
-    images = grabImages(content, this.$);
-  }
-  return this.cache['article-images'] = images;
-}
 
 Article.prototype.getTitle = function (notDeprecated) {
   if (!notDeprecated) {
