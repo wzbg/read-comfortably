@@ -112,6 +112,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     }
     /* Remove Elements that have no children and have no content */
     if (nodeType == 'div' && !node.children().length && !node.text().trim()) {
+      logger.debug('Removing Element - %s (%s|%s)', nodeType, node.attr('class'), node.attr('id'));
       return node.remove();
     }
     /* Remove Style */
