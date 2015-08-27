@@ -89,32 +89,20 @@ var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
 };
 
 /**
- *  May be it's an image url
- */
-var srcs = [
-  'rel:bf_image_src',
-  'data-src-medium',
-  'data-src-small',
-  'data-original',
-  'data-lazy-src',
-  'data-srcset',
-  'data-medsrc',
-  'data-smsrc',
-  'data-lgsrc',
-  'data-src',
-  'src'
-];
-
-/**
  *  Set the src attribute of the image for use
  *  @param $
+ *  @param object
  *  @return void
  */
-var setImageSrc = module.exports.setImageSrc = function ($) {
+var setImageSrc = module.exports.setImageSrc = function ($, options) {
+  if (!options.maybeImgsAttr) { // May be it's an image attr
+    /* default maybeImgsAttr */
+    options.maybeImgsAttr = ['src'];
+  }
   $('img,span,div').each(function (index, element) {
     var url, use;
     var img = $(element);
-    for (var i = 0; use = srcs[i]; i++) {
+    for (var i = 0; use = options.maybeImgsAttr[i]; i++) {
       url = img.attr(use);
       if (isImageUrl(url)) {
         break;
@@ -141,9 +129,10 @@ var setImageSrc = module.exports.setImageSrc = function ($) {
  *  Converts relative urls to absolute for images and links
  *  @param $
  *  @param string
+ *  @param object
  *  @return void
  */
-var fixLinks = module.exports.fixLinks = function ($, base) {
+var fixLinks = module.exports.fixLinks = function ($, base, options) {
   if (!base) {
     return;
   }
