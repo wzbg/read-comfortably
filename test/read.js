@@ -10,7 +10,8 @@ var read = require('../src/index.js');
 // var url = 'http://www.theguardian.com/artanddesign/2015/aug/22/tate-sensorium-art-soundscapes-chocolates-invisible-rain';
 // var url = 'http://www.theverge.com/2015/8/25/9205915/amazon-prime-now-launches-seattle-redmond-bellevue-kirkland';
 // var url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
-// var url = 'http://cdn.flipboard.com/content/thephotodesk/thephotodeskgalleries/items/1440433775000.html';
+var url = 'http://cdn.flipboard.com/content/thephotodesk/thephotodeskgalleries/items/1440433775000.html';
+// var url = 'http://www.businessinsider.com/americas-20-most-expensive-cities-for-renters-2015-8';
 // var url = 'http://9to5mac.com/2015/08/25/idc-china-slowdown-smartphone-forecast-iphone-6c/';
 // var url = 'http://www.mymodernmet.com/profiles/blogs/anna-di-prospero-urban-self-portraits';
 // var url = 'http://www.demilked.com/more-lego-miniature-adventures-sofiane-samlal-samsofy/';
@@ -22,8 +23,6 @@ var read = require('../src/index.js');
 // var url = 'http://edition.cnn.com/2015/08/13/travel/korea-food-map/index.html/';
 // var url = 'http://time.com/4007174/which-spouse-asks-for-divorce/';
 // var url = 'http://fortune.com/2015/08/20/airbnb-tesla-partner/';
-
-var url = 'http://www.businessinsider.com/americas-20-most-expensive-cities-for-renters-2015-8';
 
 var nodesToRemove = [ // 需要删除的标签
   'meta', // 元数据
@@ -85,6 +84,9 @@ read(
         return;
       }
       console.log('images:', images);
+      images.forEach(function (image) {
+        console.log(image.url + ':' + image.buf.length);
+      });
     });
   }
 );

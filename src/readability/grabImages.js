@@ -56,7 +56,7 @@ var fetchImage = function (url, images, length, callback) {
     } else if (!buf) {
       logger.error('fetch url[%s] Empty body', url);
     }
-    var image = { url: url };
+    var image = { url: url, buf: buf };
     if (res && res.responseHeaders) {
       image.imgType = res.responseHeaders['content-type'];
     }
