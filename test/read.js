@@ -15,6 +15,7 @@ var read = require('../src/index.js');
 // var url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
 // var url = 'http://www.dazeddigital.com/music/article/26070/1/south-korea-just-trolled-north-korea-with-k-pop';
 // var url = 'http://cdn.flipboard.com/content/thephotodesk/thephotodeskgalleries/items/1440433775000.html';
+// var url = 'https://blog.adafruit.com/2015/06/17/horses-get-blinky-rainbow-tails-wearablewednesday/';
 // var url = 'http://www.engadget.com/2015/07/15/japans-first-robot-staffed-hotel/?%3Fncid=rss_full';
 // var url = 'http://www.businessinsider.com/americas-20-most-expensive-cities-for-renters-2015-8';
 // var url = 'http://9to5mac.com/2015/08/25/idc-china-slowdown-smartphone-forecast-iphone-6c/';
@@ -31,10 +32,10 @@ var read = require('../src/index.js');
 // var url = 'http://time.com/4007174/which-spouse-asks-for-divorce/';
 // var url = 'http://fortune.com/2015/08/20/airbnb-tesla-partner/';
 
-// var url = 'http://www.demilked.com/mental-illnesses-disorders-drawn-real-monsters-toby-allen/';
 // var url = 'http://blogs.transparent.com/language-news/2015/08/26/staying-resourceful-in-language-learning/';
-// var url = 'http://www.huffingtonpost.com/conde-nast-traveler/the-most-romantic-restaur_1_b_7977254.html';
-var url = 'http://www.businessinsider.com/work-in-groups-to-detect-lies-2015-8';
+var url = 'http://www.huffingtonpost.com/conde-nast-traveler/the-most-romantic-restaur_1_b_7977254.html';
+// var url = 'http://www.demilked.com/mental-illnesses-disorders-drawn-real-monsters-toby-allen/';
+// var url = 'http://www.businessinsider.com/work-in-groups-to-detect-lies-2015-8';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
@@ -82,10 +83,13 @@ var maybeImgsAttr = [ // 可能是图片的属性
   'src'
 ];
 
+var userAgent = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.20 (KHTML, like Gecko) Mobile/7B298g';
+// var userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36';
+
 read(
   url,
   {
-    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36' },
+    headers: { 'User-Agent': userAgent },
     cookieJar: cookies,
     nodesToRemove: nodesToRemove,
     maybeImgsAttr: maybeImgsAttr
