@@ -1,7 +1,8 @@
 var fs = require('fs');
-
+var fetch = require('fetch');
 var read = require('../src/index.js');
 
+// var url = 'http://www.nytimes.com/2015/08/20/t-magazine/who-is-marc-jacobs.html?WT.nav=inside-nyt-region&action=click&module=inside-nyt-region&pgtype=Homepage&region=inside-nyt-region&version=Moth-Visible';
 // var url = 'https://roadtrippers.com/stories/welcome-to-chloride-ghost-town-arizonas-most-offbeat-roadside-attraction?lat=40.83044&#x26;lng=-96.70166&#x26;z=5';
 // var url = 'http://www.businessinsider.com.au/angellist-ceo-naval-ravikant-shares-his-favorite-books-2015-8#/#meditations-by-marcus-aurelius-1';
 // var url = 'http://www.huffingtonpost.com/entry/man-buns-of-disneyland-instagram_55d7157fe4b00d8137eddf56?kvcommref=mostpopular';
@@ -12,7 +13,9 @@ var read = require('../src/index.js');
 // var url = 'http://www.theguardian.com/artanddesign/2015/aug/22/tate-sensorium-art-soundscapes-chocolates-invisible-rain';
 // var url = 'http://www.theverge.com/2015/8/25/9205915/amazon-prime-now-launches-seattle-redmond-bellevue-kirkland';
 // var url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
+// var url = 'http://www.dazeddigital.com/music/article/26070/1/south-korea-just-trolled-north-korea-with-k-pop';
 // var url = 'http://cdn.flipboard.com/content/thephotodesk/thephotodeskgalleries/items/1440433775000.html';
+// var url = 'http://www.engadget.com/2015/07/15/japans-first-robot-staffed-hotel/?%3Fncid=rss_full';
 // var url = 'http://www.businessinsider.com/americas-20-most-expensive-cities-for-renters-2015-8';
 // var url = 'http://9to5mac.com/2015/08/25/idc-china-slowdown-smartphone-forecast-iphone-6c/';
 // var url = 'http://www.mymodernmet.com/profiles/blogs/anna-di-prospero-urban-self-portraits';
@@ -23,10 +26,18 @@ var read = require('../src/index.js');
 // var url = 'http://lifehacker.com/what-to-do-when-you-envy-a-coworker-1682581675';
 // var url = 'http://www.takepart.com/article/2015/08/20/global-dietary-guidelines';
 // var url = 'http://edition.cnn.com/2015/08/13/travel/korea-food-map/index.html/';
+// var url = 'http://www.engadget.com/2015/08/26/sony-wireless-speaker-tv-remote/';
+// var url = 'http://www.engadget.com/2015/08/26/obi-worldphones/?ncid=rss_semi';
 // var url = 'http://time.com/4007174/which-spouse-asks-for-divorce/';
 // var url = 'http://fortune.com/2015/08/20/airbnb-tesla-partner/';
 
-var url = 'http://www.dazeddigital.com/music/article/26070/1/south-korea-just-trolled-north-korea-with-k-pop';
+// var url = 'http://www.demilked.com/mental-illnesses-disorders-drawn-real-monsters-toby-allen/';
+// var url = 'http://blogs.transparent.com/language-news/2015/08/26/staying-resourceful-in-language-learning/';
+// var url = 'http://www.huffingtonpost.com/conde-nast-traveler/the-most-romantic-restaur_1_b_7977254.html';
+var url = 'http://www.businessinsider.com/work-in-groups-to-detect-lies-2015-8';
+
+var cookies = new fetch.CookieJar();
+cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
 
 var nodesToRemove = [ // 需要删除的标签
   'meta', // 元数据
@@ -39,16 +50,21 @@ var nodesToRemove = [ // 需要删除的标签
   'object', // 对象
   'iframe', // 内嵌模块
   'script', // 脚本
+  'div#page-title', // 页面标题
+  'div.fb-box', // facebook
   'div.articleSM', // 分享模块
-  'div.fout_guard', // fout守卫
+  'div.fout_guard', // fout 守卫
+  'div.ks-see-also', // 也可以看看
   'div.buttonGroup', // 按钮组
   'div.itemRelated', // 相关文章
   'div.comments-main', // 评论
   'div.control-panel', // 控制面板
-  'div.gallery-overlay-outter', // 画廊
-  'ins.adsbygoogle', // 谷歌广告
+  'div.rail-collection-main', // rail 广告
+  'div.gallery-overlay-outter', // 外部画廊
+  'ins.adsbygoogle', // google 广告
   '.robots-nocontent', // 非内容模块
-  'header,#header,.header' // 头部信息
+  'header,#header,.header', // 头部信息
+  'footer,#footer,.footer' // 尾部信息
 ];
 
 var maybeImgsAttr = [ // 可能是图片的属性
@@ -70,6 +86,7 @@ read(
   url,
   {
     headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36' },
+    cookieJar: cookies,
     nodesToRemove: nodesToRemove,
     maybeImgsAttr: maybeImgsAttr
   },
