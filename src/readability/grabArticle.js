@@ -137,8 +137,9 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
             return;
           }
           if (element.type == 'text' && element.data && element.data.trim()) {
-            logger.debug('replacing text node with a p tag with the same content.', element.data);
-            child.replaceWith('<p class="readability-txt2p">' + element.data + '</p>');
+            /* use span instead of p. Need more tests. */
+            logger.debug('replacing text node with a span tag with the same content.', element.data);
+            child.replaceWith('<span class="readability-txt2p">' + element.data + '</span>');
           }
         });
       }

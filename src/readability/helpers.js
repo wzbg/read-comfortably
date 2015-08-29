@@ -97,9 +97,9 @@ var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
 var setImageSrc = module.exports.setImageSrc = function ($, options) {
   if (!options.maybeImgsAttr) { // May be it's an image attr
     /* default maybeImgsAttr */
-    options.maybeImgsAttr = ['src'];
+    options.maybeImgsAttr = ['src', 'href'];
   }
-  $('img,span,div').each(function (index, element) {
+  $('a,img,span,div').each(function (index, element) {
     var url, use;
     var img = $(element);
     for (var i = 0; use = options.maybeImgsAttr[i]; i++) {
@@ -114,7 +114,7 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
       return;
     }
     if (isImageUrl(url)) {
-      if (!isImg) {
+      if (!isImg && !img.find('img').length) {
         img = $('<img src="' + url + '">');
         $(element).append(img);
       }
