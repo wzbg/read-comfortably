@@ -1,0 +1,396 @@
+ <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"> <head> <meta name="keywords" content="Mail &amp; Guardian Africa (Mobile edition)"> <meta name="description" content="Mail &amp; Guardian Africa (Mobile edition)"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> <title>Mail &amp; Guardian Africa (Mobile edition)</title> <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> <link rel="icon" href="favicon.ico" type="image/x-icon"> <style>@font-face {
+  font-family: "Droid Sans";
+  src: url('../../fonts/DroidSans/droid-sans.ttf?1426233536') format('truetype');
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url('../../fonts/OpenSans/opensans-regular.eot?1426233536');
+  src: url('../../fonts/OpenSans/opensans-regular.eot?&1426233536#iefix') format('embedded-opentype'), url('../../fonts/OpenSans/opensans-regular.ttf?1426233536') format('truetype'), url('../../fonts/OpenSans/opensans-regular.woff?1426233536') format('woff');
+}
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", arial, sans-serif;
+  font-size: 13px;
+}
+
+a {
+  text-decoration: none;
+  color: #f37021;
+}
+
+audio, img, object, video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-family: "Droid Sans", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#page_header_wrapper {
+  border-top: 3px solid #02102b;
+  background: #f0eade;
+  height: 122px;
+  z-index: 2;
+  position: relative;
+}
+
+#site_branding_wrapper {
+  overflow: hidden;
+  *zoom: 1;
+  height: 72px;
+  width: 100%;
+  background: #ca0b0b;
+  border-bottom: 1px solid white;
+}
+
+#branding {
+  overflow: hidden;
+  *zoom: 1;
+  height: 68px;
+  margin: 2px 5px;
+  width: 108px;
+  float: left;
+}
+
+#tagline {
+  overflow: hidden;
+  *zoom: 1;
+  height: auto;
+  margin: auto;
+  margin-right: 5px;
+  width: 89px;
+  line-height: 72px;
+}
+#tagline img {
+  vertical-align: middle;
+}
+
+#toggle, #toggle-search {
+  display: none;
+}
+
+#toggle:checked + nav .menu {
+  display: block;
+  opacity: 1;
+  z-index: 4;
+}
+
+#toggle:checked + nav .toggle:after {
+  content: attr(data-close);
+}
+
+.toggle {
+  display: block;
+  width: 83%;
+  float: left;
+  position: relative;
+  cursor: pointer;
+  padding-left: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background: #ca0b0b url('../images/icon-menu.png?1426233536') no-repeat right 10px center;
+}
+.toggle:after {
+  content: attr(data-open);
+  display: block;
+  width: 100;
+  margin: 0;
+  padding: 10px 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-align: left;
+  font-size: 12px;
+  color: white;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.toggle-search {
+  display: block;
+  width: 10%;
+  float: left;
+  margin-left: 1%;
+  position: relative;
+  padding: 17px 3%;
+  cursor: pointer;
+  background: #ca0b0b url('../images/icon-search.png?1426349579') no-repeat center center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#toggle-search:checked + .search-block {
+  display: block;
+  opacity: 1;
+  z-index: 4;
+}
+
+.search-block {
+  width: 100%;
+  display: none;
+  background: #ca0b0b !important;
+}
+
+#site_search_mobile {
+  background: transparent;
+  display: block;
+  margin: 5%;
+}
+
+#search_txt {
+  width: 100%;
+}
+
+#main_navigation {
+  padding: 4px;
+  border-top: 3px solid #c7bfb3;
+  display: block;
+  text-transform: uppercase;
+}
+#main_navigation ul {
+  padding: 0;
+  overflow: hidden;
+  *zoom: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  display: none;
+  opacity: 0;
+  right: 0;
+  background: #f0eade;
+  border-top: 1px solid #f0eade;
+  height: auto;
+}
+#main_navigation ul li {
+  list-style-type: none;
+  font-size: 11px;
+  text-align: left;
+  float: left;
+  width: 49%;
+  margin: 0;
+  height: auto;
+}
+#main_navigation ul li .context-default {
+  box-shadow: inset 2px 0px #ca0b0b;
+  color: #ca0b0b;
+}
+#main_navigation ul li .context-business {
+  box-shadow: inset 2px 0px #6a94fa;
+  color: #6a94fa;
+}
+#main_navigation ul li .context-opinion {
+  box-shadow: inset 2px 0px #11ae75;
+  color: #11ae75;
+}
+#main_navigation ul li .context-leadership {
+  box-shadow: inset 2px 0px #c27f4d;
+  color: #c27f4d;
+}
+#main_navigation ul li .context-arts {
+  box-shadow: inset 2px 0px #fe126b;
+  color: #fe126b;
+}
+#main_navigation ul li .context-technology, #main_navigation ul li .context-sci-tech, #main_navigation ul li .context-big-politics {
+  box-shadow: inset 2px 0px #f37021;
+  color: #f37021;
+}
+#main_navigation ul a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: auto;
+  padding: 5px 5px;
+}
+
+#footer_wrapper {
+  border-top: 5px solid #f0eade;
+  background: #321d06;
+  color: white;
+  height: auto;
+  margin-top: 45px;
+}
+
+#page_footer {
+  width: 100%;
+}
+#page_footer ul, #page_footer p {
+  text-align: center;
+  padding: 12px 0;
+}
+#page_footer p {
+  font-size: 10px;
+}
+#page_footer ul {
+  overflow: hidden;
+}
+#page_footer ul .view-mobile {
+  width: 96%;
+  background-color: #573016;
+  text-align: center;
+}
+#page_footer li {
+  width: 47%;
+  margin-left: 2%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  border-bottom: solid 1px #573016;
+  float: left;
+}
+#page_footer li a {
+  display: block;
+  padding: 7px;
+  font-size: 12px;
+  color: #e9e1d5;
+}
+
+section header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: black;
+}
+section header h1 {
+  margin: 5px 0;
+}
+
+.header-features header, .page-title-features header, .page-title-talk-isnt-cheap header, .page-title-health header, .page-title-multimedia header, .page-title-education header, .page-title-graphics-photos header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: #ca0b0b;
+}
+
+.header-leadership header, .page-title-leadership header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: #c27f4d;
+}
+
+.header-technology header, .page-title-science-technology header, .page-title-sci-tech header, .page-title-big-politics header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: #f37021;
+}
+
+.header-opinion header, .page-title-opinion header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: #11ae75;
+}
+
+.header-business header, .page-title-business header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: #6a94fa;
+}
+
+.header-arts header, .page-title-arts header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: #fe126b;
+}
+
+.header-dessert header, .page-title-dessert header {
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  text-transform: uppercase;
+  color: #c27f4d;
+}
+
+#page_title {
+  margin-bottom: 20px;
+  padding-top: 5px;
+}
+
+.section_list article {
+  border-bottom: 1px solid #cccccc;
+  padding: 8px 3px 8px 3px;
+  overflow: hidden;
+  display: block;
+}
+.section_list article:last-child {
+  border-bottom: none;
+}
+.section_list article figure {
+  float: left;
+  height: auto;
+  padding-right: 10px;
+  margin: 0;
+}
+.section_list article h1 {
+  margin-bottom: 3px;
+  font-size: large;
+}
+.section_list article p {
+  margin: 0;
+}
+
+#contents_wrapper {
+  margin: 10px;
+}
+
+.content_listings a {
+  color: #005689;
+}
+
+.content_blurb, .alt_content_blurb {
+  margin-bottom: 12px;
+  font-family: "Open Sans", sans-serif;
+}
+.content_blurb p, .alt_content_blurb p {
+  display: block;
+  font-weight: bold;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.content_place_line {
+  color: #ca0b0b;
+}
+.content_place_line:after {
+  content: " | ";
+  color: #cccccc;
+}
+
+#author_profile {
+  border-bottom: 1px solid #f1f1f1;
+}
+#author_profile figure {
+  margin: 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  float: left;
+}
+#author_profile blockquote {
+  display: inline;
+  margin: 0;
+}
+#author_profile ul {
+  padding: 0;
+}
+#author_profile li {
+  margin-bottom: 5px;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */
+</style> <!-- JS for Google ads --> <script type="text/javascript"> var googletag = googletag || {}; googletag.cmd = googletag.cmd || []; (function() { var gads = document.createElement('script'); gads.async = true; gads.type = 'text/javascript'; var useSSL = 'https:' == document.location.protocol; gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js'; var node = document.getElementsByTagName('script')[0]; node.parentNode.insertBefore(gads, node); })(); </script> <script type="text/javascript"> googletag.cmd.push(function() { googletag.defineSlot('/5503/MG-Africa-Mobile', [[4, 1], [6, 1], [112, 30], [167, 30], [215, 34], [300, 100], [305, 64], [300, 250], [320, 50]], 'div-gpt-ad-1410246695296-0').addService(googletag.pubads()); googletag.defineSlot('/5503/MG-Africa-Mobile', [[4, 1], [6, 1], [112, 30], [167, 30], [215, 34], [300, 100], [305, 64], [300, 250], [320, 50]], 'div-gpt-ad-1410246695296-1').addService(googletag.pubads()); googletag.enableServices(); }); </script> <!-- JS for Google ads --> <!-- START: Google analytics --> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-49626322-2', 'm.mgafrica.com'); ga('send', 'pageview'); </script> <!-- END: Google analytics --> </head> <body> <div id="outer_wrapper"> <!-- OUTER WRAPPER OPEN --> <div id="page_header_wrapper"> <!-- PAGE HEADER WRAPPER OPEN --> <header id="page_header" class="group"> <!-- SITE BRANDING --> <section id="site_branding_wrapper"> <div id="branding"> <a href="http://m.mgafrica.com/" accesskey="1"> <img src="http://m.mgafrica.com/assets/images/logo.png" width="108" height="68" alt="MG Africa logo"> </a> </div> <div id="tagline"> <a href="http://m.mgafrica.com/" accesskey="2"> <img src="http://m.mgafrica.com/assets/images/tagline-white.png" width="89" height="15" alt="AfricanTruth"> </a> </div> </section> <!-- MAIN SITE NAVIGATION --> <input type="checkbox" id="toggle"> <nav id="main_navigation"> <label for="toggle" class="toggle" data-open="Menu" data-close="Close Menu" accesskey="3" onclick=""></label> <label for="toggle-search" class="toggle-search lsf-icon search" onclick=""></label> <ul class="menu"> <li> <a href="http://m.mgafrica.com/" class="context-default link-first" accesskey="4">News</a> </li> <li> <a href="http://m.mgafrica.com/section/big-politics/" class="context-big-politics" accesskey="5">Big Politics</a> </li> <li> <a href="http://m.mgafrica.com/section/business/" class="context-business" accesskey="6">Business</a> </li> <li> <a href="http://m.mgafrica.com/section/talk-isnt-cheap/" class="context-default" accesskey="7">Talk Isn&apos;t Cheap</a> </li> <li> <a href="http://m.mgafrica.com/section/arts/" class="context-arts" accesskey="8">Arts</a> </li> <li> <a href="http://m.mgafrica.com/section/education/" class="context-default" accesskey="9">Education</a> </li> <li> <a href="http://m.mgafrica.com/section/sci-tech/" class="context-sci-tech" accesskey="10">Sci-Tech</a> </li> <li> <a href="http://m.mgafrica.com/section/health/" class="context-default" accesskey="11">Health</a> </li> <li> <a href="http://m.mgafrica.com/section/opinion/" class="context-opinion" accesskey="12">Opinion</a> </li> <li> <a href="http://m.mgafrica.com/section/dessert/" class="context-leadership" accesskey="13">Dessert</a> </li> <li> <a href="http://m.mgafrica.com/section/graphics-photos/" class="context-default link-last" accesskey="14">Graphics &amp; Photos</a> </li> </ul> <input type="checkbox" id="toggle-search"> <ul class="search-block"> <div id="site_search_mobile"> <form action="http://m.mgafrica.com/search/"> <input type="hidden" name="cx" value="008037566491708944521:wpkoue0uxpo"> <input type="hidden" name="ie" value="UTF-8"> <input name="q" type="text" placeholder="Search" id="search_txt"> </form> </div> </ul> </nav> </header> <!-- PAGE HEADER WRAPPER CLOSE --> </div> </div> <div id="contents_wrapper" accesskey="17"> <!-- CONTENTS WRAPPER OPEN --> <!-- MG-Africa-Mobile:top --> <div id="div-gpt-ad-1410246695296-0"> <script type="text/javascript"> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1410246695296-0'); }); </script> </div> <div id="page_contents"> <!-- content --> <div id="content"> <section id="page_title" class="header-features section_list content_listings  group"> <header> <h1>News</h1> </header> <article> <h1> <a href="article/2015-08-28-brain-drain-burundi-the-country-most-unable-to-retain-its-top-talent-rwanda-kenya-star-and-jammehs-gambia-surprises">Brain drain in Africa: Burundi least able to retain its top talent, Rwanda, Kenya top and Jammeh&#x2019;s Gambia surprises</a> </h1> <figure> <span class=" media_type"></span> <a href="article/2015-08-28-brain-drain-burundi-the-country-most-unable-to-retain-its-top-talent-rwanda-kenya-star-and-jammehs-gambia-surprises" title="Brain drain in Africa: Burundi least able to retain its top talent, Rwanda, Kenya top and Jammeh&#x2019;s Gambia surprises"> <img src="http://cdn.mg.co.za/crop/content/images/2015/03/26/heunemployment_landscape.jpg/60x60/" width="60" height="60" alt="Brain drain in Africa: Burundi least able to retain its top talent, Rwanda, Kenya top and Jammeh&#x2019;s Gambia surprises"> </a> </figure> <p>The pursuit of opportunities outside one&apos;s country is a feature of working life, but some countries seem to do it better than others.</p> </article><article> <h1> <a href="article/2015-08-28-africa-got-drunk-on-chinas-growth-now-its-sweating-as-turmoil-threatens-investment-boom">UPDATED: Africa had a big China party and the hangover is going to continue longer than expected</a> </h1> <figure> <span class=" media_type"></span> <a href="article/2015-08-28-africa-got-drunk-on-chinas-growth-now-its-sweating-as-turmoil-threatens-investment-boom" title="UPDATED: Africa had a big China party and the hangover is going to continue longer than expected"> <img src="http://cdn.mg.co.za/crop/content/images/2015/08/28/ebdebefe5f3c95d1d04d786aae6da6d6d837fb1c_landscape.jpg/60x60/" width="60" height="60" alt="UPDATED: Africa had a big China party and the hangover is going to continue longer than expected"> </a> </figure> <p>Despite the worries, economists say predictions that China will no longer be a major player in Africa are overblown.</p> </article><article> <h1> <a href="article/2015-08-28-mozambican-journalist-machava-shot-dead-in-drive-by-attack-echoes-killing-of-top-lawyer-6-months-ago">Mozambican journalist Machava shot dead in drive-by attack; echoes killing of top lawyer 6 months ago</a> </h1> <figure> <span class=" media_type"></span> <a href="article/2015-08-28-mozambican-journalist-machava-shot-dead-in-drive-by-attack-echoes-killing-of-top-lawyer-6-months-ago" title="Mozambican journalist Machava shot dead in drive-by attack; echoes killing of top lawyer 6 months ago"> <img src="http://cdn.mg.co.za/crop/content/images/2015/03/03/gillescistac_landscape.jpg/60x60/" width="60" height="60" alt="Mozambican journalist Machava shot dead in drive-by attack; echoes killing of top lawyer 6 months ago"> </a> </figure> <p>For some, it will also bring memories of the 2000 murder of celebrated Mozambican investigative journalist Carlos Cardoso.</p> </article><article> <h1> <a href="article/2015-08-28-i-stopped-counting-doctor-on-discovering-migrant-boat-dead">They are perishing in their hundreds. &apos;I stopped counting&apos;, doctor says on discovering migrant boat dead</a> </h1> <figure> <span class=" media_type"></span> <a href="article/2015-08-28-i-stopped-counting-doctor-on-discovering-migrant-boat-dead" title="They are perishing in their hundreds. &apos;I stopped counting&apos;, doctor says on discovering migrant boat dead"> <img src="http://cdn.mg.co.za/crop/content/images/2015/08/28/e456482f6422e5d5d2a0391b13f65eedb3d31707_landscape.jpg/60x60/" width="60" height="60" alt="They are perishing in their hundreds. &apos;I stopped counting&apos;, doctor says on discovering migrant boat dead"> </a> </figure> <p>These aren&apos;t just numbers, these are people who have stories that we will never get a chance to hear.</p> </article> </section> <section id="page_title" class="homepage-sections section_list content_listings header-leadership group"> <header> <h1>Features &amp; Essays</h1> </header> <article> <a href="article/2015-08-27-10-quick-things-about-south-sudan">Dancing at the mouth of the grave: 10 quick things about South Sudan</a> </article><article> <a href="article/2015-08-25-high-property-prices-buy-an-island-instead">1.14 acre land in Kenya going for $11.6million - that&apos;s enough to buy one of these African islands instead!</a> </article><article> <a href="article/2015-08-27-the-app-that-could-end-africas-address-problems-with-just-three-little-words">The app that could transform Africa&apos;s e-commerce by solving its postcode problem - and with just three little words</a> </article> </section> <section id="page_title" class="homepage-sections section_list content_listings  header-business group"> <header> <h1>Business</h1> </header> <article> <a href="article/2015-08-25-high-property-prices-buy-an-island-instead">1.14 acre land in Kenya going for $11.6million - that&apos;s enough to buy one of these African islands instead!</a> </article><article> <a href="article/2015-08-28-zimbabwe-still-on-downward-spiral-as-mugabe-signs-law-to-stop-mass-lay-offs">Zimbabwe economy still on downward spiral, as Mugabe signs law to stop mass lay-offs</a> </article><article> <a href="article/2015-08-25-africa-spurning-america-fled-into-chinas-arms-but-the-us-could-actually-save-the-continents-dipping-economic-fortunes">Africa, spurning America, fled into China&#x2019;s arms. Now US may hold &apos;cure&apos; to the continent&#x2019;s fast-dipping economy</a> </article> </section> <section id="page_title" class="homepage-sections section_list content_listings  header-opinion group"> <header> <h1>Opinion</h1> </header> <article> <a href="article/2015-08-26-elusive-south-sudan-deal-signed-whats-in-it-for-president-kiir-and-rebel-leader-machar">Slippery South Sudan deal inked - why Kiir held out even as rebel chief Machar quickly signed, and what next</a> </article><article> <a href="article/2015-08-19-rogues-corner-buhari-should-take-leadership-lessons-from-boko-harams-shekau">ROGUES CORNER: Buhari should take leadership lessons from his enemy, Boko Haram&apos;s Shekau</a> </article><article> <a href="article/2015-08-19-the-african-ice-bucket-challenge">How to do an African version of the Ice Bucket challenge. Step one; find ice</a> </article> </section> <section id="page_title" class="homepage-sections section_list content_listings  header-technology group"> <header> <h1>Sci-Tech</h1> </header> <article> <a href="article/2015-08-28-israel-looks-to-use-clever-crop-water-technology-to-win-friends-in-africa">Israel looks to use clever crop, water technology to win friends in Africa</a> </article><article> <a href="article/2015-08-24-2015-set-to-be-the-hottest-year-ever-recorded-this-infographic-maps-out-africas-extreme-weather-incidents-so-far">2015 set to be hottest year ever recorded! Infographic maps out Africa&apos;s unusual weather so far this year</a> </article><article> <a href="article/2015-08-25-eyeing-the-stars-among-fields-where-farmers-lead-oxen-dragging-wooden-ploughs-sits-ethiopias-space-programme">Eyeing the stars: Among the farmers&apos; fields and oxen, sits Ethiopia&apos;s space programme</a> </article> </section> </div> </div> <!-- CONTENTS WRAPPER CLOSE --> <!-- OUTER WRAPPER CLOSE --> </div> <!-- MG-Africa-Mobile:bottom --> <div id="div-gpt-ad-1410246695296-1"> <script type="text/javascript"> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1410246695296-1'); }); </script> </div> <footer id="footer_wrapper" class="group" accesskey="18"> <!-- FOOTER OPEN --> <nav id="page_footer"> <ul> <li class="view-mobile"> <a href="http://m.mgafrica.com/mobileview/">Switch to desktop version</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-contact-us/">Contact Us</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-about-us/">About Us</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-story-tip-offs/">Story Tip-offs</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-corrections-and-clarifications-2015/">Corrections And Clarifications</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-privacy-policy/">Legal</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-mail-and-guardian-ethics-and-social-media-policy">Ethics &amp; Social Media Policy</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-comments-guidelines/">Comments Guidelines</a> </li> <li> <a href="http://m.mgafrica.com/page/africa-advertising-1/">Advertising</a> </li> </ul> <p id="copyright_notice">All material &#xA9; Mail &amp; Guardian Online. Material may not be published or reproduced in any form without prior written permission.</p> </nav> <!-- FOOTER CLOSE --> </footer> </body> </html>

@@ -105,6 +105,10 @@ read(
       console.log('error:', err);
       return;
     }
+    if (res.status != 200) {
+      console.log('status:', res.status);
+      return;
+    }
     if (!article) {
       console.log('Empty article:', article);
       return;
@@ -123,19 +127,19 @@ read(
     //     console.log(image.url + ':' + image.buf.length);
     //   });
     // });
-    article.getHtmls([ { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' } ], function (err, html) {
-      if (err) {
-        console.log('error:', err);
-        return;
-      }
-      fs.writeFile('source.html', html, function (err) {
-        if (err) {
-          console.log('error:', err);
-          return;
-        }
-        console.log('source is saved!', new Date() - start);
-      });
-    });
+    // article.getHtmls([ { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' } ], function (err, html) {
+    //   if (err) {
+    //     console.log('error:', err);
+    //     return;
+    //   }
+    //   fs.writeFile('source.html', html, function (err) {
+    //     if (err) {
+    //       console.log('error:', err);
+    //       return;
+    //     }
+    //     console.log('source is saved!', new Date() - start);
+    //   });
+    // });
     fs.writeFile('article.html', article.html, function (err) {
       if (err) {
         console.log('error:', err);

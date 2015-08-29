@@ -9,8 +9,8 @@
  */
 var log4js = require('log4js'); // Port of Log4js to work with node
 var logger = log4js.getLogger('grabHtmls');
-// logger.setLevel('FATAL');
-logger.setLevel('DEBUG');
+logger.setLevel('FATAL');
+// logger.setLevel('DEBUG');
 
 /**
  *  Fetch url contents.
