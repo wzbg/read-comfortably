@@ -162,26 +162,11 @@ var assignScore = function ($, options) {
     options.nodesToScore = ['p', 'article'];
   }
   $(options.nodesToScore.join()).each(function (index, element) {
-    var paragraph       = $(element);
-    var parentNode      = paragraph.parent();
-    var grandParentNode = parentNode ? parentNode.parent() : null;
-    var innerText       = helpers.getInnerText(paragraph);
-    if (!parentNode || !parentNode.length) {
-      return;
-    }
+    var paragraph = $(element);
+    var innerText = helpers.getInnerText(paragraph);
     /* If this paragraph is less than 25 characters, don't even count it. */
     if (innerText.length < 25) {
       return;
-    }
-    /* Initialize readability data for the parent. */
-    if (!parentNode.data('readabilityScore')) {
-      helpers.initializeNode(parentNode);
-      candidates.push(parentNode);
-    }
-    /* Initialize readability data for the grandparent. */
-    if (grandParentNode && grandParentNode.length && !grandParentNode.data('readabilityScore')) {
-      helpers.initializeNode(grandParentNode);
-      candidates.push(grandParentNode);
     }
     /* Add a point for the paragraph itself as a base. */
     var contentScore = 1;
@@ -193,10 +178,15 @@ var assignScore = function ($, options) {
     }
     /* For every 100 characters in this paragraph, add another point. Up to 3 points. */
     contentScore += Math.min(Math.floor(innerText.length / 100), 3);
-    /* Add the score to the parent. The grandparent gets half. */
-    parentNode.data('readabilityScore', parentNode.data('readabilityScore') + contentScore);
-    if (grandParentNode) {
-      grandParentNode.data('readabilityScore', grandParentNode.data('readabilityScore') + contentScore / 2);
+    for (var parentNode = paragraph.parent(); parentNode && parentNode.length; parentNode = parentNode.parent()) {
+      /* Initialize readability data for the parent. */
+      if (!parentNode.data('readabilityScore')) {
+        helpers.initializeNode(parentNode);
+        candidates.push(parentNode);
+      }
+      /* Add the score to the parent. The grandparent gets half. */
+      parentNode.data('readabilityScore', parentNode.data('readabilityScore') + contentScore);
+      contentScore /= 2;
     }
   });
   return candidates;
@@ -257,9 +247,18 @@ var getArticleContent = function (topCandidate, $, options) {
   if (!parentNode || !parentNode.length) {
     return topCandidate;
   }
+  var parentNodeClass = parentNode.attr('class');
+  var topCandidateClass = topCandidate.attr('class');
+  if (topCandidateClass && parentNodeClass && !topCandidateClass.search(parentNodeClass.trim())) {
+    return getArticleContent(parentNode, $, options);
+  }
   var siblingNodes = parentNode.children();
   if (siblingNodes.length == 1) {
     return getArticleContent(parentNode, $, options);
+  }
+  if (!options.nodesToAppend) {
+    /* default nodesToAppend */
+    options.nodesToAppend = ['p'];
   }
   var articleContent = $('<div id="readability-content"></div>');
   siblingNodes.each(function (index, element) {
@@ -276,7 +275,7 @@ var getArticleContent = function (topCandidate, $, options) {
     var append = siblingNode.is(topCandidate);
     /* siblingNode is img or have an img */
     if (!append) {
-      append = element.name == 'img' || siblingNode.find('img').length < 3;
+      append = element.name == 'img' || siblingNode.find('img').length == 1;
     }
     /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
     if (!append) {
@@ -285,7 +284,7 @@ var getArticleContent = function (topCandidate, $, options) {
         var contentBonus = 0;
         var topNodeScore = topCandidate.data('readabilityScore');
         /* Give a bonus if sibling nodes and top candidates have the example same classname */
-        if (topCandidate.attr('class') && topCandidate.attr('class') == siblingNode.attr('class')) {
+        if (topCandidateClass && topCandidateClass == siblingNode.attr('class')) {
           contentBonus += topNodeScore * 0.2;
         }
         var siblingScoreThreshold = Math.max(10, topNodeScore * 0.2);
@@ -294,10 +293,6 @@ var getArticleContent = function (topCandidate, $, options) {
     }
     /* siblingNode's linkDensity < 0.25 */
     if (!append) {
-      if (!options.nodesToAppend) {
-        /* default nodesToAppend */
-        options.nodesToAppend = ['p'];
-      }
       if (options.nodesToAppend.indexOf(element.name) != -1) {
         siblingNode.find('a').each(function (index, element) {
           if (!$(element).text().trim()) {
