@@ -33,13 +33,15 @@ var read = require('../src/index.js');
 // var url = 'http://fortune.com/2015/08/20/airbnb-tesla-partner/';
 
 // var url = 'http://blogs.transparent.com/language-news/2015/08/26/staying-resourceful-in-language-learning/';
-var url = 'http://www.huffingtonpost.com/conde-nast-traveler/the-most-romantic-restaur_1_b_7977254.html';
+// var url = 'http://www.huffingtonpost.com/conde-nast-traveler/the-most-romantic-restaur_1_b_7977254.html';
 // var url = 'http://www.demilked.com/mental-illnesses-disorders-drawn-real-monsters-toby-allen/';
 // var url = 'http://www.businessinsider.com/work-in-groups-to-detect-lies-2015-8';
 
 // var url = 'http://abduzeedo.com/ccaa-kids-character-design';
 // var url = 'http://www.thisiscolossal.com/2015/08/glass-fruit-elliot-walker/';
 // var url = 'http://techcrunch.com/2015/08/25/youtube-gaming-its-twitch-competitor-set-to-launch-tomorrow/#.s1vcuu:j64V';
+
+var url = 'http://www.bbc.com/news/magazine-30450980';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
