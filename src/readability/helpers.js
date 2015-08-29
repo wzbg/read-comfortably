@@ -118,9 +118,13 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
         img = $('<img src="' + url + '">');
         $(element).append(img);
       }
+      img.attr('orig-height', img.attr('height'));
+      img.attr('orig-width', img.attr('width'));
       img.attr('orig-src', img.attr('src'));
       img.attr('src', img.attr(use));
       img.attr('use', use);
+      img.removeAttr('width');
+      img.removeAttr('height');
     }
   });
 };

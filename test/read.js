@@ -37,6 +37,10 @@ var url = 'http://www.huffingtonpost.com/conde-nast-traveler/the-most-romantic-r
 // var url = 'http://www.demilked.com/mental-illnesses-disorders-drawn-real-monsters-toby-allen/';
 // var url = 'http://www.businessinsider.com/work-in-groups-to-detect-lies-2015-8';
 
+// var url = 'http://abduzeedo.com/ccaa-kids-character-design';
+// var url = 'http://www.thisiscolossal.com/2015/08/glass-fruit-elliot-walker/';
+// var url = 'http://techcrunch.com/2015/08/25/youtube-gaming-its-twitch-competitor-set-to-launch-tomorrow/#.s1vcuu:j64V';
+
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
 
@@ -78,6 +82,7 @@ var maybeImgsAttr = [ // 可能是图片的属性
   'data-medsrc',
   'data-smsrc',
   'data-lgsrc',
+  'data-cfsrc',
   'data-src',
   'load-src',
   'src'
@@ -86,6 +91,7 @@ var maybeImgsAttr = [ // 可能是图片的属性
 var userAgent = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.20 (KHTML, like Gecko) Mobile/7B298g';
 // var userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36';
 
+var start = new Date();
 read(
   url,
   {
@@ -107,20 +113,6 @@ read(
     console.log('document:', article.dom);
     console.log('title:', article.title);
     console.log('desc:', article.getDesc(300));
-    fs.writeFile('article.html', article.html, function (err) {
-      if (err) {
-        console.log('error:', err);
-        return;
-      }
-      console.log('article is saved!');
-    });
-    fs.writeFile('content.html', article.content, function (err) {
-      if (err) {
-        console.log('error:', err);
-        return;
-      }
-      console.log('content is saved!');
-    });
     // article.getImages(function (err, images) {
     //   if (err) {
     //     console.log('error:', err);
@@ -131,5 +123,32 @@ read(
     //     console.log(image.url + ':' + image.buf.length);
     //   });
     // });
+    article.getHtmls([ { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' } ], function (err, html) {
+      if (err) {
+        console.log('error:', err);
+        return;
+      }
+      fs.writeFile('source.html', html, function (err) {
+        if (err) {
+          console.log('error:', err);
+          return;
+        }
+        console.log('source is saved!', new Date() - start);
+      });
+    });
+    fs.writeFile('article.html', article.html, function (err) {
+      if (err) {
+        console.log('error:', err);
+        return;
+      }
+      console.log('article is saved!', new Date() - start);
+    });
+    fs.writeFile('content.html', article.content, function (err) {
+      if (err) {
+        console.log('error:', err);
+        return;
+      }
+      console.log('content is saved!', new Date() - start);
+    });
   }
 );

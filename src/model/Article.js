@@ -5,6 +5,7 @@ var S = require('string');
 
 var grabArticle = require('../readability/grabArticle');
 var grabImages = require('../readability/grabImages');
+var grabHtmls = require('../readability/grabHtmls');
 
 var Article = function (dom, url, options) {
   this.cache = {};
@@ -53,7 +54,16 @@ Article.prototype.getImages = function (callback) {
     }
     return callback(null, self.cache['article-images'] = images);
   });
-}
+};
+
+Article.prototype.getHtmls = function (sources, callback) {
+  grabHtmls(this._html, sources, function (error, html) {
+    if (error) {
+      return callback(error);
+    }
+    return callback(null, html);
+  });
+};
 
 Article.prototype.getContent = function (notDeprecated) {
   if (!notDeprecated) {
