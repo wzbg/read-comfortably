@@ -42,7 +42,9 @@ var read = require('../src/index.js');
 // var url = 'http://www.bbc.com/news/magazine-30450980';
 
 // var url = 'http://www.forbes.com/sites/chunkamui/2015/08/21/google-is-millions-of-miles-ahead-of-apple-in-driverless-cars/';
-var url = 'http://www.wired.com/2015/08/reaction-housing-exo-shelter/';
+// var url = 'http://www.wired.com/2015/08/reaction-housing-exo-shelter/';
+// var url = 'http://www.mymodernmet.com/profiles/blogs/bibliobicicleta-pop-up-bicycle-library';
+var url = 'http://thoughtcatalog.com/kovie-biakolo/2015/08/13-things-that-definitely-happened-in-your-childhood-if-your-parents-were-college-professors/';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
