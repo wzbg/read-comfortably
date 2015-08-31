@@ -44,7 +44,15 @@ var read = require('../src/index.js');
 // var url = 'http://www.forbes.com/sites/chunkamui/2015/08/21/google-is-millions-of-miles-ahead-of-apple-in-driverless-cars/';
 // var url = 'http://www.wired.com/2015/08/reaction-housing-exo-shelter/';
 // var url = 'http://www.mymodernmet.com/profiles/blogs/bibliobicicleta-pop-up-bicycle-library';
-var url = 'http://thoughtcatalog.com/kovie-biakolo/2015/08/13-things-that-definitely-happened-in-your-childhood-if-your-parents-were-college-professors/';
+// var url = 'http://thoughtcatalog.com/kovie-biakolo/2015/08/13-things-that-definitely-happened-in-your-childhood-if-your-parents-were-college-professors/';
+// var url = 'http://www.entrepreneur.com/article/249866';
+
+// var url = 'http://www.dezeen.com/2015/08/30/decadrages-bedup-lifts-up-to-ceiling-when-not-in-use/';
+// var url = 'http://www.seriouseats.com/2014/07/best-breakfast-sandwiches-america-usa.html';
+// var url = 'http://petapixel.com/2015/08/28/heres-why-instagram-chose-to-break-the-frame/';
+// var url = 'http://www.foxnews.com/tech/2015/08/30/5-details-shouldnt-give-facebook/';
+// var url = 'http://www.demilked.com/detailed-food-art-spoon-ioana-vanc-romania/';
+var url = 'http://www.mymodernmet.com/profiles/blogs/scott-herder-travels-from-the-monk-that-lives-in-my-phone';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
@@ -134,19 +142,19 @@ read(
     //     console.log(image.url + ':' + image.buf.length);
     //   });
     // });
-    // article.getHtmls([ { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' } ], function (err, html) {
-    //   if (err) {
-    //     console.log('error:', err);
-    //     return;
-    //   }
-    //   fs.writeFile('source.html', html, function (err) {
-    //     if (err) {
-    //       console.log('error:', err);
-    //       return;
-    //     }
-    //     console.log('source is saved!', new Date() - start);
-    //   });
-    // });
+    article.getHtmls([ { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' } ], function (err, html) {
+      if (err) {
+        console.log('error:', err);
+        return;
+      }
+      fs.writeFile('source.html', html, function (err) {
+        if (err) {
+          console.log('error:', err);
+          return;
+        }
+        console.log('source is saved!', new Date() - start);
+      });
+    });
     fs.writeFile('article.html', article.html, function (err) {
       if (err) {
         console.log('error:', err);

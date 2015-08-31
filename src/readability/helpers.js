@@ -114,7 +114,7 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
       return;
     }
     if (isImageUrl(url)) {
-      if (!isImg && !img.find('img').length) {
+      if (!isImg && !img.find('img').length && !$('img[src="' + url + '"]').length) {
         img = $('<img src="' + url + '">');
         $(element).append(img);
       }
