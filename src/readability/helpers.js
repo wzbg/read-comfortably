@@ -149,3 +149,26 @@ var fixLinks = module.exports.fixLinks = function ($, base, options) {
     }
   });
 };
+
+/**
+ *  get new url by options.hostnameParse if hostname's key is exist
+ *  @param string
+ *  @param object
+ *  @return string
+ */
+var getNewUrl = module.exports.getNewUrl = function (base, options) {
+  if (!options.hostnameParse) {
+    return;
+  }
+  var uri = url.parse(base);
+  var hostname = options.hostnameParse[uri.hostname];
+  if (!hostname) {
+    return;
+  }
+  var newUrl = uri.protocol + '//' + hostname;
+  if (uri.port && uri.port != 80) {
+    newUrl += ':' + uri.port;
+  }
+  newUrl += uri.path;
+  return newUrl;
+};
