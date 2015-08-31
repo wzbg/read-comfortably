@@ -1,0 +1,4094 @@
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"> <title>Couple uses ladders to navigate their Tokyo &apos;Ninja&apos; house | Inhabitat - Sustainable Design Innovation, Eco Architecture, Green Building</title> <style> /* Hackery. */
+
+#sidebar {
+	overflow: visible;
+}
+
+
+/* 
+ *	Base widget container 
+ */
+div.widget {
+	clear: both;
+	position: relative;
+}
+
+
+.widget-content {
+	background-color: #efefef;
+	border: 1px solid #cccccc;
+	padding: 8px;
+	overflow: visible;
+}
+.widget-content-nopad {
+	padding: 0px!important;
+}
+.widget-content p {
+	margin: 5px 0 0!important;
+	padding: 0px!important;
+}
+
+.widget-content ul {
+	margin: 0px!important;
+	padding: 0px!important;
+	border-top: 1px solid #cccccc;
+	overflow: auto;
+}
+.widget-content ul li {
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-top: none;
+	margin: 0px!important;
+	padding: 8px!important;
+	overflow: auto;
+}
+.widget-content-nopad ul {
+	border-top: none!important;
+}
+.widget-content-nopad ul li {
+	border: none!important;
+}
+.widget-content ul li h4,
+.widget-content ul li h4 a {
+	color: #000000;
+}
+.widget-content ul li .widget-readmore {
+	
+}
+
+
+.widget-img {
+	overflow: hidden;
+	display: block;
+	border: 1px solid #cccccc!important;
+}
+
+div.widget .widget-img-floatleft {
+	float: left;
+	margin-right: 8px;
+}
+div.widget .widget-img-floatright {
+	float: right;
+	margin-left: 8px;
+}
+div.widget .widget-img-above {
+	margin-left: -8px;
+	margin-top: -8px;
+	margin-bottom: 8px;
+	border-left: 0px!important;
+	border-right: 0px!important;
+	border-top: 0px!important;
+}
+
+.widget-header {
+
+}
+.widget-header h3 {
+	background-color: #666666; 
+	color: #ffffff; 
+	padding: 8px 10px; 
+	font-size: 16px;
+	line-height: 100%;
+	font-weight: normal; 
+	text-transform: uppercase;
+}
+.widget-header h3 a {
+	color: #ffffff; 
+}
+div.widget .widget-header-badge_topleft {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	z-index: 800;
+}
+div.widget .widget-header-badge_topright {
+	position: absolute;
+	top: -10px;
+	right: -20px;
+	z-index: 800;
+}
+
+.widget-content .widget-carousel {
+	position: relative;
+	border-right: 1px solid #cccccc!important;
+	border-left: 1px solid #cccccc!important;
+}
+.widget-content .widget-carousel ul li,
+.widget-content .widget-advcarousel div div {
+	border-left: none!important;
+	position: relative;
+	overflow: hidden;
+}
+.widget-content .widget-carousel a.widget-carousel-prev, 
+.widget-content .widget-carousel a.widget-carousel-next {
+	display: block;
+	width: 18px;
+/* 	height: 24px; */
+	height: 10%;
+	background-color: #999999;
+	border: 1px solid #666666;
+	border-bottom: 1px solid #000000;
+	position: absolute;
+} 
+.widget-content .widget-carousel a.widget-carousel-prev {
+	top: 45%;
+	left: -14px;
+	z-index: 999;
+	background: #999999 url('images/triangle-left.png') no-repeat 50% 50%;
+}
+.widget-content .widget-carousel a.widget-carousel-next {
+	top: 45%;
+	right: -14px;
+	z-index: 999;
+	background: #999999 url('images/triangle-right.png') no-repeat 50% 50%;
+}
+.widget-content .widget-carousel a.widget-carousel-prev:hover, 
+.widget-content .widget-carousel a.widget-carousel-next:hover {
+	background-color: #666666;
+}
+.widget-content .widget-carousel a.widget-carousel-prev span, 
+.widget-content .widget-carousel a.widget-carousel-next span {
+	display: none;
+}
+div.widget .widget-content .widget-carousel .widget-img-above {
+	margin: 0px;
+	border: 1px solid #cccccc!important;
+}
+
+.widget-content .widget-advcarousel .carousel-summary {
+	position: absolute;
+	top: 0px;
+	left: -1px;
+	/* padding: 8px 10px; */
+	height: inherit;
+	width: inherit;
+	z-index: 500;
+	margin: 9px 10px;
+	background: transparent url('images/bg-000000-50.png') repeat 0 0;
+}
+.widget-content .widget-carousel ul li .carousel-summary-mouseover_full
+{
+	display: none;
+}
+
+.widget-content .widget-carousel ul li .carousel-summary-mouseover_third
+{
+	display: none;
+}
+
+/*
+.widget-content .widget-carousel div div .carousel-summary {
+	clear:both;
+	visibility: visible;
+	float:left;
+	top:0;
+	left:0;
+	padding:0;
+	margin:0;
+	position: absolute !important;
+	height: 80px;
+	width: 706px;
+	z-index: 500;
+	background: transparent url('images/bg-000000-50.png') repeat 0 0;
+}
+*/
+
+div.widget .widget-img-advcarousel {
+	margin: -8px 0 0 0;
+	border: 0px!important;
+	left:-5px!important;
+}
+
+/*
+.widget-content .widget-advcarousel div div .carousel-summary {
+	clear:both;
+	visibility: visible;
+	float:left;
+	top:-1px;
+	left:0;
+	padding:0;
+	margin:0;
+	position: relative !important;
+	height: 80px;
+	width: 706px;
+	z-index: 500;
+	height:80px;
+	background: #373f42 repeat 0 0;
+}
+
+.widget-content #advcarousel-controls {
+	position: absolute;
+	top:144px;
+	width:706px;
+	height:63px;
+	margin:0;
+	padding:0;
+	z-index: 900;
+}
+*/
+
+/*.widget-content #advcarousel-controls #mygallery-paginate {
+	width:55px;
+	left:80px;
+	float:left;
+	position:relative;
+	text-align:center;
+	margin:0 auto;
+	height:10px !important;
+	
+}
+
+html>body #mygallery-paginate {
+	*top:-3px;	
+}
+
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0)
+{
+
+	head~body .widget-content #advcarousel-controls #mygallery-paginate {
+		top:0px;
+	}
+	
+}
+
+.widget-content #advcarousel-controls #mygallery-paginate img{
+	padding:0 2px !important;
+	margin:0 !important;
+}
+*/
+.widget-content #advcarousel-controls a.widget-carousel-prev, 
+.widget-content #advcarousel-controls a.widget-carousel-next {
+    display: block;
+     height:63px;
+    width:39px;
+    position: absolute;
+} 
+/*
+.widget-content #advcarousel-controls a.widget-carousel-prev {
+    top: 0;
+    left: 12px;
+    z-index: 999;
+    background: url('/wp-content/themes/inhabitat-v3/img/carousel_left_arrow.png') no-repeat 0 0;
+    
+}
+
+.widget-content #advcarousel-controls a:hover.widget-carousel-prev {
+    top: 0;
+    left: 12px;
+    z-index: 999;
+    background: url('/wp-content/themes/inhabitat-v3/img/carousel_left_arrow.png') no-repeat 0 0;
+    filter: alpha(opacity=60);
+   filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+   opacity:0.6;
+   -moz-opacity: 0.60; 
+   zoom: 1;
+}
+.widget-content #advcarousel-controls a.widget-carousel-next {
+    top: 6px;
+     left: 654px;
+    z-index: 999;
+    background: url('/wp-content/themes/inhabitat-v3/img/carousel_right_arrow.png') no-repeat 0 0;
+}
+
+.widget-content #advcarousel-controls a:hover.widget-carousel-next {
+    top: 6px;
+    left: 654px;
+    z-index: 999;
+    background: url('/wp-content/themes/inhabitat-v3/img/carousel_right_arrow.png') no-repeat 0 0;
+    filter: alpha(opacity=60);
+   filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+   opacity:0.6;
+   -moz-opacity: 0.60; 
+   zoom: 1;
+}
+*/
+
+.widget-content #advcarousel-controls a.widget-carousel-prev span, 
+.widget-content #advcarousel-controls a.widget-carousel-next span {
+    display:none;
+}
+
+/*
+.widget-content .widget-advcarousel div div .carousel-summary h4 a {
+	font-family:"Trebuchet MS",Arial,Sans-Serif;
+	font-size:14px;
+	line-height: 18px;
+}
+
+.widget-content .widget-advcarousel div div .carousel-summary h4 a:hover {
+	color:#17cccc;
+}
+
+.widget-content .widget-carousel ul li .carousel-summary-always,
+.widget-content .widget-advcarousel div div .carousel-summary {
+
+}
+
+.widget-content .widget-carousel ul li .carousel-summary h4,
+.widget-content .widget-advcarousel div div .carousel-summary h4 {
+	margin: 10px 10px 5px;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 100%;
+	letter-spacing: -0.5px;
+}
+.widget-content .widget-carousel ul li .carousel-summary h4 a,
+.widget-content .widget-advcarousel div div .carousel-summary h4 a {
+	color: #ffffff;
+}
+.widget-content .widget-carousel ul li .carousel-summary h4 a:hover,
+.widget-content .widget-advcarousel div div .carousel-summary h4 a:hover {
+	color:#17cccc;
+}
+*/
+.widget-content .widget-carousel ul li .carousel-summary p,
+.widget-content .widget-advcarousel div div .carousel-summary p {
+	color: #ffffff;
+	margin: 0px 10px 5px!important;
+}
+
+.widget .widget-content .widget-grid {
+	background-color:#FFFFFF;
+	border:1px solid #DADADA;
+	margin:0 auto;
+	overflow:hidden;
+	width:284px;	
+}
+		
+.widget .widget-content .widget-grid ul {
+		margin:2px auto !important;
+		padding:4px 0 !important;
+		list-style-image:none;
+		list-style-position:outside;
+		list-style-type:none;
+		border:none;
+		text-align: center;
+		width:268px;	
+}	
+.widget .widget-content .widget-grid ul li {
+	background-color: #ffffff;
+	display:block;
+	position: relative;
+	float:left;
+	overflow:hidden;
+	text-align: center;
+	border-style: none;
+	border-width: 0px;
+	vertical-align: text-top;
+}
+
+
+
+.widget .widget-content .widget-grid ul li img{
+	margin:0 auto !important;
+	padding: 0 4px;
+	overflow:hidden;
+	vertical-align: text-top;
+	clear:both;
+}
+
+.widget .widget-content .widget-grid ul li a{
+	margin:0 auto !important;
+	padding:0;
+	border:none;
+	overflow:hidden;
+	vertical-align: text-top;
+}	
+
+.widget .widget-content .widget-grid ul li span.caption_outer {			
+	margin:0 auto !important;
+	width:inherit;
+	height:inherit;
+	position:absolute;
+	left:5px;
+	top:-2px;	
+	z-index:10;	
+	background-color:#373f42;
+	/* for IE */
+	  filter:alpha(opacity=90);
+	  /* CSS3 standard */
+	  opacity:0.9;
+}
+
+
+
+.widget .widget-content .widget-grid ul li span.caption_outer h3 a{
+	color:#fff;
+	display:inline;
+	font-family: 'Trebuchet MS',Arial,Sans-Serif;
+	position: absolute;
+	line-height: 120%;
+	vertical-align: text-top;
+	letter-spacing: -0.5px;
+	top:0;
+	left:0;
+	margin:10px !important;
+	z-index:600;
+	text-align:left;
+	float:left;
+}
+
+*:first-child+html .widget .widget-content .widget-grid ul li span.caption_outer h3 a{
+	position: relative;
+	top:-30px;
+	left:10px;
+}
+* html .widget .widget-content .widget-grid ul li span.caption_outer h3 a{
+	position: relative;
+	top:-30px;
+	left:10px;
+}
+
+.widget .widget-content .widget-grid ul li span.caption_outer h3 span.read_more {
+	color:#00b5ae;
+	float:left;
+	/* height:100%; */
+}</style> <link rel="alternate" type="application/rss+xml" title="Inhabitat - Sustainable Design Innovation, Eco Architecture, Green Building &#xBB; Couple uses ladders to navigate their Tokyo &#x2018;Ninja&#x2019; house Comments Feed" href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/feed/"> <script type="text/javascript"> window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/inhabitat.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.2"}}; !function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings); </script> <style type="text/css"> img.wp-smiley, img.emoji { display: inline !important; border: none !important; box-shadow: none !important; height: 1em !important; width: 1em !important; margin: 0 .07em !important; vertical-align: -0.1em !important; background: none !important; padding: 0 !important; } </style> <style>.login {
+	padding: 0px;
+}
+.login div {
+	padding-top: 10px;
+	padding-bottom: 12px
+}
+
+.login .error {
+	padding: 5px;
+	border: 1px solid #c00;
+	background-color: #ffebe8;
+	color: #333;
+	width: 474px;
+}
+
+.login .message {
+	padding: 5px;
+	border: 1px solid #696969;
+	background-color: #CCC;
+	color: #333;
+}
+
+.login form label {
+	display: block;
+	font-weight: bold;
+	font-size: 13px;
+	color: #b5b55f;
+	float: left;
+	width: 150px;
+	clear: left;
+	margin-top: 11px;
+	text-align: right;
+	padding-right: 8px;
+}
+
+.login form div.forgetmenot label {
+	display: inline;
+	float: none !important;
+	font-size: 11px;
+
+}
+
+.login form div.forgetmenot {
+	padding-left: 158px;
+}
+
+.login form div.forgetmenot ul, .login form div.forgetmenot li{
+	display: inline;
+	margin-left: 30px;
+}
+
+
+.login input {
+	margin: 5px 0;
+}
+p.submit {text-align: center;}
+
+.profile .screen-reader-text,
+.profile .screen-reader-text span {
+	height: 1px;
+	left: -1000em;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+
+.mu_register .hint {
+	font-size: 12px;
+	margin-bottom: 10px;
+	display: block;
+	margin-left: 157px !important;
+}
+
+
+.mu_register label.checkbox {
+	display: inline;
+}
+
+#pass-strength-result {
+    border-style: solid;
+    border-width: 1px;
+    margin: 12px 5px 5px 1px;
+    padding: 3px 5px;
+    text-align: center;
+    width: 200px;
+}
+
+#pass-strength-result.strong,
+#pass-strength-result.short {
+    font-weight: bold;
+}
+
+#pass-strength-result {
+    background-color: #eee;
+    border-color: #ddd !important;
+}
+
+#pass-strength-result.bad {
+    background-color: #ffb78c;
+    border-color: #ff853c !important;
+}
+
+#pass-strength-result.good {
+    background-color: #ffec8b;
+    border-color: #fc0 !important;
+}
+
+#pass-strength-result.short {
+    background-color: #ffa0a0;
+    border-color: #f04040 !important;
+}
+
+#pass-strength-result.strong {
+    background-color: #c3ff88;
+    border-color: #8dff1c !important;
+}
+
+.login #user_login, .login #user_pass, .login #user_name, .login #user_email, .login #user_email_retype, .login #pass1, .login #pass2{
+	background:none repeat scroll 0 0 #fff !important;
+	border:1px solid #ebebeb !important;
+	color:#958178;
+	font-size:110%;
+	padding:3px;
+	height: 20px;
+	width:225px;
+	font-weight:normal;
+}
+
+
+
+#setupform .setup-header {
+	height: 15px;
+	background:#EEF1DE;
+	text-align: center;
+	font-size: 140%;
+	color: #97A25D; 
+	font-weight: bold;
+}
+
+#setupform .signup-header {
+	height: 25px;
+	padding: 5px;
+	background:#97A25D;
+	text-align: left;
+	font-size: 140%;
+	color: white; 
+	font-weight: bold;
+	padding-left: 20px;
+	padding-top: 15px;
+}
+
+.oneall_social_login_label label {
+	text-align: left !important;
+	
+	width: 90px !important;
+}
+
+#social-login {
+	padding: 0px;
+	overflow: hidden;
+}
+
+.oneall_social_login_providers {
+	height: 29px;
+	overflow: hidden;
+	width: 163px;
+	float:left;
+	padding: 0px;
+}
+
+.oneall_social_login_label {
+	float:left;
+}
+
+#lostpasswordform #wp-submit, #setupform #wp-submit, 
+#login #wp-submit{
+	background: none repeat scroll 0 0 #FFFADA;
+	border: 1px solid #C7BB45;
+	color: #958178;
+	font-size: 110% !important;
+	padding: 3px;
+	font-weight: normal;
+	
+}
+#login #wp-submit{
+	font-size: 140%;
+}
+.tml-action-links{
+	list-style: none;
+	padding: 0px;
+}
+
+p.newsletter  input{
+	width: auto; 
+	margin-left: 157px
+}
+
+p.newsletter span { margin-left: 5px !important;}
+
+#social-login-register, #social-login {height:60px;}
+#social-login-register .oneall_social_login {width: 290px; height:60px; margin: 0px auto;}
+#social-login .oneall_social_login {margin: 0px auto;height:60px;}
+
+.plugin .footer{
+	font-size: 10px;
+	line-height: 12px;
+}
+
+#recaptcha_area, #recaptcha_table {
+    margin: 0px auto;
+}
+
+#recaptcha_area div {padding: 0px; margin: 0px;}
+
+#reg_author, #log_author, #reg_email, #log_pass{
+	background:none repeat scroll 0 0 #fff !important;
+	border:1px solid #ebebeb !important;
+	color:#958178;
+	font-size:110%;
+	padding:3px;
+	height: 20px;
+	width:148px !important;
+	font-weight:normal;
+}
+
+
+.comment-login label, .comment-signup label , #recaptcha-container label{
+	display: inline;
+	font-size: 12px;
+	color: #666;
+	width: 242px !important;
+	padding: 0px !important;
+	padding-right: 8px;
+	font-family: arial;
+}
+
+.comment-login label { width: 150px !important;}
+
+.subscribe-to-comments #subscribe { float: left;}
+.subscribe-to-comments {display: none !important;}
+
+#social-login-register-comment  label {
+	text-align: left !important;
+	width: 108px !important;
+	padding-top: 10px !important;
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	color: #b5b55f;
+	margin-top: 11px;
+	padding-right: 8px;
+}
+
+#social-login-register-comment .oneall_social_login_providers {
+	height: 40px;
+	overflow: hidden;
+	width: 122px;
+	float:left;
+	padding: 0px;
+}
+
+#social-login-register-comment {
+	height: 40px;
+	width:  250px !important;
+	float: left;
+}
+
+#social-login-register-inhabitat {
+	float: left;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+    padding-top: 10px;
+}
+.oneall_social_login_providers iframe {width: 151px !important;}
+
+#loginbox * label[for="email"], #loginbox * label[for="author"], #loginbox * label[for="user_login"],  #loginbox * label[for="user_pass"] {width: 60px !important;} 
+#comment-message, #comment-message-good {width: 534px !important;}
+</style> <style>@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?64777116');
+  src: url('../font/fontello.eot?64777116#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?64777116') format('woff'),
+       url('../font/fontello.ttf?64777116') format('truetype'),
+       url('../font/fontello.svg?64777116#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?64777116#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-arrow-left:before { content: '\e800'; } /* '' */
+.icon-caret-down:before { content: '\e801'; } /* '' */
+.icon-arrow-combo:before { content: '\e802'; } /* '' */
+.icon-yelp:before { content: '\e803'; } /* '' */
+.icon-key:before { content: '\e804'; } /* '' */
+.icon-left-open-big:before { content: '\e805'; } /* '' */
+.icon-user:before { content: '\e806'; } /* '' */
+.icon-signin:before { content: '\e807'; } /* '' */
+.icon-signout:before { content: '\e808'; } /* '' */
+.icon-search:before { content: '\e809'; } /* '' */
+.icon-reorder:before { content: '\e80a'; } /* '' */
+.icon-basket:before { content: '\e80b'; } /* '' */
+.icon-angle-right:before { content: '\e80c'; } /* '' */
+.icon-angle-left:before { content: '\e80d'; } /* '' */
+.icon-chevron-up:before { content: '\e80e'; } /* '' */
+.icon-chevron-down:before { content: '\e80f'; } /* '' */
+.icon-chevron-left:before { content: '\e810'; } /* '' */
+.icon-chevron-right:before { content: '\e811'; } /* '' */
+.icon-comment:before { content: '\e812'; } /* '' */
+.icon-comments:before { content: '\e813'; } /* '' */
+.icon-circle-arrow-left:before { content: '\e814'; } /* '' */
+.icon-circle-arrow-right:before { content: '\e815'; } /* '' */
+.icon-pencil:before { content: '\e816'; } /* '' */
+.icon-reply:before { content: '\e817'; } /* '' */
+.icon-envelope-alt:before { content: '\e818'; } /* '' */
+.icon-list-ul:before { content: '\e819'; } /* '' */
+.icon-tags:before { content: '\e81a'; } /* '' */
+.icon-twitter:before { content: '\e81b'; } /* '' */
+.icon-google-plus:before { content: '\e81c'; } /* '' */
+.icon-google-plus-sign:before { content: '\e81d'; } /* '' */
+.icon-facebook:before { content: '\e81e'; } /* '' */
+.icon-facebook-sign:before { content: '\e81f'; } /* '' */
+.icon-instagram:before { content: '\e820'; } /* '' */
+.icon-tumblr:before { content: '\e821'; } /* '' */
+.icon-pinterest:before { content: '\e822'; } /* '' */
+.icon-pinterest-sign:before { content: '\e823'; } /* '' */
+.icon-vine:before { content: '\e824'; } /* '' */
+.icon-book-open:before { content: '\e825'; } /* '' */
+.icon-youtube:before { content: '\e826'; } /* '' */
+.icon-linkedin-sign:before { content: '\e827'; } /* '' */
+.icon-plus:before { content: '\e828'; } /* '' */
+.icon-rss-sign:before { content: '\e829'; } /* '' */
+.icon-time:before { content: '\e82a'; } /* '' */
+.icon-camera-retro:before { content: '\e82b'; } /* '' */
+.icon-play:before { content: '\e82c'; } /* '' */
+.icon-filter:before { content: '\e82d'; } /* '' */
+.icon-minus:before { content: '\e82e'; } /* '' */
+.icon-ok-sign:before { content: '\e82f'; } /* '' */
+.icon-layout-tiles:before { content: '\e830'; } /* '' */
+.icon-layout-list:before { content: '\e831'; } /* '' */
+.icon-resize-full:before { content: '\e832'; } /* '' */
+.icon-cancel:before { content: '\e833'; } /* '' */
+.icon-cancel-circled:before { content: '\e834'; } /* '' */
+.icon-star:before { content: '\e835'; } /* '' */
+.icon-remove-sign:before { content: '\e836'; } /* '' */
+.icon-map-marker:before { content: '\e837'; } /* '' */
+.icon-cloud:before { content: '\e838'; } /* '' */
+.icon-cloud-download:before { content: '\e839'; } /* '' */
+.icon-info-sign:before { content: '\e83a'; } /* '' */
+.icon-copy:before { content: '\e83b'; } /* '' */
+.icon-download:before { content: '\e83c'; } /* '' */
+.icon-external-link:before { content: '\e83d'; } /* '' */
+.icon-warning-sign:before { content: '\e83e'; } /* '' */
+.icon-compass:before { content: '\e83f'; } /* '' */
+.icon-trash:before { content: '\e840'; } /* '' */
+.icon-th:before { content: '\e841'; } /* '' */
+.icon-menu:before { content: '\e842'; } /* '' */
+.icon-double-angle-up:before { content: '\e843'; } /* '' */
+.icon-arrow-down:before { content: '\e844'; } /* '' */
+.icon-caret-right:before { content: '\e845'; } /* '' */
+.icon-caret-left:before { content: '\e846'; } /* '' */
+.icon-caret-up:before { content: '\e847'; } /* '' */
+.icon-vimeo:before { content: '\e848'; } /* '' */
+.icon-phone:before { content: '\e849'; } /* '' */
+.icon-angle-up:before { content: '\e84a'; } /* '' */
+.icon-angle-down:before { content: '\e84b'; } /* '' */
+.icon-refresh:before { content: '\e84c'; } /* '' */
+.icon-info:before { content: '\e84d'; } /* '' */
+.icon-chat:before { content: '\e84e'; } /* '' */
+.icon-check:before { content: '\e84f'; } /* '' */</style> <style>@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(http://fonts.gstatic.com/s/lato/v11/nj47mAZe0mYUIySgfn0wpQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(http://fonts.gstatic.com/s/roboto/v15/zN7GBFwfMP4uA6AR0HCoLQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOKCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(http://fonts.gstatic.com/s/roboto/v15/W4wDsBUluyw0tK3tykhXEfesZW2xOQ-xsNqO47m55DA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(http://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC50EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
+}
+</style> <style id="foundation_google_fonts-inline-css" type="text/css"> .heading-font { font-family: 'Lato', sans-serif; } .body-font { font-family: 'Roboto', sans-serif; } </style> <style>/* PushIt CSS */
+
+/* Coolin' by day then at night working up a sweat. */
+
+body {
+	text-shadow: none !important;
+}
+
+.pushit {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: -1000px;
+	z-index: 100;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.has-overflow-scroll .pushit {
+	-webkit-overflow-scrolling: touch;
+}
+
+#pushit-overlay {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}</style> <style>.entry-content .addthis_toolbox, .entry-content .addthis_button {
+	margin:0 0 10px 0;
+}
+.addthis_button_tweet {
+	min-width: 83px;
+	float:left;
+}
+.atwidget iframe {
+	max-width:none;
+}
+</style> <style>/* @group Reset */
+body [class^="icon-"]:before, body [class*=" icon-"]:before {
+	width: auto;
+}
+
+html,body,div,span,applet,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,strike,strong,sub,sup,var,b,u,i,center,ol,ul,li,caption {
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+}
+
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	line-height: 130%;
+}
+
+body {
+	-webkit-text-size-adjust: 100%;
+	font-size: 100%;
+}
+
+.page-wrapper {
+	/*min-height: 640px;
+	padding-bottom: 20px;*/
+}
+
+ol,ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+:focus {
+	outline: 0;
+}
+
+ins,a {
+	text-decoration: none;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+iframe {
+	max-width: 100% !important;
+}
+
+.light-body {
+	text-shadow: rgba(255,255,255,.2) 0 1px 0;
+}
+
+/* @end */
+
+/* @group WordPress & Structure */
+
+sup {
+	vertical-align: super;
+	font-size: 50%;
+	font-variant: small-caps;
+}
+
+hr {
+	border: 1px dashed rgba(0,0,0,.2);
+}
+
+.post ul {
+	list-style-type: disc;
+}
+
+.post ol {
+	list-style-type: decimal;
+}
+
+.post li {
+	margin: 1% 8%;
+}
+
+blockquote {
+	margin-left: 5%;
+	margin-right: 5%;
+	font-style: italic;
+}
+
+.aligncenter,
+.alignnone {
+	text-align: center !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	float: none !important;
+	display: block !important;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 10px;
+}
+
+.alignright {
+	float: right;
+	margin-left: 10px;
+}
+
+.left-justify {
+	text-align: left;
+}
+
+.full-justify {
+	text-align: justify;
+}
+
+.right-justify {
+	text-align: right;
+	direction: rtl;
+}
+
+code, pre {
+	overflow: scroll;
+	padding: 5px;
+	font-family: monospace;
+	background-color: rgba(0,0,0,.1);
+}
+
+#content input {
+	font-size: 100% !important;
+}
+
+.wp-caption-text {
+	font-size: 90%;
+}
+
+.posts-nav {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #999;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
+.footer {
+	text-align: center;
+}
+
+img.wp-smiley {
+	margin: 0;
+}
+
+.post table img, .page table img {
+	margin: 0;
+}
+
+/* @group WP Gallery & Captions */
+
+.wp-caption {
+	text-align: center;
+	max-width: 100%;
+	margin-top: 0;
+}
+
+.wp-caption p.wp-caption-text {
+	padding: 0 0 15px;
+	margin-top: 0px;
+	font-size: 80%;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.post .wp-caption img {
+	margin-bottom: 0px;
+}
+
+#gallery_back_to_post {
+	display: block;
+	font-size: 80%;
+	font-weight: bold;
+	margin: 10px 0px 0px 0px;
+	text-align: left;
+}
+
+.gallery {
+	margin: 0;
+	padding: 0;
+	width: 100% !important;
+	height: auto !important;
+}
+
+/*.gallery dl.gallery-item img.attachment-thumbnail {
+	padding: 3px;
+	margin: 10px;
+	width: 50% !important;
+	height: auto;
+}*/
+
+.gallery dl.gallery-item, .gallery dl.gallery-item dt.gallery-icon {
+	margin: 0;
+}
+
+.gallery-nav {
+	text-align: center;
+	color: #ccc;
+	margin-bottom: 15px;
+	margin-top: 15px;
+    font-size:1.5em;
+}
+
+.entry-caption {
+	text-align: center;
+	font-style: italic;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Media Handling */
+
+.css-videos video, .css-videos embed, .css-videos object, .css-videos .mejs-container {
+	-webkit-transform-style: preserve-3d;
+}
+
+.css-videos.portrait video {
+	width: 100%   		!important;
+	height: auto   		!important;
+	min-height: 160px	!important;
+	max-width: 100%		!important;
+}
+
+.css-videos.landscape video {
+	width: 100%   		!important;
+	height: auto   		!important;
+	min-height: 250px	!important;
+	max-width: 100%		!important;
+}
+
+.post img, .post img {
+	max-width: 100%;
+	height: auto;
+	/*margin-top: 15px;
+	margin-bottom: 15px;*/
+}
+
+/* @end */
+
+/* @group CSS Effects */
+
+/* CSS Noise background effect: Added to any element easily with a class of 'noise' */
+
+.noise {
+	position: relative;
+	z-index: 1;
+}
+
+.noise:before, .body-noise:before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
+}
+
+/* @group Slide Out */
+
+.slide-out {
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-animation-duration: 480ms;
+	-webkit-animation-name: slideOutPanel;
+	-o-animation-name: slideOutPanel;
+	animation-name: slideOutPanel;
+	animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideOutPanel {
+	from {
+	opacity: 1;
+	}
+
+	to {
+	-webkit-transform: translateY(-20%);
+	transform: translateY(-20%);
+	opacity: 0;
+}
+
+}
+@-o-keyframes slideOutPanel {
+	from {
+	opacity: 1;
+}
+
+to {
+	-o-transform: translateY(-20%);
+	transform: translateY(-20%);
+	opacity: 0;
+}
+
+}
+@keyframes slideOutPanel {
+	from {
+	opacity: 1;
+}
+
+to {
+	-webkit-transform: translateY(-20%);
+	-o-transform: translateY(-20%);
+	transform: translateY(-20%);
+	opacity: 0;
+}
+}
+
+/* @end */
+
+/* @group Slide In */
+
+.slide-in {
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-animation-duration: 480ms;
+	-webkit-animation-name: slideInPanel;
+	-o-animation-name: slideInPanel;
+	animation-name: slideInPanel;
+	animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideInPanel {
+	from {
+	-webkit-transform: translateY(-20%);
+	transform: translateY(-20%);
+	opacity: 0;
+}
+
+to {
+	opacity: 1;
+}
+
+}
+@-o-keyframes slideInPanel {
+	from {
+	-o-transform: translateY(-20%);
+	transform: translateY(-20%);
+	opacity: 0;
+}
+
+to {
+	opacity: 1;
+}
+
+}
+@keyframes slideInPanel {
+	from {
+	-webkit-transform: translateY(-20%);
+	-o-transform: translateY(-20%);
+	transform: translateY(-20%);
+	opacity: 0;
+}
+
+to {
+	opacity: 1;
+}
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Load More, Infinite */
+
+.load-more-link, .infinite-link, .load-more-comments-wrap, .load-more-post-link, .load-more-page-link {
+	display: block;
+	width: 100%;
+	text-align: center;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	font-weight: bold;
+	line-height: 150%;
+	text-transform: capitalize;
+}
+
+.spinner {
+	display: inline-block;
+	margin-right: 8px;
+}
+
+/* @end */
+
+/* @group Advertising */
+
+.wptouch-ad {
+	text-align: center;
+	min-height: 50px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.wptouch-ad.ad-location-header {
+	padding-top: 5px;
+}
+
+.post .wptouch-ad {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.wptouch-custom-ad {
+	margin: 5px;
+	text-align: center;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.wptouch-custom-ad a, .wptouch-custom-ad img, .wptouch-custom-ad iframe * {
+	max-width: 100%;
+	height: auto;
+}
+
+/* @end */
+
+/* @group Nav Bar */
+
+.nav-bar {
+	font-weight: bold;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: 90%;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.nav-controls {
+	text-transform: capitalize;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.nav-controls a.prev-post {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.nav-controls a.prev-post+a.next-post {
+	padding-left: 8px;
+	margin-left: 4px;
+}
+
+.nav-controls a.next-post {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.nav-controls a.prev-post:before {
+	content: '\e810';
+	font: normal normal 90% 'fontello';
+}
+
+.nav-controls a.next-post:after {
+	content: '\e811';
+	font: normal normal 90% 'fontello';
+}
+
+/* @end */
+
+/* @group Featured Slider */
+
+/* @group Swipe */
+
+.swipe {
+	overflow: hidden;
+	border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.swipe * {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-touch-callout: none;
+}
+
+.swipe img {
+	width: 114%;
+	-webkit-box-reflect: below 1px -webkit-gradient(linear, center top, center bottom, from(rgba(0,0,0,.2)), to(rgba(0,0,0,.3)));
+	/*margin-left: -7%;*/
+}
+
+.swipe.grayscale img {
+	-webkit-filter: grayscale(1) contrast(1.1);
+}
+
+.swipe-wrap > div {
+	float: left;
+	position: relative;
+	height: 200px;
+	overflow: hidden;
+}
+
+.landscape .swipe-wrap > div {
+	height: 274px;
+}
+
+.swipe p {
+	/*background-color: rgba(0,0,0,0.5);*/
+    background-color: rgba(151,162,93,.85);
+	text-align: center;
+	font-size: 100%;
+	/*text-shadow: #000000 0 -1px 0;*/
+    text-shadow: #5B6138 0 -1px 0;
+	margin: 0;
+	padding: 8px 5%;
+	line-height: 100%;
+	color: #fff;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-weight: bold;
+	left: 0;
+}
+
+.rtl .swipe p {
+	direction: rtl;
+}
+
+p.featured-date, #slider .comments-number {
+	display: none;
+}
+
+.dark-body .swipe {
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	-webkit-box-shadow: rgba(255,255,255,.05) 0px 1px 0px;
+	box-shadow: rgba(255,255,255,.05) 0px 1px 0px;
+}
+
+/* @end */
+
+/* @group Dots */
+
+ul.dots {
+	padding-bottom: 5px;
+	position: relative;
+	z-index: 1;
+	margin-right: auto;
+	padding-top: 5px;
+	text-align: center;
+	margin-bottom: -30px;
+}
+
+ul.dots li {
+	width: 6px;
+	height: 6px;
+	border-radius: 4px;
+	background-color: rgba(255,255,255,.25);
+	-webkit-box-shadow: inset rgba(0,0,0,.1) 0px 1px 1px, rgba(255,255,255,.05) 0px 1px 0px;
+	box-shadow: inset rgba(0,0,0,.1) 0px 1px 1px, rgba(255,255,255,.05) 0px 1px 0px;
+	margin-right: 3px;
+	margin-left: 3px;
+	display: inline-block;
+}
+
+ul.dots li.active {
+	-webkit-box-shadow: inset rgba(255,255,255,.05) 0px 1px 0px, rgba(255,255,255,.05) 0px 1px 0px;
+	box-shadow: inset rgba(255,255,255,.05) 0px 1px 0px, rgba(255,255,255,.05) 0px 1px 0px;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Sharing Options */
+
+.sharing-options {
+    text-align: center;
+}
+
+.sharing-options a {
+	width: 25%;
+	max-width: 25%;
+	display: block;
+	text-shadow: rgba(255,255,255,.8) 0 1px 0;
+	font-weight: bold;
+	font-size: 90%;
+	background-color: rgba(0,0,0,.05);
+	border-bottom: 1px solid rgba(255,255,255,.7);
+	border-top: 1px solid rgba(255,255,255,.7);
+	float: left;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.sharing-options.long a {
+	width: 50%;
+	max-width: 50%;
+	margin-bottom: -3px;
+}
+
+	.rtl .sharing-options a {
+		float: right;
+	}
+
+/* @group Default */
+
+.sharing-options .email-btn:before {
+	content: '\e818';
+	margin-right: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.sharing-options .facebook-btn:before {
+	content: '\e81e';
+	margin-right: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.sharing-options .twitter-btn:before {
+	content: '\e81b';
+	margin-right: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.sharing-options .google-btn:before {
+	content: '\e81c';
+	margin-right: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.sharing-options .pinterest-btn:before {
+	content: '\e823';
+	margin-right: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.rtl .sharing-options .email-btn:before {
+	display: none;
+}
+
+.rtl .sharing-options .facebook-btn:before {
+	display: none;
+}
+
+.rtl .sharing-options .twitter-btn:before {
+	display: none;
+}
+
+.rtl .sharing-options .google-btn:before {
+	display: none;
+}
+
+.rtl .sharing-options .pinterest-btn:before {
+	display: none;
+}
+
+.rtl .sharing-options .email-btn:before {
+	display: none;
+}
+
+.rtl .sharing-options .email-btn:after {
+	content: '\e818';
+	margin-left: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.rtl .sharing-options .facebook-btn:after {
+	content: '\e81f';
+	margin-left: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.rtl .sharing-options .twitter-btn:after {
+	content: '\e81b';
+	margin-left: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.rtl .sharing-options .google-btn:after {
+	content: '\e81c';
+	margin-left: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.rtl .sharing-options .pinterest-btn:after {
+	content: '\e823';
+	margin-left: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.rtl .sharing-options .email-btn:after {
+	content: '\e818';
+	margin-left: 5px;
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* @end */
+
+/* @group Vibrant */
+
+.sharing-options.style-vibrant a {
+	text-shadow: rgba(0,0,0,.4) 0 -1px 0;
+	color: #fff;
+}
+
+.sharing-options.style-vibrant .facebook-btn {
+	background-color: #3a589a;
+}
+
+.sharing-options.style-vibrant .twitter-btn {
+	background-color: #8cc1db;
+}
+
+.sharing-options.style-vibrant .google-btn {
+	background-color: #eb2632;
+}
+
+.sharing-options.style-vibrant .pinterest-btn {
+	background-color: #e11d00;
+}
+
+.sharing-options.style-vibrant .email-btn {
+	background-color: #999;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Web-App Mode */
+
+body.web-app-mode.translucent {
+	margin-top: 20px;
+}
+
+body.web-app-mode #switch {
+	display: none;
+}
+
+/* @end */
+
+/* @group 404 */
+
+.not-found {
+	text-align: center;
+	font-size: 200%;
+	margin-top: 30px;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+
+.not-found:after {
+	font-family: 'fontello';
+	content: "\e83b";
+	display: block;
+	font-size: 400%;
+}
+
+.not-found-text {
+	margin-bottom: 70px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* @end */
+
+/* @group Switch Link */
+
+#switch {
+	margin-right: 16%;
+	margin-left: 16%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#switch div {
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 3px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
+	text-align: center;
+	position: relative;
+	font-weight: bold;
+	height: 24px;
+	text-transform: capitalize;
+	color: rgba(0,0,0,.5);
+	line-height: 95%;
+	font-size: 90%;
+}
+
+#switch .off {
+	border-left: 1px solid rgba(0,0,0,.1);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	padding-top: 4px;
+	width: 50%;
+}
+
+#switch .on {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	padding-top: 4px;
+	width: 50%;
+}
+
+#switch .active {
+	color: rgba(255,255,255,.9);
+	border-style: none;
+}
+
+.dark-body #switch div {
+	border: 1px solid rgba(255,255,255,.15);
+}
+
+/* @end */
+
+/* @group Footer Social Links */
+
+ul.social-links-wrap {
+	margin-right: 3%;
+	margin-left: 3%;
+}
+
+.social-links-wrap li {
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+li .social-footer-badges {
+	background-color: rgba(255,255,255,.9);
+	-webkit-border-radius: 44px;
+	border-radius: 44px;
+	font-size: 120%;
+	-webkit-box-shadow: inset rgba(255,255,255,.4) 0px 1px 0px;
+	box-shadow: inset rgba(255,255,255,.4) 0px 1px 0px;
+	text-shadow: none;
+	border-style: solid;
+	border-width: 1px;
+	line-height: 2em;
+	width: 2em;
+	height: 2em;
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-right: 2px;
+	margin-left: 2px;
+	text-align: center;
+}
+
+.dark-body .social-footer-badges {
+	background-color: rgba(0,0,0,.3);
+	-webkit-box-shadow: inset rgba(255,255,255,.2) 0px 1px 0px;
+	box-shadow: inset rgba(255,255,255,.2) 0px 1px 0px;
+	border-width: 0;
+}
+
+/* @end */
+
+/* @group Comments */
+
+#comments {
+}
+	#comments .children .comment {
+		margin-left: 15px;
+	}
+
+p.comment-awaiting-moderation {
+	font-weight: bold;
+	font-style: italic;
+	background-color: #feeec4;
+	padding: 4px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+p.nocomments {
+	text-align: center;
+	font-style: italic;
+	text-transform: capitalize;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+/* @group Commentform */
+
+form#commentform label {
+	font-size: 90%;
+}
+
+form#commentform input[type="text"], form#commentform input[type="email"], form#commentform input[type="url"] {
+	width: 60%;
+}
+
+form#commentform input:focus, form#commentform textarea:focus {
+	background-color: rgba(0,0,0,0);
+}
+
+form#commentform input, form#commentform textarea {
+	padding: 4px;
+	border: 1px solid rgba(0,0,0,.3);
+	font-size: 100%;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	background-color: rgba(0,0,0,.1);
+}
+	form#commentform input[type="checkbox"] {
+		-webkit-appearance: checkbox;
+	}
+	form#commentform input[type="radio"] {
+		-webkit-appearance: radio;
+	}
+
+form#commentform textarea {
+	min-height: 100px;
+	margin: 0;
+	width: 95%;
+	-webkit-transition-duration: .5s;
+}
+
+form#commentform textarea:focus {
+	min-height: 120px;
+}
+
+form#commentform button#submit {
+	-webkit-appearance: none;
+	border: 1px solid rgba(0,0,0,.3);
+	font-weight: bold;
+	font-size: 100%;
+	background-color: rgba(255,255,255,.8);
+	color: rgba(0,0,0,.8);
+	padding: 4px 16px;
+	margin: 0;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+/* @end */
+
+/* @group Comment Errors */
+
+.comment-error {
+	padding: 10px;
+	text-align: center;
+}
+
+.comment-error a {
+	font-size: 120%;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Dark */
+
+.dark-body {
+	text-shadow: rgba(0,0,0,.2) 0 -1px 0;
+	color: rgba(255,255,255,.9);
+}
+
+.dark-body hr {
+	border: 1px dashed rgba(255,255,255,.2);
+}
+
+/* @end */
+
+/* @group Multipage Links */
+
+.wp-page-nav {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+.wp-page-nav a {
+	padding: 2px;
+}
+
+/* @end */
+
+/* @group Password Protected */
+
+.post form {
+	background-color: rgba(0,0,0,.1);
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.post form label {
+	font-size: 90%;
+}
+
+.post form input[type="password"] {
+	width: 35%;
+}
+
+.post form input[type="submit"], .post form input[type="button"] {
+	padding-left: 4px;
+	padding-right: 4px;
+	font-size: 90%;
+}
+
+/* @end */
+
+/* @group Back To Top */
+
+.back-to-top {
+	text-align: center;
+	display: block;
+	font-weight: bold;
+	margin-top: 50px;
+}
+
+.back-to-top:before {
+	content: "\e843";
+	font-family: 'fontello';
+	font-weight: normal;
+	font-style: normal;
+	padding-right: 5px;
+}
+
+/* @end */
+
+/* @group Login Form */
+
+.wptouch-login-wrap {
+	text-align: center;
+	z-index: 1000;
+	font-size: 100%;
+	padding: 20px;
+	display: none;
+	position: absolute;
+	top: 3%;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	width: 75%;
+	-webkit-box-shadow: rgba(0,0,0,.5) 0px 1px 5px;
+	box-shadow: rgba(0,0,0,.5) 0px 1px 5px;
+}
+
+.wptouch-login-wrap, .wptouch-login-wrap a {
+	color: rgba(0,0,0,.8);
+	text-shadow: rgba(255,255,255,.2) 0 1px 0;
+}
+
+.tablet .wptouch-login-wrap {
+	width: 30%;
+}
+
+.wptouch-login-wrap .login-close {
+	position: absolute;
+	right: -5px;
+	font-size: 200%;
+	top: -5px;
+}
+
+.wptouch-login-inner {
+	position: relative;
+}
+
+.wptouch-login-wrap h3 {
+	margin: 0 0 20px;
+	font-size: 200%;
+}
+
+#wptouch-login p {
+	margin: 0 0 5px;
+	padding: 0;
+}
+
+p.login-remember {
+	display: none;
+}
+
+.wptouch-login-inner input[type="text"], .wptouch-login-inner input[type="password"] {
+	font-size: 120%;
+	width: 192px;
+	height: 30px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	padding: 3px;
+	background-color: rgba(255,255,255,.9);
+	border-style: none;
+}
+
+.wptouch-login-inner input[type="text"]:focus, .wptouch-login-inner input[type="password"]:focus {
+	background: white;
+}
+
+.wptouch-login-inner input[type="submit"] {
+	width: 200px;
+	font-size: 130%;
+	font-weight: bold;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-appearance: none;
+	padding: 5px;
+	margin-top: 10px;
+	text-transform: uppercase;
+	background-color: transparent;
+	border: 1px solid rgba(0,0,0,.3);
+}
+
+.wptouch-login-inner input[type="submit"]:active {
+	-webkit-box-shadow: inset rgba(0,0,0,.5) 0px 2px 4px;
+	box-shadow: inset rgba(0,0,0,.5) 0px 2px 4px;
+}
+
+/* @group Links */
+
+.login-links {
+	border-top: 1px solid rgba(0,0,0,.2);
+	margin: 30px -20px -20px;
+	overflow: hidden;
+}
+
+.login-links a {
+	font-weight: bold;
+	font-size: 110%;
+	display: inline-block;
+	width: 49%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.sign-up {
+	border-right: 1px solid rgba(0,0,0,.2);
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Tappable */
+
+/* Makes elements that should use the tappable module act more like native UI elements */
+
+.tappable {
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-select: none;
+}
+
+/* @end */
+
+/* @group Jetpack Stats compatibility - hide tracker image */
+
+img#wpstats {
+	position: absolute;
+	top: 0;
+	width: 0px;
+	height: 0px;
+	overflow: hidden
+}
+
+/* @end */
+
+/* @group WPML */
+
+#wpml-language-chooser-wrap {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#wpml-language-chooser {
+	margin: auto;
+	font-size: 0.9em;
+}
+
+#wpml-language-chooser strong {
+
+}
+
+#wpml-language-chooser select {
+	font-size: 0.9em;
+}
+
+/* @end */
+
+/* @group Contact Form 7 compatibility */
+
+.post form.wpcf7-form {
+	background: transparent;
+}
+
+span.wpcf7-form-control-wrap {
+	display: block;
+	max-width: 96%;
+}
+
+.wpcf7 input,
+.wpcf7 textarea {
+	font-size: 100%;
+	padding-left: 5px !important;
+	padding-right: 0;
+	max-width: 100%;
+}
+
+.wpcf7 div.wpcf7-response-output {
+	margin: 0;
+	padding: 10px 15px;
+}
+
+.wpcf7 div.wpcf7-validation-errors {
+	background: rgba(247, 231, 0, 0.25);
+	line-height: 1.4em;
+}
+
+.wpcf7 div.wpcf7-mail-sent-ok {
+	background: #398f14;
+	color: #fff;
+	font-weight: bold;
+	line-height: 1.4em;
+	text-align: center;
+}
+
+/* @end */
+
+/* This CSS is only used/shown in the preview window */
+
+/* @group Preview Bar */
+
+#preview-bar {
+	-webkit-animation: pulse 1.5s infinite;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-direction: alternate;
+	position: fixed;
+	height: 26px;
+	z-index: 1000;
+	left: 0;
+	right: 0;
+	opacity: 0.95;
+	-webkit-box-shadow: rgba(0,0,0,.3) 0px -2px 4px, inset rgba(255,255,255,.3) 0px 6px 12px;
+	box-shadow: rgba(0,0,0,.3) 0px -2px 4px, inset rgba(255,255,255,.3) 0px 6px 12px;
+	-webkit-user-select: none;
+	color: #fff;
+	text-shadow: rgba(0,0,0,.5) 0 -1px 1px;
+	font: bold 13px Helvetica, Geneva, Arial, sans-serif;
+	bottom: 0;
+}
+
+#preview-bar p {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	top: 5px;
+	left: 8px;
+}
+
+.refresher {
+	height: 16px;
+	background-color: rgba(255,255,255,.1);
+	position: absolute;
+	top: 3px;
+	border-radius: 4px;
+	border: 1px solid rgba(0,0,0,.2);
+	-webkit-box-shadow: inset rgba(255,255,255,.2) 0px 1px 0px;
+	box-shadow: inset rgba(255,255,255,.2) 0px 1px 0px;
+	text-align: center;
+	padding-top: 3px;
+	color: #fff;
+	text-shadow: rgba(0,0,0,.8) 0 -1px 1px;
+	cursor: pointer;
+	text-transform: uppercase;
+	right: 3px;
+	font-weight: bold;
+	font-size: 11px;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.refresher:active {
+	background-color: rgba(255,255,255,0);
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		background: #666;
+}
+
+100% {
+	background: #222;
+}
+
+}
+@-o-keyframes pulse {
+	0% {
+		background: #666;
+}
+
+100% {
+	background: #222;
+}
+
+}
+@keyframes pulse {
+	0% {
+		background: #666;
+}
+
+100% {
+	background: #222;
+}
+}
+
+/* @end */
+
+/* @group Back Button */
+
+.back-button,
+.smartphone.web-app-mode.pushit-active .back-button {
+	display: none;
+}
+
+.smartphone.web-app-mode .back-button {
+	background-color: rgba( 255, 255, 255, 0.2 );
+	color: rgba( 255, 255, 255, 0.3 );
+	border-radius: 35px;
+	display: block;
+	padding: 15px 18px 15px 15px;
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+	transition: background-color .5s linear;
+	z-index: 1;
+}
+
+.smartphone.web-app-mode .back-button.visible {
+	background-color: rgba( 255, 255, 255, 1 );
+	color: #000;
+	transition: background-color .5s linear;
+}
+
+.light-body.smartphone.web-app-mode .back-button {
+	background: rgba( 0, 0, 0, 0.1 );
+	color: rgba( 0, 0, 0, 0.3 );
+}
+
+.light-body.smartphone.web-app-mode .back-button.visible {
+	background-color: rgba( 0, 0, 0, 0.8 );
+	color: #fff;
+}
+
+.load-more-button {
+	font-weight: bolder;
+	font-size: 20px;
+	background-color: rgb(150, 164, 17);;
+	color: #FFF;
+	border-radius: 5px
+}
+
+/* @end */</style> <style id="wptouch-parent-theme-css-inline-css" type="text/css"> .page-wrapper { background-color: #f9f9f8; } a { color: #ffffff; } body, header, .wptouch-menu, .pushit, #search-dropper, .date-circle { background-color: #ffffff; } a, #slider a p:after { color: #96a411; } .dots li.active, #switch .active { background-color: #96a411; } .bauhaus, .wptouch-login-wrap, form#commentform button#submit { background-color: #f9f9f8; } </style> <style>/* Bauhaus CSS */
+
+/*
+Responsive styles can be applied via '.smartphone', '.tablet', '.portrait' & '.landscape' classes.
+These classes are automatically applied and manipulated on <body> by Foundation.
+*/
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Geneva, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	letter-spacing: -1px;
+}
+
+.page-wrapper {
+	left: 0;
+	right: 0;
+}
+
+/* @group Header */
+
+header a, header div {
+	color: rgba(0,0,0,.9);
+	text-shadow: rgba(255,255,255,.2) 0px 1px 0px;
+}
+
+header {
+	position: relative;
+	opacity: 1;
+	overflow: hidden;
+	height: 54px;
+	z-index: 4;
+	padding-bottom: 12px;
+}
+
+header a.header-center {
+	display: block;
+	/*margin-left: auto;*/
+    margin-left: 8px;
+	margin-right: auto;
+	/*text-align: center;*/
+	width: 68%;
+}
+
+header h1 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+	font-size: 150%;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 2.25;
+}
+
+header img {
+	max-height: 44px;
+	position: relative;
+	max-width: 100%;
+}
+
+.portrait header img, .landscape header img {
+	top: 4px;
+}
+
+.drop-down #menu {
+	display: none;
+	position: absolute;
+	top: 54px;
+	z-index: 3;
+	right: 0;
+	left: 0;
+}
+
+#menu-toggle {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#menu-toggle:after {
+	content: "\e80a";
+	display: block;
+	font: 110% 'fontello', sans-serif;
+	padding: 28px 21px;
+}
+
+#search-toggle {
+	position: absolute;
+    /*left: 0;*/
+    right:50px !important;
+	bottom: 0;
+}
+
+#search-toggle:after {
+	content: "\e809";
+	display: block;
+	font: 110% 'fontello', sans-serif;
+	padding: 28px;
+}
+
+#menu-toggle.touched:after, #search-toggle.touched:after {
+	color: rgba(0,0,0,.3);
+}
+
+.login-link {
+	padding-left: 12px;
+}
+
+.login-link i {
+	margin-right: 5px;
+}
+
+#wptouch-search-inner {
+	background-color: rgba(0,0,0,.1);
+	text-align: center;
+	padding: 3px;
+}
+
+#wptouch-search-inner input[type="text"] {
+	width: 65%;
+	-webkit-appearance: none;
+	border: 1px solid rgba(0,0,0,.3);
+	padding: 4px;
+	background-color: rgba(255,255,255,.9);
+	font-size: 90%;
+}
+
+#wptouch-search-inner input[type="text"]:focus {
+	background-color: white;
+}
+
+#wptouch-search-inner input[type="submit"] {
+	border: 1px solid rgba(0,0,0,.2);
+	padding: 2px 10px 4px;
+	-webkit-appearance: none;
+	background-color: rgba(255,255,255,.1);
+	color: rgba(0,0,0,.8);
+	font-size: 95%;
+	vertical-align: bottom;
+}
+
+#search-dropper {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 400ms ease;
+}
+
+#search-dropper.toggled {
+	max-height: 50px;
+}
+
+.touched {
+	background-color: rgba(0,0,0,.1);
+}
+
+.page-wrapper .wptouch-custom-ad {
+	margin: 0 0 -3px;
+}
+
+/* @end */
+
+/* @group Slider */
+
+#slider {
+	background: rgba(0,0,0,.85);
+	text-shadow: rgba(150,164,17,.1) 0px 1px 1px;
+}
+
+.swipe-wrap > div {
+	height: 220px;
+	overflow: hidden;
+}
+
+#slider p {
+	/*background: none;*/
+}
+
+#slider a p.featured-date {
+	color: #999;
+	font-size: 80%;
+	top: 15px;
+	display: block;
+	text-align: left;
+	left: 100px;
+	text-shadow: none;
+	text-transform: uppercase;
+}
+
+#slider a p.heading-font {
+	position: absolute;
+	top: 30px;
+	left: 100px;
+	text-align: left;
+	text-shadow: rgba(0,0,0,.2) 0px 1px 0px;
+	letter-spacing: -1px;
+	font-weight: normal;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-ms-box-orient: vertical;
+	box-orient: vertical;
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	padding-right: 5%;
+	margin: 3px 0 0;
+	font-size: 160%;
+	line-height: 115%;
+	height: 5.3em;
+}
+
+#slider a p.heading-font:after {
+	content: "\e80c";
+	margin-left: 8px;
+	top: 2px;
+	position: relative;
+	font-family: 'fontello';
+}
+
+.landscape #slider a p.heading-font, .landscape #slider a p.featured-date {
+	left: 160px;
+}
+
+#slider .comments-number {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 5px;
+	left: 50px;
+	text-align: center;
+	width: 18px;
+}
+
+#slider .comments-number span {
+	color: white;
+	z-index: 3;
+	position: relative;
+	font-size: 95%;
+	font-weight: bold;
+	margin-left: -25%;
+	top: 10px;
+}
+
+#slider .comments-number:after {
+	content: "\e812";
+	display: block;
+	font: 36px 'fontello', sans-serif;
+	position: absolute;
+	top: 0;
+	left: -60%;
+}
+
+ul.dots {
+	top: 0px;
+	right: 0;
+	left: 0;
+	height: 20px;
+}
+
+.landscape ul.dots {
+	top: 230px;
+}
+
+#slider img {
+	/*-webkit-filter: blur(2px) saturate(200%);
+	opacity: .2;*/
+}
+
+#slider img.clone {
+	width: 210px;
+	height: 210px;
+	position: absolute;
+	top: 5px;
+	left: -90px;
+	-webkit-box-reflect: none;
+	-webkit-filter: saturate(100%);
+	opacity: 1;
+}
+
+/* Need this because the setting for featured grayscale is overridden by the above */
+
+#slider.grayscale img {
+	-webkit-filter: saturate(100%) grayscale(1) contrast(1.1);
+}
+
+/* @end */
+
+/* @group Post Loop */
+
+.loop-link {
+	display: block;
+	position: relative;
+	min-height: 80px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.loop-link i.arrow {
+	font-size: 34px;
+	position: absolute;
+	right: 3%;
+	top: 50%;
+	margin-top: -18px;
+}
+
+.loop-link .post-date-author {
+	color: rgba(0,0,0,.5);
+	display: block;
+	font-size: 70%;
+	margin-left: 50px;
+	padding-top: 10px;
+	text-transform: uppercase;
+}
+
+#content .loop-link h2 {
+	display: inline-block;
+	/*width: 60%;*/
+    width: 50%;
+	font-size: 115%;
+	line-height: 130%;
+	margin: 0;
+	padding-bottom: 10px;
+	overflow: hidden;
+	font-weight: bold;
+	font-style: normal;
+    height:80px;
+}
+
+.loop-link img.post-thumbnail {
+	/*width: 64px;
+	height: 64px;*/
+    width: 120px;
+    height: 120px;
+	margin: 12px 10px 0;
+	float: left;
+	z-index: 1;
+	position: relative;
+}
+
+.loop-link .date-circle,
+.related .date-circle {
+	position: relative;
+	font-size: 215%;
+	line-height: 110%;
+	display: block;
+	float: left;
+	margin: 12px 10px 0;
+	width: 62px;
+	height: 48px;
+	border: 1px solid rgba(0,0,0,.1);
+	z-index: 1;
+	padding-top: 14px;
+	text-align: center;
+	overflow: hidden;
+	color: rgba(0,0,0,.7);
+}
+	.related .date-circle {
+		font-size: 175%;
+		height: 36px;
+		float: none;
+		margin: 0;
+		line-height: 100%;
+		position: absolute;
+		top: 3px;
+		width: 50px;
+	}
+
+.loop-link .date-circle .month,
+.related .date-circle .month {
+	text-transform: uppercase;
+	font-size: 40%;
+	position: absolute;
+	top: -1px;
+	right: 0;
+	left: 0;
+	letter-spacing: -1px;
+}
+
+.loop-link .date-circle .day,
+.related .date-circle .day {
+	position: absolute;
+	top: 18px;
+	right: 0;
+	left: 0;
+	font-size: 80%;
+	letter-spacing: -1px;
+}
+
+.loop-link .bottom-border {
+	border-bottom: 1px solid rgba(0,0,0,.15);
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 88px;
+	right: 0;
+}
+
+.no-thumbs.loop-link .bottom-border {
+	left: 40px;
+}
+
+.no-thumbs.loop-link .post-date-author, #content .no-thumbs.loop-link h2 {
+	margin-left: 40px;
+}
+
+/* @group Comment Bubble */
+
+.loop-link .comments {
+	position: absolute;
+	z-index: 2;
+	top: 5px;
+	left: 58px;
+	text-align: center;
+	width: 18px;
+}
+
+.no-thumbs.loop-link .comments {
+	top: 20px;
+	left: 10px;
+}
+
+.loop-link .comments span {
+	color: white;
+	z-index: 3;
+	position: relative;
+	font-size: 70%;
+	font-weight: bold;
+	vertical-align: -5px;
+}
+
+.loop-link .comments:after {
+	content: "\e812";
+	display: block;
+	font: 30px 'fontello', sans-serif;
+	position: absolute;
+	left: 50%;
+	margin-left: -15px;
+	top: 0;
+}
+
+.no-thumbs.loop-link .comments:after {
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	transform: scaleX(-1);
+	-webkit-filter: FlipH;
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Single */
+
+/* @group Crumb Path (incomplete) */
+
+.crumb-path {
+	background-image: -webkit-gradient(radial, 50% 0%,0,50% 0%,400, to(rgba(0, 0, 0,0)), from(rgba(255, 255, 255, 0.50)));
+	z-index: 2;
+	text-align: left;
+	opacity: .9;
+}
+
+.crumb-path p {
+	font-size: 80%;
+	padding: 6px 12px;
+	margin: 0;
+}
+
+.crumb-path p span {
+	display: inline-block;
+	width: 65%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.landscape .crumb-path p span {
+	width: 78%;
+}
+
+.ios7 .crumb-path {
+	position: -webkit-sticky;
+	top: 0px;
+}
+
+/* @end */
+
+.sharing-options.style-default.share-top a {
+	font-size: 80%;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.sharing-options +.nav-controls {
+	margin-bottom: -11px;
+}
+
+/* @group Posts Nav */
+
+.nav-controls {
+	background-color: rgba(0,0,0,.05);
+	font-size: 90%;
+	font-weight: bold;
+	border-top: 1px solid rgba(0,0,0,.05);
+	border-bottom: 1px solid rgba(0,0,0,.05);
+	padding: 10px 20px;
+	text-align: center;
+	margin: -1px 0;
+	color: rgba(0,0,0,.7);
+}
+
+.nav-controls div {
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+	float: left;
+}
+
+.nav-controls a:before {
+	margin-right: 3px;
+}
+
+.nav-controls a {
+	font-weight: normal;
+	font-style: normal;
+	display: block;
+}
+
+.nav-controls a.prev-post {
+	padding-right: 8px;
+}
+
+.nav-controls .previous {
+	text-align: left;
+}
+
+.nav-controls .next {
+	text-align: right;
+	float: right;
+}
+
+.nav-controls a:after {
+	margin-left: 3px;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Posts / Pages Shared CSS */
+
+.post-page-content {
+	color: rgba(0,0,0,.7);
+	font-size: 100%;
+	line-height: 165%;
+	padding-bottom: 50px;
+	overflow: hidden;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.post-page-content .wp-caption {
+	max-width: 300px !important;
+	width: auto !important;
+	padding: 0 20px;
+}
+
+.post-page-content img.aligncenter {
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 0 !important;
+	border: none !important;
+}
+
+.post-page-content table {
+	margin-left: 20px;
+	margin-right: 20px;
+	max-width: 100%;
+	overflow: scroll;
+}
+
+.post-page-content h1, .post-page-content h2, .post-page-content h3, .post-page-content h4, .post-page-content h5, .post-page-content h6, .post-page-content dl, .post-page-content address {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.post-page-content .gallery-item{
+    margin:5px !important;
+}
+.gallery dl.gallery-item img.attachment-thumbnail {
+    width:auto !important;
+    margin:0px;
+}
+
+.post-page-content ul, .post-page-content ol {
+	margin-left: 15px;
+	margin-right: 15px;
+	list-style-type: circle;
+}
+
+.post-page-content li {
+	margin-left: 10;
+	margin-right: 10;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.post-page-content > p, .post-page-content > div > p {
+	/*padding-left: 15px;
+	padding-right: 15px;*/
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.wptouch-shortcode-webapp-mobile, .wptouch-shortcode-webapp-only, .wptouch-shortcode-webapp-only {
+	margin-top: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow: hidden;
+	display: block;
+}
+
+.post-page-content p a, .comment-body a {
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+}
+
+.post-page-content .post-thumbnail {
+	margin: 0 0 -8px;
+	padding: 0;
+	min-width: 100%;
+	height: auto;
+}
+
+.post-page-head-area .post-date-comments, .post-page-head-area .post-author {
+	font-size: 75%;
+	color: rgba(0,0,0,.5);
+	margin-right: 10px;
+	margin-left: 14px;
+}
+
+.post-page-content .cat-tags {
+	/*margin-left: 20px;
+	margin-right: 20px;*/
+	font-size: 90%;
+	margin-top: 15px;
+	text-align: left;
+}
+
+.post-page-head-area.bauhaus {
+	background-image: -webkit-gradient(radial, 50% 0%,0,50% 0%,500, from(rgba(0, 0, 0,0)), to(rgba(255, 255, 255, 0.50)));
+	/*text-align: center;*/
+    text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-shadow: rgba(255,255,255,.3) 0px 1px 0px;
+	overflow: hidden;
+}
+
+.post-page-head-area.bauhaus h2.post-title {
+	/*color: rgba(0,0,0,.7);*/
+    color: rgb(150,164,17);
+	letter-spacing: -2px;
+	font-size: 180%;
+	/*font-weight: normal;*/
+    font-weight: bold;
+	padding: 10px 13px;
+}
+
+.post-page-content blockquote {
+	border-left: 3px solid rgba(0,0,0,.2);
+	margin-left: 30px;
+	margin-right: 30px;
+	padding-left: 10px;
+}
+
+.post-page-content .wptouch-ad {
+	padding: 0;
+}
+
+/* @end */
+
+/* @group Related Posts */
+
+.related-posts {
+	padding-top: 0;
+	background-color: rgba(255,255,255,.5);
+	padding: 15px;
+	border-top: 1px solid rgba(0,0,0,.1);
+	color: rgba(0,0,0,.7);
+}
+
+.related-posts ul li {
+	position: relative;
+	list-style-type: none;
+	margin: 0 0 20px;
+}
+
+.related-posts h3 {
+	padding-bottom: 10px;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 1.6em;
+}
+
+.related-posts li.has-thumb  p {
+	margin-top: 5px;
+	font-size: .9em;
+}
+
+.related-posts li.has-thumb  a, .related-posts .has-thumb p {
+	padding-left: 60px;
+	display: block;
+}
+
+.related-posts .has-thumb img {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 3px;
+	border: 1px solid rgba(0,0,0,.1);
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+}
+
+/* @end */
+
+/* @group Comments */
+
+.no-com-bubbles #slider .comments-number, .no-com-bubbles .loop-link .comments {
+	display: none;
+}
+
+#comments {
+	color: rgba(0,0,0,.7);
+	background-color: rgba(255,255,255,.3);
+	border-top: 1px solid rgba(0,0,0,.1);
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	padding-bottom: 20px;
+}
+
+#responses, #respond {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#respond {
+	padding-top: 20px;
+}
+
+.comment {
+	margin-left: 15px;
+	padding-right: 15px;
+}
+
+.comment-author, .comment-time, .comment-body {
+	margin-left: 65px;
+}
+
+.comment-author {
+	font-weight: bold;
+	font-size: 95%;
+}
+
+.comment-time {
+	font-size: 75%;
+	color: rgba(0,0,0,.4);
+}
+
+#comments .comment-avatar {
+	width: 54px;
+	height: 54px;
+	-webkit-border-radius: 150px;
+	border-radius: 150px;
+	border: 1px solid rgba(255,255,255,.5);
+	float: left;
+	right: 2px;
+	position: relative;
+	overflow: hidden;
+}
+
+#comments .comment-avatar img {
+	width: 100%;
+	height: auto;
+}
+
+.comment .comment-body {
+	font-size: 90%;
+	padding-bottom: 15px;
+}
+
+.comment .comment-body:after {
+	content: '';
+	display: block;
+	border-bottom: 1px solid rgba(0,0,0,.15);
+	margin-left: -65px;
+	margin-right: -15px;
+}
+
+#comments blockquote {
+	margin-left: 0;
+	padding-left: 10px;
+}
+
+#comments .load-more-comments-wrap a {
+	font-size: 95%;
+}
+
+/* @group Commentform */
+
+form#commentform input, form#commentform textarea {
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-border-top-left-radius: 12px;
+	border-top-left-radius: 12px;
+}
+
+.dark-post-head form#commentform button#submit {
+	color: rgba(255,255,255,.8);
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Search */
+
+.search span.select-wrap {
+	display: block;
+	margin-top: 25px;
+}
+
+.search span.select-wrap .search-select {
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+	background-color: transparent;
+	-webkit-appearance: none;
+	padding: 4px;
+	border-style: none;
+	font-size: 100%;
+}
+
+.search span.select-wrap i.icon-caret-down {
+	content: "\e844";
+	font: 110% 'fontello', sans-serif;
+	position: relative;
+	z-index: 2;
+	top: 1px;
+	right: 2px;
+}
+
+.no-results {
+	text-align: center;
+	display: block;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+/* @end */
+
+/* @group Login Fly-In */
+
+.dark-post-head .wptouch-login-wrap, .dark-post-head .wptouch-login-wrap a {
+	color: rgba(255,255,255,.8);
+	text-shadow: rgba(0,0,0,.2) 0 -1px 0;
+}
+
+.dark-post-head .wptouch-login-wrap #wp-submit {
+	color: rgba(255,255,255,.8);
+	border: 1px solid rgba(0,0,0,.2);
+	background-color: rgba(0,0,0,.1);
+}
+
+/* @end */
+
+/* @group Footer */
+
+.load-more-link, .load-more-comments-wrap a {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+#switch {
+	margin-top: 15px;
+	margin-bottom: -15px;
+}
+
+.page-wrapper .footer {
+	margin-top: 25px;
+	font-size: 75%;
+}
+
+.footer, a.back-to-top {
+	font-size: 80%;
+	color: rgba(0,0,0,.5);
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* @end */
+
+/* @group Circles */
+
+.circles #slider img.clone {
+	-webkit-border-radius: 225px;
+	border-radius: 225px;
+}
+
+.circles .loop-link .date-circle,
+.circles .related .date-circle {
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
+}
+
+.circles .loop-link img.post-thumbnail {
+	/*-webkit-border-radius: 150px;*/
+	/*border-radius: 150px;*/
+}
+
+.landscape.circles #slider img.clone {
+	width: 250px;
+	height: 250px;
+	-webkit-border-radius: 225px;
+	border-radius: 225px;
+	left: -30px;
+	top: 12px;
+}
+
+.landscape.circles #slider .comments-number {
+	left: 130px;
+	top: 15px;
+}
+
+/* @end */
+
+/* @group Round Squares */
+
+.roundsquares #slider .comments-number {
+	left: 85px;
+	top: 0;
+}
+
+.roundsquares #slider img.clone {
+	left: -85px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+}
+
+.landscape.roundsquares #slider img.clone {
+	left: 0;
+}
+
+.landscape.roundsquares #slider .comments-number {
+	left: 160px;
+}
+
+.roundsquares .loop-link .date-circle {
+	-webkit-border-radius: 14px;
+	border-radius: 14px;
+}
+
+.roundsquares .loop-link img.post-thumbnail, .roundsquares .related img.wp-post-image, .roundsquares .comment-avatar {
+	-webkit-border-radius: 14px;
+	border-radius: 14px;
+}
+
+/* @end */
+
+/* @group Dark */
+
+.dark-body .loop-link .post-date-author {
+	color: rgba(255,255,255,.4);
+}
+
+.dark-header #menu-toggle.touched:after, .dark-header #search-toggle.touched:after {
+	color: rgba(255,255,255,.3);
+}
+
+.dark-header #wptouch-search-inner input[type="submit"] {
+	color: rgba(255,255,255,.9);
+}
+
+.dark-header .loop-link .date-circle,
+.dark-header .related .date-circle {
+	color: rgba(255,255,255,.8);
+}
+
+.dark-header header a, .dark-header header div {
+	color: rgba(255,255,255,.9);
+	text-shadow: rgba(0,0,0,.2) 0px -1px 0px;
+}
+
+.dark-body .post-page-content, .dark-body .footer, .dark-body .back-to-top {
+	color: rgba(255,255,255,.8);
+}
+
+.dark-body .loop-link .bottom-border {
+	border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.dark-body .sharing-options a {
+	border-top-color: rgba(0,0,0,.1);
+	border-bottom-color: rgba(0,0,0,.1);
+	text-shadow: none;
+}
+
+.dark-post-head .post-page-head-area h2.post-title, .dark-post-head .post-page-head-area select, .dark-post-head .post-page-head-area .archive-text {
+	color: rgba(255,255,255,.8);
+	text-shadow: rgba(0,0,0,.2) 0px -1px 0px;
+}
+
+.dark-post-head .post-page-head-area .post-date-comments, .dark-post-head .post-page-head-area .post-author {
+	color: rgba(255,255,255,.6);
+	text-shadow: rgba(0,0,0,.1) 0px -1px 0px;
+}
+
+.dark-post-head .post-page-head-area {
+	background-image: -webkit-gradient(radial, 50% 0%,0,50% 0%,500, from(rgba(255, 255, 255, 0.20)), to(rgba(0, 0, 0,0)));
+}
+
+.dark-body #comments {
+	color: rgba(255,255,255,.7);
+	background-color: rgba(0,0,0,.05);
+	border-top: 1px solid rgba(0,0,0,.1);
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.dark-body .comment-time {
+	color: rgba(255,255,255,.4);
+}
+
+.dark-body .comment .comment-body:after {
+	border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.dark-body .comment-avatar {
+	border: 1px solid rgba(0,0,0,.1);
+}
+
+.dark-body .related-posts {
+	background-color: rgba(0,0,0,.2);
+}
+
+/* @end */
+
+/* @group Web App Mode */
+
+.ios7.smartphone.web-app-mode #menu {
+	padding-top: 20px;
+}
+
+.drop-down.ios7.smartphone.web-app-mode #menu {
+	position: fixed;
+	top: 74px;
+	overflow: auto;
+	padding-top: 0;
+	-webkit-overflow-scrolling: touch;
+}
+
+.ios7.web-app-mode.has-fixed header {
+	position: -webkit-sticky;
+	opacity: 0.97;
+	padding-top: 20px;
+	top: 0;
+}
+
+.ios7.web-app-mode .crumb-path {
+	position: -webkit-sticky;
+	top: 74px;
+}
+
+.ios7.web-app-mode #search-dropper {
+	position: -webkit-sticky;
+	top: 74px;
+	z-index: 3;
+}
+
+/* @end */
+
+/* @group Off-Canvas Login */
+
+.off-canvas .wptouch-login-wrap {
+	text-align: center;
+	font-size: 70%;
+}
+
+.footer-ad{
+    text-align:center;
+    width:100%;
+    position:fixed;
+    height:50px;
+    bottom:0px;
+    z-index:1000;
+    background-color:white;
+}
+#switch{
+    margin-bottom:95px;
+}
+
+/* @end */
+
+img {
+    max-width:100% !important;
+}
+
+.gallery_extend {
+    padding: 0;
+}
+.gallery{
+    padding:0;
+}
+.post-page-content .gallery-item {
+ margin: 3px !important; 
+}
+
+.listing-ad{
+    margin-left:10px;
+}
+.left-margin-ad{
+    margin-left:15px;
+}
+
+body.attachment #content h2{
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:0px;
+}
+#respond {
+    display:none;
+}
+.commentlist a{
+    display:none;
+}
+
+.wptouch-menu{
+	padding-bottom: 20px;
+}
+
+.crisp_Css_Ad_Cradle {
+	position: fixed;
+	overflow:hidden;
+}
+
+#cpn_ad_cradle {
+	position: fixed;
+	overflow:hidden;
+}</style> <style>/*ihmp.css*/
+
+div#ihmp_box {
+	font-family:'Trebuchet MS','Futura',arial,verdana,sans-serif;
+	width:300px;
+	min-height: 510px;
+	line-height:1em;
+	background:#ffffff;
+	position:relative;
+	display:block;
+	padding-bottom:29px;
+	margin-top:5px;
+	}
+
+div.ihmp_clear {
+	clear:both;
+	}
+
+div#ihmp_header {
+	width:100%;
+	height:32px;
+	background: url('../images/topimg.jpg');
+	}
+	
+div#ihmp_box div.title {
+	max-height: 34px;
+    overflow: hidden;
+    }
+div#ihmp_box div.title a.title{
+	color:#929D00;
+	font-size:15px;
+	text-align:left;
+	padding:0px;
+	margin:0px 0;
+	font-weight:bold;
+	text-decoration:none;
+	line-height:16px;
+	}
+	
+div#ihmp_box div.title a.title:hover{
+	background-color:#96A411!important;
+	color:#fff!important;
+	text-decoration:none;
+	}
+	
+div#ihmp_box div#ihmp_view_month, div#ihmp_box div#ihmp_view_ever, div#ihmp_box div#ihmp_post {
+	position:relative;
+	}
+	
+div#ihmp_box div.ihmp_select {
+	padding:0px;
+	margin:0px;
+	display:block;
+	font-style:oblique;
+	color:#626262;
+	text-align:center;
+	float:left;
+	font-size:12px;
+	letter-spacing:0.05em;
+	line-height:21px;
+	border:1px solid #ffffff;
+	}
+div#ihmp_box #ihmp_view_monthselect {
+	width:101px;
+	}
+div#ihmp_box #ihmp_view_everselect {
+	width:72px;
+	}
+div#ihmp_box #ihmp_postselect {
+	width:121px;
+	}
+div#ihmp_box div.notselected {
+ 	background:#e1e1e1;
+ 	}
+
+div#ihmp_box div.ihmp_select:hover {
+ 	cursor:pointer;
+	}
+
+div#ihmp_box div.notselected:hover {
+	background:#d7d84c;
+	border-color:#ffffff;
+	
+}
+div#ihmp_postselect, div#ihmp_view_everselect {
+	display:hidden;
+	}
+	
+div#ihmp_box img {
+	width:90px;
+	height:87px;
+	float:left;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+	padding-right:10px;
+	}
+div#ihmp_box img:hover {
+	opacity:0.8;
+	filter:alpha(opacity=80);
+	}
+
+div#ihmp_box ul.ihmp_list_panel_view_month, div#ihmp_box ul.ihmp_list_panel_view_ever, div#ihmp_box ul.ihmp_list_panel_post {
+	border:0px;
+	padding:0px;
+	margin:0px;
+	margin-bottom:0px;
+	}
+
+div#ihmp_box li.ihmp_item {
+	width:280px;
+	display:block;
+	border-bottom:1px solid #b0b0b0;
+	height:87px;
+	margin:0px;
+	margin-left:10px;
+	margin-right:10px;
+	padding:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	position:relative;
+	background:#ffffff;
+	}
+	
+div#ihmp_box div.ihmp_excerpt {
+    max-height: 40px;
+    overflow: hidden;
+	}
+	
+div#ihmp_box div.ihmp_excerpt a{
+	font-size: 12px;
+    line-height: 13px;
+    color:#666666;
+    font-weight:normal;
+	}
+
+div#ihmp_box div.ihmp_excerpt a:hover{
+	background-color:#96A411!important;
+	color:#fff!important;
+	text-decoration:none;
+	}
+	
+li.ihmp_item a.ihmp_readmore{
+	color:#929d00;
+	font-size:14px;
+	text-align:right;
+	padding:0px 0;
+	margin:0px 0;
+	font-weight:bold;
+	position:absolute;
+	right:0px;
+	bottom:10px;
+	text-decoration:none;
+	}
+	
+li.ihmp_item a.ihmp_readmore:hover{
+	background-color:#96A411!important;
+	color:#fff!important;
+	text-decoration:none;
+	}
+	
+div#ihmp_more_view_ever, div#ihmp_more_view_month, div#ihmp_more_post {
+	width:100%
+	padding:5px;
+	text-align:right;
+	height:1.4em;
+	margin:5px;
+	background:#ffffff;
+	position:absolute;
+	bottom:-29px;
+	right:5px;
+	}
+div#ihmp_more_view_month span, div#ihmp_more_view_ever span, div#ihmp_more_post span{
+	height:1.4em;
+	font-style:oblique;
+	color:#626262;
+	text-align:right;
+	font-size:14px;
+	text-decoration:none;
+	letter-spacing:1.2px;
+	}
+div#ihmp_more_view_month span:hover, div#ihmp_more_view_ever span:hover, div#ihmp_more_post span:hover{
+	color:#929d00;
+	cursor:pointer;
+	}
+
+
+.ihmp_hideonload {display:none;}</style> <style>#simplr-form {padding:10px 5px; border-top: 1px dotted #eee; border-top: 1px dotted #eee; margin:10px; text-align:left;}
+.simplr-message {margin:5px 0; background:#eee; padding:10px; font-size:16px;}
+.simplr-field {margin:5px 0; }
+.simplr-field .left {width:30%;float:left; color: #000; }
+.simplr-field .required {color:red;}
+.simplr-field .right {width:60%; float:left;}
+#simplr-form textarea {margin:5px 0 10px 8px;}
+#simplr-form .submit {clear:both;float:left;margin-right:9%;}
+
+.simplr-text-input {
+  width: 160px;
+}
+</style> <style>/*
++----------------------------------------------------------------+
+|																							|
+|	WordPress 2.8 Plugin: WP-PageNavi 2.50									|
+|	Copyright (c) 2009 Lester "GaMerZ" Chan									|
+|																							|
+|	File Written By:																	|
+|	- Lester "GaMerZ" Chan															|
+|	- http://lesterchan.net															|
+|																							|
+|	File Information:																	|
+|	- Page Navigation CSS Style													|
+|	- wp-content/plugins/wp-pagenavi/pagenavi-css.css					|
+|																							|
++----------------------------------------------------------------+
+*/
+
+#page-navigation {
+  margin-left: 8px;
+  float: left;
+  width: 100%;
+  clear: both;
+
+}
+
+#wp-pagenavi ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#wp-pagenavi ul li { 
+  display: inline-block;
+  vertical-align: top;
+  float: left;  
+  color: #68761d;
+  margin: 2px;
+}
+
+/*Page Buttons*/
+
+#wp-pagenavi #pages {
+  font-size: 9px;
+  line-height:14px;
+  color: #68761d;
+}
+#page-navigation p {
+  font-weight: bold;
+  color: #96A411;
+
+} 
+
+#wp-pagenavi a{
+	width: 34px;
+	text-decoration: none;
+	text-decoration: none;
+	text-align: center;
+	font-size: 24px;
+	line-height:34px;
+	height: 34px;
+	display: block;
+}
+
+#wp-pagenavi a.page  {	
+	color: #68761d;
+	background-color: #E0E7B1;
+	min-width: 34px;
+	width: 34px;
+	display: block;
+}
+
+#wp-pagenavi a:hover.page  {	
+	background-color: #96A411;
+	color: #FFFFFF;
+}
+
+/*Next and Back Buttons*/
+#wp-pagenavi a.back {
+  text-align: right;
+  padding-right: 6px;
+  background-image:url('FTR-BACK-Arrow-Off.gif');
+  background-repeat:no-repeat;
+  
+}
+
+#wp-pagenavi a.next {
+  text-align: left;
+  padding-left: 6px;
+  background-image:url('FTR-NEXT-Arrow-Off.gif');
+  background-repeat:no-repeat;
+}
+
+#wp-pagenavi a.back, #wp-pagenavi a.next {
+  width: 100px;
+	color: #FFFFFF;
+}
+
+#wp-pagenavi a:hover.back, #wp-pagenavi a:hover.next {	
+	color: #FFFFFF;
+}
+
+#wp-pagenavi li.back {	
+	background-image:url('FTR-BACK-Arrow-Over.gif');
+}
+
+#wp-pagenavi li.next {	
+	background-image:url('FTR-NEXT-Arrow-Over.gif');
+}
+
+#wp-pagenavi a:hover.back {	
+  background-color: #FFF;
+	background-image:url('FTR-BACK-Arrow-Over.gif');
+}
+
+#wp-pagenavi a:hover.next {	
+  background-color: #FFF;
+	background-image:url('FTR-NEXT-Arrow-Over.gif');
+}
+
+
+/*First an Last Buttons*/
+#wp-pagenavi a.last, #wp-pagenavi a.first {
+  font-size: 13px;
+  width: 60px;
+	color: #68761d;
+	background-color: #E0E7B1;
+}
+
+#wp-pagenavi a.last {
+  height: 29px;
+  padding-top: 5px;
+  line-height:10px;
+}
+
+#wp-pagenavi a:hover.last, #wp-pagenavi a:hover.first {
+  background-color: #96A411;
+	color: #FFFFFF;
+}
+
+#wp-pagenavi span{
+	line-height:10px;
+}
+
+/*Current Button*/
+#wp-pagenavi #current {
+  width: 34px;
+  background-color: #CCCCCC;
+  color: #333333;
+}
+
+#wp-pagenavi #current #current-page {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  font-size: 28px;
+	line-height:34px;
+	width: 34px;
+}
+</style> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/jquery.js?ver=1.11.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/sharebar/js/sharebar.js?ver=4.2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/swfobject.js?ver=2.2-20120417"></script> <link rel="prev" title="NASA is looking for alien life on Europa" href="http://inhabitat.com/nasa-is-looking-for-alien-life-on-europa/"> <link rel="next" title="This woman can fit two years of trash in one small mason jar" href="http://inhabitat.com/this-woman-can-fit-two-years-of-trash-in-one-small-mason-jar/"> <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://inhabitat.com/xmlrpc.php?rsd"> <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://inhabitat.com/wp-includes/wlwmanifest.xml"> <meta name="generator" content="WordPress 4.2.2"> <link rel="shortlink" href="http://inhabitat.com/?p=742001"> <style>body ul#sharebar { display: none; position: absolute; width: 65px;background: #fff; padding: 0; text-align: center; border: 1px solid #ccc; list-style: none; margin: 0; z-index: 99; }
+body ul#sharebar li { display: block; margin: 5px; padding: 0; overflow: hidden; text-align: center; }
+body ul#sharebarx { display: none; list-style: none; width: 100%; float: left; margin: 0 0 10px; padding: 0; }
+body ul#sharebarx a { line-height: 14px; text-decoration: none; }
+body ul#sharebarx li { float: left; margin-right: 20px; line-height: 18px; }
+body ul#sharebarx li .st_email  { margin: 0 15px !important; }
+.sharebar-button { font-size: 11px; font-family: Verdana, Arial; padding: 2px 4px; background: #f7f7f7; color: #444; border: 1px solid #ddd; display: block;margin: 0 0 5px; }
+.sharebar-button:hover { border-color: #aaa; }
+.credit { margin: 0; padding: 0; line-height: 9px; }
+.credit a { font-size: 8px; color: #ccc; text-transform: uppercase; text-decoration: none; font-family: Verdana; line-height: 9px; }
+.FBConnectButton_Small{background-position:-5px -232px !important;border-left:1px solid #1A356E;}
+.FBConnectButton_Text{margin-left:12px !important ;padding:2px 5px 3px !important;}
+.stButton{margin:0 0 6px !important;}
+.stButton:last-child{margin:0 !important;}
+.stButton .stFb_vbubble { width:53px !important; }
+.stButton .stFb_text { padding: 2px 5px 3px !important; margin: 1px 1px 0 14px !important; }
+/*
+ * Rule added to force the size of twitter counter
+ * INTAT-375
+ * mtorres on 03/11/2013
+ */
+iframe.twitter-share-button .twitter-count-vertical{ width: 56px !important; }</style> <script type="text/javascript">jQuery(document).ready(function($) { $('.sharebar').sharebar({horizontal:'false',swidth:'70',minwidth:100,position:'left',leftOffset:17,rightOffset:10}); });</script> <!-- Sharebar Plugin by Monjurul Dolon (http://mdolon.com/) - more info at: http://devgrow.com/sharebar-wordpress-plugin --> <meta name="description" content="Some people use chairs to access different floors in a home. This couple in Tokyo uses ladders."> <meta name="keywords" content="hiroyuka shnozaki architects, house t, ninja house, tokyo, japan, japanese design, green design, sustainable design, eco-design, space management, home office, tiny homes,eco design,green design,home office,house t,japan,japanese design,ninja house,space management,sustainable design,tiny homes,tokyo"> <link rel="canonical" href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/"> <!-- /all in one seo pack --> <style type="text/css" media="screen"> /* Begin Gallery Plus CSS */ .gallery { margin: auto; } .gallery-item { float: left; margin-top: 10px; text-align: center; /* width: {$itemwidth}%; */ } .gallery-caption { margin-left: 0; } /* End Gallery Plus CSS */ </style><script type="text/javascript" src="http://intatprod.api.oneall.com/socialize/library.js"></script> <!--End of Twitter Card Plugin--> <meta name="twitter:card" content="summary"> <meta name="twitter:url" content="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/"> <meta name="twitter:title" content="Couple uses ladders to navigate their Tokyo &apos;Ninja&apos; house "> <meta name="twitter:description" content="In 2013, the couple who commissioned the renovation, Tatsumi Terado and his wife Hanae, talked to CNN about their home. Responding to the absence of interior walls, the gaping floor plates&#x2026;"> <meta name="twitter:image" content="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-lead-163x156.jpg"> <meta name="twitter:site" content="@inhabitat"> <!--End of Twitter Card Plugin--> <!-- Start Of Script Generated By WP-EMail 2.40 --> <script type="text/javascript"> /* <![CDATA[ */ var email_ajax_url = 'http://inhabitat.com/wp-content/plugins/wp-email/wp-email.php'; var email_max_allowed = '5'; var email_verify = ''; var email_text_error = 'The Following Error Occurs:'; var email_text_name_invalid = '- Your Name is empty/invalid'; var email_text_email_invalid = '- Your Email is empty/invalid'; var email_text_remarks_invalid = '- Your Remarks is invalid'; var email_text_friend_names_empty = '- Friend Name(s) is empty'; var email_text_friend_name_invalid = '- Friend Name is empty/invalid:'; var email_text_max_friend_names_allowed = '- Maximum 5 Friend Names allowed'; var email_text_friend_emails_empty = '- Friend Email(s) is empty'; var email_text_friend_email_invalid = '- Friend Email is invalid:'; var email_text_max_friend_emails_allowed = '- Maximum 5 Friend Emails allowed'; var email_text_friends_tally = '- Friend Name(s) count does not tally with Friend Email(s) count'; var email_text_image_verify_empty = '- Image Verification is empty'; /* ]]> */ </script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/tw-sack.min.js?ver=1.6.1"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wp-email/email-js-packed.js?ver=2.40"></script> <style>/*
++----------------------------------------------------------------+
+|																							|
+|	WordPress 2.7 Plugin: WP-EMail 2.40										|
+|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|																							|
+|	File Written By:																	|
+|	- Lester "GaMerZ" Chan															|
+|	- http://lesterchan.net															|
+|																							|
+|	File Information:																	|
+|	- E-Mail CSS Style																|
+|	- wp-content/plugins/wp-email/email-css.css							|
+|																							|
++----------------------------------------------------------------+
+*/
+
+.wp-email P {
+	text-align: left;
+}
+.wp-email label {
+  font-weight: bold;
+}
+.wp-email-loading {
+	display: none;
+	text-align: center;
+	height: 16px;
+}
+.wp-email-image {
+	border: 0px;
+}
+.TextField {
+}
+.Button {
+}
+#wp-email-required {
+  font-weight: bold;
+}
+#wp-email-button {
+  text-align: center;
+}
+#wp-email-popup { 
+	padding: 1em 1em 0;
+}</style> <!-- End Of Script Generated By WP-EMail 2.40 --> <!-- Start Of Script Generated By WP-Polls 2.40 --> <script type="text/javascript"> /* <![CDATA[ */ var polls_ajax_url = 'http://inhabitat.com/wp-content/plugins/wp-polls/wp-polls.php'; var polls_text_wait = 'Your last request is still being processed. Please wait a while ...'; var polls_text_valid = 'Please choose a valid poll answer.'; var polls_text_multiple = 'Maximum number of choices allowed:'; var poll_show_loading = 1; var poll_show_fading = 1; /* ]]> */ </script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wp-polls/polls-js-packed.js?ver=2.40"></script> <style>/*
++----------------------------------------------------------------+
+|																							|
+|	WordPress 2.7 Plugin: WP-Polls 2.40										|
+|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|																							|
+|	File Written By:																	|
+|	- Lester "GaMerZ" Chan															|
+|	- http://lesterchan.net															|
+|																							|
+|	File Information:																	|
+|	- Polls CSS File																	|
+|	- wp-content/plugins/wp-polls/polls-css.css								|
+|																							|
++----------------------------------------------------------------+
+*/
+
+
+.wp-polls-archive {
+	/* background-color: #ffffff; */
+}
+.wp-polls, .wp-polls-form {
+	/* background-color: #ffffff; */
+}
+.wp-polls ul li, wp-polls-ul li, .wp-polls-ans ul li {
+	text-align: left;
+	background-image: none;
+	display: block;
+}
+.wp-polls ul, .wp-polls-ul, .wp-polls-ans ul  {
+	text-align: left;
+	list-style: none;
+	
+}
+.wp-polls ul li:before, wp-polls-ul li, .wp-polls-ans ul li:before, #sidebar ul ul li:before {
+	content: '';
+}
+.wp-polls IMG, .wp-polls LABEL , .wp-polls INPUT, .wp-polls-loading IMG, .wp-polls-image IMG {
+	display: inline;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+.wp-polls-ul {
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+}
+.wp-polls-ans {
+	width:100%;
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	opacity: 1;
+	/* background-color: #ffffff; */
+}
+.wp-polls-loading {
+	display: none;
+	text-align: center;
+	height: 16px;
+	line-height: 16px;
+}
+.wp-polls-image {
+	border: 0px;
+}
+.wp-polls .Buttons {
+	border:1px solid #c8c8c8;
+	background-color: #f3f6f8;
+}
+/* Polls Archive Paging */
+.wp-polls-paging a, .wp-polls-paging a:link {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	text-decoration: none;
+	border: 1px solid #0066cc;
+	color: #0066cc;
+	background-color: #FFFFFF;	
+}
+.wp-polls-paging a:visited {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	text-decoration: none;
+	border: 1px solid #0066cc;
+	color: #0066cc;
+	background-color: #FFFFFF;	
+}
+.wp-polls-paging a:hover {	
+	border: 1px solid #000000;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.wp-polls-paging a:active {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	text-decoration: none;
+	border: 1px solid #0066cc;
+	color: #0066cc;
+	background-color: #FFFFFF;	
+}
+.wp-polls-paging span.pages {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px 2px 2px 2px;
+	color: #000000;
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+}
+.wp-polls-paging span.current {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;
+	font-weight: bold;
+	border: 1px solid #000000;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.wp-polls-paging span.extend {
+	padding: 2px 4px 2px 4px; 
+	margin: 2px;	
+	border: 1px solid #000000;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+/*--------------   Paul's Additions  ----------------- */
+.wp-polls form p {
+	text-align: left;
+}
+
+.wp-polls .wp-polls-ul {
+	margin-top: -15px;
+}
+
+.poll-title { 
+	font-size: 13px; 
+	margin-bottom: 0px; 
+	
+}
+.wp-polls-ans .poll-item {
+	width: 537px;
+	list-style-type: none;
+	/*background-color: #d7dcbc;*/
+	margin-top: 20px;
+	clear: both;
+	float: left;
+	height: auto;
+	color: #667331;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 7px;
+	font-weight: bold;
+	overflow: hidden;
+
+}
+.wp-polls-ans .poll-item input {
+	float: left;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 7px;
+}
+.wp-polls-ans .poll-item label {
+	float: left;
+	
+}
+.wp-polls-ans .poll-item small {
+	margin-left:10px;
+	margin-right:10px;
+	font-size: 11px;
+	float: right;
+}
+.wp-polls-ans .poll-item .pollbar {
+
+	clear: both;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+}
+.wp-polls-ans .poll-item img {
+	clear: left;
+	margin-left: 0px;
+	margin-top: 7px;
+	margin-bottom: 0px;
+	margin-right: 500px;
+}
+.clear {
+	clear: both;
+}</style> <style type="text/css"> .wp-polls .pollbar { margin: 1px; font-size: 6px; line-height: 8px; height: 8px; background-image: url('http://assets.inhabitat.com/wp-content/plugins/wp-polls/images/default/pollbg.gif'); border: 1px solid #c8c8c8; } </style> <!-- End Of Script Generated By WP-Polls 2.40 --> <!-- Vipers Video Quicktags v6.3.0 | http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/ --> <style type="text/css"> .vvqbox { display: block; max-width: 100%; visibility: visible !important; margin: 10px auto; } .vvqbox img { max-width: 100%; height: 100%; } .vvqbox object { max-width: 100%; } </style> <script type="text/javascript"> // <![CDATA[ var vvqflashvars = {}; var vvqparams = { wmode: "opaque", allowfullscreen: "true", allowscriptaccess: "always" }; var vvqattributes = {}; var vvqexpressinstall = "http://inhabitat.com/wp-content/plugins/vipers-video-quicktags/resources/expressinstall.swf"; // ]]> </script> <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width"><meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" media="(device-height: 568px)"><link rel="apple-touch-icon-precomposed" href="http://assets.inhabitat.com/wp-content/plugins/wptouch/admin/images/default-bookmark.png"> <!-- Foundation Styles --> <style type="text/css"> /* @override http://wptp3.local.com/wp-content/plugins/wptouch-pro-3/themes/foundation/modules/menu/menu.css?ver=2.0.4 */ /* Default WPtouch Pages Menu Styling */ .wptouch-menu .menu-tree a, .wptouch-menu .menu-tree span { color: rgba(0,0,0,.65); text-shadow: rgba(255,255,255,.3) 0 1px 0; } .wptouch-menu .menu-tree > li { border-bottom: 1px solid rgba(0,0,0,.08); border-top: 1px solid rgba(255,255,255,.1); } .menu-tree li { position: relative; line-height: 100%; } .wptouch-menu ul ul { display: none; } .menu-tree li span { -webkit-transition-duration: 300ms; -o-transition-duration: 300ms; transition-duration: 300ms; display: block; -webkit-box-shadow: inset rgba(0,0,0,.15) 1px 0px 0px; box-shadow: inset rgba(0,0,0,.15) 1px 0px 0px; border-left: 1px solid rgba(255,255,255,.1); padding: 15px; float: right; } .menu-tree li span.toggle { -webkit-box-shadow: inset rgba(0,0,0,.2) 0px 4px 4px; box-shadow: inset rgba(0,0,0,.2) 0px 4px 4px; border: none; } .menu-tree li span:before { font-family: 'fontello'; content:"\e80f"; } .menu-tree li span.toggle:before { content:"\e80e"; font-weight: normal; font-style: normal; } ul.menu-tree.no-parent-links span, ul.menu-tree ul span { border: none; -webkit-box-shadow: none; box-shadow: none; } .menu-tree li a { display: block; -o-text-overflow: ellipsis; -ms-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; padding-top: 15px; padding-bottom: 15px; padding-right: 32px; } .menu-tree li img { width: 26px; height: 26px; position: relative; float: left; padding-right: 6px; top: 8px; padding-left: 6px; } .menu-tree > .open-tree { background: rgba(0,0,0,.03); -webkit-box-shadow: inset rgba(0,0,0,.25) 0px 0px 4px; box-shadow: inset rgba(0,0,0,.25) 0px 0px 4px; border-top-color: rgba(0,0,0,.2); margin-top: -1px; padding-top: 1px; } .menu-tree li.no-icon { padding-left: 10px; } .menu-tree ul li { border-style: none !important; padding-left: 15px; } /* @group RTL */ .rtl .menu-tree li span { -webkit-transition-duration: 300ms; -o-transition-duration: 300ms; transition-duration: 300ms; float: left; -webkit-box-shadow: inset rgba(0,0,0,.15) -1px 0px 0px; box-shadow: inset rgba(0,0,0,.15) -1px 0px 0px; border-right: 1px solid rgba(255,255,255,.1); border-left: none; } .rtl .menu-tree li span.toggle { -webkit-box-shadow: inset rgba(0,0,0,.2) 0px 4px 4px; box-shadow: inset rgba(0,0,0,.2) 0px 4px 4px; border: none; } .rtl .menu-tree li.menu-item img { float: right; } .rtl .menu-tree li.menu-item a { padding-left: 32px; padding-right: 0px; } .rtl .menu-tree li.no-icon { padding-right: 10px; } .rtl .menu-tree ul li { padding-left: 0px; padding-right: 15px; } /* @end */ /* @group Dark Header */ .dark-header .wptouch-menu .menu-tree a, .dark-header .wptouch-menu .menu-tree span { color: rgba(255,255,255,.9); text-shadow: rgba(0,0,0,.3) 0 -1px 0; } .dark-header .wptouch-menu .menu-tree span:before { color: rgba(255,255,255,.9); text-shadow: rgba(0,0,0,.5) 0 -1px 0; } .dark-header .wptouch-menu .menu-tree > li.menu-item { border-bottom: 1px solid rgba(0,0,0,.12); border-top: 1px solid rgba(255,255,255,.06); } /* @end */ </style> <!-- Start: GPT Async --> <script type="text/javascript"> var gptadslots=[]; var googletag = googletag || {}; googletag.cmd = googletag.cmd || []; (function(){ var gads = document.createElement('script'); gads.async = true; gads.type = 'text/javascript'; var useSSL = 'https:' == document.location.protocol; gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js'; var node = document.getElementsByTagName('script')[0]; node.parentNode.insertBefore(gads, node); })(); </script> <!-- End: GPT --> <!-- Yieldbot.com Intent Tag LOADING --> <script type="text/javascript" src="//cdn.yldbt.com/js/yieldbot.intent.js"></script> <!-- Yieldbot.com Intent Tag ACTIVATION --> <script type="text/javascript"> yieldbot.pub('53e4'); yieldbot.defineSlot('adhesion'); yieldbot.defineSlot('mobile_LB'); yieldbot.defineSlot('mobile_MR'); yieldbot.go(); </script> <!-- END Yieldbot.com Intent Tag --> <script> jQuery(document).ready(function() { //jQuery("body").css("max-height",(jQuery(window).height())+"px"); //jQuery("body").css("overflow-y","hidden"); //jQuery("div.page-wrapper").css("max-height",(jQuery(window).height()-50)+"px"); jQuery("div.page-wrapper").css("height",(jQuery(window).height()-50)+"px"); //jQuery("div.page-wrapper").css("overflow-y","scroll"); function checkForHomeDepotAd(count) { if(!count) { count = 0; } count++; var limit = 15; if(count < limit && jQuery("#crisp_close_banner").length > 0 && parseInt(jQuery("#crisp_close_banner").css('top')) < -7) { setTimeout(function() {jQuery("#crisp_close_banner").css("top","-3px");},500); setTimeout(function() {jQuery("#crisp_close_banner").css("top","-10px");},500); } else if(count < limit) { setTimeout(function() {checkForHomeDepotAd(count); }, 500); } } checkForHomeDepotAd(); }); </script> <!-- Article Ads --> <script type="text/javascript"> googletag.cmd.push(function() { //Adslot 1 declaration gptadslots[1]= googletag.defineSlot('/2922/InhabitatMobile/article/320x50_top', [[320,50]],'div-gpt-ad-614892749988252755-1').setTargeting('kw',['top']).addService(googletag.pubads()); //Adslot 2 declaration gptadslots[2]= googletag.defineSlot('/2922/InhabitatMobile/article/300x250_bottom', [[300,250]],'div-gpt-ad-614892749988252755-2').setTargeting('kw',['bot']).addService(googletag.pubads()); //Adslot 3 declaration gptadslots[3]= googletag.defineSlot('/2922/InhabitatMobile/320x50_adhesion', [[320,50]],'div-gpt-ad-614892749988252755-3').setTargeting('kw',['adhesion']).addService(googletag.pubads()); //dynamically insert `setTargeting` for Yieldbot custom criteria yieldbot.setSlotTargeting('adhesion', gptadslots[3]); yieldbot.setSlotTargeting('mobile_MR', gptadslots[2]); yieldbot.setSlotTargeting('mobile_LB', gptadslots[1]); googletag.pubads().enableSingleRequest(); googletag.pubads().setTargeting('category',['gallery']).setTargeting('article',['couple-uses-ladders-to-navigate-their-tokyo-ninja-house']); googletag.pubads().enableAsyncRendering(); googletag.enableServices(); }); </script> <!-- End: GPT --> <script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-1086017-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script> <!-- Chartbeat --> <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script> <script type="text/javascript"> var _sf_async_config={uid:3223,domain:"inhabitat.com"}; (function(){ function loadChartbeat() { window._sf_endpt=(new Date()).getTime(); var e = document.createElement('script'); e.setAttribute('language', 'javascript'); e.setAttribute('type', 'text/javascript'); e.setAttribute('src', (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") + "static.chartbeat.com/js/chartbeat.js"); document.body.appendChild(e); } var oldonload = window.onload; window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); }; })(); </script> <!-- End ChartBeat --> <!-- Start: Amazon A9 --> <script type="text/javascript" src="http://c.amazon-adsystem.com/aax2/amzn_ads.js"></script> <script type="text/javascript"> try { amznads.getAds('3073'); } catch(e) { /*ignore*/} </script> <!-- End: Amazon A9 --> <!-- Start:Amazon A9 --> <script type="text/javascript"> try { amznads.setTargetingForGPTAsync('amznslots'); } catch(e) { /*ignore*/} </script> <!-- End:Amazon A9 --> </head> <body class="single single-post postid-742001 single-format-standard css-videos body-font ios theme-bauhaus light-header light-body light-post-head circles off-canvas fonts-lato_roboto"> <div class="pushit pushit-right"> <div id="menu" class="wptouch-menu show-hide-menu"> <ul class="menu-tree parent-links"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home no-icon"><a href="http://inhabitat.com" class="title">Home</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent no-icon"><a href="http://inhabitat.com/architecture/" class="title">Architecture</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="http://inhabitat.com/design/interiors/" class="title">Interiors</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="" class="title">Products</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="http://inhabitat.com/innovation/green-technology/" class="title">Technology</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="http://inhabitat.com/environment/energy/" class="title">Energy</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="http://inhabitat.com/innovation/transportation/" class="title">Transportation</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="http://inhabitat.com/design/art/" class="title">Art</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="http://inhabitat.com/news/" class="title">News</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category no-icon"><a href="http://inhabitat.com/features/" class="title">Featured</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent no-icon"><a href="http://inhabitat.com/gallery/" class="title">Gallery</a></li></ul> </div> </div> <!-- Back Button for Web-App Mode --> <div class="icon-arrow-left back-button tappable"><!-- css-button --></div> <div class="page-wrapper"> <header id="header-title-logo"> <div id="search-toggle" class="search-toggle tappable" role="button"><!--icon-search--></div> <a href="http://inhabitat.com" class="header-center tappable"> <img id="header-logo" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/resources/LogotypeNew.jpg" alt="logo image"> <!-- 
+							<img id="header-logo" src="" alt="logo image" />
+							<h1 class="heading-font"></h1>
+			 --> </a> <div id="menu-toggle" class="menu-btn tappable show-hide-toggle" data-effect-target="menu" data-menu-target="menu" role="button"><!--icon-reorder--></div> </header> <div id="search-dropper"> <div id="wptouch-search-inner"> <form method="get" id="searchform" action="http://inhabitat.com/"> <input type="text" name="s" id="search-text" placeholder="Search this website&#x2026;"> <input name="submit" type="submit" id="search-submit" value="Search" class="button-dark"> </form> </div> </div> <!-- Beginning Async AdSlot 1 for Ad unit InhabitatMobile/article/320x50_top  ### size: [[320,50]] --> <!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[1]]) --> <div id="div-gpt-ad-614892749988252755-1" style="text-align: center"> <script type="text/javascript"> googletag.cmd.push(function() { googletag.display('div-gpt-ad-614892749988252755-1'); }); </script> </div> <!-- End AdSlot 1 --> <div id="content"> <div class="post section post-742001 post-name-couple-uses-ladders-to-navigate-their-tokyo-ninja-house post-author-93677 single not-page no-thumbnail show-thumbs"> <div class="post-page-head-area bauhaus"> <span class="post-date-comments"> June 5, 2015 by Tafline Laylin </span> <h2 class="post-title heading-font">Couple uses ladders to navigate their Tokyo &#x2018;Ninja&#x2019; house</h2> </div> <div class="sharing-options clearfix share-top style-default"> <a class="facebook-btn no-ajax" href="//www.facebook.com/sharer.php?u=http%3A%2F%2Finhabitat.com%2Fcouple-uses-ladders-to-navigate-their-tokyo-ninja-house%2F" target="_blank">Share</a> <a class="twitter-btn no-ajax" href="//twitter.com/intent/tweet?source=wptouchpro3&amp;text=Couple+uses+ladders+to+navigate+their+Tokyo+%E2%80%98Ninja%E2%80%99+house+-+&amp;url=http%3A%2F%2Finhabitat.com%2Fcouple-uses-ladders-to-navigate-their-tokyo-ninja-house%2F" target="_blank">Tweet</a> <a class="google-btn no-ajax" href="//plus.google.com/share?url=http%3A%2F%2Finhabitat.com%2Fcouple-uses-ladders-to-navigate-their-tokyo-ninja-house%2F" target="_blank">+ 1</a> <a class="email-btn no-ajax" href="mailto:?subject=Couple%20uses%20ladders%20to%20navigate%20their%20Tokyo%20%26%238216%3BNinja%26%238217%3B%20house&amp;body=http%3A%2F%2Finhabitat.com%2Fcouple-uses-ladders-to-navigate-their-tokyo-ninja-house%2F">Mail</a> </div> <div class="post-page-content"> <p><div class="gallery_extend"><div class="gallery_extend-main-item"> <div class="navigation image-navigation"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead/?extend=1"> <div class="gallery_extend-image-header alignleft"> </div> </a> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead-2/?extend=1" class="alignright"> <span class="image-button-next-extend"> </span> </a> </div><dl class="gallery-icon1"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-lead-537x370.jpg" title="House-T-by-Hiroyuki-Shinozaki-Architects-lead" alt="We&apos;ve seen people swinging on ladders to access tree houses, but it&apos;s not every day we see ladders inside homes. In 2012 a Tokyo couple commissioned Hiroyuka Shinozaki Architects to give their 750 square-foot apartment a contemporary makeover, one that" width="537" class="attachment-thumbnail" style="max-width:537px;"> </a> <dt></dt> <dd></dd> </dl> <div class="gallery-description">We&apos;ve seen people swinging on ladders to access tree houses, but it&apos;s not every day we see ladders <em>inside</em> homes. In 2012 a Tokyo couple commissioned <a href="http://www.shnzk.com/works/detail11/">Hiroyuka Shinozaki Architects</a> to give their 750 square-foot apartment a contemporary makeover, one that would maximize the interior space used as both a home and a studio. The Japanese architect responded with an unconventional design comprised of a series of floating floors accessed by a network of ladders. But how did it get the nickname &apos;Ninja&apos;?</div> </div> <div class="gallery-extend-link"><a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead-2/?extend=1"><span class="gallery-extend-readmore"> </span></a></div><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-lead-75x75.jpg" title="House-T-by-Hiroyuki-Shinozaki-Architects-lead" alt="We&apos;ve seen people swinging on ladders to access tree houses, but it&apos;s not every day we see ladders inside homes. In 2012 a Tokyo couple commissioned Hiroyuka Shinozaki Architects to give their 750 square-foot apartment a contemporary makeover, one that" width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead-2/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-lead1-75x75.jpg" title="House-T-by-Hiroyuki-Shinozaki-Architects-lead" alt="Aside from the bookcase staircase, sans railings (pictured here), the couple moves around using ladders." width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-4/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-4-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="This 750-square-foot space in Tokyo functions as a home and office." width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-2/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-2-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="In 2012, the couple who own the space commissioned Hiroyuki Shinozaki Architects to renovate the interior." width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-3/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-3-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="" width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-5/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-5-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="" width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-8/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-8-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="They adopted the term &quot;ninja&quot; to convey the movements they use to navigate their home." width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl><dl class="gallery-item"><dt class="gallery-icon3"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-10/?extend=1"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-10-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="Lights hang from the ceiling to illuminate all floors, though the spatial configuration allows for natural light during the day." width="75" height="75" class="attachment-thumbnail"> </a> </dt><dd></dd></dl> <br style="clear: both;"> </div> <br> <span id="more-742001"></span><br> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-4/" rel="attachment wp-att-742013"><img class="aligncenter size-large wp-image-742013" src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-4-537x341.jpg" alt="Hiroyuka Shnozaki Architects, House T, Ninja House, Tokyo, Japan, Japanese design, green design, sustainable design, eco-design, space management, home office, tiny homes" width="537" height="341"></a></p> <p>In 2013, the couple who commissioned the renovation&#x2014;Tatsumi Terado and his wife Hanae&#x2014;<a href="http://edition.cnn.com/2013/12/12/world/asia/japan-on-the-road-avant-garde-homes/index.html#">talked to CNN</a> about their home. Responding to the absence of interior walls, the gaping floor plates stabilized by a series of three dimensional columns, the couple said they felt like they were getting in better shape because they had to be as nimble as a ninja to access the various floors. A few years down the road, they will probably be black belts!</p> <p><a href="http://inhabitat.com/hiroyuki-shinozaki-architects-create-a-snug-and-playful-pod-shaped-home/">Related: Hiroyuka Shinozaki Architects create a snug and cozy pumpkin-shaped home</a></p> <p>House T is the name Hiroyuka Shinozaki Architects gave to the project. A regular feature on Inhabitat, the studio notes that hanging lights illuminate all levels of the house, though the absence of walls and the cavernous interior optimize natural lighting and foster natural ventilation. Other functions are built-in to achieve the kind of superior space management the <a href="http://inhabitat.com/tag/japanese-design/">Japanese have mastered</a>. We need more ninja houses in America!</p> <p><big><a href="http://www.shnzk.com/works/detail11/">+ Hiroyuka Shnozaki Architects</a></big></p> <div class="gallery"><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-lead-75x75.jpg" title="House-T-by-Hiroyuki-Shinozaki-Architects-lead" alt="We&apos;ve seen people swinging on ladders to access tree houses, but it&apos;s not every day we see ladders inside homes. In 2012 a Tokyo couple commissioned Hiroyuka Shinozaki Architects to give their 750 square-foot apartment a contemporary makeover, one that" width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-lead-2/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-lead1-75x75.jpg" title="House-T-by-Hiroyuki-Shinozaki-Architects-lead" alt="Aside from the bookcase staircase, sans railings (pictured here), the couple moves around using ladders." width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-4/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-4-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="This 750-square-foot space in Tokyo functions as a home and office." width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-2/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-2-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="In 2012, the couple who own the space commissioned Hiroyuki Shinozaki Architects to renovate the interior." width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-3/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-3-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="" width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-5/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-5-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="" width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-8/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-8-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="They adopted the term &quot;ninja&quot; to convey the movements they use to navigate their home." width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl><br style="clear: both"><dl class="gallery-item"> <dt class="gallery-icon"> <a href="http://inhabitat.com/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/house-t-by-hiroyuki-shinozaki-architects-10/"> <img src="http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2015/05/House-T-by-Hiroyuki-Shinozaki-Architects-10-75x75.jpg" title="House T by Hiroyuki Shinozaki Architects" alt="Lights hang from the ceiling to illuminate all floors, though the spatial configuration allows for natural light during the day." width="75" height="75" class="attachment-thumbnail"> </a> </dt></dl> <br style="clear: both;"> </div> <script type="text/javascript"> var addthis_config = {"data_track_clickback":false,"data_track_addressbar":false,"data_track_textcopy":false,"ui_atversion":"300"}; var addthis_product = 'wpp-3.1'; </script><script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=47160ba9df0ed0978e324eab9d966cac"></script> <div class="cat-tags"> Categories: <a href="http://inhabitat.com/architecture/" rel="category tag">Architecture</a>, <a href="http://inhabitat.com/carousel-showcase/" rel="category tag">carousel showcase</a>, <a href="http://inhabitat.com/gallery/" rel="category tag">Gallery</a><br> Tags: <a href="http://inhabitat.com/tag/eco-design/" rel="tag">eco design</a>, <a href="http://inhabitat.com/tag/green-design/" rel="tag">green design</a>, <a href="http://inhabitat.com/tag/hiroyuka-shnozaki-architects/" rel="tag">Hiroyuka Shnozaki Architects</a>, <a href="http://inhabitat.com/tag/home-office/" rel="tag">home office</a>, <a href="http://inhabitat.com/tag/house-t/" rel="tag">House T</a>, <a href="http://inhabitat.com/tag/japan/" rel="tag">Japan</a>, <a href="http://inhabitat.com/tag/japanese-design/" rel="tag">Japanese design</a>, <a href="http://inhabitat.com/tag/ninja-house/" rel="tag">Ninja House</a>, <a href="http://inhabitat.com/tag/space-management/" rel="tag">space management</a>, <a href="http://inhabitat.com/tag/sustainable-design/" rel="tag">Sustainable Design</a>, <a href="http://inhabitat.com/tag/tiny-homes/" rel="tag">Tiny Homes</a>, <a href="http://inhabitat.com/tag/tokyo/" rel="tag">Tokyo</a> </div> <!-- Beginning Async AdSlot 2 for Ad unit InhabitatMobile/article/300x250_bottom  ### size: [[300,250]] --> <!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[2]]) --> <div id="div-gpt-ad-614892749988252755-2"> <script type="text/javascript"> googletag.cmd.push(function() { googletag.display('div-gpt-ad-614892749988252755-2'); }); </script> </div> <!-- End AdSlot 2 --> </div> </div> </div> <!-- content --> <div class="nav-controls clearfix"> <div class="previous"> previous post <a class="prev-post" href="http://inhabitat.com/nasa-is-looking-for-alien-life-on-europa/">NASA is looking for alien life on Europa</a> </div> <div class="next"> next post <a class="next-post" href="http://inhabitat.com/this-woman-can-fit-two-years-of-trash-in-one-small-mason-jar/">This woman can fit two years of trash in one small mason jar</a> </div> </div> <div id="comments"> <!-- If comments are open, but there are no comments --> <!--  End of dealing with the comments, now the comment form --> <div id="respond"> <div class="cancel-comment-reply"> <a rel="nofollow" id="cancel-comment-reply-link" href="/couple-uses-ladders-to-navigate-their-tokyo-ninja-house/#respond" style="display:none;">Cancel</a> </div> <h3>Leave a Reply</h3> <form action="http://inhabitat.com/wp-comments-post.php" method="post" id="commentform"> <input type="hidden" name="comment_post_ID" value="742001" id="comment_post_ID"> <input type="hidden" name="comment_parent" id="comment_parent" value="0"> <p><input type="text" name="author" id="author" value="" size="22" aria-required="true"> <label for="author">Name*</label></p> <p><input type="email" autocapitalize="off" name="email" id="email" value="" size="22" aria-required="true" tabindex="11"> <label for="email">E-Mail*</label></p> <p><input type="url" autocapitalize="off" name="url" id="url" value="" size="22"> <label for="url">Website</label></p> <p><textarea name="comment" id="comment"></textarea></p> <p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="97d84a6103"></p> <p><button name="submit" type="submit" id="submit">Publish</button></p> </form> </div><!-- #respond // end dealing with the comment form --> </div> <!-- Add custom html / content here to be placed above the switch link --> <div class="footer-ad"> <!-- Floating Ad --> <!-- Single Ads --> <!-- Beginning Async AdSlot 1 for Ad unit InhabitatMobile/320x50_adhesion  ### size: [[320,50]] --> <!-- Adslot's refresh function: googletag.pubads().refresh([gptadslots[1]]) --> <div id="div-gpt-ad-614892749988252755-3"> <script type="text/javascript"> googletag.cmd.push(function() { googletag.display('div-gpt-ad-614892749988252755-3'); }); </script> </div> <!-- End AdSlot 1 --> </div> <div class="footer"> <ul class="social-links-wrap"></ul> <!-- AddThis Button Begin --> <script type="text/javascript">var addthis_product = 'wpp-3.1'; var addthis_config = {"data_track_clickback":false,"data_track_addressbar":false,"data_track_textcopy":false,"ui_atversion":"300"};if (typeof(addthis_share) == "undefined"){ addthis_share = [];}</script><script type="text/javascript" src="//s7.addthis.com/js//addthis_widget.js#pubid=wp-47160ba9df0ed0978e324eab9d966cac"></script><script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/resizable.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/button.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-includes/js/jquery/ui/dialog.min.js?ver=1.11.4"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/blog-widgets/js/ajaxupload.js?ver=4.2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/bauhaus/default/bauhaus.js?ver=1.4.3"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/spinjs/spin.min.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/spinjs/spin-jquery.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/featured/swipe.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/menu/menu.js?ver=2.2"></script> <script type="text/javascript"> /* <![CDATA[ */ var wptouchFdn = {"ajaxLoading":"Loading\u2026","isRTL":"0"}; /* ]]> */ </script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/base/base.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/base/base-public.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/google-fonts/google-fonts.js?ver=1718d57986110b6af2dd96b59d3db416"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/load-more/load-more.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/media/fitvids.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/media/media.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/featured/wptouch-swipe.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/tappable/tappable.min.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/tappable/wptouch.tappable.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/fastclick/wptouch.fastclick.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/fastclick/fastclick.min.js?ver=2.2"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/themes/foundation/modules/pushit/pushit.js?ver=2.2"></script> <script type="text/javascript"> /* <![CDATA[ */ var wptouchMain = {"ajaxurl":"http:\/\/inhabitat.com\/wp-admin\/admin-ajax.php","siteurl":"\/","security_nonce":"45f60194ef"}; /* ]]> */ </script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/wptouch/include/js/wptouch.js?ver=e44436592c2daabbd3d797f8967245a3"></script> <script type="text/javascript" src="http://assets.inhabitat.com/wp-content/plugins/inhabitat-event-calendar/updated/js/calendar_controller.js?ver=4.2.2"></script> <!--wp_footer--><!--Bauhaus v1.4.3--> </div> <a href="#" class="back-to-top">Back to top</a> <div class="wptouch-mobile-switch"> </div> </div><!-- page wrapper --> <!-- *
+
+                INTAT-1331 EU Cookie Compliance
+            --> <script type="text/javascript" src="//eucookie.internetbrands.com/eucookie/scripts/v1.0.0/eucookie.min.js"></script> <script type="text/javascript"> (function(){ if(typeof IbEuCookie != 'undefined') { //default parameters IbEuCookie.handleIbCookieNotice(); } })(); </script> <!-- ENDOF INTAT-1331 --> </body> </html> 

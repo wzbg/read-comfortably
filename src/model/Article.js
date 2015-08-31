@@ -2,6 +2,8 @@
  *  string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
  */
 var S = require('string');
+var url = require('url'); // The core url packaged standalone for use with Browserify.
+var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
 
 var grabArticle = require('../readability/grabArticle');
 var grabImages = require('../readability/grabImages');
@@ -57,7 +59,7 @@ Article.prototype.getImages = function (callback) {
 };
 
 Article.prototype.getHtmls = function (sources, callback) {
-  grabHtmls(this._html, sources, function (error, html) {
+  grabHtmls(this.getHTML(true), sources, function (error, html) {
     if (error) {
       return callback(error);
     }
@@ -85,7 +87,8 @@ Article.prototype.getTitle = function (notDeprecated) {
   }
   var self = this;
   var betterTitle;
-  var title = this.$('title').text().trim();
+  var $ = cheerio.load(this._html);
+  var title = $('title').text().trim();
   var commonSeparatingCharacters = [' | ', ' _ ', ' - ', '«', '»', '—'];
   commonSeparatingCharacters.forEach(function (char) {
     var tmpArray = title.split(char);
@@ -106,7 +109,27 @@ Article.prototype.getHTML = function (notDeprecated) {
   if (!notDeprecated) {
     console.warn('The method `getHTML()` is deprecated, using `html` property instead.');
   }
-  return this._html;
+  if (this.cache['article-html']) {
+    return this.cache['article-html'];
+  }
+  if (!this.url) {
+    return this.cache['article-html'] = this._html;
+  }
+  var self = this;
+  var $ = cheerio.load(this._html);
+  $('[src],[href]').each(function (index, element) {
+    var node = $(element);
+    var link = node.attr('src');
+    var use = 'src';
+    if (!link) {
+      link = node.attr('href');
+      var use = 'href';
+    }
+    if (link) {
+      node.attr(use, url.resolve(self.url, link));
+    }
+  });
+  return this.cache['article-html'] = $.html();
 };
 
 Article.prototype.getDOM = function (notDeprecated) {

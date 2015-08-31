@@ -1,0 +1,2787 @@
+<!DOCTYPE html> <html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width"> <meta name="apple-itunes-app" content="app-id=643048719"> <title>Google&#x2019;s Next Big Algorithm Change is Coming&#x2026; Will Your Site Survive?</title> <link rel="profile" href="http://gmpg.org/xfn/11"> <style><HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY>
+An error (403 Forbidden) has occured in response to this request.
+</BODY>
+</HTML>
+</style> <style>/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+
+/* Table of Contents
+==================================================
+    #Base 960 Grid
+    #Tablet (Portrait)
+    #Mobile (Portrait)
+    #Mobile (Landscape)
+    #Clearing */
+
+
+
+/* #Base 960 Grid
+================================================== */
+
+    .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+    .container .column,
+    .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+    .row                                        { margin-bottom: 20px; }
+
+    /* Nested Column Classes */
+    .column.alpha, .columns.alpha               { margin-left: 0; }
+    .column.omega, .columns.omega               { margin-right: 0; }
+
+    /* Base Grid */
+    .container .one.column,
+    .container .one.columns                     { width: 40px;  }
+    .container .two.columns                     { width: 100px; }
+    .container .three.columns                   { width: 160px; }
+    .container .four.columns                    { width: 220px; }
+    .container .five.columns                    { width: 260px; } /* width: 280px; */
+    .container .six.columns                     { width: 340px; }
+    .container .seven.columns                   { width: 400px; }
+    .container .eight.columns                   { width: 460px; }
+    .container .nine.columns                    { width: 520px; }
+    .container .ten.columns                     { width: 580px; }
+    .container .eleven.columns                  { width: 640px; }
+    .container .twelve.columns                  { width: 700px; }
+    .container .thirteen.columns                { width: 760px; }
+    .container .fourteen.columns                { width: 820px; }
+    .container .fifteen.columns                 { width: 880px; }
+    .container .sixteen.columns                 { width: 940px; }
+
+    .container .one-third.column                { width: 300px; }
+    .container .two-thirds.column               { width: 620px; }
+
+    /* Offsets */
+    .container .offset-by-quarter				{ padding-left: 15px;  }
+    .container .offset-by-half					{ padding-left: 30px;  }
+    .container .offset-by-one                   { padding-left: 60px;  }
+    .container .offset-by-two                   { padding-left: 120px; }
+    .container .offset-by-three                 { padding-left: 180px; }
+    .container .offset-by-four                  { padding-left: 240px; }
+    .container .offset-by-five                  { padding-left: 300px; }
+    .container .offset-by-six                   { padding-left: 360px; }
+    .container .offset-by-seven                 { padding-left: 420px; }
+    .container .offset-by-eight                 { padding-left: 480px; }
+    .container .offset-by-nine                  { padding-left: 540px; }
+    .container .offset-by-ten                   { padding-left: 600px; }
+    .container .offset-by-eleven                { padding-left: 660px; }
+    .container .offset-by-twelve                { padding-left: 720px; }
+    .container .offset-by-thirteen              { padding-left: 780px; }
+    .container .offset-by-fourteen              { padding-left: 840px; }
+    .container .offset-by-fifteen               { padding-left: 900px; }
+
+
+/* #Tablet (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 768px */
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        .container                                  { width: 768px; }
+        .container .column,
+        .container .columns                         { margin-left: 10px; margin-right: 10px;  }
+        .column.alpha, .columns.alpha               { margin-left: 0; margin-right: 10px; }
+        .column.omega, .columns.omega               { margin-right: 0; margin-left: 10px; }
+        .alpha.omega                                { margin-left: 0; margin-right: 0; }
+
+        .container .one.column,
+        .container .one.columns                     { width: 28px; }
+        .container .two.columns                     { width: 76px; }
+        .container .three.columns                   { width: 124px; }
+        .container .four.columns                    { width: 172px; }
+        .container .five.columns                    { width: 220px; } 
+        .container .six.columns                     { width: 268px; }
+        .container .seven.columns                   { width: 316px; }
+        .container .eight.columns                   { width: 364px; }
+        .container .nine.columns                    { width: 412px; }
+        .container .ten.columns                     { width: 460px; }
+        .container .eleven.columns                  { width: 508px; }
+        .container .twelve.columns                  { width: 556px; }
+        .container .thirteen.columns                { width: 604px; }
+        .container .fourteen.columns                { width: 652px; }
+        .container .fifteen.columns                 { width: 700px; }
+        .container .sixteen.columns                 { width: 748px; }
+
+        .container .one-third.column                { width: 236px; }
+        .container .two-thirds.column               { width: 492px; }
+
+        /* Offsets */
+        .container .offset-by-one                   { padding-left: 48px; }
+        .container .offset-by-two                   { padding-left: 96px; }
+        .container .offset-by-three                 { padding-left: 144px; }
+        .container .offset-by-four                  { padding-left: 192px; }
+        .container .offset-by-five                  { padding-left: 240px; }
+        .container .offset-by-six                   { padding-left: 288px; }
+        .container .offset-by-seven                 { padding-left: 336px; }
+        .container .offset-by-eight                 { padding-left: 384px; }
+        .container .offset-by-nine                  { padding-left: 432px; }
+        .container .offset-by-ten                   { padding-left: 480px; }
+        .container .offset-by-eleven                { padding-left: 528px; }
+        .container .offset-by-twelve                { padding-left: 576px; }
+        .container .offset-by-thirteen              { padding-left: 624px; }
+        .container .offset-by-fourteen              { padding-left: 672px; }
+        .container .offset-by-fifteen               { padding-left: 720px; }
+
+    }
+
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+        .container { width: 300px; }
+        .container .columns,
+        .container .column { margin: 0; }
+
+        .container .one.column,
+        .container .one.columns,
+        .container .two.columns,
+        .container .three.columns,
+        .container .four.columns,
+        .container .five.columns,
+        .container .six.columns,
+        .container .seven.columns,
+        .container .eight.columns,
+        .container .nine.columns,
+        .container .ten.columns,
+        .container .eleven.columns,
+        .container .twelve.columns,
+        .container .thirteen.columns,
+        .container .fourteen.columns,
+        .container .fifteen.columns,
+        .container .sixteen.columns,
+        .container .one-third.column,
+        .container .two-thirds.column  { width: 300px; }
+
+        /* Offsets */
+        .container .offset-by-one,
+        .container .offset-by-two,
+        .container .offset-by-three,
+        .container .offset-by-four,
+        .container .offset-by-five,
+        .container .offset-by-six,
+        .container .offset-by-seven,
+        .container .offset-by-eight,
+        .container .offset-by-nine,
+        .container .offset-by-ten,
+        .container .offset-by-eleven,
+        .container .offset-by-twelve,
+        .container .offset-by-thirteen,
+        .container .offset-by-fourteen,
+        .container .offset-by-fifteen { padding-left: 0; }
+
+    }
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        .container { width: 420px; }
+        .container .columns,
+        .container .column { margin: 0; }
+
+        .container .one.column,
+        .container .one.columns,
+        .container .two.columns,
+        .container .three.columns,
+        .container .four.columns,
+        .container .five.columns,
+        .container .six.columns,
+        .container .seven.columns,
+        .container .eight.columns,
+        .container .nine.columns,
+        .container .ten.columns,
+        .container .eleven.columns,
+        .container .twelve.columns,
+        .container .thirteen.columns,
+        .container .fourteen.columns,
+        .container .fifteen.columns,
+        .container .sixteen.columns,
+        .container .one-third.column,
+        .container .two-thirds.column { width: 420px; }
+    }
+
+
+/* #Clearing
+================================================== */
+
+    /* Self Clearing Goodness */
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after,
+    .row:before,
+    .row:after {
+      content: '\0020';
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0; }
+    .row:after,
+    .clearfix:after {
+      clear: both; }
+    .row,
+    .clearfix {
+      zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {
+      clear: both;
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+</style> <style>/* PICTOS =pictos
+------------------------------------------------------------*/
+@font-face{font-family:'Pictos';src:url("../fonts/pictos-web.eot");src:local("☺"),url("../fonts/pictos-web.woff") format("woff"),url("../fonts/pictos-web.ttf") format("truetype"),url("../fonts/pictos-web.svg#webfontIyfZbseF") format("svg");font-weight:normal;font-style:normal}
+
+/* RESET: =reset
+------------------------------------------------------------*/
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+/* GENERAL: =general
+------------------------------------------------------------*/
+body {
+  background: #f7f7f7;
+  color: #555;
+  font: normal 14px/21px "Helvetica Neue", "Helvetica", "Arial", "Tahoma", "Geneva", sans-serif;
+  font-stretch: normal;
+  -webkit-text-size-adjust: 100%;
+}
+a img {
+  border: 0;
+}
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  /*width: 960px;*/
+}
+.align-center {
+  text-align: center;
+}
+
+/* TYPOGRAPHY: =typography
+------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+  color: #181818;
+  font-weight: 600;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: inherit;
+}
+h1 {
+  font-size: 46px;
+  line-height: 50px;
+  margin-bottom: 14px;
+}
+h2 {
+  font-size: 35px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+h3 {
+  font-size: 28px;
+  line-height: 34px;
+  margin-bottom: 8px;
+}
+h4 {
+  font-size: 21px;
+  line-height: 30px;
+  margin-bottom: 4px;
+}
+h5 {
+  font-size: 17px;
+  line-height: 24px;
+}
+h6 {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+p {
+  margin: 0 0 15px 0;
+}
+p img {
+  margin: 0;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+li {
+
+}
+
+blockquote {
+  border-left: 2px solid #eee;
+  font-style: italic;
+  line-height: 1.8em;
+  margin: 0 0 15px 20px;
+  padding-left: 10px;
+}
+
+hr {
+  border: solid #ddd;
+  border-width: 1px 0 0;
+  clear: both;
+  height: 0;
+  margin: 10px 0 30px;
+}
+
+a,
+a:active,
+a:visited {
+  color: #008cdd; /* #149FEF */
+  text-decoration: none;
+  -webkit-transition: color .15s linear;
+  -moz-transition: color .15s linear;
+  -ms-transition: color .15s linear;
+  -o-transition: color .15s linear;
+  transition: color .15s linear
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* BUTTONS: =buttons
+------------------------------*/
+.button,
+button,
+input[type="submit"]:not(.popup-dom-fixer-class),
+input[type="reset"],
+input[type="button"] {
+  background: #187993;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font: 400 0.95em/normal "Helvetica Neue", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  outline: none;
+  padding: 8px 13px;
+  text-decoration: none;
+  -webkit-box-shadow: inset 0 -2px rgba(0,0,0,0.3);
+  -moz-box-shadow: inset 0 -2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 -2px rgba(0,0,0,0.3);
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear;
+  -webkit-appearance: none;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background: #115567;
+  color: #fff;
+  text-decoration: none;
+}
+.button:active,
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+  background: #187993;
+  color: #fff;
+}
+
+.button:visited,
+button:visited,
+input[type="submit"]:visited,
+input[type="reset"]:visited,
+input[type="button"]:visited {
+  color: #fff;
+}
+
+.button.full-width,
+button.full-width,
+input[type="submit"].full-width,
+input[type="reset"].full-width,
+input[type="button"].full-width {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  width: 100%;
+}
+/* Fix for odd Mozilla border & padding issues */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* FORMS: =form
+------------------------------*/
+input[type="text"]:not(.popup-dom-fixer-class),
+input[type="password"],
+input[type="email"],
+textarea {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0,.2);
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #777;
+  display: block;
+  font: 13px/normal "Helvetica Neue", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  padding: 8px 6px;
+  margin: 0;
+  margin-bottom: 20px;
+  outline:none;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  /*width: 210px;*/
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border: 1px solid rgba(81, 203, 238, 1);
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+form .error-msg {
+  color: #b10000;
+  display: block;
+  font-size: .8em;
+  margin-bottom: 20px;
+}
+
+input[type="text"] + .error-msg,
+input[type="password"] + .error-msg,
+input[type="email"] + .error-msg,
+textarea + .error-msg {
+  margin-top: -18px;
+}
+
+input[type="text"].error,
+input[type="password"].error,
+input[type="email"].error,
+textarea.error {
+  border: 1px solid #b10000;
+}
+input[type="text"].error:focus,
+input[type="password"].error:focus,
+input[type="email"].error:focus,
+textarea.error:focus {
+  border: 1px solid #b10000;
+  box-shadow: 0 0 5px rgba(177, 0, 0, 1);
+}
+
+/* HEADER: =header
+------------------------------------------------------------*/
+#site-header {
+  background: #006985;
+  box-shadow: rgba(0, 0, 0, .2) 0 1px 3px, rgba(0, 0, 0, .15) 0 -1px 0 inset;
+  padding: 15px 0 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+/* correcting markerly z-index */
+
+div.markerly-image-wrapper {
+  z-index: 1;
+}
+
+div.markerly-tip-wrap {
+  z-index: 1;
+}
+
+/* */
+
+#km-logo img {
+  display: inline-block;
+  //margin-left: 10px;
+}
+#site-description {
+  color: #4db2cd;
+  font: 400 .8em/1.7 'Ubuntu', sans-serif;
+  margin-bottom: 0;
+  margin-left: 10px;
+  text-shadow: rgba(0, 0, 0, .3) 0 -1px 0;
+  text-transform: uppercase;
+}
+#go-to {
+  color: #fff;
+  display: inline-block;
+  font: 400 .8em/normal 'Ubuntu', sans-serif;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  text-decoration: initial;
+  text-transform: uppercase;
+}
+#go-to .go-to-start {
+  background: rgba(83, 162, 183, .3);
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  display: inline-block;
+  padding: 10px 15px;
+}
+#go-to .go-to-link {
+  background: rgba(0, 0, 0, .3);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #53a2b7;
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: initial;
+  -webkit-transition: background-color .15s linear;
+  -moz-transition: background-color .15s linear;
+  transition: background-color .15s linear;
+}
+#go-to:hover .go-to-link {
+  background: rgba(0, 0, 0, .4);
+  color: #009ec8;
+}
+
+/* MAIN: =main
+------------------------------------------------------------*/
+#main {
+  background: #fff;
+  padding-top: 8em;
+  padding-bottom: 2em;
+}
+
+.container .primary {
+  float: right;
+}
+
+.container .primary-wide {
+  margin: 0 auto;
+}
+
+/* SECTION HEADER: =section-header
+------------------------------*/
+.section-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  position: relative;
+}
+.section-header h1 {
+  font-size: 1.8em;
+  line-height: normal;
+  margin-bottom: 2px;
+  max-width: 400px;
+}
+.section-header h1 em {
+  color: #aaa;
+  display: block;
+  font: 400 .47em/normal 'Ubuntu', sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+/* SEARCH FORM: =searchform
+------------------------------*/
+.section-header #searchform {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#searchform input {
+  background-color: #fff;
+  background-size: 12px;
+  padding-left: 32px;
+  width: 240px;
+}
+.search-input-container {
+  position: relative;
+}
+.search-input-container:after {
+  content: 's';
+  color: rgba(0,0,0,.3);
+  display: inline-block;
+  font-family: 'Pictos';
+  font-size: 16px;
+  left: 10px;
+  position: absolute;
+  top: 8px;
+}
+
+/* ARTICLE: =article
+------------------------------*/
+article {
+  border-bottom: 1px solid #EEE;
+  margin: 15px 0;
+  padding: 20px 0 40px;
+}
+
+article .entry-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+article .entry-title a {
+  color: #333;
+  text-decoration: none;
+}
+article .entry-title a:hover {
+  color: #008cdd;
+}
+article .entry-content {
+  word-wrap: break-word;
+}
+article h2 {
+  font-size: 1.5em;
+  line-height: 1.3;
+  padding-top: 20px;
+}
+article h2.entry-title {
+  padding-top: 0px;
+}
+article h3 {
+  font-size: 1.2em;
+  line-height: 1.2;
+  padding-top: 10px;
+}
+article h4 {
+  font-size: .9em;
+  line-height: .9;
+}
+article h5 {
+  font-size: .8em;
+  line-height: .8;
+}
+article ul,
+article ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+article li {
+  line-height: 1.8em;
+}
+article p {
+  line-height: 1.8em;
+
+}
+article img {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  max-width: 518px;
+}
+article .pin-it-button img {
+  border: none;
+  border-radius: none;
+}
+article .share {
+  float: right;
+  margin-top: 4px;
+}
+article .share  .twitter-share-button {
+  padding-left: 8px;
+  width: 100px !important;
+}
+article .share .fb-like {
+  width: 98px !important;
+}
+article .share .fb-like iframe {
+  margin-top: -3px;
+}
+article .continue {
+  }
+
+article .entry-meta {
+  margin-top: 20px;
+}
+
+article .author-meta {
+  margin-left: 15px;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+article .entry-meta span {
+  margin-left: 10px;
+  color: #aaa;
+}
+
+article .comments-link {
+  margin-left: 10px;
+}
+
+article .comments-link a {
+  font-size: .9em;
+  text-decoration: none;
+}
+article .comments-link a:hover {
+  text-decoration: underline;
+}
+
+.single-post {
+  margin-top: 0;
+  padding-top: 0;
+}
+.single-post .entry-title {
+  font-size: 2.1em;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.container .post-content {
+  margin-right: 20px;
+}
+.container .page-content {
+  margin-left: 10px;
+}
+.container .post-share {
+  margin-left: 0;
+
+}
+.post-share .sharer {
+  margin: 0 0 15px 10px;
+}
+
+.wide-image {
+  max-width: 100%; /* was 960px than 1000px */
+}
+
+/* PAGE: =page
+------------------------------*/
+.page #txtarea {
+  height: auto !important;
+  width: 100% !important;
+}
+
+/* COMMENTS: =comments
+------------------------------*/
+#comments {
+  border-bottom: 1px solid #eee;
+  margin: 15px 0;
+  padding: 15px 0;
+}
+#comments h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.comment-author {
+  margin-bottom: 4px;
+}
+
+.comment-body {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.commentlist {
+  /* border-bottom: 1px solid #eee; */
+  margin-bottom: 30px;
+  /* padding: 30px 0 0 0; */
+}
+.commentlist li {
+  margin-bottom: 30px;
+  list-style: none;
+  word-wrap: break-word;
+}
+.commentlist li p {
+  line-height: 1.8em;
+}
+.commentlist .comment-author {
+  font-style: normal;
+}
+.commentlist .comment-meta {
+  margin-bottom: 6px;
+}
+.commentlist .comment-date {
+  float: right;
+}
+
+.comment .children {
+  list-style: none;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+/* COMMENT FORM: =commentform
+------------------------------*/
+#commentform {
+  /*border-bottom: 1px solid #eee;*/
+  margin: 0 0 15px 0;
+}
+#commentform label {
+  font-weight: 600;
+}
+#commentform input[type="text"] {
+  margin-bottom: 0;
+  width: 100%;
+}
+#commentform textarea {
+  width: 100%;
+}
+.comment-form-author {
+  float: left;
+  margin-right: 10px;
+  /*width: 310px;*/
+  width: 249px;
+}
+.comment-form-email {
+  margin-left: 10px;
+  float: left;
+  /*width: 310px;*/
+  width: 249px;
+}
+.comment-form-url {
+  clear: both;
+  width: 100%;
+}
+.comment-form-comment {
+  width: 100%;
+}
+
+#reply-title {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+#reply-title small {
+  font-size: .8em;
+  font-style: italic;
+  font-weight: normal;
+  margin-left: 6px;
+}
+/*#reply-title small:before {
+  content: '- ';
+}*/
+
+/* POST NAVIGATION: =post-navigation
+------------------------------*/
+.post-navigation {
+  margin: 30px 0;
+  position: relative;
+}
+.post-navigation a {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  display: inline-block;
+  padding: 10px 18px;
+  -webkit-transition: background-color .15s linear;
+  -moz-transition: background-color .15s linear;
+  transition: background-color .15s linear;
+}
+.post-navigation a:hover {
+  background-color: #f5f5f5;
+  text-decoration: none;
+}
+.post-navigation a:last-child {
+  float: right;
+}
+.post-navigation a:first-child {
+  float: left;
+}
+
+/* PAGINATION: =pagination
+------------------------------*/
+.pagination {
+  text-align: center;
+}
+.pagination ul {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  list-style: none;
+  display: inline-block;
+  margin: 30px 0;
+  text-decoration: none;
+}
+.pagination li:first-child {
+  border-left: 1px solid #ddd;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination li:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.pagination li {
+  border: 1px solid #ddd;
+  border-left: 0;
+  color: #999;
+  display: inline-block;
+  margin: 0;
+  float: left;
+}
+.pagination a,
+.pagination .current,
+.pagination .dots {
+  display: inline-block;
+  padding: 9px 18px;
+  text-decoration: none;
+  -webkit-transition: background-color .15s linear;
+  -moz-transition: background-color .15s linear;
+  transition: background-color .15s linear;
+}
+.pagination .current,
+.pagination a:hover {
+  background-color: #f5f5f5;
+  text-decoration: none;
+}
+
+/* SPECIAL QUOTE: =quote
+------------------------------*/
+article .quote {
+  border-left: 5px solid #eee;
+  margin: 0 0 18px;
+}
+article .quote .top {
+  padding: 0 0 0 15px;
+}
+article .quote .bottom {
+  background: #eee;
+  padding: 15px 0 8px 15px;
+}
+article .quote span {
+  color: #999;
+  display: inline-block;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 22px;
+  margin-top: 30px;
+  padding-left: 15px;
+  vertical-align: top;
+  text-shadow: 1px 1px 1px #ffffff;
+}
+article .quote img {
+  border: none;
+  display: inline-block;
+}
+article .quote p {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 22.5px;
+  margin-bottom: 15px;
+}
+
+/* KM AD: =kmad
+------------------------------*/
+.kmad {
+  background: rgba(77, 177, 204, 0.1);
+  border: 1px solid rgba(77, 177, 204, 0.1);
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px 15px;
+}
+.primary .kmad p {
+  font-weight: 600;
+}
+.primary .kmad p:last-child {
+  margin-bottom: 0;
+}
+.primary .kmad .button {
+  margin: 0 0 0 10px;
+}
+
+/* SIDEBAR: =sidebar
+------------------------------------------------------------*/
+.sidebar #side_facebook iframe,
+.sidebar #side_twitter .twitter-share-button,
+.sidebar #side_google iframe {
+  float: left;
+}
+
+.sidebar .module {
+  background: #f8f8f8;
+  padding: 3px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.sidebar h3 {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+.sidebar-list {
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-radius: 3px;
+  padding: 22px 22px 5px 22px;
+}
+
+.sidebar-list hr {
+  margin: 22px -22px;
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar #side_facebook,
+.sidebar #side_twitter,
+.sidebar #side_google {
+  border-bottom: 1px solid #eee;
+  margin: 8px 0;
+  padding: 10px 0 15px 0;
+}
+.sidebar #side_google {
+  margin-bottom: 30px;
+}
+.sidebar #side_facebook p,
+.sidebar #side_twitter p,
+.sidebar #side_google p {
+  margin: 3px 0 0 70px;
+  line-height: 1.4;
+}
+.sidebar #side_facebook strong a,
+.sidebar #side_twitter strong a,
+.sidebar #side_google strong a {
+  color: #333;
+}
+
+/* POPULAR WIDGET: =popular-widget
+------------------------------*/
+.sidebar .popular-widget {
+  margin: 12px 0 30px;
+}
+.sidebar .popular-widget .pop-widget-tabs {
+  border-bottom: 1px solid #eee;
+}
+.sidebar .popular-widget .pop-widget-tabs li {
+  border: none;
+  display: inline-block;
+  float: none;
+  font: 400 .9em/normal 'Ubuntu', sans-serif;
+  margin: 0 0 -1px 10px;
+}
+.sidebar .popular-widget .pop-widget-tabs li a {
+  border: none;
+  color: #aaa;
+  float: none;
+  font: 400 .9em/normal 'Ubuntu', sans-serif;
+  letter-spacing: normal;
+  padding: 10px 7px 10px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.sidebar .popular-widget .pop-widget-tabs li a:hover {
+  background: inherit;
+  color: #333;
+}
+.sidebar .popular-widget .pop-widget-tabs li a.active {
+  background: inherit;
+  padding: 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top: 3px solid #187993;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+  color: #333;
+  font-weight: 500;
+}
+.sidebar .popular-widget .pop-inside {
+  border: 0;
+  margin: 0;
+}
+.sidebar .popular-widget .pop-inside ul li {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.sidebar .popular-widget .pop-inside ul li a {
+  border-bottom: 1px solid #eee;
+  color: #333;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: normal;
+  -webkit-transition: background-color .15s linear;
+  -moz-transition: background-color .15s linear;
+  transition: background-color .15s linear;
+}
+.sidebar .popular-widget .pop-inside ul li a:hover {
+  background: #fbfbfb;
+  color: #008cdd;
+  text-decoration: none;
+}
+.sidebar .popular-widget .pop-inside ul li .pop-title {
+  font-weight: normal;
+}
+
+.sidebar .widget_text {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 22px -22px;
+  padding: 0 22px;
+}
+
+.sidebar .widget_text:last-child {
+  border: none;
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* EMAIL SIGNUP: =email-signup
+------------------------------*/
+.email-signup {
+  background: #fff;
+
+  /* box-shadow: #ddd 0 0 5px; */
+  margin-bottom: 10px;
+}
+
+.email-signup p {
+  font-size: .9em;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+/*
+.email-signup h3:after {
+  border-top: 7px solid #187993;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  bottom: -7px;
+  content: '';
+  left: 50%;
+  margin-left: -7px;
+  position: absolute;
+  display: block;
+}
+*/
+/*
+.email-signup form {
+  padding: 20px;
+}
+*/
+.email-signup form input[type="text"] {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.email-signup form input[type="text"] + .error-msg {
+  margin-top: -8px;
+}
+.email-signup form .error-msg {
+  margin-bottom: 10px;
+}
+
+/* SIDEBAR SOCIAL LINKS: =sidebar-social-links
+------------------------------*/
+
+.sidebar-social-links ul {
+  list-style: none;
+  margin: 8px 0 0 0;
+}
+
+#site-footer .sidebar-social-links ul {
+  margin-left: 0;
+  margin-top: 12px;
+}
+
+.sidebar-social-links li {
+  position: relative;
+  display: inline;
+  float: left;
+}
+
+.sidebar-social-links li a {
+  //background-color: #fff;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  display: inline;
+  -webkit-transition: background-color .15s linear;
+  -moz-transition: background-color .15s linear;
+  transition: background-color .15s linear;
+  border-radius: 3px;
+  //padding: 5px 10px 3px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 16px;
+  margin-right: 4px;
+
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sidebar-social-links a:hover {
+  text-decoration: none;
+}
+
+.sidebar-social-links-twitter a {
+  background-color: #4086CD;
+  background-image: url('../images/social-twitter.svg');
+  background-size: 58%;
+}
+
+.sidebar-social-links-twitter a:hover {
+  background-color: #6BA4D9;
+}
+
+.sidebar-social-links-facebook a {
+  background-color: #346DA6;
+  background-image:url('../images/social-facebook.svg');
+  background-size: 35%;
+}
+
+.sidebar-social-links-facebook a:hover {
+  background-color: #4E8DC8;
+}
+
+.sidebar-social-links-youtube a {
+  background-color: #DF5745;
+  background-image:url('../images/social-youtube.svg');
+  background-size: 60%;
+}
+
+.sidebar-social-links-youtube a:hover {
+  background-color: #E88578;
+}
+
+.sidebar-social-links-linkedin a {
+  background-color: #346DA6;
+  background-image:url('../images/social-linkedin.svg');
+  background-size: 50%;
+}
+
+.sidebar-social-links-linkedin a:hover {
+  background-color: #4E8DC8;
+}
+
+.sidebar-social-links-pinterest a {
+  background-color: #CA4638;
+  background-image:url('../images/social-pinterest.svg');
+  background-size: 50%;
+}
+
+.sidebar-social-links-pinterest a:hover {
+  background-color: #D77267;
+}
+
+
+/* HEADER NAVIGATION MENU =blog-header-nav-menu
+------------------------------*/
+
+ul.blog-header-nav-menu {
+  padding: 0;
+  margin: 0 auto;
+  width: 600px;
+  height: 81px;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  list-style: none;
+  list-style-image: none;
+  overflow: hidden;
+  margin-top: -22px;
+  margin-bottom: -22px;
+}
+
+ul.blog-header-nav-menu li {
+  display: inline;
+  float: right;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+ul.blog-header-nav-menu li:last-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+ul.blog-header-nav-menu li a {
+  color: rgba(255, 255, 255, 1);
+  display: block;
+  padding: 20px 25px;
+  text-decoration: none;
+}
+
+ul.blog-header-nav-menu li a:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(149, 213, 243, 0.15);
+  -webkit-transition: color .15s linear;
+  -moz-transition: .15s linear;
+  -ms-transition: .15s linear;
+  -o-transition: .15s linear;
+  transition: .15s linear;
+}
+
+/*
+ul.blog-header-nav-menu li.nav-menu-saas-guides a:hover {
+  background-color: rgba(149, 213, 243, 0.2);
+}
+
+ul.blog-header-nav-menu li.nav-menu-webinars a:hover {
+  background-color: rgba(149, 213, 243, 0.2);
+}
+
+ul.blog-header-nav-menu li.nav-menu-marketing-guides a:hover {
+  background-color: rgba(149, 213, 243, 0.2);
+}
+
+ul.blog-header-nav-menu li.nav-menu-infographics a:hover {
+  background-color: rgba(149, 213, 243, 0.2);
+}
+*/
+
+ul.blog-header-nav-menu li a:before {
+  font-family: 'Pictos';
+  font-size: 32px;
+  display: block;
+  text-align: center;
+  padding-bottom: 6px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+ul.blog-header-nav-menu li.nav-menu-saas-guides a:before {
+  content: '0';
+}
+
+ul.blog-header-nav-menu li.nav-menu-webinars a:before {
+  content: 'g';
+}
+
+ul.blog-header-nav-menu li.nav-menu-marketing-guides a:before {
+  content: '$';
+}
+
+ul.blog-header-nav-menu li.nav-menu-infographics a:before {
+  content: 'Z';
+}
+
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+  ul.blog-header-nav-menu {
+    display: none;
+  }
+
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+  ul.blog-header-nav-menu {
+    display: none;
+  }
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+  ul.blog-header-nav-menu {
+    display: none;
+  }
+
+}
+
+/* SIDEBAR CTA: =sidebar-signup-cta
+------------------------------*/
+#sidebar-signup-cta {
+  background: #4a7c83;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 30px 20px;
+}
+#sidebar-signup-cta p {
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 2;
+  margin: 0 15px 20px 15px;
+  text-align: center;
+  text-shadow: #000 0 1px 2px;
+}
+#sidebar-signup-cta .button {
+  background: #042129;
+  color: #9ee0e3;
+  font-size: .9em;
+  font-weight: 600;
+  padding: 15px 20px;
+  text-align: center;
+}
+#sidebar-signup-cta .button:hover {
+  background: #000;
+}
+.sidebar-cta em[class|=highlight] {
+  font-style: normal;
+}
+.sidebar-cta .highlight-blue {
+  color: #9ee0e3;
+}
+.sidebar-cta .highlight-yellow {
+  color: #f4e53a;
+}
+.sidebar-cta .highlight-green {
+  color: #81cf66;
+}
+
+.sidebar-simple-cta h5 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.sidebar-simple-cta p {
+  line-height: 1.8em;
+}
+
+/* FOOTER: =footer
+------------------------------------------------------------*/
+#site-footer {
+  border-top: 1px solid rgba(0, 0, 0, .03);
+  padding: 30px 0 0 0;
+
+}
+
+#site-footer .five.columns {
+  width: 280px;
+  }
+
+#site-footer .container {
+  padding-bottom: 15px;
+  background: url(../images/footer_trees.png) repeat-x 0 bottom;
+  background-size: 72%;
+}
+#site-footer h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+#site-footer p {
+  font-size: .9em;
+}
+#site-footer ul {
+  list-style: none;
+  margin-left: -40px;
+}
+#site-footer .article-categories li {
+  display: inline-block;
+  font-size: .9em;
+  margin: 0 0 0 40px;
+  padding: 0;
+  width: 118px;
+}
+#site-footer li a {
+  color: #008cdd;;
+  text-decoration: none;
+}
+#site-footer li a:hover {
+  color: rgba(0, 0, 0, .9);
+}
+#site-footer .button {
+  margin-bottom: 4px;
+}
+
+/* SITE FOOTER NAV: =site-footer-nav
+------------------------------*/
+#site-footer-nav {
+  border-top: 1px solid #d6d6d6;
+  padding: 15px 0 0 0;
+  /*position: relative;*/
+}
+#site-footer-nav .container {
+  padding-bottom: 0;
+  background: none;
+}
+#site-footer-nav p {
+  font-size: .9em;
+  margin: 0;
+  padding: 0;
+}
+#site-footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+#site-footer-nav li {
+  display: inline;
+  font-size: .9em;
+}
+#site-footer-nav li a {
+  color: #008cdd;;
+  padding: 5px 12px;
+  text-decoration: none;
+}
+#site-footer-nav li a:last-child {
+  padding-right: 0;
+}
+
+article p a {
+word-wrap: break-word;
+}
+
+
+/* Sidebar Ad */
+
+.sidebar-ad-dark {
+width: 200px;
+height: 300px;
+max-width: 200px;
+max-height: 300px;
+overflow: hidden;
+border: 1px solid #AE7B3E;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+position: relative;
+margin: 0 0 22px 0;
+}
+
+.sidebar-ad-dark .top {
+height: 200px;
+max-height: 200px;
+overflow: hidden;
+background: #e89837; /* Old browsers */
+background: -moz-linear-gradient(top,  #e89837 0%, #db6b26 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e89837), color-stop(100%,#db6b26)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #e89837 0%,#db6b26 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #e89837 0%,#db6b26 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #e89837 0%,#db6b26 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #e89837 0%,#db6b26 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e89837', endColorstr='#db6b26',GradientType=0 ); /* IE6-9 */
+padding: 10px 20px 20px 20px;
+font: bold 18px/25px 'Helvetica Neue', Helvetica, Arial, Tahoma, Geneva, sans-serif;
+text-align: center;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+border-bottom: 1px solid #CE7722;
+position: absolute;
+color: #FFF;
+text-shadow: 0px 1px 0px #BF6E27;
+}
+
+  .sidebar-ad-dark .top span {
+  color: #FFD166;
+  }
+
+  .sidebar-ad-dark .top img {
+  margin-top: 5px;
+  //margin-left:auto;
+  //margin-right:auto;
+  left: 50px;
+  //position:absolute;
+  }
+
+.sidebar-ad-dark .bottom {
+height: 100px;
+max-height: 100px;
+overflow: hidden;
+background: #3B3C3B; /* Old browsers */
+padding: 15px;
+font: bold 13px/20px 'Helvetica Neue', Helvetica, Arial, Tahoma, Geneva, sans-serif;
+text-align: center;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
+z-index:0;
+position: absolute;
+top: 200px;
+}
+
+  .sidebar-ad-dark .bottom a.cta {
+  color: #333;
+  text-shadow: 1px 1px 1px rgba(254, 205, 112, 1);
+  float: right;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  text-decoration: none;
+  border: 1px solid #ffaa22;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background: #fee74d;
+  background: -moz-linear-gradient(top,  #fee74d 0%, #fd9b10 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fee74d), color-stop(100%,#fd9b10));
+  background: -webkit-linear-gradient(top,  #fee74d 0%,#fd9b10 100%);
+  background: -o-linear-gradient(top,  #fee74d 0%,#fd9b10 100%);
+  background: -ms-linear-gradient(top,  #fee74d 0%,#fd9b10 100%);
+  background: linear-gradient(to bottom,  #fee74d 0%,#fd9b10 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee74d', endColorstr='#fd9b10',GradientType=0 );
+  -webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
+  padding: 12px;
+  display: block;
+  }
+
+  .sidebar-ad-dark .bottom a.cta:hover {
+  border: 1px solid #EC8B11;
+  background: #fedb4c;
+  background: -moz-linear-gradient(top,  #fedb4c 0%, #fd9613 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fedb4c), color-stop(100%,#fd9613));
+  background: -webkit-linear-gradient(top,  #fedb4c 0%,#fd9613 100%);
+  background: -o-linear-gradient(top,  #fedb4c 0%,#fd9613 100%);
+  background: -ms-linear-gradient(top,  #fedb4c 0%,#fd9613 100%);
+  background: linear-gradient(to bottom,  #fedb4c 0%,#fd9613 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fedb4c', endColorstr='#fd9613',GradientType=0 );
+  }
+
+  .sidebar-ad-dark .bottom a.cta:active {
+  border: 1px solid #EC8B11;
+  background: #FD9512;
+  }
+
+.sidebar-ad-dark .bottom a {
+display: block;
+background: #FFC02F;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+padding: 10px;
+}
+
+#ki_container { display: inherit; }
+p.social-share-link-mobile { display: none; }
+
+
+/* Big Cover Image styles */
+
+a.big-cover-image-wrapper {
+max-height: 240px;
+overflow: hidden;
+margin-bottom: 25px;
+display: block;
+}
+
+img.big-cover-image {
+max-width: 100%;
+border: none;
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+  a.big-cover-image-wrapper {
+  display: none;
+  }
+
+}
+
+/* Dynamic CTA Styles */
+
+.footer-dynamic-cta {
+background: #464646;
+background: -moz-linear-gradient(top,  #464646 0%, #383838 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#464646), color-stop(100%,#383838));
+background: -webkit-linear-gradient(top,  #464646 0%,#383838 100%);
+background: -o-linear-gradient(top,  #464646 0%,#383838 100%);
+background: -ms-linear-gradient(top,  #464646 0%,#383838 100%);
+background: linear-gradient(to bottom,  #464646 0%,#383838 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#464646', endColorstr='#383838',GradientType=0 );
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+width: 100%;
+color: #fff;
+margin-top: 35px;
+}
+
+.footer-dynamic-cta .cta-wrapper {
+margin: 0 auto;
+position: relative;
+padding: 1.5em 2em 2em 0em;
+}
+
+.footer-dynamic-cta img {
+//opacity: 0.2;
+border: none;
+//width: 75px;
+margin: 0.5em auto 0 auto;
+display: block;
+max-width: 70%;
+}
+
+.footer-dynamic-cta h3 {
+font-weight: bold;
+font-size: 22px;
+color: #fff;
+}
+
+.footer-dynamic-cta .left-column {
+float:left;
+display:inline;
+width: 35%;
+}
+
+.footer-dynamic-cta .right-column {
+float:left;
+display:inline;
+width: 65%;
+}
+
+.footer-dynamic-cta a.cta, .footer-dynamic-cta button.cta {
+font-size: 16px;
+margin: 0 0 4px 0;
+text-decoration: none;
+padding: 12px;
+text-align: center;
+background: #65b3b8;
+/*border-bottom: 2px solid rgba(0,0,0,0.1);*/
+display: block;
+-webkit-transition: background-color .15s linear;
+-moz-transition: background-color .15s linear;
+transition: background-color .15s linear;
+border-radius: 3px;
+color: #fff;
+font-weight: 400;
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
+.footer-dynamic-cta button.cta {
+width: 100%;
+}
+
+.footer-dynamic-cta a.cta:hover, .footer-dynamic-cta button.cta:hover {
+text-decoration: none;
+background: #48979a;
+}
+
+.footer-dynamic-cta input, .footer-dynamic-cta select {
+width: 100%;
+}
+
+.footer-dynamic-cta input[type="text"] {
+margin-bottom: 15px;
+}
+
+.footer-dynamic-cta select {
+padding: 2px;
+font-size: 12px;
+border: 0;
+border-radius: 3px;
+height: 33px;
+margin-bottom: 15px;
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+  .footer-dynamic-cta .cta-wrapper {
+  padding-left: 1.5em;
+  }
+
+  .footer-dynamic-cta .left-column {
+  display: none;
+  }
+
+  .footer-dynamic-cta .right-column {
+  width: 100%;
+  }
+
+  .footer-dynamic-cta {
+  margin-bottom: 20px;
+  }
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+  .footer-dynamic-cta .cta-wrapper {
+  padding-left: 1.5em;
+  }
+
+  .footer-dynamic-cta .left-column {
+  display: none;
+  }
+
+  .footer-dynamic-cta .right-column {
+  width: 100%;
+  }
+
+  .footer-dynamic-cta {
+  margin-bottom: 20px;
+  }
+
+}
+
+/* End Dynamic CTA Styles */
+
+
+/* Welcome Mat Styles */
+
+.header-welcome-mat {
+  background-color: #162e33;
+  color: #fff;
+  text-align: center;
+  margin-top: -31px;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.header-welcome-mat h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  line-height: 30px;
+}
+
+.header-welcome-mat h2 span {
+  color: #f4974d;
+}
+
+.header-welcome-mat input {
+  display: inline;
+}
+
+/* Clearing Floats in the form */
+.header-welcome-mat .cf:before, .header-welcome-mat .cf:after{
+    content:"";
+    display:table;
+}
+
+.header-welcome-mat .cf:after{
+    clear:both;
+}
+
+.header-welcome-mat .cf{
+    zoom:1;
+}
+
+/* Form wrapper styling */
+.header-welcome-mat .form-wrapper {
+    width: 450px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin: 5px auto 0px auto;
+}
+
+/* Form text input */
+.header-welcome-mat .form-wrapper input {
+    width: 250px;
+    height: 41px;
+    padding: 10px 12px;
+    float: left;
+    border: 0;
+    border-radius: 4px 0 0 4px;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.header-welcome-mat .form-wrapper input:focus {
+    outline: 0;
+    background: #fff;
+}
+
+/* Form submit button */
+.header-welcome-mat .form-wrapper button {
+    overflow: visible;
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 41px;
+    width: 200px;
+    color: #fff;
+    text-transform: uppercase;
+    background: #ee7311;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .15em;
+    box-shadow: none;
+}
+
+.header-welcome-mat .form-wrapper button:hover{
+    background: #da6a10;
+}
+
+.header-welcome-mat .form-wrapper button:active,
+header-welcome-mat .form-wrapper button:focus{
+    background: #da6a10;
+    outline: 0;
+}
+
+.header-welcome-mat .form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .header-welcome-mat {
+    margin-top: -49px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .header-welcome-mat .form-wrapper {
+    width: 80%
+  }
+
+  .header-welcome-mat .form-wrapper input, .header-welcome-mat .form-wrapper button {
+    display: block;
+    float: none;
+    text-align: center;
+    border-radius: 4px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .header-welcome-mat .form-wrapper button {
+    margin-top: 10px;
+  }
+}
+
+/* End Welcome Mat Styles */
+
+
+/* MEDIA QUERIES: =media-queries
+------------------------------------------------------------*/
+/* Design for a width of 1280px
+@media only screen and (min-width: 1280px) {
+  article img {
+    max-width: 698px;
+  }
+  .comment-form-author {
+    width: 339px;
+  }
+  .comment-form-email {
+    width: 339px;
+  }
+} Not being used due to removing 1280 grid for now */
+
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  article img {
+    max-width: 410px;
+  }
+  .comment-form-author {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+  .comment-form-email {
+    float: none;
+    margin-left: 0;
+    width: 100%;
+  }
+  .pagination a,
+  .pagination .current,
+  .pagination .dots {
+    padding: 8px 14px;
+  }
+  #site-footer li {
+    width: 88px;
+  }
+  #site-footer-nav li {
+    margin-left: 20px;
+  }
+
+  #site-description {
+    display: none;
+  }
+
+  #go-to {
+    top: 0;
+  }
+
+  #searchform .search-input-container input {
+    width: 200px;
+  }
+
+
+    /* Styles for sidebar ad */
+
+    .sidebar-ad-dark { width: 165px; height: 275px; max-width: 165px; max-height: 275px; }
+    .sidebar-ad-dark .top { height: 175px; max-height: 175px; }
+    .sidebar-ad-dark .top img { display: none; }
+    .sidebar-ad-dark .bottom a.cta { font-size: 13px; }
+    .sidebar-ad-dark .bottom { top: 175px; }
+
+    #ki_container { display: none; }
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+  article img {
+    max-width: 410px;
+  }
+  .comment-form-author {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+  .comment-form-email {
+    float: none;
+    margin-left: 0;
+    width: 100%;
+  }
+  .primary,
+  .sidebar {
+    float: none;
+    margin: 0;
+  }
+
+  #ki_container { display: none; }
+  p.social-share-link-mobile { display: inherit; }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+  #site-header {
+    position: static;
+    text-align: center;
+  }
+  #main {
+    padding-top: 30px;
+  }
+  #km-logo {
+    display: inline-block;
+    margin: 0 auto;
+    width: 242px;
+  }
+  #go-to {
+    margin: 15px auto 0;
+    position: relative;
+    right: auto;
+    top: auto;
+    text-align: center;
+    width: 242px;
+  }
+  #go-to .go-to-start {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    display: block;
+    width: 90%;
+  }
+  #go-to .go-to-link {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: block;
+    width: 90%;
+  }
+  .section-header #searchform {
+    position: relative;
+  }
+  #searchform input {
+    width: 100%;
+  }
+  article img {
+    max-width: 410px;
+  }
+  article .comments-link {
+
+    margin-bottom: 8px;
+  }
+  article .share {
+    float: none;
+  }
+  .primary,
+  .sidebar {
+    float: none;
+    margin: 0;
+  }
+  .columns {
+    margin-bottom: 15px;
+  }
+  .sidebar {
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+  .container .offset-by-quarter {
+    padding-left: 0;
+  }
+  .container .offset-by-half {
+    padding-left: 0;
+  }
+  #site-footer .columns {
+    margin-bottom: 15px;
+  }
+  #site-footer .article-categories {
+    margin-bottom: 15px;
+  }
+  #site-footer .article-categories li {
+    text-align: center;
+    width: 188px;
+  }
+  #site-footer h3 {
+    text-align: center;
+  }
+  #site-footer p {
+    text-align: center;
+  }
+  #site-footer-nav p {
+    text-align: center;
+  }
+  #site-footer-nav ul {
+    margin-top: 15px;
+    position: relative;
+  }
+  #site-footer-nav li {
+    display: block;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .comment-form-author {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+  .comment-form-email {
+    float: none;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .pagination a,
+  .pagination .current,
+  .pagination .dots {
+    font-size: .9em;
+    padding: 4px 10px;
+  }
+
+  /* Hide some elements at these smaller sizes */
+  .container .post-share,
+  #sidebar-signup-cta-sticky-wrapper {
+    display: none;
+  }
+  #ki_container { display: none; }
+  p.social-share-link-mobile { display: inherit; }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+  #site-header {
+    position: static;
+    text-align: center;
+  }
+  #main {
+    padding-top: 25px;
+  }
+  #km-logo {
+    display: inline-block;
+    margin: 0 auto;
+    width: 242px;
+  }
+  #go-to {
+    margin: 15px auto 0;
+    position: relative;
+    right: auto;
+    top: auto;
+    text-align: center;
+    width: 242px;
+  }
+  #go-to .go-to-start {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    display: block;
+    width: 90%;
+  }
+  #go-to .go-to-link {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: block;
+    width: 90%;
+  }
+  .section-header #searchform {
+    position: relative;
+  }
+  #searchform input {
+    width: 100%;
+  }
+  article img {
+    max-width: 298px;
+  }
+  article .comments-link {
+
+    margin-bottom: 8px;
+  }
+  article .share {
+    float: none;
+  }
+  .primary,
+  .sidebar {
+    float: none;
+    margin: 0;
+  }
+  .columns {
+    margin-bottom: 15px;
+  }
+  .sidebar {
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+  .container .offset-by-quarter {
+    padding-left: 0;
+  }
+  .container .offset-by-half {
+    padding-left: 0;
+  }
+  #site-footer .columns {
+    margin-bottom: 15px;
+  }
+  #site-footer .article-categories {
+    margin-bottom: 15px;
+  }
+  #site-footer .article-categories li {
+    text-align: center;
+    width: 128px;
+  }
+  #site-footer h3 {
+    text-align: center;
+  }
+  #site-footer p {
+    text-align: center;
+  }
+  #site-footer-nav p {
+    text-align: center;
+  }
+  #site-footer-nav ul {
+    margin-top: 15px;
+    position: relative;
+  }
+  #site-footer-nav li {
+    display: block;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .comment-form-author {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+  .comment-form-email {
+    float: none;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .pagination a,
+  .pagination .current,
+  .pagination .dots {
+    font-size: .8em;
+    padding: 2px 6px;
+  }
+
+  /* Hide some elements at these smaller sizes */
+  .container .post-share,
+  #sidebar-signup-cta-sticky-wrapper {
+    display: none;
+  }
+  #ki_container { display: none; }
+  p.social-share-link-mobile { display: inherit; }
+}
+
+.u-optimizely {
+  /* We need to force hide this element without removing events and hovers */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0 !important;
+  background: transparent !important;
+  color: rgba(0,0,0,0) !important;
+  overflow: hidden !important;
+
+  /* Now size and position it */
+  position: absolute !important;
+  right: 0 !important;
+  height: 12px !important;
+  width: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+
+  /* Must brute force this to ensure that no one gets hit with bad or partial rendering */
+}
+
+/* Styles for new blog header being A/B tested. */
+
+#blog-header {
+  background-color: #fff;
+  font-family: "Gotham SSm A", "Gotham SSm B";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  position: relative;
+}
+#blog-header .bh-container {
+  height: 30px;
+  max-width: 1240px;
+  margin: auto;
+  padding: 3em 20px;
+}
+#blog-header .bh-logo {
+  background-image: url(../images/blog-header/logo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  overflow-x: hidden;          /* Image replacement. */
+  text-indent: 171.36125654px; /* Image replacement. */
+  width: 171.36125654px;       /* Image replacement. */
+}
+#blog-header .bh-nav {
+  float: right;
+  line-height: 30px; /* Vertically align with logo. */
+  list-style-type: none;
+  margin: 5px 0 0;   /* Align with logo text. */
+  padding: 0;
+}
+#blog-header .bh-nav-item {
+  display: inline-block;
+  margin: 0 0 0 1.5em;
+  padding: 0;
+}
+#blog-header .bh-nav-item:last-child {
+  margin: 0;
+}
+#blog-header .bh-nav-link {
+  color: #333;
+  padding: 3em 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+#blog-header .bh-nav-link:hover {
+  color: #999;
+}
+#blog-header .bh-phone {
+  color: #999;
+}
+#blog-header .bh-nav-signup {
+  background-color: #23c4eb;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.75em 1.25em;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+}
+#blog-header .bh-nav-signup:hover {
+  background-color: #20B0D4;
+}
+#blog-header .bh-nav-signin {
+  border-radius: 5px;
+  color: #23c4eb;
+  font-weight: bold;
+  padding: 0.75em 1.25em;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+}
+#blog-header .bh-nav-signin:hover {
+  background-color: #eee;
+}
+#blog-header .bh-subnav-container {
+  background-color: #eee;
+}
+#blog-header .bh-subnav {
+  list-style-type: none;
+  margin: auto;
+  max-width: 1240px;
+  padding: 0 20px;
+}
+#blog-header .bh-subnav-item {
+  display: inline-block;
+}
+#blog-header .bh-subnav-link {
+  color: #333;
+  display: inline-block;
+  font-size: 1.1666666667em;
+  line-height: 1.5em;
+  margin-right: 2em;
+  padding: 1em 0;
+  text-decoration: none;
+}
+#blog-header .bh-subnav-link.active {
+  border-bottom: 0.15em solid #333;
+  font-weight: bold;
+  padding: 1em 0 0.85em;
+}
+#blog-header .bh-subnav-link:hover {
+  border-bottom: 0.15em solid #bbb;
+  padding: 1em 0 0.85em;
+}
+#blog-header .bh-mobl-icon {
+  background-image: url(../images/blog-header/reorder.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  display: none;
+  float: right;
+  height: 25px;
+  opacity: 0.9;
+  width: 25px;
+}
+#blog-header .bh-mobl-icon.open {
+  background-image: url(../images/blog-header/remove11.svg);
+}
+#blog-header .bh-nav-mobl {
+  background-color: #fff;
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+}
+#blog-header .bh-nav-item-mobl {
+  border-bottom: 1px solid #ddd;
+}
+#blog-header .bh-nav-link-mobl {
+  color: #333;
+  display: block;
+  padding: 0.8333333333em 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#blog-header .bh-subnav-mobl {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#blog-header .bh-subnav-link-mobl {
+  color: #999;
+  display: block;
+  padding: 0.8333333333em 20px 0.8333333333em 40px;
+  text-decoration: none;
+}
+#blog-header .bh-phone-mobl {
+  color: #23c4eb;
+  padding: 0.8333333333em 20px;
+}
+
+@media only screen and (max-width: 1279px) {
+  #blog-header .bh-blog-extra {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #blog-header .bh-phone {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  #blog-header .bh-nav {
+    display: none;
+  }
+  #blog-header .bh-subnav-container {
+    display: none;
+  }
+  #blog-header .bh-container {
+    height: 25px;
+    padding: 2em 20px;
+  }
+  #blog-header .bh-logo {
+    height: 25px;
+    width: 142.80104712px;
+  }
+  #blog-header .bh-mobl-icon {
+    display: block;
+  }
+  #blog-header .bh-nav-mobl.open {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #blog-header .bh-nav-mobl {
+    font-size: 0.8em;
+  }
+}
+
+
+</style> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400"> <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--> <!-- Favicons --> <link rel="shortcut icon" href="https://blog.kissmetrics.com/wp-content/themes/kissblog/images/favicon.ico"> <link rel="pingback" href="https://blog.kissmetrics.com/xmlrpc.php"> <!-- Robots --> <meta name="robots" content="index,follow"> <!-- Feeds --> <link rel="alternate" type="application/rss+xml" title="Kissmetrics RSS" href="http://feeds.feedburner.com/KISSmetrics"> <script type="text/javascript" src="https://cdn.optimizely.com/js/418001.js"></script><link rel="alternate" type="application/rss+xml" title="The Kissmetrics Marketing Blog &#xBB; Google&#x2019;s Next Big Algorithm Change is Coming&#x2026; Will Your Site Survive? Comments Feed" href="https://blog.kissmetrics.com/google-algorithm-change/feed/"> <script type="text/javascript"> window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/blog.kissmetrics.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.4"}}; !function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings); </script> <style type="text/css"> img.wp-smiley, img.emoji { display: inline !important; border: none !important; box-shadow: none !important; height: 1em !important; width: 1em !important; margin: 0 .07em !important; vertical-align: -0.1em !important; background: none !important; padding: 0 !important; } </style> <style>form input.st-search-input {
+  font-size: 12px;
+  padding: 5px 9px 5px 27px;
+  height: 18px;
+  width: 200px;
+  color: #666;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUFJREFUeNqU0j0oRWEcx/Hj3ifvlMHL7C1lY7mDwUBKkoksBjKJxWIQu7xlOybDLVGukhhMZDFbxGBS8nIjKR3E96nf0dPjuuVfn+6tc35P//P8/yYMw8CpbgygGQlcYw8H+Ai8MvotxQImgt81hk1M4cEPF2IV43jCGo7wjk5MYhhlGMKbG+7BKO4wiGPn8DO1vIN+jGA9fpjQaUksecG4zjGPL3VQ5IZb9OAw+LtO1FkjatxwUuEoTzjSbRu9/xO+0W97nnArqvXuoxve1/9p1OUIlmNGU7EX9+KGt3GKNuyiC5WoQAe2NJFP3PpzzmoR0khpxle6h3pnkeKJPCPjbtglerVFfWhSVxfqJtK4qrChTMY4XdjVm9O21aIA92LrFcv6HHtAsclxQVnxa0WfsqgDUib4X9muStCA2W8BBgDJ0EeGeFZ8WAAAAABJRU5ErkJggg==) no-repeat 7px 7px;
+}
+
+ul.st-autocomplete {
+    font-family: 'lucida grande';
+    z-index: 10000;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 36px;
+}
+
+ul.st-autocomplete li {
+    border-top: 1px solid #ddd;
+    cursor: pointer;
+    padding: 10px 8px;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+ul.st-autocomplete li:first-child {
+    border-top: none;
+}
+
+ul.st-autocomplete li.active {
+    background-color: #f2f2f2;
+}
+
+ul.st-autocomplete li p {
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+}
+
+ul.st-autocomplete li p.title {
+    color: #666;
+    font-weight: bold;
+}
+
+ul.st-autocomplete li p.subtitle {
+    color: #666;
+		font-size: 9px;
+}
+
+ul.st-autocomplete li p.title em {
+  color: #333;
+}
+
+ul.st-autocomplete li .sections {
+    color: #999;
+    font-size: 11px;
+}
+
+ul.st-autocomplete li .sections .section {
+  display: inline;
+}
+
+ul.st-autocomplete em {
+    color: #666;
+    font-weight: bold;
+    font-style: normal;
+    background-color: transparent;
+}
+
+ul.st-autocomplete li.active em {
+    color: #000;
+    font-weight: bold;
+}
+
+.result.active {
+  color: red;
+}
+</style> <style>/*
+Default style for WP-PageNavi plugin
+
+http://wordpress.org/extend/plugins/wp-pagenavi/
+*/
+
+.wp-pagenavi {
+	clear: both;
+}
+
+.wp-pagenavi a, .wp-pagenavi span {
+	text-decoration: none;
+	border: 1px solid #BFBFBF;
+	padding: 3px 5px;
+	margin: 2px;
+}
+
+.wp-pagenavi a:hover, .wp-pagenavi span.current {
+	border-color: #000;
+}
+
+.wp-pagenavi span.current {
+	font-weight: bold;
+}
+</style> <style>/*
+ * WP-Paginate - WordPress Pagination Function
+ * Revision: $Id: wp-paginate.css 286636 2010-09-08 00:11:23Z emartin24 $
+ * Copyright (c) 2010 Eric Martin http://www.ericmmartin.com/projects/wp-paginate/
+ */
+.wp-paginate {padding:0; margin:0;}
+.wp-paginate li {display:inline; list-style:none;}
+.wp-paginate a {background:#ddd; border:1px solid #ccc; color:#666; margin-right:4px; padding:3px 6px; text-align:center; text-decoration:none;}
+.wp-paginate a:hover, .wp-paginate a:active {background:#ccc; color:#888;}
+.wp-paginate .title {color:#555; margin-right:4px;}
+.wp-paginate .gap {color:#999; margin-right:4px;}
+.wp-paginate .current {color:#fff; background:#5f87ae; border:1px solid #89adcf; margin-right:4px; padding:3px 6px;}
+.wp-paginate .page {}
+.wp-paginate .prev, .wp-paginate .next {}
+
+/* style overrides for comments pagination */
+.wp-paginate-comments {}
+.wp-paginate-comments li {}
+.wp-paginate-comments a {}
+.wp-paginate-comments a:hover, .wp-paginate-comments a:active {}
+.wp-paginate-comments .title {}
+.wp-paginate-comments .gap {}
+.wp-paginate-comments .current {}
+.wp-paginate-comments .page {}
+.wp-paginate-comments .prev, .wp-paginate-comments .next {}</style> <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> <script type="text/javascript"> /* <![CDATA[ */ var swiftypeParams = {"engineKey":"gzhaqAzRjscgXFaKQHXB"}; /* ]]> */ </script> <script type="text/javascript" src="https://blog.kissmetrics.com/wp-content/plugins/swiftype-search/assets/install_swiftype.js?ver=4.2.4"></script> <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.kissmetrics.com/xmlrpc.php?rsd"> <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.kissmetrics.com/wp-includes/wlwmanifest.xml"> <link rel="prev" title="Tackle Marketing Automation to Drive Conversions" href="https://blog.kissmetrics.com/marketing-automation-drive-conversions/"> <link rel="next" title="5 Ways to Write Magnetic Call-to-Actions in Just 5 Minutes" href="https://blog.kissmetrics.com/write-magnetic-call-to-actions/"> <link rel="canonical" href="https://blog.kissmetrics.com/google-algorithm-change/"> <link rel="shortlink" href="https://blog.kissmetrics.com/?p=28424"> <!-- All in One SEO Pack 1.6.12.1 by Michael Torbert of Semper Fi Web Design[261,364] --> <meta name="description" content="We all know the next big Google algorithm change is right around the corner. Know what to do and how to react with this blog post."> <!-- /all in one seo pack --> <!-- Start Fluid Video Embeds Style Tag --> <style type="text/css"> /* Thanks to Web Designer Wall for writing about this technique: http://webdesignerwall.com/tutorials/css-elastic-videos */ /* And to A List Apart: http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/ */ .fve-video-wrapper { position: relative; overflow: hidden; height: 0; background-color: transparent; padding-bottom: 56.25%; /* This is default, but will be overriden */ margin: 0.5em 0; /* A bit of margin at the bottom */ } .fve-video-wrapper iframe, .fve-video-wrapper object, .fve-video-wrapper embed { position: absolute; display: block; top: 0; left: 0; width: 100%; height: 100%; } .fve-video-wrapper a.hyperlink-image { position: relative; display: none; } .fve-video-wrapper a.hyperlink-image img { position: relative; z-index: 2; width: 100%; } .fve-video-wrapper a.hyperlink-image .fve-play-button { position: absolute; left: 35%; top: 35%; right: 35%; bottom: 35%; z-index: 3; background-color: rgba(40, 40, 40, 0.75); background-size: 100% 100%; border-radius: 10px; } .fve-video-wrapper a.hyperlink-image:hover .fve-play-button { background-color: rgba(0, 0, 0, 0.85); } /* End of standard styles */ </style> <!-- End Fluid Video Embeds Style Tag --> <link rel="author" href="https://plus.google.com/u/0/+ShericeJacob/"> <!-- Open Graph Protocol Meta --> <meta property="og:site_name" value="The Kissmetrics Marketing Blog"> <meta property="og:title" content="Google&#x2019;s Next Big Algorithm Change is Coming&#x2026; Will Your Site Survive?"> <meta property="og:url" content="https://blog.kissmetrics.com/google-algorithm-change/"> <meta property="og:image" content="https://blog.kissmetrics.com/wp-content/uploads/2015/06/default-facebook-thumbnail.png"> <meta property="og:image:url" content="https://blog.kissmetrics.com/wp-content/uploads/2015/06/default-facebook-thumbnail.png"> <meta property="og:image:width" content="400"> <meta property="og:image:height" content="400"> <meta property="og:image:type" content="image/png"> <meta property="og:description" content="We all know the next big Google algorithm change is right around the corner. Know what to do and how to react with this blog post."> <!-- END Open Graph Protocol Meta --> <style>.wordtwit_tweets {
+	margin: auto;
+	text-align: center;
+}
+
+.wordtwit_tweets ul {
+	margin: auto;
+	width: 100%;
+}
+
+.wordtwit_tweets ul img {
+	width: 35px;
+	height: 35px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+.wordtwit_tweets ul li {
+	width:  100%;
+	text-align: left;
+	line-height: 1.2;
+	padding: 5px;
+}
+
+.wordtwit_tweets ul li.original {
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+}
+
+.wordtwit_tweets ul li.response {
+	margin-bottom: 5px;
+}
+
+.wordtwit_tweets ul li.original .join {
+	float: right;
+
+}
+
+.wordtwit_tweets ul li.original .join a {
+	color: #888;
+}
+
+.wordtwit_tweets ul li a {
+	text-transform: capitalize;
+}
+
+.wordtwit_tweets ul li em {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.wordtwit_clearer {
+	clear: both;
+}</style> <!-- Twitter Deep Linking --> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="Google&#x2019;s Next Big Algorithm Change is Coming&#x2026; Will Your Site Survive?"> <meta name="twitter:description" content="We all know the next big Google algorithm change is right around the corner. Know what to do and how to react with this blog post."> <meta name="twitter:site" content="@kissmetrics"> <!--<meta name="twitter:app:name:iphone" content="KISSmetrics Reader" />--> <!--<meta name="twitter:app:id:iphone" content="643048719" />--> <script type="text/javascript"> // Tag Manager pre-initialization var _kmq = _kmq || [], _kiq = _kiq || [], // Qualaroo piAId = '27622', // Pardot piCId = '3440'; // Pardot _kmq.push(['record', 'Visited Blog']); </script> <!-- KISSmetrics code --> <script type="text/javascript"> var _kmk = _kmk || 'e4756f9bee2a2cfc9c8a4aed3197e68a590c2dc3'; function _kms(u){ setTimeout(function(){ var d = document, f = d.getElementsByTagName('script')[0], s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = u; f.parentNode.insertBefore(s, f); }, 1); } _kms('//i.kissmetrics.com/i.js'); _kms('//scripts.kissmetrics.com/' + _kmk + '.2.js'); </script> <!-- Start BounceX tag. Deploy at the beginning of document head. --> <script> (function(d) { var e = d.createElement('script'); e.src = d.location.protocol + '//bounceexchange.com/tag/811/i.js'; e.async = true; d.getElementsByTagName("head")[0].appendChild(e); }(document)); </script> </head> <body class="single single-post postid-28424 single-format-standard"> <!-- Google Tag Manager --> <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJJKWV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-PJJKWV');</script> <!-- End Google Tag Manager --> <!-- FACEBOOK JS SDK --> <div id="fb-root"></div> <header id="site-header"> <div class="container"> <a href="https://blog.kissmetrics.com/" title="The Kissmetrics Marketing Blog" rel="home" id="km-logo"><img src="https://blog.kissmetrics.com/wp-content/themes/kissblog/images/km-logo-white.svg" title="Kissmetrics logo" alt="Kissmetrics logo" height="32" width="184"></a> <p id="site-description">A Blog About Analytics, Marketing and Testing</p> <ul class="blog-header-nav-menu"> <li class="nav-menu-webinars"><a href="/webinars">Webinars</a></li> <li class="nav-menu-marketing-guides"><a href="/marketing-guides">Marketing Guides</a></li> <li class="nav-menu-infographics"><a href="/infographics">Infographics</a></li> </ul> </div><!-- .container --> </header><!-- #site-header --> <!-- HTML markup for blog header A/B test. --> <header id="blog-header" style="display: none;"> <div class="bh-container"> <a class="bh-logo" href="https://www.kissmetrics.com">Kissmetrics</a> <ul class="bh-nav"> <li class="bh-nav-item"> <a href="https://www.kissmetrics.com/products" class="bh-nav-link">Products</a> </li> <li class="bh-nav-item"> <a href="https://www.kissmetrics.com/pricing" class="bh-nav-link">Pricing</a> </li> <li class="bh-nav-item"> <a href="https://www.kissmetrics.com/customers" class="bh-nav-link">Customers</a> </li> <li class="bh-nav-item"> <a href="https://www.kissmetrics.com/about" class="bh-nav-link">About</a> </li> <li class="bh-nav-item"> <a href="/" class="bh-nav-link"> <strong>Blog</strong> </a> </li> <li class="bh-nav-item bh-phone">1-888-767-5477</li> <li class="bh-nav-item"> <a href="https://www.kissmetrics.com/signup" class="bh-nav-signup">Sign Up</a> </li> <li class="bh-nav-item"> <a href="https://www.kissmetrics.com/signin" class="bh-nav-signin">Sign In</a> </li> </ul> <a class="bh-mobl-icon" href="#"></a> </div> <div class="bh-subnav-container"> <ul class="bh-subnav"> <li class="bh-subnav-item"> <a href="/" class="bh-subnav-link bh-blog"> The Kissmetrics Blog<span class="bh-blog-extra">: A Blog about Analytics, Marketing and Testing</span> </a> </li> <li class="bh-subnav-item"> <a href="/infographics/" class="bh-subnav-link bh-infographics">Infographics</a> </li> <li class="bh-subnav-item"> <a href="/marketing-guides/" class="bh-subnav-link bh-guides">Marketing Guides</a> </li> <li class="bh-subnav-item"> <a href="/webinars/" class="bh-subnav-link bh-webinars">Webinars</a> </li> <li class="bh-subnav-item"> <a href="/topics/academy/" class="bh-subnav-link bh-academy">Kissmetrics Academy</a> </li> </ul> </div> <ul class="bh-nav-mobl"> <li class="bh-nav-item-mobl"> <a class="bh-nav-link-mobl" href="https://www.kissmetrics.com/products">Products</a> </li> <li class="bh-nav-item-mobl"> <a class="bh-nav-link-mobl" href="https://www.kissmetrics.com/pricing">Pricing</a> </li> <li class="bh-nav-item-mobl"> <a class="bh-nav-link-mobl" href="https://www.kissmetrics.com/customers">Customers</a> </li> <li class="bh-nav-item-mobl"> <a class="bh-nav-link-mobl" href="https://www.kissmetrics.com/about">About</a> </li> <li class="bh-nav-item-mobl"> <a class="bh-nav-link-mobl" href="/">Blog</a> <ul class="bh-subnav-mobl"> <li> <a class="bh-subnav-link-mobl" href="/infographics/">Infographics</a> </li> <li> <a class="bh-subnav-link-mobl" href="/marketing-guides/">Marketing Guides</a> </li> <li> <a class="bh-subnav-link-mobl" href="/webinars/">Webinars</a> </li> <li> <a class="bh-subnav-link-mobl" href="/topics/academy/">Kissmetrics Academy</a> </li> </ul> </li> <li class="bh-nav-item-mobl bh-phone-mobl">1-888-767-5477</li> </ul> </header> <section id="main"> <div class="header-welcome-mat"> <h2>Built to optimize marketing. <span>Track, analyze and optimize your digital marketing.</span></h2> <form accept-charset="UTF-8" method="post" action="https://www.kissmetrics.com/set-signup-params" class="form-wrapper cf form-signup-google-blog-header"> <input autofocus="autofocus" type="text" name="account_url" id="account_url" placeholder="Your Website URL"> <input type="hidden" name="signup_campaign" value="Blog"> <button type="submit">Try Kissmetrics</button> </form> </div> <div class="container "> <div class="primary eleven columns clearfix omega"> <div class="post-content nine columns alpha"> <script type="text/javascript"> _kmq.push(['record', 'Viewed Blog Post', { 'Post Title': 'Google’s Next Big Algorithm Change is Coming… Will Your Site Survive?', 'Post Category': 'SEO', 'Post URL': 'https://blog.kissmetrics.com/google-algorithm-change/' } ]); </script> <article id="post-28424" class="single-post post-28424 post type-post status-publish format-standard hentry category-seo" data-swiftype-index="true"> <header class="entry-header"> <h1 class="entry-title">Google&#x2019;s Next Big Algorithm Change is Coming&#x2026; Will Your Site Survive?</h1> </header><!-- .entry-header --> <div class="entry-content"> <p>A lot of website owners were caught with their heads in the sand when it came to Penguin and Panda. Even more recently, Google&#x2019;s push to embrace mobile responsive sites has businesses scrambling to ensure their sites load quickly and flawlessly on mobile devices. So what&#x2019;s next? And how can you prepare yourself rather than being blindsided by the change?</p> <p>The fact is, no one but Google knows when the next algorithm update will happen. Small tweaks and large overhauls happen all the time in a continuing effort to make the search engine results more relevant to the user&#x2019;s search. In this article, we&#x2019;re not talking about small shifts, but rather the big, all-encompassing changes like the shift to mobile focus, or the &#x201C;Starbucks/Mystery&#x201D; update that caused sudden traffic fluctuations in February of this year.</p> <p>As a web marketing professional, you&#x2019;re likely already used to weathering the small speed bumps caused by algorithm tweaks, but being able to foresee big changes that will happen and plan ahead for them will make your site feel that much less of the brunt when the next big update happens. So how do you do it?</p> <p><span id="more-28424"></span></p> <h2>Before the Update: Knowledge is Power</h2> <p style="text-align: center"><a href="http://blog.kissmetrics.com/wp-content/uploads/2015/07/info-processing.jpg"><img class="aligncenter  wp-image-28425" src="https://blog.kissmetrics.com/wp-content/uploads/2015/07/info-processing-1024x1024.jpg" alt="Print" width="522" height="522"></a></p> <p>Google often makes its expectations abundantly clear when it&#x2019;s about to release a major overhaul of its algorithms, even creating video FAQs to help answer questions. This is where it makes sense to plan ahead and craft a checklist of sorts to ensure that changes are well documented, tracked and able to be implemented in a reasonable time frame. For instance:</p> <ul> <li>Is the update going to involve changes to the front-end design or the back-end technical aspects of the site, or both?</li> <li>If both, are the designers and developers as well as IT staff ready with infrastructure updates, necessary code and other elements to make the updates as smooth as possible?</li> <li>What can you learn from similar past experiences? Is there a trend toward a specific kind of result? How can your site be adjusted to best take advantage of the change?</li> </ul> <p>It may seem like a lot of preparation and planning for what could ultimately turn out to be a change that fizzles in the minds of SEO professionals, but forewarned is forearmed, and those companies that take into account the ebb and flow of traffic during an algorithm update are best poised to come out on top when the storm dies down.</p> <h2>During the Update: Don&#x2019;t Panic</h2> <p style="text-align: center"><a href="http://blog.kissmetrics.com/wp-content/uploads/2015/07/dont-panic.png"><img class="aligncenter size-full wp-image-28426" src="https://blog.kissmetrics.com/wp-content/uploads/2015/07/dont-panic.png" alt="dont panic"></a></p> <p>This is the stage where it&#x2019;s good to look at past reports as an indication of where your site was (both in terms of ranking and traffic) before the update. That means looking at things like:</p> <ul> <li>Traffic by referrer</li> <li>Traffic by device</li> <li>Time on site/Pageviews/Number of pages per session</li> <li>Where your site ranks with regard to specific keywords</li> <li>Conversion goals completed</li> <li>Revenue</li> <li>Bounce Rate</li> </ul> <p>You may think that things like time on site, bounce rate, and pages per session would have nothing to do with an algorithm update, but consider the option that your site suddenly starts ranking for a product you no longer carry, but have a page for. This can in turn greatly distort your numbers and cause a panic if you&#x2019;re unprepared (at least, until the update dust settles!)</p> <p>It may also be worth taking into account your competition and where <em>they&#x2019;re </em>ranking before and during the algorithm update. Having this information will give you a baseline to compare to when the actual update is completed.</p> <p>During this time, pay attention to relevant search engine news and update channels for insights on any major problems encountered by website owners, and what&#x2019;s being done to fix them. Pay close attention to any particular before and after case studies, reports or other news showing sites after the update has completed. Traffic may be a whirlwind at this point, especially as marketers try to grasp the impact the shift has on their site. But after a few weeks, the changes will be in place and traffic patterns will adjust normally.</p> <h2>After the Update: Making Adjustments and Looking Back</h2> <p style="text-align: center"><a href="http://blog.kissmetrics.com/wp-content/uploads/2015/07/teamwork.jpg"><img class="aligncenter size-full wp-image-28427" src="https://blog.kissmetrics.com/wp-content/uploads/2015/07/teamwork.jpg" alt="teamwork"></a></p> <p>Once things have settled relatively smoothly into place, you&#x2019;ll likely be making small adjustment as you view your real-time, daily and weekly traffic reports to determine how the algorithm change affected your customers and how they find and interact with your site.</p> <p>As tempting as it might be to sit back and relax at this point, this is where you need to be putting all of that preparation and research into practice. Some changes, like the Google mobile preference update, will take much longer to implement as a responsive site needs to be prototyped, built, tested and so forth, before launch. It can take weeks, if not a month or more to see through to completion.</p> <p>You&#x2019;ll likely need to prioritize at this point, so look at your best converting/highest traffic pages and sort those that you feel will likely have the biggest impact accordingly. Get realistic estimates from your staff on when the proposed changes can go live. Once that happens, it&#x2019;s time to watch and analyze.</p> <p>Take a look at those aforementioned points that were affected during the algorithm update. How are they faring afterwards? What do the numbers look like and if there were any drops in traffic, can you pinpoint what happened to cause them?</p> <p>It&#x2019;s also important to note whether or not the update affected Google&#x2019;s core functionality. Some updates are designed merely to skim the surface. Others are major &#x201C;always on&#x201D; factors that consistently affect how sites rank (Penguin and Panda were examples of this).</p> <h2>The Bottom Line on Preparing for the Next Big Thing</h2> <p>If you&#x2019;re focused on quality content, natural ad placement, properly optimized pages and regular, gradual back linking and social signals &#x2013; you&#x2019;re doing everything right. But that doesn&#x2019;t mean you should sit back and let major algorithm changes pass you by. It pays (literally) to be invested in understanding the direction of the search engine, and the role your site plays in its results. Taking steps to be aware of the situation, and working with your team to put concepts into action will take you farther, faster than wringing your hands about the issues when everything is said and done!</p> <p>Have you experienced any major shifts from a search engine algorithm update? How has it affected your business? Tell us about it in the comments below!</p> <p><b>About the Author:</b> Sherice Jacob helps business owners improve website design and increase conversion rates through compelling copywriting, user-friendly design and smart analytics analysis. Learn more at <a href="http://www.ielectrify.com/freegifts" rel="nofollow">iElectrify.com</a> and download your free web copy tune-up and conversion checklist today!</p> </div><!-- .entry-content --> <footer class="entry-meta"> <div class="footer-dynamic-cta"> <div class="cta-wrapper"> <div class="left-column"> <img src="https://blog.kissmetrics.com/wp-content/uploads/2015/06/Screen_Shot_2015-06-23_at_12.08.13_PM_copy.png"> </div> <div class="right-column"> <h3>Optimize Every Web Interaction</h3> <p>Create triggered popups, nudges, and lightboxes to boost conversions.</p> <a href="https://www.kissmetrics.com/engage" class="cta" alt="Start 14-Day Trial" title="Start 14-Day Trial" target="_new">Start 14-Day Trial</a> </div> <br class="clear"> </div> </div> <center> <!--	
+	<p><b>Sign in with Google to get early access to our new free Google Analytics app</b><br />
+	<iframe src="http://www.myanalyticsapp.com/km-modal/" width="300" height="90" frameborder="0" scrolling="no" seamless></iframe></p>
+	
+	
+	<p class="social-share-link-mobile"><a href="https://twitter.com/intent/tweet?original_referrer=https%3A%2F%2Fblog.kissmetrics.com%2Fgoogle-algorithm-change%2F&source=tweetbutton&text=Google%E2%80%99s+Next+Big+Algorithm+Change+is+Coming%E2%80%A6+Will+Your+Site+Survive%3F&url=https%3A%2F%2Fblog.kissmetrics.com%2Fgoogle-algorithm-change%2F&via=KISSmetrics" class="button" style="display:block">Share on Twitter</a></p>
+	<p class="social-share-link-mobile"><a href="http://facebook.com/sharer.php?u=https%3A%2F%2Fblog.kissmetrics.com%2Fgoogle-algorithm-change%2F" class="button" style="display:block">Share on Facebook</a></p>
+
+	</center>
+
+
+<!--		<div class="kmad row">
+				<p>Email this content!<br />
+				<a href="mailto:?subject=Google’s Next Big Algorithm Change is Coming… Will Your Site Survive?&amp;body=https://blog.kissmetrics.com/google-algorithm-change/?utm_source=epostshare" title="Send this
+				article to a friend!" class="button">Email to a friend or colleague</a></p>
+				<p>A free Google Analytics app!<br />
+				<a href="http://myanalyticsapp.com/?utm_source=kmblog-post" title="Get the free app" class="button" target="_blank">Get the free iPhone app</a></p>
+				<p>Measure people, not pageviews!<br />
+				<a href="https://www.kissmetrics.com/?utm_source=blog-post-cta" title="Try KISSmetrics for free" class="button" target="_blank">Try KISSmetrics</a></p>
+		</div>
+--> </center></footer><!-- .entry-meta --> </article><!-- #post-28424 --> <div id="comments"> <ol class="commentlist"> <li class="comment even thread-even depth-1" id="li-comment-1142858"> <div id="comment-1142858" class="comment-body"> <div class="comment-meta"> <cite class="comment-author">Nicolas</cite> <a href="https://blog.kissmetrics.com/google-algorithm-change/#comment-1142858" class="comment-date">Jul 30, 2015 at 9:20 am</a> </div><!-- /.comment-meta --> <p>Is my impression or Google in 2015 wants to eliminate SEO?</p> <div class="reply"> <a class="comment-reply-link" href="/google-algorithm-change/?replytocom=1142858#respond" onclick="return addComment.moveForm( &quot;comment-1142858&quot;, &quot;1142858&quot;, &quot;respond&quot;, &quot;28424&quot; )" aria-label="Reply to Nicolas">Reply</a> </div><!-- /.reply --> </div><!-- /.comment-body --> <ul class="children"> <li class="comment odd alt depth-2" id="li-comment-1144322"> <div id="comment-1144322" class="comment-body"> <div class="comment-meta"> <cite class="comment-author">Sherice</cite> <a href="https://blog.kissmetrics.com/google-algorithm-change/#comment-1144322" class="comment-date">Aug 03, 2015 at 10:36 am</a> </div><!-- /.comment-meta --> <p>I think they want to eliminate SEO &#x201C;as we know it&#x201D;. I think they know SEO is going to continue regardless of what algorithm changes they do, as people are always going to want to get on the first page and some will try to game the system no matter what.</p> <p>Google is wisely stepping up and playing a role in shaping how SEO is done, rather than standing off to the side. I think they&#x2019;ll continue to play a significant role in this way.</p> <div class="reply"> <a class="comment-reply-link" href="/google-algorithm-change/?replytocom=1144322#respond" onclick="return addComment.moveForm( &quot;comment-1144322&quot;, &quot;1144322&quot;, &quot;respond&quot;, &quot;28424&quot; )" aria-label="Reply to Sherice">Reply</a> </div><!-- /.reply --> </div><!-- /.comment-body --> </li><!-- #comment-## --> </ul><!-- .children --> </li><!-- #comment-## --> <li class="comment even thread-odd thread-alt depth-1" id="li-comment-1143112"> <div id="comment-1143112" class="comment-body"> <div class="comment-meta"> <cite class="comment-author">Aziz Shaikh</cite> <a href="https://blog.kissmetrics.com/google-algorithm-change/#comment-1143112" class="comment-date">Jul 31, 2015 at 12:36 am</a> </div><!-- /.comment-meta --> <p>Getting into deep analysis and scenario along with customer main concern and solving it is the point i take into consideration to pass all updates. Following the ethical practices and solving customer issue with point and fact based example will let you pass any update without making or doing any changes is what I believe and follow.</p> <div class="reply"> <a class="comment-reply-link" href="/google-algorithm-change/?replytocom=1143112#respond" onclick="return addComment.moveForm( &quot;comment-1143112&quot;, &quot;1143112&quot;, &quot;respond&quot;, &quot;28424&quot; )" aria-label="Reply to Aziz Shaikh">Reply</a> </div><!-- /.reply --> </div><!-- /.comment-body --> <ul class="children"> <li class="comment odd alt depth-2" id="li-comment-1144323"> <div id="comment-1144323" class="comment-body"> <div class="comment-meta"> <cite class="comment-author">Sherice</cite> <a href="https://blog.kissmetrics.com/google-algorithm-change/#comment-1144323" class="comment-date">Aug 03, 2015 at 10:36 am</a> </div><!-- /.comment-meta --> <p>Hi Aziz, isn&#x2019;t it interesting how the simplest things can have the most profound effect? If only more businesses would follow your example!</p> <div class="reply"> <a class="comment-reply-link" href="/google-algorithm-change/?replytocom=1144323#respond" onclick="return addComment.moveForm( &quot;comment-1144323&quot;, &quot;1144323&quot;, &quot;respond&quot;, &quot;28424&quot; )" aria-label="Reply to Sherice">Reply</a> </div><!-- /.reply --> </div><!-- /.comment-body --> </li><!-- #comment-## --> </ul><!-- .children --> </li><!-- #comment-## --> <li class="comment even thread-even depth-1" id="li-comment-1144380"> <div id="comment-1144380" class="comment-body"> <div class="comment-meta"> <cite class="comment-author">Greg Gillespie</cite> <a href="https://blog.kissmetrics.com/google-algorithm-change/#comment-1144380" class="comment-date">Aug 03, 2015 at 4:46 pm</a> </div><!-- /.comment-meta --> <p>I think Google have less and less options to play with when it comes to &#x201C;what&#x2019;s up next&#x201D;.</p> <p>Certainly they can tighten the screws with a tweak or refresh but a major shift, to act upon something that appears to be abusing their &#x201C;most relevant search results&#x201D; criteria could be a long way off.</p> <p>Looking at past paradigms of Penguin and Panda, these (in hindsight) were obvious and widespread practices that Google was forced to act upon, in order to maintain the upper hand in the search equation.</p> <p>Today with many SEO&#x2019;s too scared to &#x201C;build&#x201D; a backlink, or think about doing such a thing and the proliferation of white hat (for now) content marketing practices, along with social signals, filling their work schedules, it may just be that Google&#x2019;s algorithm that is still based heavily upon backlinks, will start to produce, less than relevant search results.</p> <p>Google have to produce the best search results otherwise someone else will.</p> <p>In order to predict what they are going to do next, is as simple as keeping your ear to the ground on what the masses are doing that appears to be working so well. This is what they will act to squash.</p> <p>I quite often have clients approach me with the complaint that the SEO they have been doing is not working, even though they have been producing great content.</p> <div class="reply"> <a class="comment-reply-link" href="/google-algorithm-change/?replytocom=1144380#respond" onclick="return addComment.moveForm( &quot;comment-1144380&quot;, &quot;1144380&quot;, &quot;respond&quot;, &quot;28424&quot; )" aria-label="Reply to Greg Gillespie">Reply</a> </div><!-- /.reply --> </div><!-- /.comment-body --> </li><!-- #comment-## --> <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1144815"> <div id="comment-1144815" class="comment-body"> <div class="comment-meta"> <cite class="comment-author">Vishal Verma</cite> <a href="https://blog.kissmetrics.com/google-algorithm-change/#comment-1144815" class="comment-date">Aug 05, 2015 at 2:13 am</a> </div><!-- /.comment-meta --> <p>Indeed great article to prepare google next algorithm updates:)</p> <div class="reply"> <a class="comment-reply-link" href="/google-algorithm-change/?replytocom=1144815#respond" onclick="return addComment.moveForm( &quot;comment-1144815&quot;, &quot;1144815&quot;, &quot;respond&quot;, &quot;28424&quot; )" aria-label="Reply to Vishal Verma">Reply</a> </div><!-- /.reply --> </div><!-- /.comment-body --> </li><!-- #comment-## --> <li class="comment even thread-even depth-1" id="li-comment-1144887"> <div id="comment-1144887" class="comment-body"> <div class="comment-meta"> <cite class="comment-author">Nicu Olah</cite> <a href="https://blog.kissmetrics.com/google-algorithm-change/#comment-1144887" class="comment-date">Aug 05, 2015 at 7:46 am</a> </div><!-- /.comment-meta --> <p>SEO will never be removed. For us it&#x2019;s better to keep an eye on Google, adjusting their algorithms to us.</p> <div class="reply"> <a class="comment-reply-link" href="/google-algorithm-change/?replytocom=1144887#respond" onclick="return addComment.moveForm( &quot;comment-1144887&quot;, &quot;1144887&quot;, &quot;respond&quot;, &quot;28424&quot; )" aria-label="Reply to Nicu Olah">Reply</a> </div><!-- /.reply --> </div><!-- /.comment-body --> </li><!-- #comment-## --> </ol> <div id="respond" class="comment-respond"> <h3 id="reply-title" class="comment-reply-title">7 comments <small><a rel="nofollow" id="cancel-comment-reply-link" href="/google-algorithm-change/#respond" style="display:none;">Cancel reply</a></small></h3> <form action="https://blog.kissmetrics.com/wp-comments-post.php?wpe-comment-post=kissmetrics" method="post" id="commentform" class="comment-form"> <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="required"></p> <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required="true" required="required"></p> <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"></p> <p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true" required="required"></textarea></p> <p><i>Please use your real name and a corresponding social media profile when commenting. Otherwise, your comment may be deleted.</i></p> <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="28424" id="comment_post_ID"> <input type="hidden" name="comment_parent" id="comment_parent" value="0"> </p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="efd95e50ae"></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="176"></p> </form> </div><!-- #respond --> <script type="text/javascript"> $(function(){ $('#commentform').submit(function(){ var commentAuthor = $('#commentform input#author').val(); var commentEmail = $('#commentform input#email').val(); var commentWebsite = $('#commentform input#url').val(); _kmq.push(['record', 'Commented on Post', {'Post Title':'Google’s Next Big Algorithm Change is Coming… Will Your Site Survive?', 'Post URL':'https://blog.kissmetrics.com/google-algorithm-change/', 'Comment Author':commentAuthor, 'Comment Email':commentEmail, 'Comment Website':commentWebsite}]); _kmq.push(['identify', commentEmail]); }); }); </script> </div><!-- #comments --> <div class="post-navigation clearfix"> <a href="https://blog.kissmetrics.com/marketing-automation-drive-conversions/">&#x2190; Previous Article</a><a href="https://blog.kissmetrics.com/write-magnetic-call-to-actions/">Next Article &#x2192;</a> </div><!-- .post-navigation --> </div><!-- .post-content --> <div class="post-share two columns omega"> <div class="sharer"> <div class="fb-like" data-href="https://blog.kissmetrics.com/google-algorithm-change/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="false"></div> </div> <div class="sharer"> <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="https://blog.kissmetrics.com/google-algorithm-change/" data-via="Kissmetrics" data-count="vertical">Tweet</a> </div> <div class="sharer"> <div class="g-plusone" data-size="tall" data-callback="plusone_vote" data-href="https://blog.kissmetrics.com/google-algorithm-change/"></div> </div> <div class="sharer"> <script type="IN/Share" data-counter="top"></script> </div> <!--<div class="sharer">
+        <a href="http://bufferapp.com/add" class="buffer-add-button" data-text="Google’s Next Big Algorithm Change is Coming… Will Your Site Survive?" data-url="https://blog.kissmetrics.com/google-algorithm-change/" data-count="vertical" data-via="KISSmetrics" >Buffer</a>
+      </div>--> </div><!-- .post-share --> </div><!-- .primary --> <script> $(function(){ var postShareOffset = $('#site-footer').height() + 100; $(".post-share").sticky({topSpacing:112, bottomSpacing: postShareOffset }); }); </script> <div class="sidebar five columns"> <div class="module"> <div class="sidebar-list"> <div class="email-signup"> <h3>Free Email Updates</h3> <form method="post" id="blog_subscription_signup" action="https://go.pardot.com/l/26622/2014-03-21/6814h" class="form-newsletter-blog-sidebar"> <p>Get the latest content first.</p> <input type="text" name="First Name" class="name" placeholder="First Name" onfocus="if(this.value==this.defaultValue)this.value=&apos;&apos;;" onblur="if(this.value==&apos;&apos;)this.value=this.defaultValue;" tabindex="501"> <input type="text" name="email" class="email" placeholder="Your Email" onfocus="if(this.value==this.defaultValue)this.value=&apos;&apos;;" onblur="if(this.value==&apos;&apos;)this.value=this.defaultValue;" tabindex="502"> <input name="submit" type="submit" value="Join Us" tabindex="503" class="button"> </form> </div> <script type="text/javascript"> $(function(){ $('#blog_subscription_signup').submit(function(){ var signupName = $('#blog_subscription_signup input.name').val(); var signupEmail = $('#blog_subscription_signup input.email').val(); _kmq.push(['record', 'Signed up for Newsletter', {'Name':signupName, 'Email':signupEmail}]); _kmq.push(['identify', signupEmail]); }); }); </script> <hr> <div id="text-11" class="widget widget_text"> <div class="textwidget"><!-- <div class="sidebar-ad-dark">
+<div class="top">
+The <span>fastest</span> ways to get traffic, signups, and paying customers.
+<img src="https://blog.kissmetrics.com/wp-content/themes/kissblog/images/package.png" class="markerly-exclude-image" />
+</div>
+<div class="bottom">
+<a href="http://grow.kissmetrics.com/saas-marketing-bundle-pdf" class="cta" alt="Get Your SaaS Marketing Bundle Now!" title="Get Your SaaS Marketing Bundle Now!" target="_new">Get Your SaaS Marketing Bundle</a><br /><br />
+</div>
+</div> --> <a href="http://grow.kissmetrics.com/webinar-122" target="_blank" class="link-webinar-blog-sidebar"><img src="https://blog.kissmetrics.com/wp-content/uploads/2015/08/Webinar-Ad-Blog-122.jpg" style="width:100%; max-width:250px; padding-bottom: 10px;"></a></div> </div> </div> <!-- end sidebar-list --> </div> <!-- end module --> <div id="sidebar-signup-cta-sticky-wrapper" class="five columns alpha"><div class="sidebar-simple-cta"> <div class="execphpwidget"><!--<center>
+<a style="display:block" href="https://www.kissmetrics.com/auth/google" title="Try KISSmetrics for free" class="button" target="_blank">Try KISSmetrics for Free with Your Google Account</a><br />
+</center>--> <center> <a href="http://grow.kissmetrics.com/googlesignin?utm_medium=banner_ad&amp;utm_campaign=km_trial&amp;utm_source=km_blog&amp;utm_content=google_signin_km&amp;utm_term=null" class="link-signup-google-blog-sidebar"><img src="https://blog.kissmetrics.com/wp-content/uploads/2015/06/sidebar-ad-google-auth-new.png" style="width:100%; max-width:254px;"></a> </center></div> </div></div> <!--
+  <div id="sidebar-signup-cta-sticky-wrapper" class="five columns alpha offset-by-quarter">
+    <div class="sidebar-simple-cta">
+      <h5>Google Analytics tells you what happened. KISSmetrics tells you who did it.</h5>
+      <p>KISSmetrics fills this gap by showing you every action each individual has done.</p>
+      <a href="https://www.kissmetrics.com/?utm_source=blog-sidebar-cta" target="_blank" class="button">Show Me My Customers</a><br /><br />
+      <a href="https://twitter.com/KISSmetrics" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @KISSmetrics</a>
+    </div>
+  </div>
+--> <script type="text/javascript"> $(function(){ var sidebarCtaOffset = $('#site-footer').height() + 120; $("#sidebar-signup-cta-sticky-wrapper").sticky({topSpacing:112, bottomSpacing: sidebarCtaOffset}); }); </script> </div><!-- .sidebar --> </div><!-- .container --> </section><!-- #main --> <footer id="site-footer"> <div class="container"> <div class="five columns"> <h3>Follow Us</h3> <div class="sidebar-social-links"> <ul> <li class="sidebar-social-links-twitter"><a href="https://twitter.com/kissmetrics" title="Follow Kissmetrics on Twitter" target="_blank"></a></li> <li class="sidebar-social-links-facebook"><a href="https://www.facebook.com/KISSmetrics" title="Follow Kissmetrics on Facebook" target="_blank"></a></li> <li class="sidebar-social-links-youtube"><a href="http://www.youtube.com/user/kissmetrics" title="Follow Kissmetrics on Youtube" target="_blank"></a></li> <li class="sidebar-social-links-linkedin"><a href="http://www.linkedin.com/company/kissmetrics" title="Follow Kissmetrics on LinkedIn" target="_blank"></a></li> <li class="sidebar-social-links-pinterest"><a href="http://pinterest.com/kissmetrics/" title="Follow Kissmetrics on Pinterest" target="_blank"></a></li> </ul> </div> </div><!-- .five.columns --> <div class="five columns offset-by-quarter"> <h3>Article Categories</h3> <ul class="article-categories"> <li class="cat-item cat-item-29"><a href="https://blog.kissmetrics.com/topics/academy/" title="Learn how to use KISSmetrics">Academy</a> </li> <li class="cat-item cat-item-11"><a href="https://blog.kissmetrics.com/topics/advertising/">Advertising</a> </li> <li class="cat-item cat-item-8"><a href="https://blog.kissmetrics.com/topics/analytics/">Analytics</a> </li> <li class="cat-item cat-item-24"><a href="https://blog.kissmetrics.com/topics/blogging/">Blogging</a> </li> <li class="cat-item cat-item-22"><a href="https://blog.kissmetrics.com/topics/branding/">Branding</a> </li> <li class="cat-item cat-item-18"><a href="https://blog.kissmetrics.com/topics/conversion/">Conversion</a> </li> <li class="cat-item cat-item-15"><a href="https://blog.kissmetrics.com/topics/copywriting/">Copywriting</a> </li> <li class="cat-item cat-item-10"><a href="https://blog.kissmetrics.com/topics/design/">Design</a> </li> <li class="cat-item cat-item-19"><a href="https://blog.kissmetrics.com/topics/e-commerce/">E-Commerce</a> </li> <li class="cat-item cat-item-3"><a href="https://blog.kissmetrics.com/topics/facebook/">Facebook</a> </li> <li class="cat-item cat-item-25"><a href="https://blog.kissmetrics.com/topics/infographics/">Infographics</a> </li> <li class="cat-item cat-item-14"><a href="https://blog.kissmetrics.com/topics/launch-strategies/">Launch Strategies</a> </li> <li class="cat-item cat-item-13"><a href="https://blog.kissmetrics.com/topics/marketing/">Marketing</a> </li> <li class="cat-item cat-item-20"><a href="https://blog.kissmetrics.com/topics/seo/">SEO</a> </li> <li class="cat-item cat-item-21"><a href="https://blog.kissmetrics.com/topics/social-media/">Social Media</a> </li> <li class="cat-item cat-item-12"><a href="https://blog.kissmetrics.com/topics/testing/">Testing</a> </li> <li class="cat-item cat-item-6"><a href="https://blog.kissmetrics.com/topics/twitter/">Twitter</a> </li> </ul> <!--
+          <h3>Email updates straight to your inbox</h3>
+          <p>Get fresh articles, infographics, marketing guides, and KISSmetrics happenings delivered to your inbox each week.</p>
+          <p><a href="http://eepurl.com/EFqeX" class="button">Subscribe</a></p>
+          --> </div><!-- .five.columns.offset-by-quarter --> <div class="five columns offset-by-half"> <h3>Track every single interaction a person has with your business.</h3> <p>You won&#x2019;t just be looking at aggregate data. Go back and look at each person&#x2019;s interaction history no matter where it happens, web, mobile, social, desktop and even offline.</p> <p><a href="https://www.kissmetrics.com/?utm_source=blog-footer-cta" class="button quarter-bottom link-signup-blog-footer">Start your free 14-day trial</a><br><em style="font-size:0.9em;">No credit card required.</em></p> </div><!-- .five.columns.offset-by-half --> </div><!-- .container --> <div id="site-footer-nav"> <div class="container"> <div class="five columns"> <p>&#xA9; 2015 Kissmetrics, San Francisco</p> </div><!-- .five.columns --> <div class="eleven columns"> <ul> <li><a href="https://www.kissmetrics.com/?utm_source=blog-footer-link">Kissmetrics</a></li> <li><a href="http://support.kissmetrics.com/?utm_source=blog-footer-link">Support</a></li> <li><a href="http://www.kissmetrics.com/careers/?utm_source=blog-footer-link">Careers</a></li> <li><a href="http://www.kissmetrics.com/terms/?utm_source=blog-footer-link">Terms of Use</a></li> <li><a href="http://www.kissmetrics.com/privacy/?utm_source=blog-footer-link">Privacy Policy</a></li> </ul> </div><!-- .eleven.columns --> </div><!-- .container --> </div><!-- #site-footer-nav --> </footer><!-- #site-footer --> <!-- Include compressed site javascript --> <script src="https://blog.kissmetrics.com/wp-content/themes/kissblog/javascripts/compressed_20130108.js"></script> <script type="text/javascript"> setTimeout(function(){var a=document.createElement("script"); var b=document.getElementsByTagName('script')[0]; a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0010/7317.js"; a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1); </script> <script type="text/javascript" src="https://blog.kissmetrics.com/wp-content/plugins/akismet/_inc/form.js?ver=3.1.1"></script> <script type="text/javascript"> window.onload = function () { (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk')); window.fbAsyncInit = function() { FB.Event.subscribe('edge.create', function(response) { _kmq.push(['record', 'Shared Post', {'Share Type':'Facebook Like', 'Post Title':'Google’s Next Big Algorithm Change is Coming… Will Your Site Survive?', 'Post URL':'https://blog.kissmetrics.com/google-algorithm-change/'}]); }); //Buffer? //jQuery.getScript('https://d389zggrogs7qo.cloudfront.net/js/button.js'); }; // Google + jQuery.getScript('https://apis.google.com/js/plusone.js'); // LinkedIn jQuery.getScript('https://platform.linkedin.com/in.js'); // Twitter jQuery.getScript('https://platform.twitter.com/widgets.js').done(function () { if (twttr) { twttr.events.bind('tweet', function(event) { _kmq.push(['record', 'Shared Post', {'Share Type':'Twitter', 'Post Title':'Google’s Next Big Algorithm Change is Coming… Will Your Site Survive?', 'Post URL':'https://blog.kissmetrics.com/google-algorithm-change/'}]); }); } }); // If the page has a pinit button, load js if (jQuery('.pin-it-button').length > 0) { jQuery.getScript('https://assets.pinterest.com/js/pinit.js'); } // Manipulate Popup Domination jQuery('.popup-dom-lightbox-wrapper .lightbox-bottom input[type="text"]').addClass("popup-dom-fixer-class"); jQuery('.popup-dom-lightbox-wrapper .lightbox-bottom input[type="submit"]').addClass("popup-dom-fixer-class"); jQuery('.popup-dom-lightbox-wrapper .lightbox-bottom .form').css("padding-top",25); function plusone_vote( obj ) { _kmq.push(['record', 'Shared Post', {'Share Type':'Google Plus', 'Post Title':'Google’s Next Big Algorithm Change is Coming… Will Your Site Survive?', 'Post URL':'https://blog.kissmetrics.com/google-algorithm-change/'}]); } }; </script> <!-- JavaScript for blog header A/B test. --> <script type="text/javascript"> function initHeader() { // Hide the original header and show the new one. $('#site-header').hide(); $('#blog-header').show(); $('#main').css('padding-top', '0'); $('.header-welcome-mat').css('margin-top', '0'); // Set the active subnavigation item. switch (window.location.pathname) { case '/infographics/': $('.bh-infographics').addClass('active'); break; case '/marketing-guides/': $('.bh-guides').addClass('active'); break; case '/webinars/': $('.bh-webinars').addClass('active'); break; case '/topics/academy/': $('.bh-academy').addClass('active'); break; default: $('.bh-blog').addClass('active'); } // Enable open/close of the mobile menu. $('.bh-mobl-icon').click(function() { $(this).toggleClass('open'); $('.bh-nav-mobl').toggleClass('open'); }); } </script> </body> </html> 

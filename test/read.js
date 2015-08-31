@@ -52,7 +52,8 @@ var read = require('../src/index.js');
 // var url = 'http://petapixel.com/2015/08/28/heres-why-instagram-chose-to-break-the-frame/';
 // var url = 'http://www.foxnews.com/tech/2015/08/30/5-details-shouldnt-give-facebook/';
 // var url = 'http://www.demilked.com/detailed-food-art-spoon-ioana-vanc-romania/';
-var url = 'http://www.mymodernmet.com/profiles/blogs/scott-herder-travels-from-the-monk-that-lives-in-my-phone';
+// var url = 'http://www.mymodernmet.com/profiles/blogs/scott-herder-travels-from-the-monk-that-lives-in-my-phone';
+var url = 'http://www.vice.com/read/las-shrine-to-velvet-paintings';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
