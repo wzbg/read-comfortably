@@ -53,7 +53,8 @@ var read = require('../src/index.js');
 // var url = 'http://www.foxnews.com/tech/2015/08/30/5-details-shouldnt-give-facebook/';
 // var url = 'http://www.demilked.com/detailed-food-art-spoon-ioana-vanc-romania/';
 // var url = 'http://www.mymodernmet.com/profiles/blogs/scott-herder-travels-from-the-monk-that-lives-in-my-phone';
-var url = 'http://www.vice.com/read/las-shrine-to-velvet-paintings';
+// var url = 'http://www.vice.com/read/las-shrine-to-velvet-paintings';
+var url = 'http://www.technologyreview.com/news/539211/self-charging-phones-are-on-the-way-finally/';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
@@ -61,7 +62,6 @@ cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqb
 var nodesToRemove = [ // 需要删除的标签
   'meta', // 元数据
   'link', // 样式链接
-  'aside', // 旁白
   'style', // 样式
   'video', // 视频
   'input', // 输入框
