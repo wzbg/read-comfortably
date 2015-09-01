@@ -57,7 +57,9 @@ var read = require('../src/index.js');
 // var url = 'http://fortune.com/2015/08/20/airbnb-tesla-partner/';
 // var url = 'http://abduzeedo.com/ccaa-kids-character-design';
 // var url = 'http://www.entrepreneur.com/article/249866';
-var url = 'http://www.bbc.com/news/magazine-30450980';
+// var url = 'http://www.bbc.com/news/magazine-30450980';
+
+var url = 'http://qz.com/489337/guangdong-provinces-solution-to-dumb-money-teach-finance-to-eight-year-olds/';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
@@ -107,6 +109,7 @@ var maybeImgsAttr = [ // 可能是图片的属性
   'data-cfsrc',
   'data-src',
   'load-src',
+  'srcset',
   'href',
   'src'
 ];
