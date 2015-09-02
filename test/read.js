@@ -1,4 +1,5 @@
 var fs = require('fs');
+var S = require('string');
 var fetch = require('fetch');
 var read = require('../src/index.js');
 
@@ -64,7 +65,11 @@ var read = require('../src/index.js');
 // var url = 'http://online.wsj.com/articles/grandparent-power-bonds-with-seniors-help-stabilize-teens-1441035672';
 // var url = 'http://uproxx.com/music/2015/08/mtv-vmas-2015-video-music-awards-questions/';
 // var url = 'http://online.wsj.com/articles/to-stop-procrastinating-start-by-understanding-whats-really-going-on-1441043167';
-var url = 'http://venturebeat.com/2015/08/30/why-i-just-moved-from-silicon-valley-to-ohio/';
+// var url = 'http://venturebeat.com/2015/08/30/why-i-just-moved-from-silicon-valley-to-ohio/';
+// var url = 'http://uproxx.com/tv/2015/09/hulu-netflix-competition/';
+
+// var url = 'http://www.buzzfeed.com/emilycarlo/drunk-food#.cb6Mm3qwQ';
+var url = 'http://www.vogue.com/13330506/top-ten-90s-heartthrobs/';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
@@ -91,8 +96,10 @@ var nodesToRemove = [ // 需要删除的标签
   'div.bn-mo-tests', // 测试模块
   'div.itemRelated', // 相关文章
   'div.ks-see-also', // 也可以看看
+  'div.most-shared', // 大多数分享
   'div.comments-main', // 评论
   'div.control-panel', // 控制面板
+  'div.article-copy--footer', // 文章脚注
   'div.rail-collection-main', // rail 广告
   'div.gallery-overlay-outter', // 外部画廊
   'ins.adsbygoogle', // google 广告
