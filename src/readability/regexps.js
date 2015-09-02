@@ -8,7 +8,7 @@ module.exports = {
   // 消极
   negativeRe:              /combx|comment|com-|captcha|contact|foot|footer|footnote|masthead|link|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|utility|tags|tool|widget|tip|dialog/i,
   // 附加排除候选人
-  extraneousRe:            /login|register/i,
+  extraneousRe:            /login|register|related/i,
   // div -> p
   divToPElementsRe:        /<(a|blockquote|dl|div|img|ol|p|pre|table|ul)/i,
   // 替换换行标签 ?
