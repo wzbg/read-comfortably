@@ -275,7 +275,11 @@ var getArticleContent = function (topCandidate, $, options) {
     var append = siblingNode.is(topCandidate);
     /* siblingNode is img or have an img */
     if (!append) {
-      append = element.name == 'img' || siblingNode.find('img').length == 1;
+      append = element.name == 'img';
+      if (!append) {
+        siblingNode.find('noscript').remove();
+        append = siblingNode.find('img').length == 1;
+      }
     }
     /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
     if (!append) {
