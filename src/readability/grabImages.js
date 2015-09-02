@@ -27,8 +27,11 @@ var sizeOf = require('image-size'); // get dimensions of any image file.
  *  @return void
  */
 var grabImages = function (node, $, callback) {
-  var images = [];
   var imgs = $(node).find('img');
+  if (!imgs.length) {
+    return callback(new Error('Empty imgs'));
+  }
+  var images = [];
   imgs.each(function (index, element) {
     var img = $(element);
     var link = img.attr('src');

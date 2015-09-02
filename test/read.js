@@ -16,6 +16,7 @@ var read = require('../src/index.js');
 // var url = 'http://www.theverge.com/2015/8/25/9205915/amazon-prime-now-launches-seattle-redmond-bellevue-kirkland';
 // var url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
 // var url = 'http://www.mymodernmet.com/profiles/blogs/scott-herder-travels-from-the-monk-that-lives-in-my-phone';
+// var url = 'http://qz.com/489337/guangdong-provinces-solution-to-dumb-money-teach-finance-to-eight-year-olds/';
 // var url = 'http://www.dazeddigital.com/music/article/26070/1/south-korea-just-trolled-north-korea-with-k-pop';
 // var url = 'http://blogs.transparent.com/language-news/2015/08/26/staying-resourceful-in-language-learning/';
 // var url = 'http://cdn.flipboard.com/content/thephotodesk/thephotodeskgalleries/items/1440433775000.html';
@@ -55,11 +56,12 @@ var read = require('../src/index.js');
 // var url = 'http://www.vice.com/read/las-shrine-to-velvet-paintings';
 // var url = 'http://time.com/4007174/which-spouse-asks-for-divorce/';
 // var url = 'http://fortune.com/2015/08/20/airbnb-tesla-partner/';
+// var url = 'http://mashable.com/2015/08/31/back-to-school-1938/';
 // var url = 'http://abduzeedo.com/ccaa-kids-character-design';
 // var url = 'http://www.entrepreneur.com/article/249866';
 // var url = 'http://www.bbc.com/news/magazine-30450980';
 
-var url = 'http://qz.com/489337/guangdong-provinces-solution-to-dumb-money-teach-finance-to-eight-year-olds/';
+var url = 'http://online.wsj.com/articles/grandparent-power-bonds-with-seniors-help-stabilize-teens-1441035672';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
@@ -92,7 +94,7 @@ var nodesToRemove = [ // 需要删除的标签
   'div.gallery-overlay-outter', // 外部画廊
   'ins.adsbygoogle', // google 广告
   '.robots-nocontent', // 非内容模块
-  'header,#header,.header', // 头部信息
+  // 'header,#header,.header', // 头部信息
   'footer,#footer,.footer' // 尾部信息
 ];
 

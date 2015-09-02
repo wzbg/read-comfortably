@@ -36,7 +36,7 @@ Article.prototype.getDesc = function (length) {
   }
   var content = this.getContent(true);
   if (content) {
-    content = S(content).stripTags().decodeHTMLEntities().trimLeft().truncate(length).s
+    content = S(content).stripTags().decodeHTMLEntities().trimLeft().truncate(length).s;
   }
   return this.cache[cacheKey] = content;
 };
