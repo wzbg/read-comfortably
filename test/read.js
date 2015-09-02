@@ -102,6 +102,8 @@ var nodesToRemove = [ // 需要删除的标签
   'div.article-copy--footer', // 文章脚注
   'div.rail-collection-main', // rail 广告
   'div.gallery-overlay-outter', // 外部画廊
+  'div.slide-show--slide__template', // 幻灯片模板
+  'div.slide-show--slide__template--video', // 幻灯片模板-视频
   'ins.adsbygoogle', // google 广告
   '.robots-nocontent', // 非内容模块
   // 'header,#header,.header', // 头部信息
