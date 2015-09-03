@@ -26,7 +26,7 @@ Where
 
 Example
 ```javascript
-var read = require('node-comfortably');
+var read = require('read-comfortably');
 
 read('http://howtonode.org/really-simple-file-uploads', function(err, article, meta) {
   // Main Article
