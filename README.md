@@ -47,7 +47,7 @@ read('http://howtonode.org/really-simple-file-uploads', function(err, article, m
 
   // Article's Images
   article.getImages(function (err, images) {
-    console.log('images:', images);
+    console.log(images);
   });
 
   // HTML Source Code by replace css files
