@@ -158,7 +158,7 @@ options.nodesToAppend = array; (default ['p'])
 read(
   url,
   {
-    nodesToAppend: ['P']
+    nodesToAppend: ['pre']
   },
   function(err, article, meta) {
     //...
