@@ -259,10 +259,11 @@ So I decided to write my own version of Arc90's Readability using the fast Cheer
 
 The Usage of this module is similiar to JSDOM, so it's easy to switch.
 
-The lib is using Cheerio engine because it can converted url to utf-8 automatically
+The lib is using Cheerio engine because it can converted url to utf-8 automatically.
 
 ## Contributors
 
+https://gitlab.com/unrealce/read-comfortably
 https://github.com/wzbg/read-comfortably
 
 ## Related
