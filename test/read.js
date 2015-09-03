@@ -69,7 +69,9 @@ var read = require('../src/index.js');
 // var url = 'http://uproxx.com/tv/2015/09/hulu-netflix-competition/';
 
 // var url = 'http://www.buzzfeed.com/emilycarlo/drunk-food#.cb6Mm3qwQ';
-var url = 'http://www.vogue.com/13330506/top-ten-90s-heartthrobs/';
+// var url = 'http://www.vogue.com/13330506/top-ten-90s-heartthrobs/';
+// var url = 'http://www.mymodernmet.com/profiles/blogs/cashel-lupinacci-suffering-the-silence';
+var url = 'http://www.mymodernmet.com/profiles/blogs/foodnited-states-of-america-complete';
 
 var cookies = new fetch.CookieJar();
 cookies.setCookie('NYT-S=1MV8ckDq5LmKiWV.m38YQ6ThyL0.sUyRAqqn72AbNyG57EzFMbTqAqbco9BPSkcIjNv63KVQkVAFgGr92n6XmLkhqLI.iCWGexReGeft6bZfc74hwCYxQr//QHdxuOyqnH/f3cbcflvjYK1yNKxqVry000');
@@ -106,7 +108,7 @@ var nodesToRemove = [ // 需要删除的标签
   'div.slide-show--slide__template--video', // 幻灯片模板-视频
   'ins.adsbygoogle', // google 广告
   '.robots-nocontent', // 非内容模块
-  // 'header,#header,.header', // 头部信息
+  'header.entry-headline', // 头部信息
   'footer,#footer,.footer' // 尾部信息
 ];
 
