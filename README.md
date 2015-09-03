@@ -223,7 +223,7 @@ The article description of the web page.
 
 ### getImages(callback)
 
-The article content's images of the web page.
+The article content' images of the web page.
 
 ### getHtmls(files, callback)
 
