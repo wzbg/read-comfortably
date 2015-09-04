@@ -96,9 +96,8 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
         if (unlikeThisNode) {
           var classAndIDs = node.find('[class],[id]');
           var removeThisNode = true;
-          classAndIDs.add(node);
-          for (var i = 0; i < classAndIDs.length; i++) {
-            var classAndID = $(classAndIDs.get(i));
+          for (var i = -1; i < classAndIDs.length; i++) {
+            var classAndID = i > -1 ? $(classAndIDs.get(i)) : node;
             var okMaybeItsAMatchString = (classAndID.attr('class') || '') + '|' + (classAndID.attr('id') || '');
             var okMaybeItsACandidateReIndex = okMaybeItsAMatchString.search(regexps.okMaybeItsACandidateRe);
             logger.trace('%s[okMaybeItsACandidateReIndex=%d]', okMaybeItsAMatchString, okMaybeItsACandidateReIndex);
