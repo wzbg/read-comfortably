@@ -69,6 +69,10 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
   if (options.nodesToRemove) {
     $(options.nodesToRemove.join()).remove();
   }
+  if (!options.noChdToRemove) {
+    /* default noChdToRemove */
+    options.noChdToRemove = ['div'];
+  }
   $('*', 'body').each(function (index, element) {
     var node = $(element);
     /* If node is null, return, otherwise Illegal Access Error */
@@ -111,7 +115,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
       }
     }
     /* Remove Elements that have no children and have no content */
-    if (nodeType == 'div' && !node.children().length && !node.text().trim()) {
+    if (options.noChdToRemove.indexOf(nodeType) != -1 && !node.children().length && !node.text().trim()) {
       logger.debug('Removing Element - %s (%s|%s)', nodeType, node.attr('class'), node.attr('id'));
       return node.remove();
     }
@@ -242,6 +246,7 @@ var findHighestScore = function (candidates, $) {
  *  @return articleContent
  */
 var getArticleContent = function (topCandidate, $, options) {
+  logger.trace('Top candidate with score %d (%s|%s): %s', topCandidate.data('readabilityScore'), topCandidate.attr('class'), topCandidate.attr('id'), topCandidate);
   /* Perhaps the topCandidate haven't parent? */
   var parentNode = topCandidate.parent();
   if (!parentNode || !parentNode.length) {

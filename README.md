@@ -62,7 +62,7 @@ read('http://howtonode.org/really-simple-file-uploads', function(err, article, m
 read-comfortably will pass the options to [fetchUrl](https://github.com/andris9/fetch) directly.
 See fetchUrl lib to view all available options.
 
-read-comfortably has eight additional options:
+read-comfortably has nine additional options:
 
 - `preprocess` which should be a function to check or modify downloaded source before passing it to readability.
 
@@ -113,6 +113,24 @@ read(
       'iframe',
       'script',
       'noscript'
+    ]
+  },
+  function(err, article, meta) {
+    //...
+  }
+);
+```
+
+- `noChdToRemove` which allow set your own nodes to remove array when it no children for tags.
+
+options.noChdToRemove = array; (default ['div'])
+```javascript
+read(
+  url,
+  {
+    noChdToRemove: [
+      'div',
+      'li'
     ]
   },
   function(err, article, meta) {
