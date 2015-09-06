@@ -75,7 +75,7 @@ Article.prototype.getContent = function (notDeprecated) {
     return this.cache['article-content'];
   }
   var content = grabArticle(this.$, this.url, this.options).html();
-  return this.cache['article-content'] = content;
+  return this.cache['article-content'] = content ? content : this.getHTML(true);
 };
 
 Article.prototype.getTitle = function (notDeprecated) {
