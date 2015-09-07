@@ -29,6 +29,11 @@ var Article = function (dom, url, options) {
   });
 };
 
+Article.prototype.isEmpty = function (content) {
+  var text = S(content).stripTags().s;
+  return /^\s*(false)?\s*$/.test(text);
+}
+
 Article.prototype.getDesc = function (length) {
   var cacheKey = 'article-desc-' + length;
   if (this.cache[cacheKey]) {
@@ -75,7 +80,10 @@ Article.prototype.getContent = function (notDeprecated) {
     return this.cache['article-content'];
   }
   var content = grabArticle(this.$, this.url, this.options).html();
-  return this.cache['article-content'] = content ? content : this.getHTML(true);
+  if (this.isEmpty(content)) { // preserve unlikely candidates grab article again
+    content = grabArticle(cheerio.load(this._html), this.url, this.options, true).html();
+  }
+  return this.cache['article-content'] = this.isEmpty(content) ? this.getHTML(true) : content;
 };
 
 Article.prototype.getTitle = function (notDeprecated) {

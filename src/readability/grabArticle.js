@@ -40,9 +40,6 @@ var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
   var candidates     = assignScore($, options); // assign a score to them based on how content-y they look
   var topCandidate   = findHighestScore(candidates, $); // find the top candidate with the highest score
   var articleContent = getArticleContent(topCandidate, $, options); // Append the nodes to articleContent
-  if (!preserveUnlikelyCandidates && !helpers.getInnerText(articleContent, false)) {
-    articleContent = grabArticle($, url, options, true); // preserve unlikely candidates grab article again
-  }
   /**
    *  postprocess which should be a function to check or modify article content after passing it to readability.
    *  options.postprocess = callback(node, $);
