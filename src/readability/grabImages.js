@@ -18,6 +18,7 @@ logger.setLevel('FATAL');
  */
 var fetchUrl = require('fetch').fetchUrl;
 var sizeOf = require('image-size'); // get dimensions of any image file.
+var urlParse = require('url').parse; // Take a URL string, and return an object
 
 /**
  *  grab tht article content's images
@@ -70,6 +71,8 @@ var fetchImage = function (url, images, length, callback) {
           var width = image.imgWidth = dimensions.width;
           var height = image.imgHeight = dimensions.height;
           var size = calcSize(width, height, MIN_RATE, MAX_RATE); // 计算图片新尺寸
+          var pathname = urlParse(url).pathname;
+          image.name = pathname.substring(pathname.lastIndexOf('/') + 1);
           image.width = size.width;
           image.height = size.height;
           image.x = size.x;
