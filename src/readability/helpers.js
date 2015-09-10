@@ -1,3 +1,7 @@
+/**
+ *  string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
+ */
+var S = require('string');
 var isImageUrl = require('is-image-url'); // Check if a url is an image.
 var url = require('url'); // The core url packaged standalone for use with Browserify.
 
@@ -108,6 +112,9 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
         break;
       }
     }
+    if (!isImageUrl(url) && img.css('background-image')) {
+      url = S(img.css('background-image')).between('url(', ')').s;
+    }
     var isImg = element.name == 'img';
     if (isImg && !isImageUrl(url)) {
       img.remove();
@@ -121,7 +128,7 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
       img.attr('orig-height', img.attr('height'));
       img.attr('orig-width', img.attr('width'));
       img.attr('orig-src', img.attr('src'));
-      img.attr('src', img.attr(use));
+      img.attr('src', url);
       img.attr('use', use);
       img.removeAttr('width');
       img.removeAttr('height');
