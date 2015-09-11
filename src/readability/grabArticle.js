@@ -48,6 +48,11 @@ var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
   if (typeof postprocess == 'function') {
     postprocess(articleContent, $);
   }
+  if (!options.afterToRemove) {
+    /* default afterToRemove */
+    options.afterToRemove = ['script', 'noscript'];
+  }
+  articleContent.find(options.afterToRemove.join()).remove();
   return articleContent;
 };
 

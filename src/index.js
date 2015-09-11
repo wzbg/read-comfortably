@@ -16,6 +16,10 @@ module.exports = function (html, options, callback) {
     options = {};
   }
   if (isUrl(html)) {
+    var urlprocess = options.urlprocess;
+    if (typeof urlprocess == 'function') {
+      html = urlprocess(html);
+    }
     fetchUrl(html, options, function (err, res, buf) {
       if (err) {
         return callback(err);

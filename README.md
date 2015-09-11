@@ -62,7 +62,24 @@ read('http://howtonode.org/really-simple-file-uploads', function(err, article, m
 read-comfortably will pass the options to [fetchUrl](https://github.com/andris9/fetch) directly.
 See fetchUrl lib to view all available options.
 
-read-comfortably has nine additional options:
+read-comfortably has eleven additional options:
+
+- `urlprocess` which should be a function to check or modify url before passing it to readability.
+
+options.urlprocess = callback(url);
+```javascript
+read(
+  url,
+  {
+    urlprocess: function(url) {
+      //...
+    }
+  },
+  function(err, article, meta) {
+    //...
+  }
+);
+```
 
 - `preprocess` which should be a function to check or modify downloaded source before passing it to readability.
 
@@ -91,6 +108,25 @@ read(
     postprocess: function(node, $) {
       //...
     }
+  },
+  function(err, article, meta) {
+    //...
+  }
+);
+```
+
+- `afterToRemove` which allow set your own nodes to remove array for tags after grabArticle function.
+
+options.afterToRemove = array; (default ['script', 'noscript'])
+```javascript
+read(
+  url,
+  {
+    afterToRemove: [
+      'iframe',
+      'script',
+      'noscript'
+    ]
   },
   function(err, article, meta) {
     //...
