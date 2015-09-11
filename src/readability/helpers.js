@@ -3,7 +3,7 @@
  */
 var S = require('string');
 var isImageUrl = require('is-image-url'); // Check if a url is an image.
-var url = require('url'); // The core url packaged standalone for use with Browserify.
+var URL = require('url'); // The core url packaged standalone for use with Browserify.
 
 var regexps = require('./regexps');
 
@@ -152,7 +152,7 @@ var fixLinks = module.exports.fixLinks = function ($, base, options) {
     var use = element.name == 'a' ? 'href' : 'src';
     var link = imgA.attr(use);
     if (link) {
-      imgA.attr(use, url.resolve(base, link));
+      imgA.attr(use, URL.resolve(base, link));
     }
   });
 };
@@ -167,7 +167,7 @@ var getNewUrl = module.exports.getNewUrl = function (base, options) {
   if (!options.hostnameParse) {
     return;
   }
-  var uri = url.parse(base);
+  var uri = URL.parse(base);
   var hostname = options.hostnameParse[uri.hostname];
   if (!hostname) {
     return;
