@@ -113,7 +113,7 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
       }
     }
     if (!isImageUrl(url) && img.css('background-image')) {
-      url = S(img.css('background-image')).between('url(', ')').s;
+      url = S(img.css('background-image')).between('url(', ')').replaceAll(/['"]/, '').s;
     }
     var isImg = element.name == 'img';
     if (isImg && !isImageUrl(url)) {
