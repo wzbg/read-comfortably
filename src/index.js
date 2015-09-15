@@ -37,7 +37,7 @@ module.exports = function (html, options, callback) {
         return callback(null, article, res);
       }
       fetchUrl(newHtml, options, function (err, newRes, newBuf) {
-        if (err) {
+        if (err || newRes.status != 200) {
           return callback(null, article, res);
         }
         var newBody = newBuf.toString();
