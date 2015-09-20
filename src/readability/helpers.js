@@ -121,6 +121,8 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
       return;
     }
     if (isImageUrl(url)) {
+      img.find('noscript').remove();
+      url = url.replace(/\{\w+\}/g, '');
       if (!isImg && !img.find('img').length && !$('img[src="' + url + '"]').length) {
         img = $('<img src="' + url + '">');
         $(element).append(img);
