@@ -289,7 +289,8 @@ var getArticleContent = function (topCandidate, $, options) {
     }
     /* siblingNode may be its a candidate */
     if (!append) {
-      append = siblingNode.attr('class').search(regexps.okMaybeItsACandidateRe) != -1;
+      var okMaybeItsAMatchString = (siblingNode.attr('class') || '') + '|' + (siblingNode.attr('id') || '');
+      append = okMaybeItsAMatchString.attr('class').search(regexps.okMaybeItsACandidateRe) != -1;
     }
     /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
     if (!append) {
