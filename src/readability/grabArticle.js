@@ -287,6 +287,10 @@ var getArticleContent = function (topCandidate, $, options) {
         append = siblingNode.find('img').length == 1;
       }
     }
+    /* siblingNode may be its a candidate */
+    if (!append) {
+      append = siblingNode.attr('class').search(regexps.okMaybeItsACandidateRe) != -1;
+    }
     /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
     if (!append) {
       var siblingScore = siblingNode.data('readabilityScore');
