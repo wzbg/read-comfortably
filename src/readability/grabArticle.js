@@ -40,6 +40,11 @@ var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
   var candidates     = assignScore($, options); // assign a score to them based on how content-y they look
   var topCandidate   = findHighestScore(candidates, $); // find the top candidate with the highest score
   var articleContent = getArticleContent(topCandidate, $, options); // Append the nodes to articleContent
+  if (!options.afterToRemove) {
+    /* default afterToRemove */
+    options.afterToRemove = ['script', 'noscript'];
+  }
+  articleContent.find(options.afterToRemove.join()).remove();
   /**
    *  postprocess which should be a function to check or modify article content after passing it to readability.
    *  options.postprocess = callback(node, $);
@@ -48,11 +53,6 @@ var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
   if (typeof postprocess == 'function') {
     postprocess(articleContent, $);
   }
-  if (!options.afterToRemove) {
-    /* default afterToRemove */
-    options.afterToRemove = ['script', 'noscript'];
-  }
-  articleContent.find(options.afterToRemove.join()).remove();
   return articleContent;
 };
 
