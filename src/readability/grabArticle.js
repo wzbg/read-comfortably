@@ -144,7 +144,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
           if (element.type == 'text' && element.data && element.data.trim()) {
             /* use span instead of p. Need more tests. */
             logger.debug('replacing text node with a span tag with the same content.', element.data);
-            child.replaceWith('<span class="readability-txt2p">' + element.data + '</span>');
+            child.replaceWith('<span class="readability-txt2span">' + element.data + '</span>');
           }
         });
       }
@@ -233,7 +233,8 @@ var findHighestScore = function (candidates, $) {
    */
   if (!topCandidate) {
     /* With no top candidate, bail out if no body tag exists as last resort. */
-    return $('body');
+    topCandidate = $('body');
+    topCandidate.replaceWith('<div class="readability-body2div">' + topCandidate.html() + '</div>');
   }
   return topCandidate;
 };
