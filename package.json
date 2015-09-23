@@ -1,6 +1,6 @@
 {
   "name": "read-comfortably",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "turns any web page into a clean view for reading",
   "main": "src/index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "image-size": "^0.3.5",
     "is-image-url": "^1.0.6",
     "is-url": "^1.2.1",
-    "log4js": "^0.6.26",
+    "log4js": "^0.6.27",
     "string": "^3.3.1"
   }
 }

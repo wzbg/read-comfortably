@@ -62,7 +62,7 @@ read('http://howtonode.org/really-simple-file-uploads', function(err, article, m
 read-comfortably will pass the options to [fetchUrl](https://github.com/andris9/fetch) directly.
 See fetchUrl lib to view all available options.
 
-read-comfortably has eleven additional options:
+read-comfortably has twelve additional options:
 
 - `urlprocess` which should be a function to check or modify url before passing it to readability.
 
@@ -106,6 +106,23 @@ read(
   url,
   {
     postprocess: function(node, $) {
+      //...
+    }
+  },
+  function(err, article, meta) {
+    //...
+  }
+);
+```
+
+- `asyncprocess` which should be a function to async check or modify downloaded source before passing it to readability.
+
+options.asyncprocess = callback(url, options, callback);
+```javascript
+read(
+  url,
+  {
+    asyncprocess: function(url, options, callback) {
       //...
     }
   },
