@@ -260,7 +260,7 @@ var getArticleContent = function (topCandidate, $, options) {
     return getArticleContent(parentNode, $, options);
   }
   var siblingNodes = parentNode.children();
-  if (siblingNodes.length == 1) {
+  if (siblingNodes.length == 1 && parentNode.get(0).name != 'body') {
     return getArticleContent(parentNode, $, options);
   }
   if (!options.nodesToAppend) {
