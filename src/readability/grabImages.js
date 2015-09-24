@@ -50,14 +50,21 @@ var grabImages = function (node, $, callback) {
  *  @param callback(error, images)
  *  @return void
  */
-var fetchImage = function (url, images, length, callback) {
-  fetchUrl(url, function (err, res, buf) {
+var fetchImage = function (url, images, length, callback, encode) {
+  fetchUrl(encode ? encodeURI(url) : url, function (err, res, buf) {
+    var errMsg;
     if (err) {
-      logger.error('fetch url[%s] error:', url, err);
+      errMsg = 'fetch url[' + url + '] error:' + err;
     } else if (res.status != 200) {
-      logger.error('fetch url[%s] status:', url, res.status);
+      errMsg = 'fetch url[' + url + '] status:' + res.status;
     } else if (!buf) {
-      logger.error('fetch url[%s] Empty body', url);
+      errMsg = 'fetch url[' + url + '] Empty body';
+    }
+    if (errMsg) {
+      logger.error(errMsg);
+      if (!encode) {
+        return fetchImage(url, images, length, callback, true);
+      }
     }
     var image = { url: url, buf: buf };
     if (res && res.responseHeaders) {
