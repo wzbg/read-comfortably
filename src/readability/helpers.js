@@ -149,7 +149,7 @@ var fixLinks = module.exports.fixLinks = function ($, base, options) {
   if (!base) {
     return;
   }
-  $('img,a').each(function (index, element) {
+  $('iframe,img,a').each(function (index, element) {
     var imgA = $(element);
     var use = element.name == 'a' ? 'href' : 'src';
     var link = imgA.attr(use);
