@@ -18,10 +18,21 @@ var getArticle = function (html, url, options) {
   return new Article($, url, options);
 };
 
-var getUrlHtml = function (url, options, callback) {
+var getUrlHtml = function (url, options, callback, encode) {
   fetchUrl(url, options, function (err, res, buf) {
+    var errMsg;
     if (err) {
-      return callback(err);
+      errMsg = 'fetch url[' + url + '] error:' + err.message;
+    } else if (res.status != 200) {
+      errMsg = 'fetch url[' + url + '] status:' + res.status;
+    } else if (!buf) {
+      errMsg = 'fetch url[' + url + '] Empty body';
+    }
+    if (errMsg) {
+      if (encode) {
+        return callback(new Error(errMsg));
+      }
+      return getUrlHtml(encodeURI(url), options, callback, true);
     }
     if (isImageUrl(url)) {
       return callback(null, buf, res);
