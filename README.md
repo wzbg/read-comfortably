@@ -6,7 +6,7 @@ This module is based on arc90's readability project.
 
 ## Example
 
-[Before](https://raw.githubusercontent.com/luin/node-readability/master/examples/before.png) -> [After](https://raw.githubusercontent.com/luin/node-readability/master/examples/after.png)
+[Before](http://amandahelloseedtest-us.oss-us-west-1.aliyuncs.com/html/55f3a38fca2ef39c272da827) -> [After](http://amandahelloseedtest-us.oss-us-west-1.aliyuncs.com/main/55f3a38fca2ef39c272da827)
 
 ## Install
 
