@@ -106,21 +106,23 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
   $('a,img,span,div').each(function (index, element) {
     var url, use;
     var img = $(element);
+    var isImg = element.name == 'img';
     for (var i = 0; use = options.maybeImgsAttr[i]; i++) {
-      url = img.attr(use);
-      if (isImageUrl(url)) {
+      if (isImageUrl(img.attr(use), isImg)) {
+        url = img.attr(use);
         break;
       }
     }
-    if (!isImageUrl(url) && img.css('background-image')) {
+    var isImgUrl = url != undefined;
+    if (!url && img.css('background-image')) {
       url = S(img.css('background-image')).between('url(', ')').replaceAll(/['"]/, '').s;
+      isImgUrl = isImageUrl(url, isImg);
     }
-    var isImg = element.name == 'img';
-    if (isImg && !isImageUrl(url)) {
+    if (isImg && !isImgUrl) {
       img.remove();
       return;
     }
-    if (isImageUrl(url)) {
+    if (isImgUrl) {
       img.find('noscript').remove();
       url = url.replace(/\{\w+\}/g, '');
       if (!isImg && !img.find('img').length && !$('img[src="' + url + '"]').length) {
