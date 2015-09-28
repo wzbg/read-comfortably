@@ -30,7 +30,7 @@ var getUrlHtml = function (url, options, callback, encode) {
     }
     if (errMsg) {
       if (encode) {
-        return callback(new Error(errMsg));
+        return callback(new Error(errMsg), res);
       }
       return getUrlHtml(encodeURI(url), options, callback, true);
     }
