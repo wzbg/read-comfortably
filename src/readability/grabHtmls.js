@@ -34,7 +34,7 @@ var grabHtmls = function (html, sources, callback) {
   var count = 0;
   var $ = cheerio.load(html);
   sources.forEach(function (source) {
-    var nodes = $(source.selector + '[' + source.attr + ']');
+    var nodes = $(source.selector);
     count += nodes.length;
     source.nodes = nodes;
   });
@@ -45,6 +45,13 @@ var grabHtmls = function (html, sources, callback) {
   sources.forEach(function (source) {
     source.nodes.each(function (index, element) {
       var node = $(element);
+      if(source.val) {
+        node.attr(source.attr, source.val);
+        if (!--count) {
+          callback(null, $.html());
+        }
+        return;
+      }
       var url = node.attr(source.attr);
       if (url) {
         fetchUrl(url, function (err, res, buf) {
