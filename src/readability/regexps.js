@@ -2,7 +2,7 @@ module.exports = {
   // 排除候选人
   unlikelyCandidatesRe:    /combx|pager|comment|disqus|foot|header|menu|meta|nav|rss|shoutbox|sidebar|sponsor|share|bookmark|social|advert|leaderboard|instapaper_ignore|entry-unrelated/i,
   // 可能是候选人
-  okMaybeItsACandidateRe:  /and|article|body|column|main|shadow|post|lazy/i,
+  okMaybeItsACandidateRe:  /and|article|body|column|main|shadow|post|lazy|title/i,
   // 积极
   positiveRe:              /article|body|content|entry|hentry|main|page|pagination|post|text|blog|story/i,
   // 消极
