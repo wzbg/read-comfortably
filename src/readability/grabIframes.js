@@ -42,7 +42,7 @@ var grabIframes = function (node, $, options, callback) {
     if (link) { // iframe -> buffer
       fetchIframe(link, options, iframes, ifms.length, callback);
     } else {
-      return callback(new Error('Empty link'));
+      return callback(new Error('Empty link'), iframes);
     }
   });
 };

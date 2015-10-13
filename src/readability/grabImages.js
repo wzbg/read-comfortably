@@ -38,7 +38,7 @@ var grabImages = function (node, $, callback) {
     if (link) { // image -> buffer
       fetchImage(link, images, imgs.length, callback);
     } else {
-      return callback(new Error('Empty link'));
+      return callback(new Error('Empty link'), images);
     }
   });
 };
