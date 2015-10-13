@@ -67,22 +67,25 @@ var fetchIframe = function (url, iframes, length, callback, encode) {
         return fetchIframe(url, iframes, length, callback, true);
       }
     }
-    var $ = cheerio.load(buf);
-    $('[src],[href]').each(function (index, element) {
-      var node = $(element);
-      var link = node.attr('src');
-      var use = 'src';
-      if (!link) {
-        link = node.attr('href');
-        var use = 'href';
-      }
-      if (link) {
-        node.attr(use, URL.resolve(url, link));
-      }
-    });
-    var iframe = { url: url, buf: $.html() };
+    var iframe = { url: url, buf: buf };
     if (res && res.responseHeaders) {
       iframe.ifmType = res.responseHeaders['content-type'];
+    }
+    if (buf) {
+      var $ = cheerio.load(buf);
+      $('[src],[href]').each(function (index, element) {
+        var node = $(element);
+        var link = node.attr('src');
+        var use = 'src';
+        if (!link) {
+          link = node.attr('href');
+          var use = 'href';
+        }
+        if (link) {
+          node.attr(use, URL.resolve(url, link));
+        }
+      });
+      iframe.buf = $.html();
     }
     iframes.push(iframe);
     if (iframes.length == length) {
