@@ -6,6 +6,7 @@ var url = require('url'); // The core url packaged standalone for use with Brows
 var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
 
 var grabArticle = require('../readability/grabArticle');
+var grabIframes = require('../readability/grabIframes');
 var grabImages = require('../readability/grabImages');
 var grabHtmls = require('../readability/grabHtmls');
 
@@ -44,6 +45,23 @@ Article.prototype.getDesc = function (length) {
     content = S(content).stripTags().decodeHTMLEntities().trimLeft().truncate(length).s;
   }
   return this.cache[cacheKey] = content;
+};
+
+Article.prototype.getIframes = function (callback) {
+  if (this.cache['article-iframes']) {
+    return callback(null, this.cache['article-iframes']);
+  }
+  var content = this.getContent(true);
+  if (!content) {
+    return callback(new Error('Empty content'));
+  }
+  var self = this;
+  grabIframes(content, this.$, function (error, iframes) {
+    if (error) {
+      return callback(error);
+    }
+    return callback(null, self.cache['article-iframes'] = iframes);
+  });
 };
 
 Article.prototype.getImages = function (callback) {
