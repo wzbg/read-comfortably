@@ -56,7 +56,7 @@ Article.prototype.getIframes = function (callback) {
     return callback(new Error('Empty content'));
   }
   var self = this;
-  grabIframes(content, this.$, function (error, iframes) {
+  grabIframes(content, this.$, this.options, function (error, iframes) {
     if (error) {
       return callback(error);
     }

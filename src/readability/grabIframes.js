@@ -18,16 +18,19 @@ logger.setLevel('FATAL');
  */
 var fetchUrl = require('fetch').fetchUrl;
 var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
-var URL = require('url'); // The core url packaged standalone for use with Browserify.
+
+var grabImages = require('./grabImages');
+var helpers = require('./helpers');
 
 /**
  *  grab tht article content's iframes
  *  @param Element
  *  @param $
+ *  @param object
  *  @param callback(error, iframes)
  *  @return void
  */
-var grabIframes = function (node, $, callback) {
+var grabIframes = function (node, $, options, callback) {
   var ifms = $(node).find('iframe[src]');
   var iframes = [];
   if (!ifms.length) {
@@ -37,7 +40,7 @@ var grabIframes = function (node, $, callback) {
     var ifm = $(element);
     var link = ifm.attr('src');
     if (link) { // iframe -> buffer
-      fetchIframe(link, iframes, ifms.length, callback);
+      fetchIframe(link, options, iframes, ifms.length, callback);
     } else {
       return callback(new Error('Empty link'));
     }
@@ -47,11 +50,12 @@ var grabIframes = function (node, $, callback) {
 /**
  *  fetch tht article content's iframe
  *  @param string
+ *  @param object
  *  @param []
  *  @param callback(error, iframes)
  *  @return void
  */
-var fetchIframe = function (url, iframes, length, callback, encode) {
+var fetchIframe = function (url, options, iframes, length, callback, encode) {
   fetchUrl(encode ? encodeURI(url) : url, function (err, res, buf) {
     var errMsg;
     if (err) {
@@ -66,32 +70,26 @@ var fetchIframe = function (url, iframes, length, callback, encode) {
       if (!encode) {
         return fetchIframe(url, iframes, length, callback, true);
       }
+      return callback(new Error(errMsg), iframes);
     }
-    var iframe = { url: url, buf: buf };
+    var $ = cheerio.load(buf);
+    helpers.setImageSrc($, options);
+    helpers.fixLinks($, url, options);
+    var iframe = { url: url, buf: $.html() };
     if (res && res.responseHeaders) {
       iframe.ifmType = res.responseHeaders['content-type'];
     }
-    if (buf) {
-      var $ = cheerio.load(buf);
-      $('[src],[href]').each(function (index, element) {
-        var node = $(element);
-        var link = node.attr('src');
-        var use = 'src';
-        if (!link) {
-          link = node.attr('href');
-          var use = 'href';
-        }
-        if (link) {
-          node.attr(use, URL.resolve(url, link));
-        }
-      });
-      iframe.buf = $.html();
-    }
-    iframes.push(iframe);
-    if (iframes.length == length) {
-      logger.info('iframes:', iframes);
-      callback(null, iframes);
-    }
+    grabImages(iframe.buf, $, function (err, images) {
+      if (err) {
+        logger.error('grabImages error:', err);
+      }
+      iframe.imgs = images;
+      iframes.push(iframe);
+      if (iframes.length == length) {
+        logger.info('iframes:', iframes);
+        callback(null, iframes);
+      }
+    });
   });
 };
 

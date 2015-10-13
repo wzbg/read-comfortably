@@ -65,21 +65,20 @@ var fetchImage = function (url, images, length, callback, encode) {
       if (!encode) {
         return fetchImage(url, images, length, callback, true);
       }
+      return callback(new Error(errMsg), images);
     }
     var image = { url: url, buf: buf };
     if (res && res.responseHeaders) {
       image.imgType = res.responseHeaders['content-type'];
     }
-    if (buf) {
-      try {
-        var dimensions = sizeOf(buf);
-        if (dimensions) {
-          image.width = dimensions.width;
-          image.height = dimensions.height;
-        }
-      } catch (e) {
-        logger.error('size of[%s] error:', url, e);
+    try {
+      var dimensions = sizeOf(buf);
+      if (dimensions) {
+        image.width = dimensions.width;
+        image.height = dimensions.height;
       }
+    } catch (e) {
+      logger.error('size of[%s] error:', url, e);
     }
     images.push(image);
     if (images.length == length) {
