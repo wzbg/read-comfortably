@@ -17,6 +17,8 @@ logger.setLevel('FATAL');
  *  Supports gzipped content for quicker download, redirects (with automatic cookie handling, so no eternal redirect loops), streaming and piping etc.
  */
 var fetchUrl = require('fetch').fetchUrl;
+var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
+var URL = require('url'); // The core url packaged standalone for use with Browserify.
 
 /**
  *  grab tht article content's iframes
@@ -65,7 +67,20 @@ var fetchIframe = function (url, iframes, length, callback, encode) {
         return fetchIframe(url, iframes, length, callback, true);
       }
     }
-    var iframe = { url: url, buf: buf };
+    var $ = cheerio.load(buf);
+    $('[src],[href]').each(function (index, element) {
+      var node = $(element);
+      var link = node.attr('src');
+      var use = 'src';
+      if (!link) {
+        link = node.attr('href');
+        var use = 'href';
+      }
+      if (link) {
+        node.attr(use, URL.resolve(url, link));
+      }
+    });
+    var iframe = { url: url, buf: $.html() };
     if (res && res.responseHeaders) {
       iframe.ifmType = res.responseHeaders['content-type'];
     }

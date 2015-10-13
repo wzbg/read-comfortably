@@ -2,7 +2,7 @@
  *  string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
  */
 var S = require('string');
-var url = require('url'); // The core url packaged standalone for use with Browserify.
+var URL = require('url'); // The core url packaged standalone for use with Browserify.
 var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
 
 var grabArticle = require('../readability/grabArticle');
@@ -152,7 +152,7 @@ Article.prototype.getHTML = function (notDeprecated) {
       var use = 'href';
     }
     if (link) {
-      node.attr(use, url.resolve(self.url, link));
+      node.attr(use, URL.resolve(self.url, link));
     }
   });
   return this.cache['article-html'] = $.html();
