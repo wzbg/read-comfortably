@@ -13,7 +13,7 @@ var helpers = require('./readability/helpers');
 var getArticle = function (html, url, options) {
   var $ = cheerio.load(html, { normalizeWhitespace: true });
   if ($('body').length < 1) {
-    $ = cheerio.load('<body>' + html + '</body>');
+    $ = cheerio.load('<body>' + html + '</body>', { normalizeWhitespace: true });
   }
   return new Article($, url, options);
 };

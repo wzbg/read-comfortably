@@ -68,11 +68,11 @@ var fetchIframe = function (url, options, iframes, length, callback, encode) {
     if (errMsg) {
       logger.error(errMsg);
       if (!encode) {
-        return fetchIframe(url, iframes, length, callback, true);
+        return fetchIframe(url, options, iframes, length, callback, true);
       }
       return callback(new Error(errMsg), iframes);
     }
-    var $ = cheerio.load(buf);
+    var $ = cheerio.load(buf, { normalizeWhitespace: true });
     helpers.setImageSrc($, options);
     helpers.fixLinks($, url, options);
     var iframe = { url: url, buf: $.html() };

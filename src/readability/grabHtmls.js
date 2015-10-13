@@ -32,7 +32,7 @@ var S = require('string');
  */
 var grabHtmls = function (html, sources, callback) {
   var count = 0;
-  var $ = cheerio.load(html);
+  var $ = cheerio.load(html, { normalizeWhitespace: true });
   sources.forEach(function (source) {
     var nodes = $(source.selector);
     count += nodes.length;
