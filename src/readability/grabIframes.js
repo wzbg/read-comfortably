@@ -18,6 +18,7 @@ logger.setLevel('FATAL');
  */
 var fetchUrl = require('fetch').fetchUrl;
 var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
+var isImageUrl = require('is-image-url'); // Check if a url is an image.
 
 var grabImages = require('./grabImages');
 var helpers = require('./helpers');
@@ -72,13 +73,23 @@ var fetchIframe = function (url, options, iframes, length, callback, encode) {
       }
       return callback(new Error(errMsg), iframes);
     }
-    var $ = cheerio.load(buf, { normalizeWhitespace: true });
-    helpers.setImageSrc($, options);
-    helpers.fixLinks($, url, options);
-    var iframe = { url: url, buf: $.html() };
+    logger.debug('fetch url[' + url + '] buf', buf);
+    var iframe = { url: url, buf: buf };
     if (res && res.responseHeaders) {
       iframe.ifmType = res.responseHeaders['content-type'];
     }
+    if (isImageUrl(url)) {
+      iframes.push(iframe);
+      if (iframes.length == length) {
+        logger.info('iframes:', iframes);
+        callback(null, iframes);
+      }
+      return;
+    }
+    var $ = cheerio.load(buf, { normalizeWhitespace: true });
+    helpers.setImageSrc($, options);
+    helpers.fixLinks($, url, options);
+    iframe.buf = $.html();
     grabImages(iframe.buf, $, function (err, images) {
       if (err) {
         logger.error('grabImages error:', err);
