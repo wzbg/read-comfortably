@@ -353,6 +353,7 @@ https://github.com/wzbg/read-comfortably
 - [`fetch`](https://www.npmjs.com/package/fetch) - Fetch url contents. Supports gzipped content for quicker download, redirects (with automatic cookie handling, so no eternal redirect loops), streaming and piping etc.
 - [`image-size`](https://www.npmjs.com/package/image-size) - get dimensions of any image file.
 - [`is-image-url`](https://www.npmjs.com/package/is-image-url) - Check if a url is an image.
+- [`is-pdf`](https://www.npmjs.com/package/is-pdf) - Check if a Buffer/Uint8Array is a 7ZIP file.
 - [`is-url`](https://www.npmjs.com/package/is-url) - Check whether a string is a URL.
 - [`log4js`](https://www.npmjs.com/package/log4js) - Port of Log4js to work with node.
 - [`string`](https://www.npmjs.com/package/string) - string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.

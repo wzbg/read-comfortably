@@ -18,6 +18,7 @@ logger.setLevel('FATAL');
  */
 var fetchUrl = require('fetch').fetchUrl;
 var cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
+var isPdf = require('is-pdf'); // Check if a Buffer/Uint8Array is a 7ZIP file.
 var isImageUrl = require('is-image-url'); // Check if a url is an image.
 
 var grabImages = require('./grabImages');
@@ -78,7 +79,7 @@ var fetchIframe = function (url, options, iframes, length, callback, encode) {
     if (res && res.responseHeaders) {
       iframe.ifmType = res.responseHeaders['content-type'];
     }
-    if (isImageUrl(url)) {
+    if (isImageUrl(url) || isPdf(buf)) {
       iframes.push(iframe);
       if (iframes.length == length) {
         logger.info('iframes:', iframes);
