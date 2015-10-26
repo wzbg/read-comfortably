@@ -215,7 +215,7 @@ var findHighestScore = function (candidates, $) {
       }
     });
     var imgs = candidate.find('img').length;
-    imgs = Math.min(2, Math.max(imgs, 1));
+    imgs = Math.min(2.6, Math.max(imgs, 1));
     /**
      *  Scale the final candidates score based on link density.
      *  Good content should have a relatively small link density (5% or less) and be mostly unaffected by this operation.
