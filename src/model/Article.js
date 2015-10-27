@@ -31,8 +31,10 @@ var Article = function (dom, url, options) {
 };
 
 Article.prototype.isEmpty = function (content) {
-  var text = S(content).stripTags().s;
-  return /^\s*(false)?\s*$/.test(text);
+  if (/<iframe.*<\/iframe>/.test(content)) {
+    return false;
+  }
+  return /^\s*(false)?\s*$/.test(S(content).stripTags().s);
 }
 
 Article.prototype.getDesc = function (length) {
@@ -97,13 +99,15 @@ Article.prototype.getContent = function (notDeprecated) {
   if (this.cache['article-content']) {
     return this.cache['article-content'];
   }
+  var content;
   var iframe = this.options.iframe;
   if (iframe) {
-    return this.cache['article-content'] = cheerio.load('<iframe src="' + iframe.url + '"></iframe>').html();
-  }
-  var content = grabArticle(this.$, this.url, this.options).html();
-  if (this.isEmpty(content)) { // preserve unlikely candidates grab article again
-    content = grabArticle(cheerio.load(this._html), this.url, this.options, true).html();
+    content = cheerio.load('<iframe src="' + iframe.url + '"></iframe>').html();
+  } else {
+    content = grabArticle(this.$, this.url, this.options).html();
+    if (this.isEmpty(content)) { // preserve unlikely candidates grab article again
+      content = grabArticle(cheerio.load(this._html), this.url, this.options, true).html();
+    }
   }
   return this.cache['article-content'] = this.isEmpty(content) ? this.getHTML(true) : content;
 };
