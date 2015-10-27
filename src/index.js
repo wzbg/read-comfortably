@@ -76,7 +76,7 @@ module.exports = function (html, options, callback) {
   }
   var urlprocess = options.urlprocess;
   if (typeof urlprocess == 'function') {
-    html = urlprocess(html);
+    html = urlprocess(html, options);
   }
   if (!options.asyncprocess) {
     return getUrlHtml(html, options, callback);

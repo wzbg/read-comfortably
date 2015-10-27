@@ -71,12 +71,12 @@ read-comfortably has twelve additional options:
 
 - `urlprocess` which should be a function to check or modify url before passing it to readability.
 
-options.urlprocess = callback(url);
+options.urlprocess = callback(url, options);
 ```javascript
 read(
   url,
   {
-    urlprocess: function(url) {
+    urlprocess: function(url, options) {
       //...
     }
   },
