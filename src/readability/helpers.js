@@ -103,6 +103,12 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
     /* default maybeImgsAttr */
     options.maybeImgsAttr = ['src', 'href'];
   }
+  $('noscript').each(function (index, element) {
+    var node = $(element);
+    if (node.find('img').length) {
+      node.replaceWith(node.html());
+    }
+  });
   $('a,img,span,div').each(function (index, element) {
     var url, use;
     var img = $(element);
@@ -123,7 +129,6 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
       return;
     }
     if (isImgUrl) {
-      img.find('noscript').remove();
       url = url.replace(/\{\w+\}/g, '');
       if (!isImg && !img.find('img').length && !$('img[src="' + url + '"]').length) {
         img = $('<img src="' + url + '">');
