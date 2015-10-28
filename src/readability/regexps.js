@@ -22,7 +22,7 @@ module.exports = {
   // 删除多余空白
   killBreaksRe:            /(<br\s*\/?>(\s|&nbsp;?)*){1,}/g,
   // 视频
-  videoRe:                 /https?:\/\/(www\.)?(youtube|vimeo|youku|tudou|56|yinyuetai|iqiyi|letv|hulu)\.com/i,
+  videoRe:                 /https?:\/\/(w+\.)?(youtube|vimeo|youku|tudou|56|yinyuetai|iqiyi|letv|hulu|soundcloud)\.com/i,
   // 跳过脚注链接 ?
   skipFootnoteLinkRe:      /^\s*(\[?[a-z0-9]{1,2}\]?|^|edit|citation needed)\s*$/i,
   // 下一链接 ?
