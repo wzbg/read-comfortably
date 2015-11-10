@@ -34,7 +34,10 @@ Article.prototype.isEmpty = function (content) {
   if (/<iframe.*<\/iframe>/.test(content)) {
     return false;
   }
-  return /^\s*(false)?\s*$/.test(S(content).stripTags().s);
+  if (!content) return true;
+  var $ = cheerio.load(content);
+  $('head,script').remove();
+  return /^\s*(false)?\s*$/.test(S($.html()).stripTags().s);
 }
 
 Article.prototype.getDesc = function (length) {
