@@ -1,3 +1,11 @@
+/* 
+* @Author: zyc
+* @Date:   2015-11-24 16:50:36
+* @Last Modified by:   zyc
+* @Last Modified time: 2015-11-29 19:42:29
+*/
+'use strict';
+
 module.exports = {
   // 排除候选人
   unlikelyCandidatesRe:    /combx|pager|comment|disqus|foot|header|menu|meta|nav|rss|shoutbox|sidebar|sponsor|share|bookmark|social|advert|leaderboard|instapaper_ignore|entry-unrelated/i,

@@ -14,52 +14,64 @@ This module is based on arc90's readability project.
 $ npm install --save read-comfortably
 ```
 
+Note that as of our 2.0.0 release, this module only works with Node.js >= 4.0. In the meantime you are still welcome to install a release in the 1.x series(by `npm install node-comfortably@1`) if you use an older Node.js version.
+
 ## Usage
 
-`read(html [, options], callback)`
+`Promise read(html [, options])`
 
 Where
 
   * **html** url or html code.
   * **options** is an optional options object
-  * **callback** is the callback to run - `callback(error, article, meta)`
+  * **Promise** is the return to run - `read(..).then(..)`
 
 Example
 ```javascript
 var read = require('read-comfortably');
-
-read('http://howtonode.org/really-simple-file-uploads', function(err, article, meta) {
-  // Main Article
-  console.log(article.content);
-  // Title
-  console.log(article.title);
-
-  // HTML Source Code
-  console.log(article.html);
-  // DOM
-  console.log(article.document);
-
-  // Description Article
-  console.log(article.getDesc(300));
-
-  // Response Object from fetchUrl Lib
-  console.log(meta);
-
-  // Article's Iframes
-  article.getIframes(function (err, iframes) {
-    console.log(iframes);
-  });
-
-  // Article's Images
-  article.getImages(function (err, images) {
-    console.log(images);
-  });
-
-  // HTML Source Code by replace css files
-  article.getHtmls([ { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' } ], function (err, html) {
-    console.log(html);
-  });
-});
+var fs = require('fs');
+var start = new Date();
+read('http://abduzeedo.com/einsteins-theory-general-relativity-turns-100-video').then(
+  result => {
+    const { res, article } = result;
+    console.log('res:', res); // Response Object from fetchUrl Lib
+    console.log('dom:', article.dom); // DOM
+    console.log('title:', article.title); // Title
+    console.log('desc:', article.getDesc(300)); // Description Article
+    article.images.then(images => console.log('images:', images)); // Article's Images
+    fs.writeFile('test/article.html', article.html, err => { // HTML Source Code
+      if (err) return console.error('error:', err);
+      console.log('article(%d) is saved!', article.html.length, new Date() - start);
+    });
+    fs.writeFile('test/content.html', article.content, err => { // Main Article
+      if (err) return console.error('error:', err);
+      console.log('content(%d) is saved!', article.content.length, new Date() - start);
+    });
+    var sources = [
+      { selector: 'script[src]', attr: 'async', val: 'async' },
+      { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' }
+    ];
+    article.getHtmls(sources).then(
+      htmls => { // HTML Source Code by replace css files
+        fs.writeFile('test/sources.html', htmls, err => {
+          if (err) return console.error('error:', err);
+          console.log('sources(%d) is saved!', article.html.length, new Date() - start);
+        })
+      }
+    );
+    article.iframes.then(
+      iframes => { // Article's Iframes
+        iframes.forEach((iframe, index) => {
+          fs.writeFile('test/iframe/' + index + '.html', iframe.buf, err => {
+            if (err) return console.error('error:', err);
+            console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
+          });
+        });
+      }
+    );
+  },
+  err => console.error(err)
+);
 ```
 
 ## Options
@@ -76,12 +88,9 @@ options.urlprocess = callback(url, options);
 read(
   url,
   {
-    urlprocess: function(url, options) {
+    urlprocess: (url, options) => {
       //...
     }
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -93,12 +102,9 @@ options.preprocess = callback($, options);
 read(
   url,
   {
-    preprocess: function($, options) {
+    preprocess: ($, options) => {
       //...
     }
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -110,29 +116,26 @@ options.postprocess = callback(node, $);
 read(
   url,
   {
-    postprocess: function(node, $) {
+    postprocess: (node, $) => {
       //...
     }
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
 
 - `asyncprocess` which should be a function to async check or modify downloaded source before passing it to readability.
 
-options.asyncprocess = callback(url, options, callback);
+options.asyncprocess = callback(url, options);
 ```javascript
 read(
   url,
   {
-    asyncprocess: function(url, options, callback) {
-      //...
+    asyncprocess: (url, options) => {
+      return new Promise((resolve, reject) => {
+        //...
+        resolve(..);
+      });
     }
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -149,9 +152,6 @@ read(
       'script',
       'noscript'
     ]
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -172,9 +172,6 @@ read(
       'script',
       'noscript'
     ]
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -190,9 +187,6 @@ read(
       'div',
       'li'
     ]
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -205,9 +199,6 @@ read(
   url,
   {
     considerDIVs: true
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -220,9 +211,6 @@ read(
   url,
   {
     nodesToScore: ['p', 'pre']
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -235,9 +223,6 @@ read(
   url,
   {
     nodesToAppend: ['pre']
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -250,9 +235,6 @@ read(
   url,
   {
     maybeImgsAttr: ['src', 'data-src']
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -265,9 +247,6 @@ read(
   url,
   {
     hostnameParse = { 'www.google.com': 'www.google.com.hk' }
-  },
-  function(err, article, meta) {
-    //...
   }
 );
 ```
@@ -297,19 +276,19 @@ The document of the web page generated by jsdom. You can use it to access the DO
 
 The article description of the web page.
 
-### getIframes(callback)
+### iframes
 
 The article content's iframes of the web page.
 
-### getImages(callback)
+### images
 
 The article content's images of the web page.
 
-### getHtmls(files, callback)
+### getHtmls(files)
 
 The original html of the web page by replace specified file.
 
-## meta object
+## res object
 
 ### status
 
@@ -348,9 +327,10 @@ https://gitlab.com/unrealce/read-comfortably
 https://github.com/wzbg/read-comfortably
 
 ## Related
-
+- [`babel-core`](https://www.npmjs.com/package/babel-core) - Babel compiler core.
+- [`babel-preset-stage-3`](https://www.npmjs.com/package/babel-preset-stage-3) - Babel preset for stage 3 plugins.
 - [`cheerio`](https://www.npmjs.com/package/cheerio) - Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
-- [`fetch`](https://www.npmjs.com/package/fetch) - Fetch url contents. Supports gzipped content for quicker download, redirects (with automatic cookie handling, so no eternal redirect loops), streaming and piping etc.
+- [`fetch-promise`](https://www.npmjs.com/package/fetch-promise) - Fetch URL contents By Promise.
 - [`image-size`](https://www.npmjs.com/package/image-size) - get dimensions of any image file.
 - [`is-image-url`](https://www.npmjs.com/package/is-image-url) - Check if a url is an image.
 - [`is-pdf`](https://www.npmjs.com/package/is-pdf) - Check if a Buffer/Uint8Array is a 7ZIP file.
@@ -363,4 +343,4 @@ https://github.com/wzbg/read-comfortably
 
 The MIT License (MIT)
 
-Copyright (c) 2015
+Copyright (c) 2015 - 2016

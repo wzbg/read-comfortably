@@ -1,11 +1,19 @@
+/* 
+* @Author: zyc
+* @Date:   2015-11-29 18:38:43
+* @Last Modified by:   zyc
+* @Last Modified time: 2015-11-30 19:49:19
+*/
+'use strict';
+
 /**
  *  string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
  */
-var S = require('string');
-var isImageUrl = require('is-image-url'); // Check if a url is an image.
-var URL = require('url'); // The core url packaged standalone for use with Browserify.
+const S = require('string');
+const isImageUrl = require('is-image-url'); // Check if a url is an image.
+const URL = require('url'); // The core url packaged standalone for use with Browserify.
 
-var regexps = require('./regexps');
+const regexps = require('./regexps');
 
 /**
  *  Get the inner text of a node - cross browser compatibly.
@@ -13,9 +21,9 @@ var regexps = require('./regexps');
  *  @param Element
  *  @return string
  */
-var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces) {
-  var textContent = node.text() ? node.text().trim() : '';
-  if (normalizeSpaces || typeof normalizeSpaces == 'undefined') {
+const getInnerText = module.exports.getInnerText = (node, normalizeSpaces) => {
+  const textContent = node.text() ? node.text().trim() : '';
+  if (normalizeSpaces || normalizeSpaces == undefined) {
     return textContent.replace(regexps.normalizeRe, ' ');
   }
   return textContent;
@@ -24,7 +32,7 @@ var getInnerText = module.exports.getInnerText = function (node, normalizeSpaces
 /**
  *  Node Types and their classification
  */
-var nodeTypes = [
+const nodeTypes = [
   { tagNames: ['div'], score: 5 },
   { tagNames: ['pre', 'td', 'blockqute'], score: 3 },
   { tagNames: ['address', 'ol', 'ul', 'dl', 'dd', 'dt', 'lt', 'form'], score: -3 },
@@ -36,12 +44,10 @@ var nodeTypes = [
  *  @param Element
  *  @return void
  */
-var initializeNode = module.exports.initializeNode = function (node) {
-  if (!node || !node.length) {
-    return 0;
-  }
+const initializeNode = module.exports.initializeNode = node => {
+  if (!node || !node.length) return 0;
   node.data('readabilityScore', 0);
-  for (var i = 0; nodeType = nodeTypes[i]; i++) {
+  for (let nodeType of nodeTypes) {
     if (nodeType.tagNames.indexOf(node.get(0).name) != -1) {
       node.data('readabilityScore', nodeType.score + getClassWeight(node));
       break;
@@ -54,19 +60,13 @@ var initializeNode = module.exports.initializeNode = function (node) {
  *  @param Element
  *  @return number (Integer)
  */
-var getClassWeight = module.exports.getClassWeight = function (node) {
-  if (!node || !node.length) {
-    return 0;
-  }
-  var classAndID = (node.attr('class') || '') + (node.attr('id') || '');
-  var weight = node.get(0).name == 'article' ? 25 : 0;
+const getClassWeight = module.exports.getClassWeight = node => {
+  if (!node || !node.length) return 0;
+  const classAndID = (node.attr('class') || '') + '|' + (node.attr('id') || '');
+  let weight = node.get(0).name == 'article' ? 25 : 0;
   /* Look for a special classname and ID */
-  if (classAndID.search(regexps.positiveRe) != -1) {
-    weight += 25;
-  }
-  if (classAndID.search(regexps.negativeRe) != -1) {
-    weight -= 25;
-  }
+  if (classAndID.search(regexps.positiveRe) != -1) weight += 25;
+  if (classAndID.search(regexps.negativeRe) != -1) weight -= 25;
   return weight;
 };
 
@@ -77,17 +77,16 @@ var getClassWeight = module.exports.getClassWeight = function (node) {
  *  @param $
  *  @return number (float)
  */
-var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
-  var links      = node.find('a');
-  var textLength = getInnerText(node).length;
-  var linkLength = 0;
-  links.each(function (index, element) {
-    var link = $(element);
-    var href = link.attr('href');
-    if (!href || (href.length && href[0] == '#')) {
-      return;
+const getLinkDensity = module.exports.getLinkDensity = (node, $) => {
+  const links      = node.find('a');
+  const textLength = getInnerText(node).length;
+  let linkLength   = 0;
+  links.each((index, element) => {
+    const link = $(element);
+    const href = link.attr('href');
+    if (href && href.length && href[0] != '#') {
+      linkLength += getInnerText(link).length;
     }
-    linkLength += getInnerText(link).length;
   });
   return linkLength / textLength || 0;
 };
@@ -98,35 +97,30 @@ var getLinkDensity = module.exports.getLinkDensity = function (node, $) {
  *  @param object
  *  @return void
  */
-var setImageSrc = module.exports.setImageSrc = function ($, options) {
+const setImageSrc = module.exports.setImageSrc = ($, options) => {
   if (!options.maybeImgsAttr) { // May be it's an image attr
     /* default maybeImgsAttr */
     options.maybeImgsAttr = ['src', 'href'];
   }
-  $('noscript').each(function (index, element) {
-    var node = $(element);
+  $('noscript').each((index, element) => {
+    const node = $(element);
     if (node.find('img').length) {
       node.replaceWith(node.html());
     }
   });
-  $('a,img,span,div').each(function (index, element) {
-    var url, use;
-    var img = $(element);
-    var isImg = element.name == 'img';
-    for (var i = 0; use = options.maybeImgsAttr[i]; i++) {
+  $('a,img,span,div').each((index, element) => {
+    let url, use, img = $(element);
+    const isImg = element.name == 'img';
+    for (use of options.maybeImgsAttr) {
       if (isImageUrl(img.attr(use), isImg)) {
         url = img.attr(use);
         break;
       }
     }
-    var isImgUrl = url != undefined;
+    let isImgUrl = url != undefined;
     if (!url && img.css('background-image')) {
       url = S(img.css('background-image')).between('url(', ')').replaceAll(/['"]/, '').s;
       isImgUrl = isImageUrl(url, isImg);
-    }
-    if (isImg && !isImgUrl) {
-      img.remove();
-      return;
     }
     if (isImgUrl) {
       url = url.replace(/\{\w+\}/g, '');
@@ -141,6 +135,8 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
       img.attr('use', use);
       img.removeAttr('width');
       img.removeAttr('height');
+    } else if (isImg) {
+      img.remove();
     }
   });
 };
@@ -152,14 +148,12 @@ var setImageSrc = module.exports.setImageSrc = function ($, options) {
  *  @param object
  *  @return void
  */
-var fixLinks = module.exports.fixLinks = function ($, base, options) {
-  if (!base) {
-    return;
-  }
-  $('iframe,img,a').each(function (index, element) {
-    var imgA = $(element);
-    var use = element.name == 'a' ? 'href' : 'src';
-    var link = imgA.attr(use);
+const fixLinks = module.exports.fixLinks = ($, base, options) => {
+  if (!base) return;
+  $('iframe,img,a').each((index, element) => {
+    const imgA = $(element);
+    const use = element.name == 'a' ? 'href' : 'src';
+    const link = imgA.attr(use);
     if (link) {
       imgA.attr(use, URL.resolve(base, link));
     }
@@ -172,19 +166,13 @@ var fixLinks = module.exports.fixLinks = function ($, base, options) {
  *  @param object
  *  @return string
  */
-var getNewUrl = module.exports.getNewUrl = function (base, options) {
-  if (!options.hostnameParse) {
-    return;
-  }
-  var uri = URL.parse(base);
-  var hostname = options.hostnameParse[uri.hostname];
-  if (!hostname) {
-    return;
-  }
-  var newUrl = uri.protocol + '//' + hostname;
-  if (uri.port && uri.port != 80) {
-    newUrl += ':' + uri.port;
-  }
+const getNewUrl = module.exports.getNewUrl = (base, options) => {
+  if (!options.hostnameParse) return;
+  const uri = URL.parse(base);
+  const hostname = options.hostnameParse[uri.hostname];
+  if (!hostname) return;
+  let newUrl = uri.protocol + '//' + hostname;
+  if (uri.port && uri.port != 80) newUrl += ':' + uri.port;
   newUrl += uri.path;
   return newUrl;
 };

@@ -1,10 +1,10 @@
 {
   "name": "read-comfortably",
-  "version": "1.5.8",
+  "version": "2.0.0",
   "description": "turns any web page into a clean view for reading",
   "main": "src/index.js",
   "scripts": {
-    "test": "example/read.js"
+    "test": "node --harmony_destructuring test"
   },
   "author": {
     "name": "wzbg",
@@ -27,13 +27,15 @@
     "page"
   ],
   "dependencies": {
+    "babel-core": "^6.2.1",
+    "babel-preset-stage-3": "^6.1.18",
     "cheerio": "^0.19.0",
-    "fetch": "^0.3.6",
+    "fetch-promise": "^1.0.1",
     "image-size": "^0.3.5",
     "is-image-url": "^1.1.4",
     "is-pdf": "^1.0.0",
     "is-url": "^1.2.1",
-    "log4js": "^0.6.27",
+    "log4js": "^0.6.29",
     "string": "^3.3.1"
   }
 }

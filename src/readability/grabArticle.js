@@ -1,3 +1,11 @@
+/* 
+* @Author: zyc
+* @Date:   2015-11-29 17:02:46
+* @Last Modified by:   zyc
+* @Last Modified time: 2015-11-29 22:44:03
+*/
+'use strict';
+
 /**
  *  日志
  *  trace 跟踪
@@ -7,16 +15,16 @@
  *  error 错误
  *  fatal 致命
  */
-var log4js = require('log4js'); // Port of Log4js to work with node
-var logger = log4js.getLogger('grabArticle');
+const log4js = require('log4js'); // Port of Log4js to work with node
+const logger = log4js.getLogger('grabArticle');
 logger.setLevel('FATAL');
 // logger.setLevel('DEBUG');
 
-var regexps = require('./regexps');
-var helpers = require('./helpers');
+const regexps = require('./regexps');
+const helpers = require('./helpers');
 
 /**
- *  grabArticle - Using a variety of metrics (content score, classname, element types),
+ *  grabArticle - Using a constiety of metrics (content score, classname, element types),
  *           find the content that is most likely to be the stuff a user wants to read.
  *           Then return it wrapped up in a div.
  *  @param $
@@ -25,34 +33,27 @@ var helpers = require('./helpers');
  *  @param preserveUnlikelyCandidates
  *  @return string (Article Content)
  */
-var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
+const grabArticle = ($, url, options, preserveUnlikelyCandidates) => {
   /**
    *  preprocess which should be a function to check or modify downloaded source before passing it to readability.
    *  options.preprocess = callback($, options);
    */
-  var preprocess = options.preprocess;
-  if (typeof preprocess == 'function') {
-    preprocess($, options);
-  }
+  const preprocess = options.preprocess;
+  if (typeof preprocess == 'function') preprocess($, options);
   helpers.setImageSrc($, options); // Set the src attribute of the images or other tags for use
   helpers.fixLinks($, url, options); // Converts relative urls to absolute for images and links
   prepping($, options, preserveUnlikelyCandidates); // First, node prepping
-  var candidates     = assignScore($, options); // assign a score to them based on how content-y they look
-  var topCandidate   = findHighestScore(candidates, $); // find the top candidate with the highest score
-  var articleContent = getArticleContent(topCandidate, $, options); // Append the nodes to articleContent
-  if (!options.afterToRemove) {
-    /* default afterToRemove */
-    options.afterToRemove = ['script', 'noscript'];
-  }
+  const candidates     = assignScore($, options); // assign a score to them based on how content-y they look
+  const topCandidate   = findHighestScore(candidates, $); // find the top candidate with the highest score
+  const articleContent = getArticleContent(topCandidate, $, options); // Append the nodes to articleContent
+  if (!options.afterToRemove) options.afterToRemove = ['script', 'noscript']; // default afterToRemove
   articleContent.find(options.afterToRemove.join()).remove();
   /**
    *  postprocess which should be a function to check or modify article content after passing it to readability.
    *  options.postprocess = callback(node, $);
    */
-  var postprocess = options.postprocess;
-  if (typeof postprocess == 'function') {
-    postprocess(articleContent, $);
-  }
+  const postprocess = options.postprocess;
+  if (typeof postprocess == 'function') postprocess(articleContent, $);
   return articleContent;
 };
 
@@ -66,42 +67,35 @@ var grabArticle = function ($, url, options, preserveUnlikelyCandidates) {
  *  @param preserveUnlikelyCandidates
  *  @return void
  */
-var prepping = function ($, options, preserveUnlikelyCandidates) {
+const prepping = ($, options, preserveUnlikelyCandidates) => {
   /* Removing unnecessary nodes */
-  if (options.nodesToRemove) {
-    $(options.nodesToRemove.join()).remove();
-  }
-  if (!options.noChdToRemove) {
-    /* default noChdToRemove */
-    options.noChdToRemove = ['div'];
-  }
-  $('*', 'body').each(function (index, element) {
-    var node = $(element);
+  if (options.nodesToRemove) $(options.nodesToRemove.join()).remove();
+  if (!options.noChdToRemove) options.noChdToRemove = ['div']; // default noChdToRemove
+  $('*', 'body').each((index, element) => {
+    const node = $(element);
     /* If node is null, return, otherwise Illegal Access Error */
-    if (!node || !node.length) {
-      return;
-    }
-    var nodeType = element.name;
+    if (!node || !node.length) return;
+    const nodeType = element.name;
     logger.trace('%d[%s]:', index, nodeType, node.html());
     /* Remove unlikely candidates */
     if (!preserveUnlikelyCandidates) {
-      var unlikelyMatchString = (node.attr('class') || '') + '|' + (node.attr('id') || '');
+      const unlikelyMatchString = (node.attr('class') || '') + '|' + (node.attr('id') || '');
       if (unlikelyMatchString) {
-        var unlikelyCandidatesReIndex = unlikelyMatchString.search(regexps.unlikelyCandidatesRe);
+        const unlikelyCandidatesReIndex = unlikelyMatchString.search(regexps.unlikelyCandidatesRe);
         logger.trace('%s[unlikelyCandidatesReIndex=%d]', unlikelyMatchString, unlikelyCandidatesReIndex);
-        var unlikeThisNode = unlikelyCandidatesReIndex != -1;
+        let unlikeThisNode = unlikelyCandidatesReIndex != -1;
         if (!unlikeThisNode) {
-          var extraneousReIndex = unlikelyMatchString.search(regexps.extraneousRe);
+          const extraneousReIndex = unlikelyMatchString.search(regexps.extraneousRe);
           logger.trace('%s[extraneousReIndex=%d]', unlikelyMatchString, extraneousReIndex);
           unlikeThisNode = extraneousReIndex != -1;
         }
         if (unlikeThisNode) {
-          var classAndIDs = node.find('[class],[id]');
-          var removeThisNode = true;
-          for (var i = -1; i < classAndIDs.length; i++) {
-            var classAndID = i > -1 ? $(classAndIDs.get(i)) : node;
-            var okMaybeItsAMatchString = (classAndID.attr('class') || '') + '|' + (classAndID.attr('id') || '');
-            var okMaybeItsACandidateReIndex = okMaybeItsAMatchString.search(regexps.okMaybeItsACandidateRe);
+          const classAndIDs = node.find('[class],[id]');
+          let removeThisNode = true;
+          for (let i = -1; i < classAndIDs.length; i++) {
+            const classAndID = i > -1 ? $(classAndIDs.get(i)) : node;
+            const okMaybeItsAMatchString = (classAndID.attr('class') || '') + '|' + (classAndID.attr('id') || '');
+            const okMaybeItsACandidateReIndex = okMaybeItsAMatchString.search(regexps.okMaybeItsACandidateRe);
             logger.trace('%s[okMaybeItsACandidateReIndex=%d]', okMaybeItsAMatchString, okMaybeItsACandidateReIndex);
             if (okMaybeItsACandidateReIndex != -1) {
               removeThisNode = false;
@@ -123,11 +117,7 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
     /* Remove Style */
     node.removeAttr('style');
     /* Turn all divs that don't have children block level elements into p's */
-    var considerDIVs = options.considerDIVs;
-    if (typeof considerDIVs == 'undefined') {
-      considerDIVs = false;
-    }
-    if (considerDIVs && nodeType == 'div') {
+    if (options.considerDIVs && nodeType == 'div') {
       if (node.html().search(regexps.divToPElementsRe) == -1) {
         try {
           logger.debug('Altering div to p:', node.html());
@@ -136,11 +126,9 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
           logger.error('Could not alter div to p, reverting back to div.', e);
         }
       } else { /* EXPERIMENTAL */
-        node.contents().each(function (index, element) {
-          var child = $(element);
-          if (!child || !child.length) {
-            return;
-          }
+        node.contents().each((index, element) => {
+          const child = $(element);
+          if (!child || !child.length) return;
           if (element.type == 'text' && element.data && element.data.trim()) {
             /* use span instead of p. Need more tests. */
             logger.debug('replacing text node with a span tag with the same content.', element.data);
@@ -160,30 +148,23 @@ var prepping = function ($, options, preserveUnlikelyCandidates) {
  *  @param options
  *  @return candidates
  */
-var assignScore = function ($, options) {
-  var candidates = [];
-  if (!options.nodesToScore) {
-    /* default nodesToScore */
-    options.nodesToScore = ['p', 'article'];
-  }
-  $(options.nodesToScore.join()).each(function (index, element) {
-    var paragraph = $(element);
-    var innerText = helpers.getInnerText(paragraph);
+const assignScore = ($, options) => {
+  const candidates = [];
+  if (!options.nodesToScore) options.nodesToScore = ['p', 'article']; // default nodesToScore
+  $(options.nodesToScore.join()).each((index, element) => {
+    const paragraph = $(element);
+    const innerText = helpers.getInnerText(paragraph);
     /* If this paragraph is less than 25 characters, don't even count it. */
-    if (innerText.length < 25) {
-      return;
-    }
+    if (innerText.length < 25) return;
     /* Add a point for the paragraph itself as a base. */
-    var contentScore = 1;
+    let contentScore = 1;
     /* Add points for any commas within this paragraph */
     /* support Chinese commas. */
-    var commas = innerText.match(/[,，.。;；?？、]/g);
-    if (commas && commas.length) {
-      contentScore += commas.length;
-    }
+    const commas = innerText.match(/[,，.。;；?？、]/g);
+    if (commas && commas.length) contentScore += commas.length;
     /* For every 100 characters in this paragraph, add another point. Up to 3 points. */
     contentScore += Math.min(Math.floor(innerText.length / 100), 3);
-    for (var parentNode = paragraph.parent(); parentNode && parentNode.length; parentNode = parentNode.parent()) {
+    for (let parentNode = paragraph.parent(); parentNode && parentNode.length; parentNode = parentNode.parent()) {
       /* Initialize readability data for the parent. */
       if (!parentNode.data('readabilityScore')) {
         helpers.initializeNode(parentNode);
@@ -203,18 +184,16 @@ var assignScore = function ($, options) {
  *  @param $
  *  @return topCandidate
  */
-var findHighestScore = function (candidates, $) {
-  var topCandidate;
-  candidates.forEach(function (candidate) {
-    var score       = candidate.data('readabilityScore');
-    var linkDensity = helpers.getLinkDensity(candidate, $);
-    var siblings    = 0;
-    candidate.children('p').each(function (index, element) {
-      if ($(element).text().trim().length) {
-        siblings++;
-      }
+const findHighestScore = (candidates, $) => {
+  let topCandidate;
+  for (let candidate of candidates) {
+    const score       = candidate.data('readabilityScore');
+    const linkDensity = helpers.getLinkDensity(candidate, $);
+    let siblings      = 0;
+    candidate.children('p').each((index, element) => {
+      if ($(element).text().trim().length) siblings++;
     });
-    var imgs = candidate.find('img').length;
+    let imgs = candidate.find('img').length;
     imgs = Math.min(2.6, Math.max(imgs, 1));
     /**
      *  Scale the final candidates score based on link density.
@@ -222,10 +201,8 @@ var findHighestScore = function (candidates, $) {
      */
     candidate.data('readabilityScore', Math.min(2, Math.max(siblings, 1)) * score * (1 - linkDensity) * imgs);
     logger.debug('Candidate with score %d (%s|%s): %s', candidate.data('readabilityScore'), candidate.attr('class'), candidate.attr('id'), candidate);
-    if (!topCandidate || candidate.data('readabilityScore') > topCandidate.data('readabilityScore')) {
-      topCandidate = candidate;
-    }
-  });
+    if (!topCandidate || candidate.data('readabilityScore') > topCandidate.data('readabilityScore')) topCandidate = candidate;
+  }
   /**
    *  If we still have no top candidate, just use the body as a last resort.
    *  We also have to copy the body node so it is something we can modify.
@@ -247,39 +224,28 @@ var findHighestScore = function (candidates, $) {
  *  @param options
  *  @return articleContent
  */
-var getArticleContent = function (topCandidate, $, options) {
+const getArticleContent = (topCandidate, $, options) => {
   logger.trace('Top candidate with score %d (%s|%s): %s', topCandidate.data('readabilityScore'), topCandidate.attr('class'), topCandidate.attr('id'), topCandidate);
   /* Perhaps the topCandidate haven't parent? */
-  var parentNode = topCandidate.parent();
-  if (!parentNode || !parentNode.length) {
-    return topCandidate;
-  }
-  var parentNodeClass = parentNode.attr('class');
-  var topCandidateClass = topCandidate.attr('class');
-  if (topCandidateClass && parentNodeClass && !topCandidateClass.search(parentNodeClass.trim())) {
-    return getArticleContent(parentNode, $, options);
-  }
-  var siblingNodes = parentNode.children();
-  if (siblingNodes.length == 1 && parentNode.get(0).name != 'body') {
-    return getArticleContent(parentNode, $, options);
-  }
-  if (!options.nodesToAppend) {
-    /* default nodesToAppend */
-    options.nodesToAppend = ['p'];
-  }
-  var articleContent = $('<div id="readability-content"></div>');
-  siblingNodes.each(function (index, element) {
-    var siblingNode = $(element);
+  const parentNode = topCandidate.parent();
+  if (!parentNode || !parentNode.length) return topCandidate;
+  const parentNodeClass = parentNode.attr('class');
+  const topCandidateClass = topCandidate.attr('class');
+  if (topCandidateClass && parentNodeClass && !topCandidateClass.search(parentNodeClass.trim())) return getArticleContent(parentNode, $, options);
+  const siblingNodes = parentNode.children();
+  if (siblingNodes.length == 1 && parentNode.get(0).name != 'body') return getArticleContent(parentNode, $, options);
+  if (!options.nodesToAppend) options.nodesToAppend = ['p']; // default nodesToAppend
+  const articleContent = $('<div id="readability-content"></div>');
+  siblingNodes.each((index, element) => {
+    const siblingNode = $(element);
     /**
      *  Fix for odd IE7 Crash where siblingNode does not exist even though this should be a live nodeList.
      *  Example of error visible here: http://www.esquire.com/features/honesty0707
      */
-    if (!siblingNode || !siblingNode.length) {
-      return;
-    }
+    if (!siblingNode || !siblingNode.length) return;
     logger.debug('Looking at sibling node with score %d (%s|%s): %s', siblingNode.data('readabilityScore'), siblingNode.attr('class'), siblingNode.attr('id'), siblingNode);
     /* siblingNode is topCandidate */
-    var append = siblingNode.is(topCandidate);
+    let append = siblingNode.is(topCandidate);
     /* siblingNode is img or have an img */
     if (!append) {
       append = element.name == 'img';
@@ -290,30 +256,26 @@ var getArticleContent = function (topCandidate, $, options) {
     }
     /* siblingNode may be its a candidate */
     if (!append) {
-      var okMaybeItsAMatchString = (siblingNode.attr('class') || '') + '|' + (siblingNode.attr('id') || '');
+      const okMaybeItsAMatchString = (siblingNode.attr('class') || '') + '|' + (siblingNode.attr('id') || '');
       append = okMaybeItsAMatchString.search(regexps.okMaybeItsACandidateRe) != -1;
     }
     /* siblingNode's readabilityScore + contentBonus > siblingScoreThreshold */
     if (!append) {
-      var siblingScore = siblingNode.data('readabilityScore');
+      const siblingScore = siblingNode.data('readabilityScore');
       if (siblingScore) {
-        var contentBonus = 0;
-        var topNodeScore = topCandidate.data('readabilityScore');
+        let contentBonus = 0;
+        const topNodeScore = topCandidate.data('readabilityScore');
         /* Give a bonus if sibling nodes and top candidates have the example same classname */
-        if (topCandidateClass && topCandidateClass == siblingNode.attr('class')) {
-          contentBonus += topNodeScore * 0.2;
-        }
-        var siblingScoreThreshold = Math.max(10, topNodeScore * 0.2);
+        if (topCandidateClass && topCandidateClass == siblingNode.attr('class')) contentBonus += topNodeScore * 0.2;
+        const siblingScoreThreshold = Math.max(10, topNodeScore * 0.2);
         append = siblingScore + contentBonus >= siblingScoreThreshold;
       }
     }
     /* siblingNode's linkDensity < 0.25 */
     if (!append) {
       if (options.nodesToAppend.indexOf(element.name) != -1) {
-        siblingNode.find('a').each(function (index, element) {
-          if (!$(element).text().trim()) {
-            $(element).remove();
-          }
+        siblingNode.find('a').each((index, element) => {
+          if (!$(element).text().trim()) $(element).remove();
         });
         append = helpers.getLinkDensity(siblingNode, $) < 0.25;
       }
