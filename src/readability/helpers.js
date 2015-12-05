@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 18:38:43
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-30 19:49:19
+* @Last Modified time: 2015-12-06 02:37:13
 */
 'use strict';
 
@@ -104,7 +104,7 @@ const setImageSrc = module.exports.setImageSrc = ($, options) => {
   }
   $('noscript').each((index, element) => {
     const node = $(element);
-    if (node.find('img').length) {
+    if (node.find('img').length && !node.siblings('img').length) {
       node.replaceWith(node.html());
     }
   });
