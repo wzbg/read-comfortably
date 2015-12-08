@@ -27,20 +27,24 @@ var sizeOf = require('image-size'); // get dimensions of any image file.
  *  @return void
  */
 var grabImages = function (node, $, callback) {
-  var imgs = $(node).find('img');
   var images = [];
-  if (!imgs.length) {
-    return callback(null, images);
-  }
-  imgs.each(function (index, element) {
-    var img = $(element);
-    var link = img.attr('src');
-    if (link) { // image -> buffer
-      fetchImage(link, images, imgs.length, callback);
-    } else {
-      return callback(new Error('Empty link'), images);
+  try {
+    var imgs = $(node).find('img');
+    if (!imgs.length) {
+      return callback(null, images);
     }
-  });
+    imgs.each(function (index, element) {
+      var img = $(element);
+      var link = img.attr('src');
+      if (link) { // image -> buffer
+        fetchImage(link, images, imgs.length, callback);
+      } else {
+        return callback(new Error('Empty link'), images);
+      }
+    });
+  } catch (err) {
+    return callback(new Error(err.message), images);
+  }
 };
 
 /**
