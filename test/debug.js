@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-06 04:07:28
+* @Last Modified time: 2015-12-08 23:38:50
 */
 'use strict';
 
@@ -760,7 +760,7 @@ read(url, options).then(
       htmls => { // HTML Source Code by replace css files
         fs.writeFile('sources.html', htmls, err => {
           if (err) return console.error('error:', err);
-          console.log('sources(%d) is saved!', article.html.length, new Date() - start);
+          console.log('sources(%d) is saved!', htmls.length, new Date() - start);
         })
       }
     );

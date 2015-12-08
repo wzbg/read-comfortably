@@ -1,8 +1,8 @@
 {
   "name": "read-comfortably",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "turns any web page into a clean view for reading",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "node --harmony_destructuring test"
   },
