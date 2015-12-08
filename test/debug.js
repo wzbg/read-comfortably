@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-06 03:07:53
+* @Last Modified time: 2015-12-06 04:07:28
 */
 'use strict';
 
@@ -444,35 +444,31 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 
 // postprocess = (content, $) => { // businessoffashion.com
 //   const header = $('div.article-header-fullscreen,div.article-header-collection');
-//   if (!header || !header.length) {
-//     return;
-//   }
+//   if (!header || !header.length) return;
 //   header.find('p.sans-serif').remove();
 //   content.prepend(header);
 // };
 
 // postprocess = (content, $) => { // fastcoexist.com fastcocreate.com fastcompany.com
 //   const header = $('section#page-jumbotron');
-//   if (!header || !header.length) {
-//     return;
-//   }
+//   if (!header || !header.length) return;
 //   content.prepend(header);
 // };
 
 // postprocess = (content, $) => { // qz.com
 //   const header = $('figure.featured-image');
-//   console.log(header.length);
-//   if (!header || !header.length) {
-//     return;
-//   }
+//   if (!header || !header.length) return;
+//   const picture = header.find('picture');
+//   if (!picture || !picture.length) return;
+//   const source = picture.find('source');
+//   if (!source || !source.length) return;
+//   picture.html($('<img src="' + source.attr('srcset') + '">'));
 //   content.prepend(header);
 // };
 
 // postprocess = (content, $) => { // uncrate.com
 //   const header = $('div.article-single div.image-wrapper');
-//   if (!header || !header.length) {
-//     return;
-//   }
+//   if (!header || !header.length) return;
 //   content.prepend(header);
 // };
 

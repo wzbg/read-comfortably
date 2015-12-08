@@ -28,9 +28,9 @@ Where
 
 Example
 ```javascript
-var read = require('read-comfortably');
-var fs = require('fs');
-var start = new Date();
+const read = require('read-comfortably');
+const fs = require('fs');
+const start = new Date();
 read('http://abduzeedo.com/einsteins-theory-general-relativity-turns-100-video').then(
   result => {
     const { res, article } = result;
@@ -47,7 +47,7 @@ read('http://abduzeedo.com/einsteins-theory-general-relativity-turns-100-video')
       if (err) return console.error('error:', err);
       console.log('content(%d) is saved!', article.content.length, new Date() - start);
     });
-    var sources = [
+    const sources = [
       { selector: 'script[src]', attr: 'async', val: 'async' },
       { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' }
     ];

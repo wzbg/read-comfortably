@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:05:54
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-30 01:46:37
+* @Last Modified time: 2015-12-08 01:48:38
 */
 'use strict';
 
@@ -84,7 +84,7 @@ module.exports = class {
     } else {
       content = grabArticle(this.$, this.url, this.options).html();
       if (this.isEmpty(content)) { // preserve unlikely candidates grab article again
-        content = grabArticle(cheerio.load(this.html), this.url, this.options, true).html();
+        content = grabArticle(cheerio.load(this._html), this.url, this.options, true).html();
       }
     }
     return this.cache[cacheKey] = this.isEmpty(content) ? this.html : content;
