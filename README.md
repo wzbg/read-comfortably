@@ -327,8 +327,6 @@ https://gitlab.com/unrealce/read-comfortably
 https://github.com/wzbg/read-comfortably
 
 ## Related
-- [`babel-core`](https://www.npmjs.com/package/babel-core) - Babel compiler core.
-- [`babel-preset-stage-3`](https://www.npmjs.com/package/babel-preset-stage-3) - Babel preset for stage 3 plugins.
 - [`cheerio`](https://www.npmjs.com/package/cheerio) - Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
 - [`fetch-promise`](https://www.npmjs.com/package/fetch-promise) - Fetch URL contents By Promise.
 - [`image-size`](https://www.npmjs.com/package/image-size) - get dimensions of any image file.
