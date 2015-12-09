@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:43:37
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-30 02:03:02
+* @Last Modified time: 2015-12-10 01:48:19
 */
 'use strict';
 
@@ -39,19 +39,28 @@ const S = require('string');
  */
 const grabHtmls = (html, sources) => {
   const $ = cheerio.load(html, { normalizeWhitespace: true });
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (sources) {
+      const sourceNodes = [];
       for (let source of sources) {
         const selector = $(source.selector);
         for (let i = -1; i < selector.length; i++) {
           const node = $(selector.get(i));
-          if(source.val) {
-            node.attr(source.attr, source.val);
-          } else {
-            const url = node.attr(source.attr);
-            if (url) {
-              try {
-                let { res, buf } = await fetchUrl(url);
+          sourceNodes.push({ source, node });
+        }
+      }
+      let count = sourceNodes.length;
+      for (let sourceNode of sourceNodes) {
+        const { source, node } = sourceNode;
+        if(source.val) {
+          node.attr(source.attr, source.val);
+          if (!--count) resolve($.html());
+        } else {
+          const url = node.attr(source.attr);
+          if (url) {
+            fetchUrl(url).then(
+              result => {
+                const { res, buf } = result;
                 if (res.status != 200) {
                   logger.error('fetch url[%s] status:', url, res.status);
                 } else if (!buf) {
@@ -60,15 +69,21 @@ const grabHtmls = (html, sources) => {
                 if (buf) {
                   node.replaceWith(S(buf).wrapHTML(source.tag).s);
                 }
-              } catch (err) {
+                if (!--count) resolve($.html());
+              },
+              err => {
                 logger.error('fetch url[%s] error:', url, err);
+                if (!--count) resolve($.html());
               }
-            }
+            );
+          } else {
+            if (!--count) resolve($.html());
           }
         }
       }
+    } else {
+      resolve($.html());
     }
-    resolve($.html());
   });
 };
 

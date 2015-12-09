@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:51:25
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-30 01:26:23
+* @Last Modified time: 2015-12-10 02:02:30
 */
 'use strict';
 
@@ -37,33 +37,38 @@ const grabImages = (node, $) => {
   const imgs = $(node).find('img[src]'), images = [];
   return new Promise((resolve, reject) => {
     if (!imgs.length) resolve(images);
-    imgs.each(async (index, element) => {
+    imgs.each((index, element) => {
       const url = $(element).attr('src');
       const image = { url };
-      try { // image -> buffer
-        let { res, buf } = await fetchUrl(url);
-        if (res.status != 200) {
-          logger.error('fetch url[%s] status:', url, res.status);
-        } else if (!buf) {
-          logger.error('fetch url[%s] Empty body', url);
+      fetchUrl(url).then(
+        result => {
+          const { res, buf } = result;
+          if (res.status != 200) {
+            logger.error('fetch url[%s] status:', url, res.status);
+          } else if (!buf) {
+            logger.error('fetch url[%s] Empty body', url);
+          }
+          image.buf = buf;
+          if (res && res.responseHeaders) {
+            image.imgType = res.responseHeaders['content-type'];
+          }
+          const dimensions = sizeOf(buf);
+          if (dimensions) {
+            image.width = dimensions.width;
+            image.height = dimensions.height;
+          }
+          images.push(image);
+          if (images.length == imgs.length) {
+            resolve(images);
+          }
+        },
+        err => {
+          images.push(image);
+          if (images.length == imgs.length) {
+            resolve(images);
+          }
         }
-        image.buf = buf;
-        if (res && res.responseHeaders) {
-          image.imgType = res.responseHeaders['content-type'];
-        }
-        const dimensions = sizeOf(buf);
-        if (dimensions) {
-          image.width = dimensions.width;
-          image.height = dimensions.height;
-        }
-      } catch (err) {
-        logger.error('fetch url[%s] error:', url, err);
-      } finally {
-        images.push(image);
-        if (images.length == imgs.length) {
-          resolve(images);
-        }
-      }
+      );
     });
   });
 };

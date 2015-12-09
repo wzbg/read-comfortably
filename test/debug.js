@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-08 23:38:50
+* @Last Modified time: 2015-12-10 01:49:34
 */
 'use strict';
 
@@ -10,7 +10,7 @@ const fs = require('fs');
 const S = require('string');
 const fetch = require('fetch');
 const fetchUrl = fetch.fetchUrl;
-const read = require('../index');
+const read = require('../src/read');
 
 // let url = 'https://blog.adafruit.com/2015/06/17/horses-get-blinky-rainbow-tails-wearablewednesday/';
 // let url = 'https://hbr.org/2015/10/assessment-does-your-team-think-digitally';
@@ -68,7 +68,7 @@ const read = require('../index');
 // let url = 'http://abduzeedo.com/daily-inspiration-2165';
 // let url = 'http://abduzeedo.com/einsteins-theory-general-relativity-turns-100-video';
 // let url = 'http://abduzeedo.com/principle-mac-prototyping-tool';
-// let url = 'http://archinect.com/features/article/135648933/new-architecture-job-application-tips-hints-from-employers';
+let url = 'http://archinect.com/features/article/135648933/new-architecture-job-application-tips-hints-from-employers';
 // let url = 'http://blogs.indiewire.com/bent/a-year-of-1989-the-unusual-healing-power-of-taylor-swift-20151027';
 // let url = 'http://blogs.transparent.com/language-news/2015/08/26/staying-resourceful-in-language-learning/';
 // let url = 'http://boingboing.net/2015/09/03/fish-splooges-on-president-oba.html';

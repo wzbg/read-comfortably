@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 05:31:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-29 19:56:50
+* @Last Modified time: 2015-12-10 01:01:30
 */
 'use strict';
 
@@ -19,44 +19,52 @@ const Article = require('./model/Article');
 const helpers = require('./readability/helpers');
 
 module.exports = (html, options) => {
-  return new Promise(async (resolve, reject) => {
-    if (!options) options = {};
-    if (!html) return reject('Empty html');
-    if (!isUrl(html)) {
-      return resolve({ article: getArticle(html) });
-    }
-    try {
-      const urlprocess = options.urlprocess;
-      if (typeof urlprocess == 'function') {
-        html = urlprocess(html, options);
-      }
-      const asyncprocess = options.asyncprocess
-      if (typeof asyncprocess == 'function') {
-        await asyncprocess(html, options);
-      }
-      resolve(await getUrlHtml(html, options));
-    } catch (err) {
-      reject(err);
-    }
-  });
+  if (!options) options = {};
+  if (!html) return reject('Empty html');
+  if (!isUrl(html)) {
+    return new Promise(resolve => resolve({ article: getArticle(html) }));
+  }
+  const urlprocess = options.urlprocess;
+  if (typeof urlprocess == 'function') {
+    html = urlprocess(html, options);
+  }
+  const asyncprocess = options.asyncprocess
+  if (typeof asyncprocess == 'function') {
+    asyncprocess(html, options).then(
+      () => getUrlHtml(html, options),
+      err => getUrlHtml(html, options)
+    );
+  } else {
+    return getUrlHtml(html, options);
+  }
 };
 
-const getUrlHtml = async (url, options) => {
-  let { res, buf: article } = await fetchUrl(url, options);
-  if (!isImageUrl(url)) {
-    article = getArticle(article, res.finalUrl, options);
-    const newUrl = helpers.getNewUrl(url, options);
-    if (newUrl) {
-      const { res: newRes, buf: newBuf } = await fetchUrl(newUrl, options);
-      if (newRes.status == 200 && newBuf) {
-        const newArticle = getArticle(newBuf, newRes.finalUrl, options);
-        if (newArticle.content.length > article.content.length) {
-          article = newArticle; res = newRes;
-        }
-      }
-    }
-  }
-  return { res, article };
+const getUrlHtml = (url, options) => {
+  return new Promise((resolve, reject) => {
+    fetchUrl(url, options).then(
+      result => {
+        let { res, buf: article } = result;
+        article = getArticle(article, res.finalUrl, options);
+        const newUrl = helpers.getNewUrl(url, options);
+        if (newUrl) {
+          fetchUrl(newUrl, options).then(
+            result => {
+              const { res: newRes, buf: newBuf } = result;
+              if (newRes.status == 200 && newBuf) {
+                const newArticle = getArticle(newBuf, newRes.finalUrl, options);
+                if (newArticle.content.length > article.content.length) {
+                  article = newArticle; res = newRes;
+                }
+              }
+              resolve({ res, article });
+            },
+            err => resolve({ res, article })
+          );
+        } else resolve({ res, article });
+      },
+      err => reject(err)
+    );
+  });
 };
 
 const getArticle = (html, url, options) => {
