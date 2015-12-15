@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:05:54
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-08 01:48:38
+* @Last Modified time: 2015-12-14 15:18:01
 */
 'use strict';
 
@@ -57,19 +57,17 @@ module.exports = class {
   get title() { // 获取文章标题
     const cacheKey = 'article-title';
     if (this.cache[cacheKey]) return this.cache[cacheKey];
-    let betterTitle;
     const $ = cheerio.load(this._html);
     const title = $('title').text().trim();
-    const commonSeparatingCharacters = [' | ', ' _ ', ' - ', '«', '»', '—'];
+    const commonSeparatingCharacters = ['|', '_', '-', '«', '»', '—'];
     for (let char of commonSeparatingCharacters) {
       const tmpArray = title.split(char);
       if (tmpArray.length > 1) {
-        if (betterTitle) return this.cache[cacheKey] = title;
-        betterTitle = tmpArray[0].trim();
+        const betterTitle = tmpArray[0].trim();
+        if (betterTitle.length > 10) {
+          return this.cache[cacheKey] = betterTitle;
+        }
       }
-    }
-    if (betterTitle && betterTitle.length > 10) {
-      return this.cache[cacheKey] = betterTitle;
     }
     return this.cache[cacheKey] = title;
   }

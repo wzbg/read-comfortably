@@ -1,6 +1,6 @@
 {
   "name": "read-comfortably",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "turns any web page into a clean view for reading",
   "main": "index.js",
   "scripts": {

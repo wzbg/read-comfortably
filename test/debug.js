@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-08 23:38:50
+* @Last Modified time: 2015-12-15 16:33:17
 */
 'use strict';
 
@@ -34,6 +34,7 @@ const read = require('../index');
 // let url = 'https://twitter.com/mike_santine/status/641708054573002752/photo/1';
 // let url = 'https://whisper.sh/stories/9c966be6-5a9d-4ba4-8a21-604bc2ae1471/The-Shameless-Things-People-Do-To-Take-The-Perfect-Selfie';
 // let url = 'https://www.indiegogo.com/projects/aftershokz-trekz-bone-conduction-headphones#/story';
+// let url = 'https://www.indiegogo.com/projects/flic-the-wireless-smart-button';
 // let url = 'https://www.indiegogo.com/projects/fusion-micro-the-world-s-smallest-supercomputer#/funders';
 // let url = 'https://www.indiegogo.com/projects/keplero-luxury-wallet#/gallery';
 // let url = 'https://www.indiegogo.com/projects/the-qliplet-the-next-generation-super-clip#/updates';
@@ -87,7 +88,9 @@ const read = require('../index');
 // let url = 'http://ftalphaville.ft.com/2015/10/23/2142800/how-is-canada-doing-these-days/';
 // let url = 'http://gawker.com/dentist-who-killed-cecil-the-lion-says-hes-going-back-t-1729112886';
 // let url = 'http://gawker.com/robin-williams-daughter-shares-hopeful-message-about-gr-1729096261';
+// let url = 'http://gawker.com/women-in-saudi-arabia-still-cant-drive-but-they-can-vo-1747707770';
 // let url = 'http://gizmodo.com/earths-oceans-could-look-completely-different-by-the-en-1728808399';
+// let url = 'http://gizmodo.com/this-nyc-skyscraper-design-is-like-the-chrysler-buildin-1747445141';
 // let url = 'http://gizmodo.com/why-one-random-web-address-can-crash-chrome-1732731055';
 // let url = 'http://helloseed.io/index.php/2015/11/24/seedinstrux/';
 // let url = 'http://hypebeast.com/2015/8/banksy-talks-dismaland-and-contemporary-art';
@@ -110,6 +113,7 @@ const read = require('../index');
 // let url = 'http://mentalfloss.com/article/60365/20-eye-opening-facts-about-eyes-wide-shut';
 // let url = 'http://mentalfloss.com/node/68242/take';
 // let url = 'http://mentalfloss.com/us/go/68322';
+// let url = 'http://mentalfloss.com/us/go/72086#st_refDomain=&st_refQuery=';
 // let url = 'http://money.cnn.com/2015/10/04/technology/jack-ma-painting-charity-sothebys/';
 // let url = 'http://news.moviefone.com/2015/08/27/best-summer-movies-all-time-ranked/';
 // let url = 'http://news.moviefone.com/2015/10/26/top-10-channing-tatum-performances/';
@@ -225,6 +229,7 @@ const read = require('../index');
 // let url = 'http://www.core77.com/posts/40609/The-Design-Process-of-the-OCD-Drill-Bit-Organizer';
 // let url = 'http://www.core77.com/posts/40614/Sexy-Design-Solutions-for-Utilizing-Blind-Corner-Cabinet-Space-in-the-Kitchen';
 // let url = 'http://www.core77.com/projects/39387/Injera-Contemporary-Forms-for-an-Ancient-Ritual';
+// let url = 'http://www.dailymail.co.uk/femail/article-3354970/Swedish-royals-dust-dazzling-jewels-magnificent-Nobel-Prize-banquet.html';
 // let url = 'http://www.dazeddigital.com/music/article/26070/1/south-korea-just-trolled-north-korea-with-k-pop';
 // let url = 'http://www.demilked.com/craniosynostosis-head-shaping-star-wars-helmets-mikesweeney/';
 // let url = 'http://www.demilked.com/detailed-food-art-spoon-ioana-vanc-romania/';
@@ -509,8 +514,6 @@ const hostnameParse = {
 const maybeImgsAttr = [ // 可能是图片的属性
   'data-uproxx-animated-gif',
   'data-lightbox-image-url',
-  'pagespeed_lazy_src',
-  'rel:bf_image_src',
   'data-src-medium',
   'data-src-small',
   'data-asset-url',
@@ -524,6 +527,9 @@ const maybeImgsAttr = [ // 可能是图片的属性
   'data-cfsrc',
   'data-src',
   'load-src',
+  'pagespeed_lazy_src',
+  'rel:bf_image_src',
+  'deferred-src',
   'href',
   'src',
   'srcset'
@@ -735,13 +741,13 @@ read(url, options).then(
     if (res.status != 200) return console.error('status:', res.status);
     if (!article) return console.error('Empty article:', article);
 
-    console.log('res:', res); // Response Object from fetchUrl Lib
-    console.log('contentType:', res.responseHeaders['content-type']);
+    // console.log('res:', res); // Response Object from fetchUrl Lib
+    // console.log('contentType:', res.responseHeaders['content-type']);
 
-    console.log('dom:', article.dom); // DOM
+    // console.log('dom:', article.dom); // DOM
     console.log('title:', article.title); // Title
     console.log('desc:', article.getDesc(300)); // Description Article
-    article.images.then(images => console.log('images:', images)); // Article's Images
+    // article.images.then(images => console.log('images:', images)); // Article's Images
 
     fs.writeFile('article.html', article.html, err => { // HTML Source Code
       if (err) return console.error('error:', err);
@@ -752,29 +758,29 @@ read(url, options).then(
       console.log('content(%d) is saved!', article.content.length, new Date() - start);
     });
 
-    const sources = [
-      { selector: 'script[src]', attr: 'async', val: 'async' },
-      { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' }
-    ];
-    article.getHtmls(sources).then(
-      htmls => { // HTML Source Code by replace css files
-        fs.writeFile('sources.html', htmls, err => {
-          if (err) return console.error('error:', err);
-          console.log('sources(%d) is saved!', htmls.length, new Date() - start);
-        })
-      }
-    );
+    // const sources = [
+    //   { selector: 'script[src]', attr: 'async', val: 'async' },
+    //   { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' }
+    // ];
+    // article.getHtmls(sources).then(
+    //   htmls => { // HTML Source Code by replace css files
+    //     fs.writeFile('sources.html', htmls, err => {
+    //       if (err) return console.error('error:', err);
+    //       console.log('sources(%d) is saved!', htmls.length, new Date() - start);
+    //     })
+    //   }
+    // );
 
-    article.iframes.then(
-      iframes => { // Article's Iframes
-        iframes.forEach((iframe, index) => {
-          fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
-            if (err) return console.error('error:', err);
-            console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
-          });
-        });
-      }
-    );
+    // article.iframes.then(
+    //   iframes => { // Article's Iframes
+    //     iframes.forEach((iframe, index) => {
+    //       fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
+    //         if (err) return console.error('error:', err);
+    //         console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
+    //       });
+    //     });
+    //   }
+    // );
   },
   err => console.error(err)
 );

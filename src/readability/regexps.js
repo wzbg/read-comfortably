@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-24 16:50:36
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-29 19:42:29
+* @Last Modified time: 2015-12-11 15:32:31
 */
 'use strict';
 
@@ -10,7 +10,7 @@ module.exports = {
   // 排除候选人
   unlikelyCandidatesRe:    /combx|pager|comment|disqus|foot|header|menu|meta|nav|rss|shoutbox|sidebar|sponsor|share|bookmark|social|advert|leaderboard|instapaper_ignore|entry-unrelated/i,
   // 可能是候选人
-  okMaybeItsACandidateRe:  /and|article|body|column|main|shadow|post|text|lazy|title|photo/i,
+  okMaybeItsACandidateRe:  /and|article|body|column|main|shadow|post|text|lazy|title|photo|img/i,
   // 积极
   positiveRe:              /article|body|content|entry|hentry|main|page|pagination|post|text|blog|story/i,
   // 消极
