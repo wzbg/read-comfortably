@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:02:46
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-11 15:33:10
+* @Last Modified time: 2015-12-16 11:27:03
 */
 'use strict';
 
@@ -80,6 +80,7 @@ const prepping = ($, options, preserveUnlikelyCandidates) => {
     /* Remove unlikely candidates */
     if (!preserveUnlikelyCandidates) {
       const unlikelyMatchString = (node.attr('class') || '') + '|' + (node.attr('id') || '');
+      logger.trace('unlikelyMatchString:', unlikelyMatchString);
       if (unlikelyMatchString) {
         const unlikelyCandidatesReIndex = unlikelyMatchString.search(regexps.unlikelyCandidatesRe);
         logger.trace('%s[unlikelyCandidatesReIndex=%d]', unlikelyMatchString, unlikelyCandidatesReIndex);
@@ -228,11 +229,14 @@ const getArticleContent = (topCandidate, $, options) => {
   logger.trace('Top candidate with score %d (%s|%s): %s', topCandidate.data('readabilityScore'), topCandidate.attr('class'), topCandidate.attr('id'), topCandidate);
   /* Perhaps the topCandidate haven't parent? */
   const parentNode = topCandidate.parent();
+  logger.trace('parentNode:', parentNode);
   if (!parentNode || !parentNode.length) return topCandidate;
   const parentNodeClass = parentNode.attr('class');
   const topCandidateClass = topCandidate.attr('class');
+  logger.trace('nodeClass:', parentNodeClass, topCandidateClass);
   if (topCandidateClass && parentNodeClass && !topCandidateClass.search(parentNodeClass.trim())) return getArticleContent(parentNode, $, options);
   const siblingNodes = parentNode.children();
+  logger.trace('siblingNodes:', siblingNodes);
   if (siblingNodes.length == 1 && parentNode.get(0).name != 'body') return getArticleContent(parentNode, $, options);
   if (!options.nodesToAppend) options.nodesToAppend = ['p']; // default nodesToAppend
   const articleContent = $('<div id="readability-content"></div>');

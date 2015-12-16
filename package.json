@@ -1,6 +1,6 @@
 {
   "name": "read-comfortably",
-  "version": "2.1.0",
+  "version": "2.0.3",
   "description": "turns any web page into a clean view for reading",
   "main": "index.js",
   "scripts": {
@@ -27,12 +27,12 @@
     "page"
   ],
   "dependencies": {
-    "babel-core": "^6.3.13",
+    "babel-core": "^6.3.17",
     "babel-preset-stage-3": "^6.3.13",
     "cheerio": "^0.19.0",
     "fetch-promise": "^1.0.1",
     "image-size": "^0.3.5",
-    "is-image-url": "^1.1.4",
+    "is-image-url": "^1.1.5",
     "is-pdf": "^1.0.0",
     "is-url": "^1.2.1",
     "log4js": "^0.6.29",
