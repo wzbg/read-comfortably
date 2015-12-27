@@ -2,13 +2,13 @@
 * @Author: zyc
 * @Date:   2015-11-29 19:40:00
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-30 19:23:29
+* @Last Modified time: 2015-12-27 21:14:27
 */
 'use strict';
 
 const fs = require('fs');
 
-const read = require('./index');
+const read = require('./src/read');
 
 const start = new Date();
 

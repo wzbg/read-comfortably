@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 18:10:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-11-30 01:29:25
+* @Last Modified time: 2015-12-27 21:19:53
 */
 'use strict';
 
@@ -42,39 +42,52 @@ const helpers = require('./helpers');
  */
 const grabIframes = (node, $, options) => {
   const ifms = $(node).find('iframe[src]'), iframes = [];
-  return new Promise((resolve, reject) => {
-    if (!ifms.length) resolve(iframes);
-    ifms.each(async (index, element) => {
-      const url = $(element).attr('src');
-      const iframe = { url };
-      try { // iframe -> buffer
-        let { res, buf } = await fetchUrl(url);
-        if (res.status != 200) {
-          logger.error('fetch url[%s] status:', url, res.status);
-        } else if (!buf) {
-          logger.error('fetch url[%s] Empty body', url);
-        }
-        iframe.buf = buf;
-        if (res && res.responseHeaders) {
-          iframe.ifmType = res.responseHeaders['content-type'];
-        }
-        iframe.isVideo = url.search(regexps.videoRe) != -1;
-        if (!isImageUrl(url) && !isPdf(buf)) {
-          const $ = cheerio.load(buf, { normalizeWhitespace: true });
-          helpers.setImageSrc($, options);
-          helpers.fixLinks($, url, options);
-          iframe.buf = $.html();
-          iframe.imgs = await grabImages(iframe.buf, $);
-        }
-      } catch (err) {
-        logger.error('fetch url[%s] error:', url, err);
-      } finally {
-        iframes.push(iframe);
-        if (iframes.length == ifms.length) {
-          resolve(iframes);
-        }
+  if (!ifms.length) return Promise.resolve(iframes);
+  const promises = [];
+  ifms.each((index, element) => {
+    const url = $(element).attr('src');
+    promises.push(grabIframe(url));
+  });
+  Promise.all(promises)
+    .then(iframes => Promise.resolve(iframes))
+    .catch(error => Promise.resolve(iframes));
+};
+
+/**
+ *  grab tht article content's iframes
+ *  @param Element
+ *  @param $
+ *  @param object
+ *  @return Promise
+ */
+const grabIframe = url => {
+  const iframe = { url };
+  return new Promise(resolve => {
+    fetchUrl(url).then(result => {
+      const { res, buf } = result;
+      if (res.status != 200) {
+        logger.error('fetch url[%s] status:', url, res.status);
+      } else if (!buf) {
+        logger.error('fetch url[%s] Empty body', url);
       }
-    });
+      iframe.buf = buf;
+      if (res && res.responseHeaders) {
+        iframe.ifmType = res.responseHeaders['content-type'];
+      }
+      iframe.isVideo = url.search(regexps.videoRe) != -1;
+      if (!isImageUrl(url) && !isPdf(buf)) {
+        const $ = cheerio.load(buf, { normalizeWhitespace: true });
+        helpers.setImageSrc($, options);
+        helpers.fixLinks($, url, options);
+        iframe.buf = $.html();
+        grabImages(iframe.buf, $).then(images => {
+          iframe.imgs = images;
+          resolve(iframe);
+        });
+      } else {
+        resolve(iframe);
+      }
+    }).catch(err => resolve(iframe));
   });
 };
 

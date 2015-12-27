@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-24 14:50:20
+* @Last Modified time: 2015-12-27 21:40:10
 */
 'use strict';
 
@@ -10,7 +10,7 @@ const fs = require('fs');
 const S = require('string');
 const fetch = require('fetch');
 const fetchUrl = fetch.fetchUrl;
-const read = require('../index');
+const read = require('../src/read');
 
 // let url = 'https://blog.adafruit.com/2015/06/17/horses-get-blinky-rainbow-tails-wearablewednesday/';
 // let url = 'https://hbr.org/2015/10/assessment-does-your-team-think-digitally';

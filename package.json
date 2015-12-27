@@ -1,8 +1,8 @@
 {
   "name": "read-comfortably",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "turns any web page into a clean view for reading",
-  "main": "index.js",
+  "main": "src/read.js",
   "scripts": {
     "test": "node --harmony_destructuring test"
   },
@@ -27,11 +27,9 @@
     "page"
   ],
   "dependencies": {
-    "babel-core": "^6.3.17",
-    "babel-preset-stage-3": "^6.3.13",
     "cheerio": "^0.19.0",
     "fetch-promise": "^1.0.1",
-    "image-size": "^0.3.5",
+    "image-size": "^0.4.0",
     "is-image-url": "^1.1.6",
     "is-pdf": "^1.0.0",
     "is-url": "^1.2.1",
