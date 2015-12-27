@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 18:10:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 21:19:53
+* @Last Modified time: 2015-12-27 22:26:24
 */
 'use strict';
 
@@ -48,9 +48,7 @@ const grabIframes = (node, $, options) => {
     const url = $(element).attr('src');
     promises.push(grabIframe(url));
   });
-  Promise.all(promises)
-    .then(iframes => Promise.resolve(iframes))
-    .catch(error => Promise.resolve(iframes));
+  return new Promise(resolve => Promise.all(promises).then(iframes => resolve(iframes)));
 };
 
 /**

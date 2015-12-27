@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:51:25
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 21:20:04
+* @Last Modified time: 2015-12-27 22:22:28
 */
 'use strict';
 
@@ -41,9 +41,7 @@ const grabImages = (node, $) => {
     const url = $(element).attr('src');
     promises.push(grabImage(url));
   });
-  Promise.all(promises)
-    .then(images => Promise.resolve(images))
-    .catch(error => Promise.resolve(images));
+  return new Promise(resolve => Promise.all(promises).then(images => resolve(images)));
 };
 
 /**

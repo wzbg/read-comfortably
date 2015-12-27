@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 21:40:10
+* @Last Modified time: 2015-12-27 22:26:59
 */
 'use strict';
 
@@ -141,6 +141,7 @@ const read = require('../src/read');
 // let url = 'http://techcrunch.com/2015/09/05/the-future-is-african/';
 // let url = 'http://techcrunch.com/2015/09/06/how-the-rules-of-cyber-engagement-have-changed/';
 // let url = 'http://techcrunch.com/2015/09/29/profile-gif/';
+// let url = 'http://techcrunch.com/2015/12/27/no-really-naming-an-award-after-myself-is-the-most-humble-thing-anyone-has-ever-done/';
 // let url = 'http://techcrunch.com/gallery/20-apps-to-help-students-power-through/';
 // let url = 'http://thoughtcatalog.com/kovie-biakolo/2015/08/13-things-that-definitely-happened-in-your-childhood-if-your-parents-were-college-professors/';
 // let url = 'http://time.com/4007174/which-spouse-asks-for-divorce/';
@@ -348,6 +349,7 @@ const read = require('../src/read');
 // let url = 'http://www.usatoday.com/picture-gallery/sports/ncaaf/2015/10/26/college-football-coaching-carousel/74623530/';
 // let url = 'http://www.usatoday.com/sports/nfl/rankings/';
 // let url = 'http://www.usatoday.com/story/sports/nba/2015/11/03/another-big-night-for-curry-warriors-breeze-past-memphis/75078626/';
+// let url = 'http://www.usatoday.com/story/sports/nhl/2015/12/27/hansen-scores-twice-canucks-beat-oilers-2-1-for-1st-ot-win/77938246/';
 // let url = 'http://www.vh1.com/news/218317/its-the-great-pumpkin-pumkin-your-favorite-vh1-stars-have-been-carved-into-jack-o-lanterns/?xrs=MW_1pm';
 // let url = 'http://www.vh1.com/shows/top_20_countdown/the-20-episode-1024-week-of-october-24-2015/1738483/playlist/';
 // let url = 'http://www.vice.com/read/are-we-about-to-live-through-a-lost-age-of-video-gaming-140';
@@ -743,13 +745,13 @@ read(url, options).then(
     if (res.status != 200) return console.error('status:', res.status);
     if (!article) return console.error('Empty article:', article);
 
-    // console.log('res:', res); // Response Object from fetchUrl Lib
-    // console.log('contentType:', res.responseHeaders['content-type']);
+    console.log('res:', res); // Response Object from fetchUrl Lib
+    console.log('contentType:', res.responseHeaders['content-type']);
 
-    // console.log('dom:', article.dom); // DOM
+    console.log('dom:', article.dom); // DOM
     console.log('title:', article.title); // Title
     console.log('desc:', article.getDesc(300)); // Description Article
-    // article.images.then(images => console.log('images:', images)); // Article's Images
+    article.images.then(images => console.log('images:', images)); // Article's Images
 
     fs.writeFile('article.html', article.html, err => { // HTML Source Code
       if (err) return console.error('error:', err);
@@ -760,29 +762,29 @@ read(url, options).then(
       console.log('content(%d) is saved!', article.content.length, new Date() - start);
     });
 
-    // const sources = [
-    //   { selector: 'script[src]', attr: 'async', val: 'async' },
-    //   { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' }
-    // ];
-    // article.getHtmls(sources).then(
-    //   htmls => { // HTML Source Code by replace css files
-    //     fs.writeFile('sources.html', htmls, err => {
-    //       if (err) return console.error('error:', err);
-    //       console.log('sources(%d) is saved!', htmls.length, new Date() - start);
-    //     })
-    //   }
-    // );
+    const sources = [
+      { selector: 'script[src]', attr: 'async', val: 'async' },
+      { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' }
+    ];
+    article.getHtmls(sources).then(
+      htmls => { // HTML Source Code by replace css files
+        fs.writeFile('sources.html', htmls, err => {
+          if (err) return console.error('error:', err);
+          console.log('sources(%d) is saved!', htmls.length, new Date() - start);
+        })
+      }
+    );
 
-    // article.iframes.then(
-    //   iframes => { // Article's Iframes
-    //     iframes.forEach((iframe, index) => {
-    //       fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
-    //         if (err) return console.error('error:', err);
-    //         console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
-    //       });
-    //     });
-    //   }
-    // );
+    article.iframes.then(
+      iframes => { // Article's Iframes
+        iframes.forEach((iframe, index) => {
+          fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
+            if (err) return console.error('error:', err);
+            console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
+          });
+        });
+      }
+    );
   },
   err => console.error(err)
 );

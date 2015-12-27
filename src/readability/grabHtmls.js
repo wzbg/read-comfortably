@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:43:37
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 22:04:51
+* @Last Modified time: 2015-12-27 22:20:53
 */
 'use strict';
 
@@ -56,9 +56,7 @@ const grabHtmls = (html, sources) => {
       }
     }
   }
-  Promise.all(promises)
-    .then(result => Promise.resolve($.html()))
-    .catch(error => Promise.resolve($.html()));
+  return new Promise(resolve => Promise.all(promises).then(result => resolve($.html())));
 };
 
 const replaceUrl = (url, node, tag) => {
