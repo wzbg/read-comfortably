@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-15 16:33:17
+* @Last Modified time: 2015-12-24 14:50:20
 */
 'use strict';
 
@@ -46,6 +46,7 @@ const read = require('../index');
 // let url = 'https://www.kickstarter.com/projects/1942313546/the-worlds-best-laptop-stand-the-apex-revolution?ref=category';
 // let url = 'https://www.kickstarter.com/projects/489540660/designercise-a-creative-thinking-game-and-ideation';
 // let url = 'https://www.kickstarter.com/projects/980363115/ooovre-a-better-way-to-buy-books-online?ref=home_potd';
+// let url = 'https://www.kickstarter.com/projects/jessicafeinberg/ice-dragons-and-arctic-creatures-playing-cards-and?ref=popular';
 // let url = 'https://www.kickstarter.com/projects/tunaandtherockcats/the-acro-cats-mobile-foster-and-kitty-tour-bus?ref=home_popular';
 // let url = 'https://www.linkedin.com/pulse/nature-things-mickey-mcmanus';
 // let url = 'https://www.washingtonpost.com/rweb/sports/bulls-show-off-their-style-in-a-constiety-of-ways/2015/11/06/73c7754b1515e6f15921910918ea7a7c_story.html';
@@ -89,6 +90,7 @@ const read = require('../index');
 // let url = 'http://gawker.com/dentist-who-killed-cecil-the-lion-says-hes-going-back-t-1729112886';
 // let url = 'http://gawker.com/robin-williams-daughter-shares-hopeful-message-about-gr-1729096261';
 // let url = 'http://gawker.com/women-in-saudi-arabia-still-cant-drive-but-they-can-vo-1747707770';
+// let url = 'http://gizmodo.com/curl-up-this-winter-with-five-straight-hours-of-a-burni-1748183283';
 // let url = 'http://gizmodo.com/earths-oceans-could-look-completely-different-by-the-en-1728808399';
 // let url = 'http://gizmodo.com/this-nyc-skyscraper-design-is-like-the-chrysler-buildin-1747445141';
 // let url = 'http://gizmodo.com/why-one-random-web-address-can-crash-chrome-1732731055';
