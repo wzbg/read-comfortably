@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:43:37
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 20:44:07
+* @Last Modified time: 2015-12-27 22:04:51
 */
 'use strict';
 
@@ -49,7 +49,9 @@ const grabHtmls = (html, sources) => {
           node.attr(source.attr, source.val);
         } else {
           const url = node.attr(source.attr);
-          if (url) promises.push(replaceUrl(url));
+          if (url) {
+            promises.push(replaceUrl(url, node, source.tag));
+          }
         }
       }
     }
@@ -59,7 +61,7 @@ const grabHtmls = (html, sources) => {
     .catch(error => Promise.resolve($.html()));
 };
 
-const replaceUrl = url => {
+const replaceUrl = (url, node, tag) => {
   return new Promise(resolve => {
     fetchUrl(url).then(result => {
       const { res, buf } = result;
@@ -69,7 +71,7 @@ const replaceUrl = url => {
         logger.error('fetch url[%s] Empty body', url);
       }
       if (buf) {
-        node.replaceWith(S(buf).wrapHTML(source.tag).s);
+        node.replaceWith(S(buf).wrapHTML(tag).s);
       }
       resolve();
     }).catch(err => resolve());
