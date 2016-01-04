@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 22:26:59
+* @Last Modified time: 2016-01-04 15:02:10
 */
 'use strict';
 
@@ -258,6 +258,7 @@ const read = require('../src/read');
 // let url = 'http://www.engadget.com/2015/09/23/babymetal-will-cute-you-to-death-in-rock-band-4/';
 // let url = 'http://www.engadget.com/2015/12/03/nintendo-super-moschino-collection/';
 // let url = 'http://www.engadget.com/2015/12/03/rumor-apple-has-an-updated-4-inch-iphone-due-early-next-year/';
+// let url = 'http://www.engadget.com/2016/01/04/lg-rollable-oled/';
 // let url = 'http://www.engadget.com/rss.xml';
 // let url = 'http://www.entrepreneur.com/article/249866';
 // let url = 'http://www.esquire.com/entertainment/movies/a37752/steve-jobs-man-in-the-machine/';
@@ -332,6 +333,7 @@ const read = require('../src/read');
 // let url = 'http://www.theguardian.com/artanddesign/2015/aug/22/tate-sensorium-art-soundscapes-chocolates-invisible-rain';
 // let url = 'http://www.theguardian.com/artanddesign/gallery/2015/sep/19/saint-etiennes-urban-doodler-with-a-sense-of-humour';
 // let url = 'http://www.theguardian.com/business/2015/nov/10/china-singles-day-1111-expected-to-break-records';
+// let url = 'http://www.theguardian.com/us-news/2015/dec/29/texas-affluenza-teen-arrested-mexico-ethan-couch';
 // let url = 'http://www.thesartorialist.com/men/on-the-scene-at-costume-national-milan-2/';
 // let url = 'http://www.thesartorialist.com/milan/on-the-street-via-fogazzaro-milan-15/';
 // let url = 'http://www.thesartorialist.com/photos/on-the-street-astor-place-new-york-11/';
@@ -745,13 +747,13 @@ read(url, options).then(
     if (res.status != 200) return console.error('status:', res.status);
     if (!article) return console.error('Empty article:', article);
 
-    console.log('res:', res); // Response Object from fetchUrl Lib
+    // console.log('res:', res); // Response Object from fetchUrl Lib
     console.log('contentType:', res.responseHeaders['content-type']);
 
-    console.log('dom:', article.dom); // DOM
+    // console.log('dom:', article.dom); // DOM
     console.log('title:', article.title); // Title
     console.log('desc:', article.getDesc(300)); // Description Article
-    article.images.then(images => console.log('images:', images)); // Article's Images
+    // article.images.then(images => console.log('images:', images)); // Article's Images
 
     fs.writeFile('article.html', article.html, err => { // HTML Source Code
       if (err) return console.error('error:', err);
@@ -764,7 +766,7 @@ read(url, options).then(
 
     const sources = [
       { selector: 'script[src]', attr: 'async', val: 'async' },
-      { selector: 'link[rel="stylesheet"]', attr: 'href', tag: 'style' }
+      { selector: 'link[rel="stylesheet"][media!="print"]', attr: 'href', tag: 'style' }
     ];
     article.getHtmls(sources).then(
       htmls => { // HTML Source Code by replace css files
@@ -775,16 +777,16 @@ read(url, options).then(
       }
     );
 
-    article.iframes.then(
-      iframes => { // Article's Iframes
-        iframes.forEach((iframe, index) => {
-          fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
-            if (err) return console.error('error:', err);
-            console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
-          });
-        });
-      }
-    );
+    // article.iframes.then(
+    //   iframes => { // Article's Iframes
+    //     iframes.forEach((iframe, index) => {
+    //       fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
+    //         if (err) return console.error('error:', err);
+    //         console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
+    //       });
+    //     });
+    //   }
+    // );
   },
   err => console.error(err)
 );

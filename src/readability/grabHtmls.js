@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:43:37
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 22:20:53
+* @Last Modified time: 2016-01-04 15:01:12
 */
 'use strict';
 
@@ -68,7 +68,7 @@ const replaceUrl = (url, node, tag) => {
       } else if (!buf) {
         logger.error('fetch url[%s] Empty body', url);
       }
-      if (buf) {
+      if (buf && buf.toString().indexOf('@import url') == -1) {
         node.replaceWith(S(buf).wrapHTML(tag).s);
       }
       resolve();
