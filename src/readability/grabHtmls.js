@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:43:37
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-04 15:01:12
+* @Last Modified time: 2016-01-08 13:39:33
 */
 'use strict';
 
@@ -31,14 +31,20 @@ const cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of
  */
 const S = require('string');
 
+const helpers = require('./helpers');
+
 /**
  *  grab tht article html's for sources
  *  @param Root Element
  *  @param []
+ *  @param string
+ *  @param object
  *  @return Promise
  */
-const grabHtmls = (html, sources) => {
+const grabHtmls = (html, sources, base, options) => {
   const $ = cheerio.load(html, { normalizeWhitespace: true });
+  helpers.setImageSrc($, options); // Set the src attribute of the images or other tags for use
+  helpers.fixLinks($, base, options); // Converts relative urls to absolute for images and links
   const promises = [];
   if (sources) {
     for (let source of sources) {

@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:05:54
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-14 15:18:01
+* @Last Modified time: 2016-01-08 13:38:18
 */
 'use strict';
 
@@ -99,7 +99,7 @@ module.exports = class {
   }
 
   getHtmls(sources) { // 获取网页源代码(自定义替换属性)
-    return grabHtmls(this.html, sources);
+    return grabHtmls(this.html, sources, this.url, this.options);
   }
 
   get iframes() { // 获取文章内嵌内容

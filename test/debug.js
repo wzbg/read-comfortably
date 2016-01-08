@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-04 15:02:10
+* @Last Modified time: 2016-01-08 13:41:21
 */
 'use strict';
 
@@ -81,6 +81,7 @@ const read = require('../src/read');
 // let url = 'http://deals.kinja.com/saturdays-best-deals-19-bias-light-fitbit-charge-hr-1728903187';
 // let url = 'http://deals.kinja.com/sundays-best-deals-macbook-pro-new-iphone-cases-chea-1729024222';
 // let url = 'http://deals.kinja.com/this-labor-day-fitbit-deal-will-get-your-heart-pumping-1728865378';
+// let url = 'https://dribbble.com/shots/184921-Graphics-editor-icons';
 // let url = 'http://edition.cnn.com/2015/08/13/travel/korea-food-map/index.html/';
 // let url = 'http://espn.go.com/espnw/video/12795108/how-marsden-made-it';
 // let url = 'http://food52.com/blog/13993-9-sunny-recipes-for-an-end-of-summer-dinner';
@@ -117,6 +118,7 @@ const read = require('../src/read');
 // let url = 'http://mentalfloss.com/us/go/68322';
 // let url = 'http://mentalfloss.com/us/go/72086#st_refDomain=&st_refQuery=';
 // let url = 'http://money.cnn.com/2015/10/04/technology/jack-ma-painting-charity-sothebys/';
+// let url = 'http://mp.weixin.qq.com/s?__biz=MjM5NTgzOTQ3Mw==&mid=401163174&idx=1&sn=ffe028a3c7430c7e2abe662927dbf109&scene=0#wechat_redirect';
 // let url = 'http://news.moviefone.com/2015/08/27/best-summer-movies-all-time-ranked/';
 // let url = 'http://news.moviefone.com/2015/10/26/top-10-channing-tatum-performances/';
 // let url = 'http://news.moviefone.com/2015/10/27/best-of-late-night-tv-mike-tysons-drake-dance-moves/';
