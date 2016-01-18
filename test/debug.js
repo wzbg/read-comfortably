@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-08 13:41:21
+* @Last Modified time: 2016-01-11 17:11:33
 */
 'use strict';
 
@@ -99,6 +99,7 @@ const read = require('../src/read');
 // let url = 'http://hypebeast.com/2015/8/banksy-talks-dismaland-and-contemporary-art';
 // let url = 'http://hypebeast.com/2015/9/pink-dolphin-lookbook-keith-ape';
 // let url = 'http://insidescoopsf.sfgate.com/blog/2015/08/18/our-favorite-restaurants-to-eat-for-cheap-around-uc-berkeley/';
+// let url = 'http://io9.gizmodo.com/rip-david-bowie-the-musician-who-changed-science-ficti-1752187018';
 // let url = 'http://jezebel.com/mindy-kalings-gross-body-brings-her-a-lot-of-happiness-1728904957';
 // let url = 'http://lifehacker.com/what-to-do-when-you-envy-a-coworker-1682581675';
 // let url = 'http://live.theverge.com/live-microsoft-ifa-berlin-2015/';
@@ -294,6 +295,7 @@ const read = require('../src/read');
 // let url = 'http://www.huffingtonpost.com/lisa-copeland/dating-mistakes-women-over-50-make_b_8055148.html';
 // let url = 'http://www.huffingtonpost.com/matthew-dietrich/watch-illinois-bill-backl_b_8135330.html';
 // let url = 'http://www.huffingtonpost.com/sebastian-matthes/volkswagen-from-star-pupil-to-con-artist_b_8193682.html';
+// let url = 'http://www.ibtimes.com/north-korea-releases-video-successful-submarine-launched-ballistic-missile-test-2257807';
 // let url = 'http://www.indiewire.com/article/how-can-middle-class-filmmakers-make-a-living-20151026';
 // let url = 'http://www.indiewire.com/article/margaret-meade-film-festival-announces-2015-filmmaker-award-winners-20151026';
 // let url = 'http://www.juxtapoz.com/illustration/the-surreal-world-of-fabien-merelle';

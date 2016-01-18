@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:43:37
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-08 13:39:33
+* @Last Modified time: 2016-01-18 23:10:23
 */
 'use strict';
 
@@ -66,8 +66,9 @@ const grabHtmls = (html, sources, base, options) => {
 };
 
 const replaceUrl = (url, node, tag) => {
+  logger.info('replace url:', url);
   return new Promise(resolve => {
-    fetchUrl(url).then(result => {
+    fetchUrl(url, { timeout: 60000 }).then(result => {
       const { res, buf } = result;
       if (res.status != 200) {
         logger.error('fetch url[%s] status:', url, res.status);

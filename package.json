@@ -1,6 +1,6 @@
 {
   "name": "read-comfortably",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "turns any web page into a clean view for reading",
   "main": "src/read.js",
   "scripts": {
