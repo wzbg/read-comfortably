@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 18:38:43
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-06 02:37:13
+* @Last Modified time: 2016-01-19 18:41:28
 */
 'use strict';
 
@@ -112,7 +112,7 @@ const setImageSrc = module.exports.setImageSrc = ($, options) => {
     let url, use, img = $(element);
     const isImg = element.name == 'img';
     for (use of options.maybeImgsAttr) {
-      if (isImageUrl(img.attr(use), isImg)) {
+      if (isImageUrl(img.attr(use), isImg, options.setImgTimeout)) {
         url = img.attr(use);
         break;
       }

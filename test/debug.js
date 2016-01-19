@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-11 17:11:33
+* @Last Modified time: 2016-01-19 18:49:04
 */
 'use strict';
 
@@ -115,6 +115,7 @@ const read = require('../src/read');
 // let url = 'http://mashable.com/2015/11/11/best-patrick-stewart-tweets/';
 // let url = 'http://mentalfloss.com/article/68033/what-english-sounds-non-english-speakers';
 // let url = 'http://mentalfloss.com/article/60365/20-eye-opening-facts-about-eyes-wide-shut';
+let url = 'http://mentalfloss.com/article/73805/how-make-flashlight-runs-water';
 // let url = 'http://mentalfloss.com/node/68242/take';
 // let url = 'http://mentalfloss.com/us/go/68322';
 // let url = 'http://mentalfloss.com/us/go/72086#st_refDomain=&st_refQuery=';
@@ -298,6 +299,7 @@ const read = require('../src/read');
 // let url = 'http://www.ibtimes.com/north-korea-releases-video-successful-submarine-launched-ballistic-missile-test-2257807';
 // let url = 'http://www.indiewire.com/article/how-can-middle-class-filmmakers-make-a-living-20151026';
 // let url = 'http://www.indiewire.com/article/margaret-meade-film-festival-announces-2015-filmmaker-award-winners-20151026';
+// let url = 'http://www.jikexueyuan.com/course/26_5.html?ss=1';
 // let url = 'http://www.juxtapoz.com/illustration/the-surreal-world-of-fabien-merelle';
 // let url = 'http://www.macrumors.com/2015/09/20/samsung-smartphone-leasing-program-rumor/';
 // let url = 'http://www.mensfitness.com/life/entertainment/fit-fix-chipotle-temporarily-closes-restaurants-after-e-coli-outbreak';
@@ -737,6 +739,7 @@ const options = {
   nodesToRemove: nodesToRemove,
   noChdToRemove: noChdToRemove,
   // cookieJar: cookies
+  setImgTimeout: 3000
 };
 if (urlprocess) options.urlprocess = urlprocess;
 if (preprocess) options.preprocess = preprocess;
@@ -757,7 +760,7 @@ read(url, options).then(
     // console.log('dom:', article.dom); // DOM
     console.log('title:', article.title); // Title
     console.log('desc:', article.getDesc(300)); // Description Article
-    // article.images.then(images => console.log('images:', images)); // Article's Images
+    article.images.then(images => console.log('images:', images)); // Article's Images
 
     fs.writeFile('article.html', article.html, err => { // HTML Source Code
       if (err) return console.error('error:', err);
@@ -781,16 +784,16 @@ read(url, options).then(
       }
     );
 
-    // article.iframes.then(
-    //   iframes => { // Article's Iframes
-    //     iframes.forEach((iframe, index) => {
-    //       fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
-    //         if (err) return console.error('error:', err);
-    //         console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
-    //       });
-    //     });
-    //   }
-    // );
+    article.iframes.then(
+      iframes => { // Article's Iframes
+        iframes.forEach((iframe, index) => {
+          fs.writeFile('iframe/' + index + '.html', iframe.buf, err => {
+            if (err) return console.error('error:', err);
+            console.log('%s(%d) is saved!', iframe.url, index, new Date() - start);
+          });
+        });
+      }
+    );
   },
   err => console.error(err)
 );

@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 18:10:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 22:26:24
+* @Last Modified time: 2016-01-19 19:05:25
 */
 'use strict';
 
@@ -59,7 +59,8 @@ const grabIframes = (node, $, options) => {
  *  @return Promise
  */
 const grabIframe = url => {
-  const iframe = { url };
+  const iframe = { url, isVideo: url.search(regexps.videoRe) != -1 };
+  if (iframe.isVideo) return Promise.resolve(iframe);
   return new Promise(resolve => {
     fetchUrl(url).then(result => {
       const { res, buf } = result;
@@ -72,7 +73,6 @@ const grabIframe = url => {
       if (res && res.responseHeaders) {
         iframe.ifmType = res.responseHeaders['content-type'];
       }
-      iframe.isVideo = url.search(regexps.videoRe) != -1;
       if (!isImageUrl(url) && !isPdf(buf)) {
         const $ = cheerio.load(buf, { normalizeWhitespace: true });
         helpers.setImageSrc($, options);
