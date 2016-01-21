@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-19 18:49:04
+* @Last Modified time: 2016-01-21 16:45:13
 */
 'use strict';
 
@@ -13,6 +13,7 @@ const fetchUrl = fetch.fetchUrl;
 const read = require('../src/read');
 
 // let url = 'https://blog.adafruit.com/2015/06/17/horses-get-blinky-rainbow-tails-wearablewednesday/';
+// let url = 'https://dribbble.com/shots/184921-Graphics-editor-icons';
 // let url = 'https://hbr.org/2015/10/assessment-does-your-team-think-digitally';
 // let url = 'https://hbr.org/2015/10/a-simple-graph-explains-the-complex-logic-of-the-big-beer-merger';
 // let url = 'https://hbr.org/product/if-you-really-want-to-change-the-world-a-guide-to-creating-building-and-sustaining-breakthrough-ventures/14235E-KND-ENG';
@@ -81,7 +82,6 @@ const read = require('../src/read');
 // let url = 'http://deals.kinja.com/saturdays-best-deals-19-bias-light-fitbit-charge-hr-1728903187';
 // let url = 'http://deals.kinja.com/sundays-best-deals-macbook-pro-new-iphone-cases-chea-1729024222';
 // let url = 'http://deals.kinja.com/this-labor-day-fitbit-deal-will-get-your-heart-pumping-1728865378';
-// let url = 'https://dribbble.com/shots/184921-Graphics-editor-icons';
 // let url = 'http://edition.cnn.com/2015/08/13/travel/korea-food-map/index.html/';
 // let url = 'http://espn.go.com/espnw/video/12795108/how-marsden-made-it';
 // let url = 'http://food52.com/blog/13993-9-sunny-recipes-for-an-end-of-summer-dinner';
@@ -115,7 +115,7 @@ const read = require('../src/read');
 // let url = 'http://mashable.com/2015/11/11/best-patrick-stewart-tweets/';
 // let url = 'http://mentalfloss.com/article/68033/what-english-sounds-non-english-speakers';
 // let url = 'http://mentalfloss.com/article/60365/20-eye-opening-facts-about-eyes-wide-shut';
-let url = 'http://mentalfloss.com/article/73805/how-make-flashlight-runs-water';
+// let url = 'http://mentalfloss.com/article/73805/how-make-flashlight-runs-water';
 // let url = 'http://mentalfloss.com/node/68242/take';
 // let url = 'http://mentalfloss.com/us/go/68322';
 // let url = 'http://mentalfloss.com/us/go/72086#st_refDomain=&st_refQuery=';
@@ -296,6 +296,7 @@ let url = 'http://mentalfloss.com/article/73805/how-make-flashlight-runs-water';
 // let url = 'http://www.huffingtonpost.com/lisa-copeland/dating-mistakes-women-over-50-make_b_8055148.html';
 // let url = 'http://www.huffingtonpost.com/matthew-dietrich/watch-illinois-bill-backl_b_8135330.html';
 // let url = 'http://www.huffingtonpost.com/sebastian-matthes/volkswagen-from-star-pupil-to-con-artist_b_8193682.html';
+let url = 'http://www.ibtimes.com/magnitude-64-earthquake-rattles-northwest-china-homes-damaged-no-casualties-reported-2273993';
 // let url = 'http://www.ibtimes.com/north-korea-releases-video-successful-submarine-launched-ballistic-missile-test-2257807';
 // let url = 'http://www.indiewire.com/article/how-can-middle-class-filmmakers-make-a-living-20151026';
 // let url = 'http://www.indiewire.com/article/margaret-meade-film-festival-announces-2015-filmmaker-award-winners-20151026';
