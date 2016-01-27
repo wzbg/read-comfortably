@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:02:46
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-16 11:27:03
+* @Last Modified time: 2016-01-27 15:43:39
 */
 'use strict';
 
@@ -237,7 +237,9 @@ const getArticleContent = (topCandidate, $, options) => {
   if (topCandidateClass && parentNodeClass && !topCandidateClass.search(parentNodeClass.trim())) return getArticleContent(parentNode, $, options);
   const siblingNodes = parentNode.children();
   logger.trace('siblingNodes:', siblingNodes);
-  if (siblingNodes.length == 1 && parentNode.get(0).name != 'body') return getArticleContent(parentNode, $, options);
+  let notHeaderCount = 0;
+  siblingNodes.each((index, element) => { if (element.name != 'header') notHeaderCount++; });
+  if (notHeaderCount == 1 && parentNode.get(0).name != 'body') return getArticleContent(parentNode, $, options);
   if (!options.nodesToAppend) options.nodesToAppend = ['p']; // default nodesToAppend
   const articleContent = $('<div id="readability-content"></div>');
   siblingNodes.each((index, element) => {

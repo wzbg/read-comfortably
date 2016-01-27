@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-21 16:45:13
+* @Last Modified time: 2016-01-27 15:45:57
 */
 'use strict';
 
@@ -10,10 +10,13 @@ const fs = require('fs');
 const S = require('string');
 const fetch = require('fetch');
 const fetchUrl = fetch.fetchUrl;
+const languageMonitor = require('language-monitor');
+
 const read = require('../src/read');
 
 // let url = 'https://blog.adafruit.com/2015/06/17/horses-get-blinky-rainbow-tails-wearablewednesday/';
 // let url = 'https://dribbble.com/shots/184921-Graphics-editor-icons';
+// let url = 'https://en.wikipedia.org/wiki/Mercury_(planet)';
 // let url = 'https://hbr.org/2015/10/assessment-does-your-team-think-digitally';
 // let url = 'https://hbr.org/2015/10/a-simple-graph-explains-the-complex-logic-of-the-big-beer-merger';
 // let url = 'https://hbr.org/product/if-you-really-want-to-change-the-world-a-guide-to-creating-building-and-sustaining-breakthrough-ventures/14235E-KND-ENG';
@@ -27,6 +30,8 @@ const read = require('../src/read');
 // let url = 'https://instagram.com/p/7UgUy7KTVw/';
 // let url = 'https://instagram.com/p/7XF-4XqTV6/';
 // let url = 'https://instagram.com/p/8Az3iZKTQ3/';
+// let url = 'https://instagram.com/p/BA4qaHjtELr/embed/';
+// let url = 'https://instagram.com/p/BA4qX_5OXIx/embed/';
 // let url = 'https://medium.com/@rchang/my-two-year-journey-as-a-data-scientist-at-twitter-f0c13298aee6';
 // let url = 'https://roadtrippers.com/stories/welcome-to-chloride-ghost-town-arizonas-most-offbeat-roadside-attraction?lat=40.83044&#x26;lng=-96.70166&#x26;z=5';
 // let url = 'https://techcrunch.com/2015/10/27/senate-passes-cybersecurity-threat-sharing-bill-that-tech-hates/';
@@ -50,6 +55,7 @@ const read = require('../src/read');
 // let url = 'https://www.kickstarter.com/projects/jessicafeinberg/ice-dragons-and-arctic-creatures-playing-cards-and?ref=popular';
 // let url = 'https://www.kickstarter.com/projects/tunaandtherockcats/the-acro-cats-mobile-foster-and-kitty-tour-bus?ref=home_popular';
 // let url = 'https://www.linkedin.com/pulse/nature-things-mickey-mcmanus';
+// let url = 'https://www.techinasia.com/shanghai-will-start-compensating-vcs-for-their-losses';
 // let url = 'https://www.washingtonpost.com/rweb/sports/bulls-show-off-their-style-in-a-constiety-of-ways/2015/11/06/73c7754b1515e6f15921910918ea7a7c_story.html';
 // let url = 'https://www.youtube.com/watch?v=BTsLaETuyss';
 // let url = 'https://www.youtube.com/watch?v=CMTpvr9HXeI';
@@ -101,6 +107,7 @@ const read = require('../src/read');
 // let url = 'http://insidescoopsf.sfgate.com/blog/2015/08/18/our-favorite-restaurants-to-eat-for-cheap-around-uc-berkeley/';
 // let url = 'http://io9.gizmodo.com/rip-david-bowie-the-musician-who-changed-science-ficti-1752187018';
 // let url = 'http://jezebel.com/mindy-kalings-gross-body-brings-her-a-lot-of-happiness-1728904957';
+// let url = 'http://www.lifehack.org/356020/8-ways-talk-like-native-and-why-dont-need';
 // let url = 'http://lifehacker.com/what-to-do-when-you-envy-a-coworker-1682581675';
 // let url = 'http://live.theverge.com/live-microsoft-ifa-berlin-2015/';
 // let url = 'http://mashable.com/2015/08/31/back-to-school-1938/';
@@ -113,6 +120,7 @@ const read = require('../src/read');
 // let url = 'http://mashable.com/2015/10/09/skunk-caretaker-masterful-prank/';
 // let url = 'http://mashable.com/2015/10/13/bernie-sanders-debate-tweets/';
 // let url = 'http://mashable.com/2015/11/11/best-patrick-stewart-tweets/';
+// let url = 'http://mashable.com/2016/01/23/dogs-in-snow/';
 // let url = 'http://mentalfloss.com/article/68033/what-english-sounds-non-english-speakers';
 // let url = 'http://mentalfloss.com/article/60365/20-eye-opening-facts-about-eyes-wide-shut';
 // let url = 'http://mentalfloss.com/article/73805/how-make-flashlight-runs-water';
@@ -296,7 +304,7 @@ const read = require('../src/read');
 // let url = 'http://www.huffingtonpost.com/lisa-copeland/dating-mistakes-women-over-50-make_b_8055148.html';
 // let url = 'http://www.huffingtonpost.com/matthew-dietrich/watch-illinois-bill-backl_b_8135330.html';
 // let url = 'http://www.huffingtonpost.com/sebastian-matthes/volkswagen-from-star-pupil-to-con-artist_b_8193682.html';
-let url = 'http://www.ibtimes.com/magnitude-64-earthquake-rattles-northwest-china-homes-damaged-no-casualties-reported-2273993';
+// let url = 'http://www.ibtimes.com/magnitude-64-earthquake-rattles-northwest-china-homes-damaged-no-casualties-reported-2273993';
 // let url = 'http://www.ibtimes.com/north-korea-releases-video-successful-submarine-launched-ballistic-missile-test-2257807';
 // let url = 'http://www.indiewire.com/article/how-can-middle-class-filmmakers-make-a-living-20151026';
 // let url = 'http://www.indiewire.com/article/margaret-meade-film-festival-announces-2015-filmmaker-award-winners-20151026';
@@ -366,6 +374,7 @@ let url = 'http://www.ibtimes.com/magnitude-64-earthquake-rattles-northwest-chin
 // let url = 'http://www.vogue.com/13330506/top-ten-90s-heartthrobs/';
 // let url = 'http://www.washingtonpost.com/rweb/biz/the-most-popular-type-of-home-in-every-major-us-city/2015/09/21/b548ac8e07d1712f43e8ebc876002c6b_story.html';
 // let url = 'http://www.wired.com/2015/08/reaction-housing-exo-shelter/';
+let url = 'http://www.wired.com/2016/01/platinum-games-tmnt/'
 // let url = 'http://www.wired.co.uk/magazine/archive/2015/12/features/pixar-embraces-crisis-the-good-dinosaur';
 // let url = 'http://www.wired.co.uk/magazine/stars-wars-the-force-awakens';
 // let url = 'http://www.wired.co.uk/news/archive/2015-10/30/china-one-child-policy-in-numbers';
@@ -469,6 +478,12 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 
 // postprocess = (content, $) => { // fastcoexist.com fastcocreate.com fastcompany.com
 //   const header = $('section#page-jumbotron');
+//   if (!header || !header.length) return;
+//   content.prepend(header);
+// };
+
+// postprocess = (content, $) => { // lifehack.org
+//   const header = $('figure.poster');
 //   if (!header || !header.length) return;
 //   content.prepend(header);
 // };
@@ -630,6 +645,7 @@ const nodesToRemove = [ // 需要删除的标签
   'div.article-sidebar', // avclub.com
   'div.cnt-page-header', // cntraveler.com
   'div.content__header', // theguardian.com
+  'div.meta-footer-dig', // wired.com
   'div.panes-container', // huffingtonpost.com
   'div.announcement-bar', // techcrunch.com
   'div.fyre-post-button', // timeout.com
@@ -760,16 +776,22 @@ read(url, options).then(
 
     // console.log('dom:', article.dom); // DOM
     console.log('title:', article.title); // Title
-    console.log('desc:', article.getDesc(300)); // Description Article
-    article.images.then(images => console.log('images:', images)); // Article's Images
+    // console.log('desc:', article.getDesc(300)); // Description Article
+    // article.images.then(images => console.log('images:', images)); // Article's Images
 
     fs.writeFile('article.html', article.html, err => { // HTML Source Code
       if (err) return console.error('error:', err);
       console.log('article(%d) is saved!', article.html.length, new Date() - start);
     });
-    fs.writeFile('content.html', article.content, err => { // Main Article
+
+    const content = article.content;
+    // let text = S(content).stripTags().decodeHTMLEntities().trim();
+    // const languages = languageMonitor(text);
+    // console.log('languages:', languages);
+
+    fs.writeFile('content.html', content, err => { // Main Article
       if (err) return console.error('error:', err);
-      console.log('content(%d) is saved!', article.content.length, new Date() - start);
+      console.log('content(%d) is saved!', content.length, new Date() - start);
     });
 
     const sources = [
