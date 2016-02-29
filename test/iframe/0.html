@@ -1,1 +1,40 @@
-undefined
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><base target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><iframe src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7GO9UV02eIc%3Ffeature%3Doembed&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7GO9UV02eIc&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7GO9UV02eIc%2Fhqdefault.jpg&amp;key=d04bfffea46d4aeda930ec88cc64b87c&amp;type=text%2Fhtml&amp;schema=youtube" width="700" height="393" frameborder="0" scrolling="no"></iframe><script>var handlingOwnSize = false;
+function setSizeFromModel(width, height) {
+if (handlingOwnSize) return;
+var iframe = document.querySelector("iframe");
+iframe.setAttribute("width", width);
+iframe.setAttribute("height", height);
+}
+function adjustSize() {
+var originalWidth =  700 ;
+var originalHeight =  393 ;
+var width = document.body.offsetWidth;
+setSizeFromModel(width, width * originalHeight / originalWidth);}
+function handleMessage(event) {
+if (!event.data || (typeof event.data != 'string')) {
+return false;
+}
+var data;
+try {
+data = JSON.parse(event.data);
+} catch (e) {
+console.error(e);
+return false;
+}
+var iframe = document.querySelector('iframe');
+if (!iframe || data.context !== 'iframe.resize') {
+return false;
+}
+handlingOwnSize = true;
+if (data.height) {
+iframe.height = data.height;
+}
+if (data.width) {
+iframe.width = data.width;
+}
+if (parent && parent._resizeIframe) {
+parent._resizeIframe(window.frameElement);
+}
+}; window.onresize = adjustSize;
+window.onload = adjustSize;
+window.addEventListener('message', handleMessage)</script></body></html>

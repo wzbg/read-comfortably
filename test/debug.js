@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-27 15:45:57
+* @Last Modified time: 2016-02-29 14:39:10
 */
 'use strict';
 
@@ -32,6 +32,7 @@ const read = require('../src/read');
 // let url = 'https://instagram.com/p/8Az3iZKTQ3/';
 // let url = 'https://instagram.com/p/BA4qaHjtELr/embed/';
 // let url = 'https://instagram.com/p/BA4qX_5OXIx/embed/';
+let url = 'https://medium.com/@mitchellharper/this-is-how-you-identify-a-players-in-about-10-minutes-during-an-interview-58cce68667cb';
 // let url = 'https://medium.com/@rchang/my-two-year-journey-as-a-data-scientist-at-twitter-f0c13298aee6';
 // let url = 'https://roadtrippers.com/stories/welcome-to-chloride-ghost-town-arizonas-most-offbeat-roadside-attraction?lat=40.83044&#x26;lng=-96.70166&#x26;z=5';
 // let url = 'https://techcrunch.com/2015/10/27/senate-passes-cybersecurity-threat-sharing-bill-that-tech-hates/';
@@ -142,6 +143,7 @@ const read = require('../src/read');
 // let url = 'http://researchcenter.paloaltonetworks.com/2015/09/novel-malware-xcodeghost-modifies-xcode-infects-apple-ios-apps-and-hits-app-store/';
 // let url = 'http://smittenkitchen.com/blog/2015/02/perfect-corn-muffins/';
 // let url = 'http://space.io9.com/in-space-yesterdays-coffee-is-todays-coffee-1728034023';
+// let url = 'http://sspai.com/32698';
 // let url = 'http://techcrunch.com/2015/08/25/youtube-gaming-its-twitch-competitor-set-to-launch-tomorrow/#.s1vcuu:j64V';
 // let url = 'http://techcrunch.com/2015/09/07/sign-up-for-another-chance-to-get-two-for-one-tickets-to-disrupt-london/';
 // let url = 'http://techcrunch.com/2015/09/07/strangers-on-a-train/';
@@ -374,7 +376,7 @@ const read = require('../src/read');
 // let url = 'http://www.vogue.com/13330506/top-ten-90s-heartthrobs/';
 // let url = 'http://www.washingtonpost.com/rweb/biz/the-most-popular-type-of-home-in-every-major-us-city/2015/09/21/b548ac8e07d1712f43e8ebc876002c6b_story.html';
 // let url = 'http://www.wired.com/2015/08/reaction-housing-exo-shelter/';
-let url = 'http://www.wired.com/2016/01/platinum-games-tmnt/'
+// let url = 'http://www.wired.com/2016/01/platinum-games-tmnt/';
 // let url = 'http://www.wired.co.uk/magazine/archive/2015/12/features/pixar-embraces-crisis-the-good-dinosaur';
 // let url = 'http://www.wired.co.uk/magazine/stars-wars-the-force-awakens';
 // let url = 'http://www.wired.co.uk/news/archive/2015-10/30/china-one-child-policy-in-numbers';
@@ -499,6 +501,12 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 //   content.prepend(header);
 // };
 
+postprocess = (content, $) => { // sspai.com
+  const header = $('div.banner');
+  if (!header || !header.length) return;
+  content.prepend(header);
+};
+
 // postprocess = (content, $) => { // uncrate.com
 //   const header = $('div.article-single div.image-wrapper');
 //   if (!header || !header.length) return;
@@ -617,8 +625,9 @@ const nodesToRemove = [ // 需要删除的标签
   'div.right_rail', // menshealth.com
   'div.right-side', // indiewire.com
   'div.th-reverse', // engadget.com
-  'div.buttonGroup', // 按钮组
   'div.bn-mo-tests', // 测试模块
+  'div.box-gapless', // sspai.com
+  'div.buttonGroup', // 按钮组
   'div.itemRelated', // 相关文章
   'div.ks-see-also', // 也可以看看
   'div.most-shared', // 大多数分享
