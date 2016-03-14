@@ -1,6 +1,6 @@
 {
   "name": "read-comfortably",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "turns any web page into a clean view for reading",
   "main": "src/read.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "is-image-url": "^1.1.8",
     "is-pdf": "^1.0.0",
     "is-url": "^1.2.1",
-    "log4js": "^0.6.29",
+    "log4js": "^0.6.33",
     "string": "^3.3.1"
   }
 }

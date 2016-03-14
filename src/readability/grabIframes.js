@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 18:10:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-19 19:05:25
+* @Last Modified time: 2016-03-14 11:39:41
 */
 'use strict';
 
@@ -27,6 +27,7 @@ logger.setLevel('FATAL');
 const fetchUrl = require('fetch-promise');
 const cheerio = require('cheerio'); // Tiny, fast, and elegant implementation of core jQuery designed specifically for the server.
 const isPdf = require('is-pdf'); // Check if a Buffer/Uint8Array is a 7ZIP file.
+const isUrl = require('is-url'); // Check whether a string is a URL.
 const isImageUrl = require('is-image-url'); // Check if a url is an image.
 
 const grabImages = require('./grabImages');
@@ -46,7 +47,9 @@ const grabIframes = (node, $, options) => {
   const promises = [];
   ifms.each((index, element) => {
     const url = $(element).attr('src');
-    promises.push(grabIframe(url));
+    if (isUrl(url)) {
+      promises.push(grabIframe(url));
+    }
   });
   return new Promise(resolve => Promise.all(promises).then(iframes => resolve(iframes)));
 };

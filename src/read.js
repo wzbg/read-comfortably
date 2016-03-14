@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 05:31:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2015-12-27 20:23:26
+* @Last Modified time: 2016-03-14 11:27:58
 */
 'use strict';
 
@@ -48,7 +48,8 @@ const getUrlHtml = (url, options) => {
         const { res: newRes, buf: newBuf } = result;
         const newArticle = getArticle(newBuf, newRes.finalUrl, options);
         if (!article || article.content.length < newArticle.content.length) {
-          article = newArticle; res = newRes;
+          article = newArticle;
+          res = newRes;
         }
       }
       resolve({ res, article });

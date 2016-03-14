@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-02-29 14:39:10
+* @Last Modified time: 2016-03-14 11:35:53
 */
 'use strict';
 
@@ -32,7 +32,7 @@ const read = require('../src/read');
 // let url = 'https://instagram.com/p/8Az3iZKTQ3/';
 // let url = 'https://instagram.com/p/BA4qaHjtELr/embed/';
 // let url = 'https://instagram.com/p/BA4qX_5OXIx/embed/';
-let url = 'https://medium.com/@mitchellharper/this-is-how-you-identify-a-players-in-about-10-minutes-during-an-interview-58cce68667cb';
+// let url = 'https://medium.com/@mitchellharper/this-is-how-you-identify-a-players-in-about-10-minutes-during-an-interview-58cce68667cb';
 // let url = 'https://medium.com/@rchang/my-two-year-journey-as-a-data-scientist-at-twitter-f0c13298aee6';
 // let url = 'https://roadtrippers.com/stories/welcome-to-chloride-ghost-town-arizonas-most-offbeat-roadside-attraction?lat=40.83044&#x26;lng=-96.70166&#x26;z=5';
 // let url = 'https://techcrunch.com/2015/10/27/senate-passes-cybersecurity-threat-sharing-bill-that-tech-hates/';
@@ -178,6 +178,7 @@ let url = 'https://medium.com/@mitchellharper/this-is-how-you-identify-a-players
 // let url = 'http://venturebeat.com/2015/08/30/why-i-just-moved-from-silicon-valley-to-ohio/';
 // let url = 'http://venturebeat.com/2015/09/05/why-the-new-apple-tv-could-be-the-most-revolutionary-apple-product-in-years/';
 // let url = 'http://venturebeat.com/2015/09/22/kakao-unveils-new-ceo-and-logo-in-bid-for-fresh-start-as-whatsapp-wechat-dominate/';
+// let url = 'http://wandou.im/1kw1t7';
 
 // let url = 'http://www.apppicker.com/applists/4620/the-best-video-editing-apps-for-iphone';
 // let url = 'http://www.arkinspace.com/2015/08/the-astonishing-eggs-of-alien-nations.html';
@@ -261,6 +262,7 @@ let url = 'https://medium.com/@mitchellharper/this-is-how-you-identify-a-players
 // let url = 'http://www.dezeen.com/2015/09/09/apple-and-hermes-unveil-apple-watch-collection-with-handcrafted-leather-straps/';
 // let url = 'http://www.dezeen.com/2015/09/23/seung-h-sang-mountain-hyunama-house-pre-rusted-steel-south-korea-woodland/';
 // let url = 'http://www.dezeen.com/2015/11/06/australian-national-architecture-awards-2015-winners/';
+let url = 'http://www.economist.com/technology-quarterly/2016-03-12/after-moores-law#section-5?frsc=dg%7Cd';
 // let url = 'http://www.engadget.com/2015/07/15/japans-first-robot-staffed-hotel/?%3Fncid=rss_full';
 // let url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
 // let url = 'http://www.engadget.com/2015/08/26/obi-worldphones/?ncid=rss_semi';
@@ -501,11 +503,11 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 //   content.prepend(header);
 // };
 
-postprocess = (content, $) => { // sspai.com
-  const header = $('div.banner');
-  if (!header || !header.length) return;
-  content.prepend(header);
-};
+// postprocess = (content, $) => { // sspai.com
+//   const header = $('div.banner');
+//   if (!header || !header.length) return;
+//   content.prepend(header);
+// };
 
 // postprocess = (content, $) => { // uncrate.com
 //   const header = $('div.article-single div.image-wrapper');
@@ -788,10 +790,10 @@ read(url, options).then(
     // console.log('desc:', article.getDesc(300)); // Description Article
     // article.images.then(images => console.log('images:', images)); // Article's Images
 
-    fs.writeFile('article.html', article.html, err => { // HTML Source Code
-      if (err) return console.error('error:', err);
-      console.log('article(%d) is saved!', article.html.length, new Date() - start);
-    });
+    // fs.writeFile('article.html', article.html, err => { // HTML Source Code
+    //   if (err) return console.error('error:', err);
+    //   console.log('article(%d) is saved!', article.html.length, new Date() - start);
+    // });
 
     const content = article.content;
     // let text = S(content).stripTags().decodeHTMLEntities().trim();
