@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-03-14 11:35:53
+* @Last Modified time: 2016-03-16 16:32:54
 */
 'use strict';
 
@@ -101,6 +101,7 @@ const read = require('../src/read');
 // let url = 'http://gizmodo.com/curl-up-this-winter-with-five-straight-hours-of-a-burni-1748183283';
 // let url = 'http://gizmodo.com/earths-oceans-could-look-completely-different-by-the-en-1728808399';
 // let url = 'http://gizmodo.com/this-nyc-skyscraper-design-is-like-the-chrysler-buildin-1747445141';
+let url = 'http://greatist.com/live/insomnia-cures-what-to-do-after-a-bad-night-of-sleep';
 // let url = 'http://gizmodo.com/why-one-random-web-address-can-crash-chrome-1732731055';
 // let url = 'http://helloseed.io/index.php/2015/11/24/seedinstrux/';
 // let url = 'http://hypebeast.com/2015/8/banksy-talks-dismaland-and-contemporary-art';
@@ -262,7 +263,7 @@ const read = require('../src/read');
 // let url = 'http://www.dezeen.com/2015/09/09/apple-and-hermes-unveil-apple-watch-collection-with-handcrafted-leather-straps/';
 // let url = 'http://www.dezeen.com/2015/09/23/seung-h-sang-mountain-hyunama-house-pre-rusted-steel-south-korea-woodland/';
 // let url = 'http://www.dezeen.com/2015/11/06/australian-national-architecture-awards-2015-winners/';
-let url = 'http://www.economist.com/technology-quarterly/2016-03-12/after-moores-law#section-5?frsc=dg%7Cd';
+// let url = 'http://www.economist.com/technology-quarterly/2016-03-12/after-moores-law#section-5?frsc=dg%7Cd';
 // let url = 'http://www.engadget.com/2015/07/15/japans-first-robot-staffed-hotel/?%3Fncid=rss_full';
 // let url = 'http://www.engadget.com/2015/08/20/the-agonizingly-slow-decline-of-adobe-flash-player/?ncid=rss_semi';
 // let url = 'http://www.engadget.com/2015/08/26/obi-worldphones/?ncid=rss_semi';
