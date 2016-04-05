@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 05:31:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-03-14 11:27:58
+* @Last Modified time: 2016-04-05 12:36:45
 */
 'use strict';
 
@@ -30,9 +30,11 @@ module.exports = (html, options) => {
   }
   const asyncprocess = options.asyncprocess
   if (typeof asyncprocess == 'function') {
-    asyncprocess(html, options)
-      .then(() => getUrlHtml(html, options))
-      .catch(err => getUrlHtml(html, options));
+    return new Promise((resolve, reject) => {
+      asyncprocess(html, options)
+        .then(() => getUrlHtml(html, options).then(res => resolve(res)).catch(err => reject(err)))
+        .catch(err => getUrlHtml(html, options).then(res => resolve(res)).catch(err => reject(err)));
+    });
   }
   return getUrlHtml(html, options);
 };

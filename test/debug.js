@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-03-16 16:32:54
+* @Last Modified time: 2016-04-05 12:15:10
 */
 'use strict';
 
@@ -101,7 +101,7 @@ const read = require('../src/read');
 // let url = 'http://gizmodo.com/curl-up-this-winter-with-five-straight-hours-of-a-burni-1748183283';
 // let url = 'http://gizmodo.com/earths-oceans-could-look-completely-different-by-the-en-1728808399';
 // let url = 'http://gizmodo.com/this-nyc-skyscraper-design-is-like-the-chrysler-buildin-1747445141';
-let url = 'http://greatist.com/live/insomnia-cures-what-to-do-after-a-bad-night-of-sleep';
+// let url = 'http://greatist.com/live/insomnia-cures-what-to-do-after-a-bad-night-of-sleep';
 // let url = 'http://gizmodo.com/why-one-random-web-address-can-crash-chrome-1732731055';
 // let url = 'http://helloseed.io/index.php/2015/11/24/seedinstrux/';
 // let url = 'http://hypebeast.com/2015/8/banksy-talks-dismaland-and-contemporary-art';
@@ -342,6 +342,7 @@ let url = 'http://greatist.com/live/insomnia-cures-what-to-do-after-a-bad-night-
 // let url = 'http://www.nytimes.com/2015/08/20/t-magazine/who-is-marc-jacobs.html';
 // let url = 'http://www.nytimes.com/2015/09/18/travel/chicago-foodseum-kickstarter.html';
 // let url = 'http://www.nytimes.com/2015/09/21/business/a-huge-overnight-increase-in-a-drugs-price-raises-protests.html';
+let url = 'http://www.nytimes.com/2016/04/04/technology/chinas-companies-poised-to-take-leap-in-developing-a-driverless-car.html?ribbon-ad-idx=10';
 // let url = 'http://www.primermagazine.com/2015/learn/pack-like-a-pro-learn-how-we-got-all-this-into-one-carry-on';
 // let url = 'http://www.seriouseats.com/2014/07/best-breakfast-sandwiches-america-usa.html';
 // let url = 'http://www.snagfilms.com/films/title/red_shirley';
@@ -523,22 +524,23 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 //   content.prepend(header);
 // };
 
-// asyncprocess = (url, options, callback) => { // nytimes.com
-//   return new Promise((resolve, reject) => {
-//     fetchUrl(url, (err, res, buf) => {
-//       if (err) return reject(err);
-//       try {
-//         const NYT_S = res.cookieJar.cookies['NYT-S'][0].value;
-//         const cookies = new fetch.CookieJar(); // for sharing cookies between requests
-//         cookies.setCookie('NYT-S=' + NYT_S);
-//         options.cookieJar = cookies;
-//         resolve();
-//       } catch (e) {
-//         reject(e);
-//       }
-//     });
-//   });
-// };
+asyncprocess = (url, options, callback) => { // nytimes.com
+  return new Promise((resolve, reject) => {
+    fetchUrl(url, (err, res, buf) => {
+      if (err) return reject(err);
+      try {
+        console.log('NYT-S:', res.cookieJar.cookies['NYT-S'][0].value)
+        const NYT_S = res.cookieJar.cookies['NYT-S'][0].value;
+        const cookies = new fetch.CookieJar(); // for sharing cookies between requests
+        cookies.setCookie('NYT-S=' + NYT_S);
+        options.cookieJar = cookies;
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
+    });
+  });
+};
 
 // const cookies = new fetch.CookieJar(); // ftalphaville.ft.com
 // cookies.setCookie('FTSession=z0DfoEDB30tE05gc_hy9QUSvzwAAAVCoUhZxwg.MEYCIQCFMa6ib5AVd3F2QLNRNpGUD149D8FIom6j1zBmGZk1VgIhANEI_PqvcC_rxtnJBCQ4JefaEfeYDj4J09hiLn00nvxR');
