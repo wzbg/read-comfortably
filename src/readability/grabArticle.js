@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:02:46
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-01-27 15:43:39
+* @Last Modified time: 2016-04-06 15:43:40
 */
 'use strict';
 
@@ -234,7 +234,17 @@ const getArticleContent = (topCandidate, $, options) => {
   const parentNodeClass = parentNode.attr('class');
   const topCandidateClass = topCandidate.attr('class');
   logger.trace('nodeClass:', parentNodeClass, topCandidateClass);
-  if (topCandidateClass && parentNodeClass && !topCandidateClass.search(parentNodeClass.trim())) return getArticleContent(parentNode, $, options);
+  if (topCandidateClass && parentNodeClass) {
+    const topCandidateClasses = topCandidateClass.split(/[ -]/);
+    const parentNodeClasses = parentNodeClass.split(/[ -]/);
+    for (let parentClass of parentNodeClasses) {
+      for (let topClass of topCandidateClasses) {
+        if (topClass && parentClass && !topClass.search(parentClass)) {
+          return getArticleContent(parentNode, $, options);
+        }
+      }
+    }
+  }
   const siblingNodes = parentNode.children();
   logger.trace('siblingNodes:', siblingNodes);
   let notHeaderCount = 0;

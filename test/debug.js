@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-04-05 12:15:10
+* @Last Modified time: 2016-04-06 15:23:10
 */
 'use strict';
 
@@ -33,6 +33,7 @@ const read = require('../src/read');
 // let url = 'https://instagram.com/p/BA4qaHjtELr/embed/';
 // let url = 'https://instagram.com/p/BA4qX_5OXIx/embed/';
 // let url = 'https://medium.com/@mitchellharper/this-is-how-you-identify-a-players-in-about-10-minutes-during-an-interview-58cce68667cb';
+let url = 'https://medium.com/p/63d3f27cc8fa?source=userActivityShare-330c73871d92-1459881992';
 // let url = 'https://medium.com/@rchang/my-two-year-journey-as-a-data-scientist-at-twitter-f0c13298aee6';
 // let url = 'https://roadtrippers.com/stories/welcome-to-chloride-ghost-town-arizonas-most-offbeat-roadside-attraction?lat=40.83044&#x26;lng=-96.70166&#x26;z=5';
 // let url = 'https://techcrunch.com/2015/10/27/senate-passes-cybersecurity-threat-sharing-bill-that-tech-hates/';
@@ -342,7 +343,7 @@ const read = require('../src/read');
 // let url = 'http://www.nytimes.com/2015/08/20/t-magazine/who-is-marc-jacobs.html';
 // let url = 'http://www.nytimes.com/2015/09/18/travel/chicago-foodseum-kickstarter.html';
 // let url = 'http://www.nytimes.com/2015/09/21/business/a-huge-overnight-increase-in-a-drugs-price-raises-protests.html';
-let url = 'http://www.nytimes.com/2016/04/04/technology/chinas-companies-poised-to-take-leap-in-developing-a-driverless-car.html?ribbon-ad-idx=10';
+// let url = 'http://www.nytimes.com/2016/04/04/technology/chinas-companies-poised-to-take-leap-in-developing-a-driverless-car.html?ribbon-ad-idx=10';
 // let url = 'http://www.primermagazine.com/2015/learn/pack-like-a-pro-learn-how-we-got-all-this-into-one-carry-on';
 // let url = 'http://www.seriouseats.com/2014/07/best-breakfast-sandwiches-america-usa.html';
 // let url = 'http://www.snagfilms.com/films/title/red_shirley';
