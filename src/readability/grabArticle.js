@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 17:02:46
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-04-06 15:43:40
+* @Last Modified time: 2016-04-13 12:32:29
 */
 'use strict';
 
@@ -201,7 +201,7 @@ const findHighestScore = (candidates, $) => {
      *  Good content should have a relatively small link density (5% or less) and be mostly unaffected by this operation.
      */
     candidate.data('readabilityScore', Math.min(2, Math.max(siblings, 1)) * score * (1 - linkDensity) * imgs);
-    logger.debug('Candidate with score %d (%s|%s): %s', candidate.data('readabilityScore'), candidate.attr('class'), candidate.attr('id'), candidate);
+    logger.debug('Candidate with score %d (%s|%s):', candidate.data('readabilityScore'), candidate.attr('class'), candidate.attr('id'), candidate);
     if (!topCandidate || candidate.data('readabilityScore') > topCandidate.data('readabilityScore')) topCandidate = candidate;
   }
   /**
@@ -262,6 +262,8 @@ const getArticleContent = (topCandidate, $, options) => {
     logger.debug('Looking at sibling node with score %d (%s|%s): %s', siblingNode.data('readabilityScore'), siblingNode.attr('class'), siblingNode.attr('id'), siblingNode);
     /* siblingNode is topCandidate */
     let append = siblingNode.is(topCandidate);
+    /* siblingNode is header */
+    append = element.name == 'header';
     /* siblingNode is img or have an img */
     if (!append) {
       append = element.name == 'img';

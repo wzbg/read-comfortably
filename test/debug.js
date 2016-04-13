@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-04-06 15:23:10
+* @Last Modified time: 2016-04-13 12:33:33
 */
 'use strict';
 
@@ -33,7 +33,7 @@ const read = require('../src/read');
 // let url = 'https://instagram.com/p/BA4qaHjtELr/embed/';
 // let url = 'https://instagram.com/p/BA4qX_5OXIx/embed/';
 // let url = 'https://medium.com/@mitchellharper/this-is-how-you-identify-a-players-in-about-10-minutes-during-an-interview-58cce68667cb';
-let url = 'https://medium.com/p/63d3f27cc8fa?source=userActivityShare-330c73871d92-1459881992';
+// let url = 'https://medium.com/p/63d3f27cc8fa?source=userActivityShare-330c73871d92-1459881992';
 // let url = 'https://medium.com/@rchang/my-two-year-journey-as-a-data-scientist-at-twitter-f0c13298aee6';
 // let url = 'https://roadtrippers.com/stories/welcome-to-chloride-ghost-town-arizonas-most-offbeat-roadside-attraction?lat=40.83044&#x26;lng=-96.70166&#x26;z=5';
 // let url = 'https://techcrunch.com/2015/10/27/senate-passes-cybersecurity-threat-sharing-bill-that-tech-hates/';
@@ -186,6 +186,7 @@ let url = 'https://medium.com/p/63d3f27cc8fa?source=userActivityShare-330c73871d
 // let url = 'http://www.arkinspace.com/2015/08/the-astonishing-eggs-of-alien-nations.html';
 // let url = 'http://www.avclub.com/article/babadook-it-follows-and-new-age-unbeatable-horror-227172';
 // let url = 'http://www.bbc.com/news/magazine-30450980';
+// let url = 'http://www.betweenartlab.com/portfolios/project-ruin-barbarous-regeneration/';
 // let url = 'http://www.billboard.com/articles/columns/the-juice/6738532/mack-wilds-the-breaks-vh1-teaser-video-exclusive';
 // let url = 'http://www.businessinsider.com/americas-20-most-expensive-cities-for-renters-2015-8';
 // let url = 'http://www.businessinsider.com/angellist-ceo-naval-ravikant-shares-his-favorite-books-2015-8#/%23meditations-by-marcus-aurelius-1';
@@ -283,6 +284,7 @@ let url = 'https://medium.com/p/63d3f27cc8fa?source=userActivityShare-330c73871d
 // let url = 'http://www.ew.com/article/2015/10/27/fox-apologizes-after-world-series-goes-dark';
 // let url = 'http://www.fastcocreate.com/3050732/top-5-ads/two-inspiring-serena-williams-stories-and-a-pregnant-dude-the-top-5-ads-of-the-wee?partner=rss';
 // let url = 'http://www.fastcocreate.com/3052667/why-absolut-created-a-think-tank-to-plan-for-the-next-30-years-of-nightlife?partner=rss';
+let url = 'http://www.fastcodesign.com/3058803/cant-program-now-theres-a-wysiwyg-for-designing-with-code';
 // let url = 'http://www.fastcodesign.com/3050538/everything-wonderful-about-geocities-in-one-visual-time-capsule?partner=rss';
 // let url = 'http://www.fastcoexist.com/3049283/fund-this/the-giant-air-purifier-is-actually-a-jewelry-making-machine-and-the-jewelry-is-mad?partner=rss';
 // let url = 'http://www.fastcoexist.com/3049853/in-countries-where-menstruation-is-stigmatized-these-easy-wash-sanitary-towels-could-help?partner=rss';
@@ -352,6 +354,7 @@ let url = 'https://medium.com/p/63d3f27cc8fa?source=userActivityShare-330c73871d
 // let url = 'http://www.technologyreview.com/news/539211/self-charging-phones-are-on-the-way-finally/';
 // let url = 'http://www.theatlantic.com/business/archive/2015/09/economy-countries-oil-prices-war-opec/403930/';
 // let url = 'http://www.theatlantic.com/entertainment/archive/2015/09/beyonce-made-in-america-2015-return-review/404065/';
+// let url = 'http://www.theatlantic.com/entertainment/archive/2016/04/richard-donner-christopher-nolan-superhero-movies/476757/';
 // let url = 'http://www.theguardian.com/artanddesign/2015/aug/22/tate-sensorium-art-soundscapes-chocolates-invisible-rain';
 // let url = 'http://www.theguardian.com/artanddesign/gallery/2015/sep/19/saint-etiennes-urban-doodler-with-a-sense-of-humour';
 // let url = 'http://www.theguardian.com/business/2015/nov/10/china-singles-day-1111-expected-to-break-records';
@@ -525,23 +528,23 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 //   content.prepend(header);
 // };
 
-asyncprocess = (url, options, callback) => { // nytimes.com
-  return new Promise((resolve, reject) => {
-    fetchUrl(url, (err, res, buf) => {
-      if (err) return reject(err);
-      try {
-        console.log('NYT-S:', res.cookieJar.cookies['NYT-S'][0].value)
-        const NYT_S = res.cookieJar.cookies['NYT-S'][0].value;
-        const cookies = new fetch.CookieJar(); // for sharing cookies between requests
-        cookies.setCookie('NYT-S=' + NYT_S);
-        options.cookieJar = cookies;
-        resolve();
-      } catch (e) {
-        reject(e);
-      }
-    });
-  });
-};
+// asyncprocess = (url, options, callback) => { // nytimes.com
+//   return new Promise((resolve, reject) => {
+//     fetchUrl(url, (err, res, buf) => {
+//       if (err) return reject(err);
+//       try {
+//         console.log('NYT-S:', res.cookieJar.cookies['NYT-S'][0].value)
+//         const NYT_S = res.cookieJar.cookies['NYT-S'][0].value;
+//         const cookies = new fetch.CookieJar(); // for sharing cookies between requests
+//         cookies.setCookie('NYT-S=' + NYT_S);
+//         options.cookieJar = cookies;
+//         resolve();
+//       } catch (e) {
+//         reject(e);
+//       }
+//     });
+//   });
+// };
 
 // const cookies = new fetch.CookieJar(); // ftalphaville.ft.com
 // cookies.setCookie('FTSession=z0DfoEDB30tE05gc_hy9QUSvzwAAAVCoUhZxwg.MEYCIQCFMa6ib5AVd3F2QLNRNpGUD149D8FIom6j1zBmGZk1VgIhANEI_PqvcC_rxtnJBCQ4JefaEfeYDj4J09hiLn00nvxR');
@@ -627,6 +630,7 @@ const nodesToRemove = [ // 需要删除的标签
   'div.audiopromo', // npr.org
   'div.fone-finds', // moviefone.com
   'div.fout_guard', // fout 守卫
+  'div.header-row', // fastcodesign.com
   'div.navigation', // macrumors.com
   'div.right_rail', // menshealth.com
   'div.right-side', // indiewire.com
@@ -721,6 +725,7 @@ const nodesToRemove = [ // 需要删除的标签
   'ins.adsbygoogle', // google 广告
   'li#MoreFromPromotionButtonHolder', // wired.co.uk
   'li.share', // npr.org
+  'nav.nav-article', // theatlantic.com
   'ol.comment-list', // nomadicmatt.com
   'ul#user-actions-dropdown', // engadget.com
   'ul#related_feed', // 相关 feed
