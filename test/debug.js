@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-04-15 14:52:56
+* @Last Modified time: 2016-04-15 14:54:24
 */
 'use strict';
 
@@ -541,7 +541,7 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 //         const cookies = new fetch.CookieJar(); // for sharing cookies between requests
 //         cookies.setCookie('NYT-S=' + NYT_S);
 //         options.cookieJar = cookies;
-//         resolve(url, options);
+//         resolve(url);
 //       } catch (e) {
 //         reject(e);
 //       }
