@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-04-13 12:33:33
+* @Last Modified time: 2016-04-15 14:52:56
 */
 'use strict';
 
@@ -10,6 +10,7 @@ const fs = require('fs');
 const S = require('string');
 const fetch = require('fetch');
 const fetchUrl = fetch.fetchUrl;
+const cheerio = require('cheerio');
 const languageMonitor = require('language-monitor');
 
 const read = require('../src/read');
@@ -284,7 +285,7 @@ const read = require('../src/read');
 // let url = 'http://www.ew.com/article/2015/10/27/fox-apologizes-after-world-series-goes-dark';
 // let url = 'http://www.fastcocreate.com/3050732/top-5-ads/two-inspiring-serena-williams-stories-and-a-pregnant-dude-the-top-5-ads-of-the-wee?partner=rss';
 // let url = 'http://www.fastcocreate.com/3052667/why-absolut-created-a-think-tank-to-plan-for-the-next-30-years-of-nightlife?partner=rss';
-let url = 'http://www.fastcodesign.com/3058803/cant-program-now-theres-a-wysiwyg-for-designing-with-code';
+// let url = 'http://www.fastcodesign.com/3058803/cant-program-now-theres-a-wysiwyg-for-designing-with-code';
 // let url = 'http://www.fastcodesign.com/3050538/everything-wonderful-about-geocities-in-one-visual-time-capsule?partner=rss';
 // let url = 'http://www.fastcoexist.com/3049283/fund-this/the-giant-air-purifier-is-actually-a-jewelry-making-machine-and-the-jewelry-is-mad?partner=rss';
 // let url = 'http://www.fastcoexist.com/3049853/in-countries-where-menstruation-is-stigmatized-these-easy-wash-sanitary-towels-could-help?partner=rss';
@@ -382,6 +383,8 @@ let url = 'http://www.fastcodesign.com/3058803/cant-program-now-theres-a-wysiwyg
 // let url = 'http://www.vice.com/read/are-we-about-to-live-through-a-lost-age-of-video-gaming-140';
 // let url = 'http://www.vice.com/read/las-shrine-to-velvet-paintings';
 // let url = 'http://www.vogue.com/13330506/top-ten-90s-heartthrobs/';
+let url = 'http://www.wandoujia.com/items/5099027574731571637?utm_source=142920391&utm_campaign=copy';
+// let url = 'http://www.wandoujia.com/items/8727822644506060079?utm_source=142920391&utm_campaign=copy';
 // let url = 'http://www.washingtonpost.com/rweb/biz/the-most-popular-type-of-home-in-every-major-us-city/2015/09/21/b548ac8e07d1712f43e8ebc876002c6b_story.html';
 // let url = 'http://www.wired.com/2015/08/reaction-housing-exo-shelter/';
 // let url = 'http://www.wired.com/2016/01/platinum-games-tmnt/';
@@ -538,13 +541,28 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 //         const cookies = new fetch.CookieJar(); // for sharing cookies between requests
 //         cookies.setCookie('NYT-S=' + NYT_S);
 //         options.cookieJar = cookies;
-//         resolve();
+//         resolve(url, options);
 //       } catch (e) {
 //         reject(e);
 //       }
 //     });
 //   });
 // };
+
+asyncprocess = (url, options, callback) => { // wandoujia.com
+  return new Promise((resolve, reject) => {
+    fetchUrl(url, (err, res, buf) => {
+      if (err) return reject(err);
+      try {
+        const $ = cheerio.load(buf);
+        const origUrl = $('a.origin-url-btn').attr('href');
+        resolve(origUrl || url);
+      } catch (e) {
+        reject(e);
+      }
+    });
+  });
+};
 
 // const cookies = new fetch.CookieJar(); // ftalphaville.ft.com
 // cookies.setCookie('FTSession=z0DfoEDB30tE05gc_hy9QUSvzwAAAVCoUhZxwg.MEYCIQCFMa6ib5AVd3F2QLNRNpGUD149D8FIom6j1zBmGZk1VgIhANEI_PqvcC_rxtnJBCQ4JefaEfeYDj4J09hiLn00nvxR');

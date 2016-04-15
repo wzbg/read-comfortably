@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-29 05:31:39
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-04-05 12:36:45
+* @Last Modified time: 2016-04-15 14:49:25
 */
 'use strict';
 
@@ -32,7 +32,7 @@ module.exports = (html, options) => {
   if (typeof asyncprocess == 'function') {
     return new Promise((resolve, reject) => {
       asyncprocess(html, options)
-        .then(() => getUrlHtml(html, options).then(res => resolve(res)).catch(err => reject(err)))
+        .then(html => getUrlHtml(html, options).then(res => resolve(res)).catch(err => reject(err)))
         .catch(err => getUrlHtml(html, options).then(res => resolve(res)).catch(err => reject(err)));
     });
   }
