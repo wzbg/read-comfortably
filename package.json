@@ -1,10 +1,10 @@
 {
   "name": "read-comfortably",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "turns any web page into a clean view for reading",
   "main": "src/read.js",
   "scripts": {
-    "test": "node --harmony_destructuring test"
+    "test": "node test"
   },
   "author": {
     "name": "wzbg",

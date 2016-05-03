@@ -2,7 +2,7 @@
 * @Author: zyc
 * @Date:   2015-11-30 19:37:32
 * @Last Modified by:   zyc
-* @Last Modified time: 2016-04-15 14:54:24
+* @Last Modified time: 2016-05-03 14:16:13
 */
 'use strict';
 
@@ -133,6 +133,7 @@ const read = require('../src/read');
 // let url = 'http://mentalfloss.com/us/go/72086#st_refDomain=&st_refQuery=';
 // let url = 'http://money.cnn.com/2015/10/04/technology/jack-ma-painting-charity-sothebys/';
 // let url = 'http://mp.weixin.qq.com/s?__biz=MjM5NTgzOTQ3Mw==&mid=401163174&idx=1&sn=ffe028a3c7430c7e2abe662927dbf109&scene=0#wechat_redirect';
+// let url = 'http://m.baidu.com/from=2001a/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%401320_1003%2Cta%40iphone_2_4.3_1_10.9/baiduid=96F1EFA95A9229E859952F3768A84BDB/w=0_10_charles+krauthammer+no+peace+in+our+time/t=iphone/l=3/tc?m=8&ntc=1&srd=1&dict=32&title=CharlesKrauthammer&tch=124.0.0.0.0.0&clk_info=%257B%2522srcid%2522%253A%2522www_normal%2522%252C%2522tplname%2522%253A%2522www_normal%2522%252C%2522t%2522%253A1462244239529%252C%2522xpath%2522%253A%2522div-div-div-a-p-em7%2522%257D&tcid=inqugsch&src=http%3A%2F%2Fwww.jewishworldreview.com%2Fcols%2Fkrauthammer032015.php3';
 // let url = 'http://news.moviefone.com/2015/08/27/best-summer-movies-all-time-ranked/';
 // let url = 'http://news.moviefone.com/2015/10/26/top-10-channing-tatum-performances/';
 // let url = 'http://news.moviefone.com/2015/10/27/best-of-late-night-tv-mike-tysons-drake-dance-moves/';
@@ -313,6 +314,7 @@ const read = require('../src/read');
 // let url = 'http://www.huffingtonpost.com/lisa-copeland/dating-mistakes-women-over-50-make_b_8055148.html';
 // let url = 'http://www.huffingtonpost.com/matthew-dietrich/watch-illinois-bill-backl_b_8135330.html';
 // let url = 'http://www.huffingtonpost.com/sebastian-matthes/volkswagen-from-star-pupil-to-con-artist_b_8193682.html';
+// let url = 'http://www.huffingtonpost.com/SPOTTOON/cat-and-dog-ep31_b_9769136.html';
 // let url = 'http://www.ibtimes.com/magnitude-64-earthquake-rattles-northwest-china-homes-damaged-no-casualties-reported-2273993';
 // let url = 'http://www.ibtimes.com/north-korea-releases-video-successful-submarine-launched-ballistic-missile-test-2257807';
 // let url = 'http://www.indiewire.com/article/how-can-middle-class-filmmakers-make-a-living-20151026';
@@ -356,6 +358,7 @@ const read = require('../src/read');
 // let url = 'http://www.theatlantic.com/business/archive/2015/09/economy-countries-oil-prices-war-opec/403930/';
 // let url = 'http://www.theatlantic.com/entertainment/archive/2015/09/beyonce-made-in-america-2015-return-review/404065/';
 // let url = 'http://www.theatlantic.com/entertainment/archive/2016/04/richard-donner-christopher-nolan-superhero-movies/476757/';
+let url = 'http://www.theatlantic.com/notes/2016/04/what-were-following-this-evening/480657/';
 // let url = 'http://www.theguardian.com/artanddesign/2015/aug/22/tate-sensorium-art-soundscapes-chocolates-invisible-rain';
 // let url = 'http://www.theguardian.com/artanddesign/gallery/2015/sep/19/saint-etiennes-urban-doodler-with-a-sense-of-humour';
 // let url = 'http://www.theguardian.com/business/2015/nov/10/china-singles-day-1111-expected-to-break-records';
@@ -383,7 +386,7 @@ const read = require('../src/read');
 // let url = 'http://www.vice.com/read/are-we-about-to-live-through-a-lost-age-of-video-gaming-140';
 // let url = 'http://www.vice.com/read/las-shrine-to-velvet-paintings';
 // let url = 'http://www.vogue.com/13330506/top-ten-90s-heartthrobs/';
-let url = 'http://www.wandoujia.com/items/5099027574731571637?utm_source=142920391&utm_campaign=copy';
+// let url = 'http://www.wandoujia.com/items/5099027574731571637?utm_source=142920391&utm_campaign=copy';
 // let url = 'http://www.wandoujia.com/items/8727822644506060079?utm_source=142920391&utm_campaign=copy';
 // let url = 'http://www.washingtonpost.com/rweb/biz/the-most-popular-type-of-home-in-every-major-us-city/2015/09/21/b548ac8e07d1712f43e8ebc876002c6b_story.html';
 // let url = 'http://www.wired.com/2015/08/reaction-housing-exo-shelter/';
@@ -549,20 +552,20 @@ let urlprocess, preprocess, postprocess, asyncprocess;
 //   });
 // };
 
-asyncprocess = (url, options, callback) => { // wandoujia.com
-  return new Promise((resolve, reject) => {
-    fetchUrl(url, (err, res, buf) => {
-      if (err) return reject(err);
-      try {
-        const $ = cheerio.load(buf);
-        const origUrl = $('a.origin-url-btn').attr('href');
-        resolve(origUrl || url);
-      } catch (e) {
-        reject(e);
-      }
-    });
-  });
-};
+// asyncprocess = (url, options, callback) => { // wandoujia.com
+//   return new Promise((resolve, reject) => {
+//     fetchUrl(url, (err, res, buf) => {
+//       if (err) return reject(err);
+//       try {
+//         const $ = cheerio.load(buf);
+//         const origUrl = $('a.origin-url-btn').attr('href');
+//         resolve(origUrl || url);
+//       } catch (e) {
+//         reject(e);
+//       }
+//     });
+//   });
+// };
 
 // const cookies = new fetch.CookieJar(); // ftalphaville.ft.com
 // cookies.setCookie('FTSession=z0DfoEDB30tE05gc_hy9QUSvzwAAAVCoUhZxwg.MEYCIQCFMa6ib5AVd3F2QLNRNpGUD149D8FIom6j1zBmGZk1VgIhANEI_PqvcC_rxtnJBCQ4JefaEfeYDj4J09hiLn00nvxR');
@@ -814,7 +817,7 @@ read(url, options).then(
 
     // console.log('dom:', article.dom); // DOM
     console.log('title:', article.title); // Title
-    // console.log('desc:', article.getDesc(300)); // Description Article
+    console.log('desc:', article.getDesc(300)); // Description Article
     // article.images.then(images => console.log('images:', images)); // Article's Images
 
     // fs.writeFile('article.html', article.html, err => { // HTML Source Code
